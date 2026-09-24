@@ -1,0 +1,10 @@
+{
+  "certified": false,
+  "incorrect_untruncated_half_moment": 4.833333333333333,
+  "mean": 2.437769212265849,
+  "reference": 2.383843590550155,
+  "role": "exploratory sanity check only",
+  "sample_standard_error": 0.03506482451750665,
+  "samples": 200000,
+  "seed": 20260924
+}
