@@ -10,5 +10,9 @@
   "openai_comment": "5835990323",
   "patch_clean_apply_verified": true,
   "preferred_apply": "main PR92 docs/patches/math_pr8_own_node_eligibility.patch",
-  "role": "private backup; do not race main handoff"
+  "role": "private backup; do not race main handoff",
+  "math_main_landed": true,
+  "math_main_tip_observed": "b47af3a",
+  "fail_open_on_math_main": "SAFE",
+  "as_of_utc": "2026-09-25T17:17:04Z"
 }

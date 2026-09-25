@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T17:07:13Z",
+  "as_of_utc": "2026-09-25T17:17:07Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -13,7 +13,7 @@
       "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/87",
-      "updatedAt": "2026-09-25T16:44:36Z",
+      "updatedAt": "2026-09-25T17:09:37Z",
       "head": "3d4969a",
       "checks": [
         {
@@ -51,7 +51,7 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/92",
-      "updatedAt": "2026-09-25T17:04:21Z",
+      "updatedAt": "2026-09-25T17:10:54Z",
       "head": "db0645f",
       "checks": [
         {
@@ -89,7 +89,7 @@
       "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/93",
-      "updatedAt": "2026-09-25T17:00:28Z",
+      "updatedAt": "2026-09-25T17:09:36Z",
       "head": "6dd4ca9",
       "checks": [
         {
@@ -109,10 +109,10 @@
       "pr": 8,
       "role": "cursor_hard_gate",
       "title": "Downstream hard gate: fail-closed promotion control for main #90/#86",
-      "state": "OPEN",
+      "state": "MERGED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/8",
-      "updatedAt": "2026-09-25T16:50:41Z",
+      "updatedAt": "2026-09-25T17:12:22Z",
       "head": "5887a2f",
       "checks": [
         {
@@ -152,8 +152,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T17:02:57Z",
-      "head": "f7983a7",
+      "updatedAt": "2026-09-25T17:17:03Z",
+      "head": "5ee51ad",
       "checks": []
     },
     {
@@ -161,11 +161,11 @@
       "pr": 96,
       "role": "vault99_census_sole_auditor_observe_only",
       "title": "Vault 99 forensic census: freeze, 39-child baseline, and verified duplicate classifications",
-      "state": "OPEN",
-      "isDraft": true,
+      "state": "MERGED",
+      "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/96",
-      "updatedAt": "2026-09-25T17:02:37Z",
-      "head": "0a7685e",
+      "updatedAt": "2026-09-25T17:12:46Z",
+      "head": "035e4db",
       "checks": [
         {
           "name": "verify",
