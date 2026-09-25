@@ -467,3 +467,13 @@ do not re-apply**.
 
 **Decision:** Mark F2 package absorbed; sole tip P1 = nav/handoff; observe
 #98@`47ad537` CI + OA re-review; no race.
+
+## 2026-09-25T21:58Z — F2 package votes received (superseded by peer land)
+
+**Votes:**
+- [GPT vote](bc-5c344912-c2b4-5db1-b2bc-8c3e446c94ab): A **YES**, B **NO**, C **NO**.
+- [Claude vote](bc-40e3af3f-17e6-545c-b526-33d0badb737b): A **YES**, B **NO**, C **NO**.
+
+**Disposition:** Consensus to package F2 is **already satisfied / superseded** by
+peer tip `47ad537` (ABSORBED). Do not re-package or re-apply sandbox draft.
+Continue observe CI + OA re-review; nav sole tip P1.

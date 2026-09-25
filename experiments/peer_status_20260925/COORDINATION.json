@@ -19,14 +19,13 @@
       "claude-sonnet-5-thinking-medium@bc-6e5072b3",
       "claude-sonnet-5-thinking-medium@bc-23c66df2",
       "gpt-5.6-terra-medium@bc-d5be2b0e",
-      "claude-sonnet-5-thinking-medium@bc-279a081c"
-    ],
-    "pending_votes": [
+      "claude-sonnet-5-thinking-medium@bc-279a081c",
       "gpt-5.6-terra-medium@bc-5c344912",
       "claude-sonnet-5-thinking-medium@bc-40e3af3f"
     ],
+    "pending_votes": [],
     "live_peer_override": "main#98@47ad537 F2 fail-closed + tip binding migration; sandbox observe CI/re-review only",
-    "consensus": "Live peer override: F2 AMEND absorbed @47ad537 before sandbox package handoff. Pending GPT+Claude F2-package votes likely YES but SUPERSEDED by peer land. Nav remains sole tip P1.",
+    "consensus": "GPT+Claude F2 votes A YES / B NO / C NO — SUPERSEDED by peer land @47ad537 (ABSORBED). Nav sole tip P1; observe #98 CI + OA re-review.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -36,13 +35,11 @@
       "claude": "A YES B YES C NO @bc-279a081c",
       "at": "2026-09-25T21:44Z"
     },
-    "active_consult": {
-      "reason": "OA F2 AMEND_REQUIRED on combined tip; package-vs-observe vote",
-      "agents": [
-        "https://cursor.com/agents/bc-5c344912-c2b4-5db1-b2bc-8c3e446c94ab",
-        "https://cursor.com/agents/bc-40e3af3f-17e6-545c-b526-33d0badb737b"
-      ],
-      "disposition": "peer_landed_first_at_47ad537_supersedes_sandbox_package"
+    "post_f2_amend_votes": {
+      "gpt": "A YES B NO C NO @bc-5c344912",
+      "claude": "A YES B NO C NO @bc-40e3af3f",
+      "at": "2026-09-25T21:58Z",
+      "disposition": "superseded_by_peer_47ad537"
     }
   },
   "absorbed": [
@@ -169,11 +166,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T21:57:25Z",
+    "at": "2026-09-25T21:58:30Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Peer F2 land @47ad537; absorb sandbox F2 draft; nav sole P1; observe CI",
-    "model_consult": "F2 votes pending but peer land decisive"
+    "decision": "F2 votes confirm package but peer@47ad537 already absorbed; observe CI",
+    "model_consult": "confirmed gpt@bc-5c344912 + claude@bc-40e3af3f (superseded)"
   },
   "resolved_alternate": [
     {
