@@ -227,3 +227,13 @@ OpenAI: repair cause, keep negative control, #90 stays OPEN. Peer owns #98.
 gitignore `artifacts/`; do not add to REPOSITORY_TOP_LEVEL). Promote to P1
 ask for #98 peer. Demote nav/handoff to P2 until #98 CI green. No race on
 their branch. No model consult (unambiguous CI machine fail).
+
+## 2026-09-25T19:52:36Z — d7-multimodel-loop: #98 artifacts fix absorbed
+
+**Facts:** Peer landed `776fdb7` — event-compare report writes to `/tmp/…`,
+`artifacts` removed from `REPOSITORY_TOP_LEVEL`, `.gitignore` has `artifacts/`.
+Sandbox `pr98_artifacts_toplevel_ignore.patch` superseded (do not re-apply).
+Tip still `e3cd7d4`; nav package still applies. #98 verify QUEUED.
+
+**Decision:** Mark artifacts package ABSORBED. Restore nav/handoff as sole P1.
+Yield #98; watch CI. No new package. No model consult.

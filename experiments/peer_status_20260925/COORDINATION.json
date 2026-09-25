@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T19:51:01Z",
+  "as_of_utc": "2026-09-25T19:52:36Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -18,7 +18,7 @@
       "gpt-5.6-terra-medium@bc-a8093c89"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98 peer landed event-boundary @4b983b9 then PR15-contract follow-up @0bc41ca \u2014 yield; do not race or re-package",
+    "live_peer_override": "main#98 peer fixed artifacts CI @776fdb7 (out-of-tree) \u2014 sandbox ignore patch superseded",
     "consensus": "Both A/B/C votes A=YES B=YES C=NO (package #98 amend first). SUPERSEDED by live peer land: amend absorbed; sandbox does not finish/re-push package. Sole tip P1 remains nav/handoff on e3cd7d4; observe #98 CI.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff."
@@ -57,33 +57,34 @@
         "loss-only-controls": "QUEUED"
       },
       "observed_head": "0bc41ca50dde"
+    },
+    {
+      "item": "pr98_artifacts_toplevel_ignore",
+      "on": "main#98",
+      "head": "776fdb75eb71",
+      "action": "do_not_reapply",
+      "evidence": "commit: fix(#90): drop artifacts from REPOSITORY_TOP_LEVEL after out-of-tree reports",
+      "note": "Peer wrote report to /tmp + removed artifacts from REPOSITORY_TOP_LEVEL; sandbox ignore-in-test recipe superseded",
+      "check_summary": {
+        "verify": "QUEUED"
+      }
     }
   ],
   "ready_for_main_write": [
     {
       "priority": 1,
-      "package": "experiments/d7_drift_scan_20260925/pr98_artifacts_toplevel_ignore.patch",
-      "against": "main#98 @ 0bc41ca50dde",
-      "fix": "CI artifacts/ from event-compare --write-report trips test_repository_top_level_list_matches_the_checkout",
-      "verify": [
-        "python -m pytest -q tests/test_bridge.py::test_repository_top_level_list_matches_the_checkout"
-      ],
-      "ask": "Ignore artifacts/ (CI output) in top-level allowlist check + gitignore; do not add to REPOSITORY_TOP_LEVEL; do not weaken control. Keep draft."
-    },
-    {
-      "priority": 2,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
       "against": "chatgpt/drive-github-hardening-20260919 @ e3cd7d4873c5",
-      "fix": "RESEARCH_INDEX + handoff APPLIED still absent",
+      "fix": "RESEARCH_INDEX + handoff APPLIED still absent after #97/#108/#109/#105",
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip after #98 CI green; nav gaps unchanged."
+      "ask": "Land on tip; RESEARCH_INDEX + handoff APPLIED + math_status README nav still missing. Patch applies on e3cd7d4."
     }
   ],
   "observe_only": [
-    "main#98@0bc41ca verify FAILURE (artifacts top-level); portable fix packaged; peer-owned \u2014 no race",
+    "main#98@776fdb7 artifacts CI fix absorbed (out-of-tree report); verify QUEUED; peer-owned",
     "main#105 MERGED to tip e3cd7d4",
     "main#103 vault",
     "main#104/#106 parked",
@@ -96,25 +97,23 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "0bc41ca50dde",
+      "head": "776fdb75eb71",
       "owner": "cursor peer on scientific-state-schema branch",
-      "work": "#90 event-boundary + Math-PR15 git_transition_audit contract follow-up",
+      "work": "#90 out-of-tree event-compare report; artifacts removed from REPOSITORY_TOP_LEVEL",
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "commits after 4b983b9: PR15-contract source-byte bind / controlling impact",
       "check_summary": {
-        "verify": "FAILURE",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
+        "verify": "QUEUED"
       },
-      "note": "Claims\u2192gate steps green; unit fail = artifacts/ top-level; sandbox packaged ignore fix"
+      "note": "sandbox artifacts ignore package superseded"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T19:51:01Z",
+    "at": "2026-09-25T19:52:36Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Package pr98_artifacts_toplevel_ignore for peer; nav demoted to P2 until #98 CI green",
-    "model_consult": "skipped \u2014 CI failure unambiguous"
+    "decision": "artifacts package ABSORBED @776fdb7; restore nav/handoff sole P1; watch #98 verify",
+    "model_consult": "skipped \u2014 peer absorb unambiguous"
   },
   "resolved_alternate": [
     {
@@ -123,5 +122,6 @@
       "how": "cite rewrite then tip merge of CONTRIBUTION_PLAN next-items retire",
       "action": "do_not_reapply_patch"
     }
-  ]
+  ],
+  "live_peer_override": "main#98 peer landed event-boundary @4b983b9 then PR15-contract follow-up @0bc41ca \u2014 yield; do not race or re-package"
 }
