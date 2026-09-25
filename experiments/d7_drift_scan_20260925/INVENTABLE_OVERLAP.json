@@ -1,0 +1,118 @@
+{
+  "as_of_utc": "2026-09-25T17:30:16Z",
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "prs": [
+    {
+      "number": 98,
+      "title": "Scientific-state schema pilot (#95): authority map + ID crosswalk + fail-closed checker",
+      "state": "OPEN",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "c1236a7",
+      "files": [
+        "architecture/scientific_state/README.md",
+        "architecture/scientific_state/v1/AUTHORITY_MAP.json",
+        "architecture/scientific_state/v1/ID_CROSSWALK.json",
+        "architecture/scientific_state/v1/SCHEMA.json",
+        "architecture/scientific_state/v1/VERIFICATION_LEVELS.json",
+        "tests/test_scientific_state.py",
+        "tools/scientific_state_check.py"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 99,
+      "title": "docs(math_status): ENV-RESCOV node walk-down classification \u2014 outcome (b), conditional; no flags flipped",
+      "state": "OPEN",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "6cb85b2",
+      "files": [
+        "docs/math_status/PACKET.json",
+        "docs/math_status/STATUS_RN_UNIF.md",
+        "docs/math_status_nodes/NODE_ENV_RESCOV_20260925.md",
+        "docs/math_status_nodes/env_rescov_b9c2_identity_spotcheck.py"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 100,
+      "title": "docs: mark agent 13's 13 STILL_CONDITIONAL importers (sidecar; F-map rescoped to rungs; no pinned bytes, no flags)",
+      "state": "OPEN",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "184617d",
+      "files": [
+        "docs/CONDITIONAL_IMPORTERS_2026-09-25.md"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 101,
+      "title": "docs(math_status): STATUS.md \"CERTIFIED\" q=2 envelope is REQUIRED CARRIER ABSENT (walk-down 9, M1)",
+      "state": "OPEN",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "486c68a",
+      "files": [
+        "docs/math_status/README.md"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 102,
+      "title": "docs(inventable): SIDE24_CELL importers restricted to declared square C; complement named (engineering replay only)",
+      "state": "OPEN",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "d661b01",
+      "files": [
+        "README.md",
+        "docs/RESEARCH_EXECUTION.md",
+        "engine/lanes/A5.json"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 104,
+      "title": "Retip #38: refuse a non-zero residual on an OUTSIDE cell (controls 33 and 34)",
+      "state": "OPEN",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "ec3b426",
+      "files": [
+        "research/cover/README.md",
+        "research/cover/ledger.py",
+        "tests/test_cover.py"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "IN_PROGRESS",
+        "loss-only-controls": "IN_PROGRESS"
+      }
+    }
+  ],
+  "duplicate_open_files": {},
+  "note": "Continue D7 inventable overlap after #97 merge"
+}
