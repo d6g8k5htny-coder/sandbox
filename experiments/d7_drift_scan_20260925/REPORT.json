@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.d7-drift-scan/v1",
-  "as_of_utc": "2026-09-25T17:24:17Z",
+  "as_of_utc": "2026-09-25T17:24:48Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -283,6 +283,20 @@
       "summary": "Vault census PRs #96/#103 are sole-auditor surfaces",
       "detail": "Other agents observe only unless #91 records explicit delegation.",
       "suggested_eng_action": "No assist from sandbox/Cursor integration lane."
+    },
+    {
+      "id": "D7-BASE-SPLIT-92-97",
+      "severity": "high",
+      "summary": "#92 and #97 target different bases while editing the same D0 doc set",
+      "detail": "Landing both would fork the crosswalk across default-home vs hardening inventable tip. Catalog/nav drift risk.",
+      "suggested_eng_action": "Choose the intended research tip (hardening inventable vs #92 base). Close the non-chosen PR as superseded after cherry-pick if needed."
+    },
+    {
+      "id": "D7-MATH-STATUS-README-92-101",
+      "severity": "medium",
+      "summary": "#92 and #101 both touch docs/math_status/README.md",
+      "detail": "Merge order matters; #101 is inventable CERTIFIED-q2 carrier ABSENT walk-down.",
+      "suggested_eng_action": "Serialize merges; rebase the later PR."
     }
   ],
   "note": "Private eng scan only; not research acceptance or merge authority."
