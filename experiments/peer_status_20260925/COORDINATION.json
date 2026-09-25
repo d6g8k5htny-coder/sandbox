@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T18:55:42Z",
+  "as_of_utc": "2026-09-25T19:11:30Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -94,10 +94,10 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T18:55:42Z",
-    "tip": "fcad72366743",
+    "at": "2026-09-25T19:11:30Z",
+    "tip": "fcad723",
     "priority_ambiguous": false,
-    "decision": "Sole P1 remains nav/handoff; #109 did not absorb it; #105 watch CI after merge-base",
+    "decision": "No change: nav/handoff sole P1 on fcad723; #105 verify still running; #98 green draft",
     "model_consult": "skipped \u2014 priority unambiguous"
   },
   "resolved_alternate": [

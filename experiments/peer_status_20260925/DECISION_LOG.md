@@ -155,3 +155,9 @@ nav block absent). #105 @`91a5e9a` CI in progress. #98 still green draft.
 
 **Decision:** Keep nav/handoff as sole P1. No new package. No model consult
 (unambiguous).
+
+## 2026-09-25T19:11:30Z — d7-multimodel-loop timer
+
+No material change since prior loop. Tip `fcad723`; nav package still applies;
+#105 @`91a5e9a` verify still in progress; #98 green draft. Keep sole P1 =
+nav/handoff. No new package.
