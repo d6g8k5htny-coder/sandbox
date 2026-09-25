@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T17:45:38Z",
+  "as_of_utc": "2026-09-25T17:54:58Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -7,6 +7,7 @@
   "main_open_pr_count": 16,
   "sandbox_packages": {
     "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
+    "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
     "pr97_followup_nav_links": "experiments/d7_drift_scan_20260925/pr97_followup_nav_links.patch",
     "pr_handoff_applied": "experiments/d7_drift_scan_20260925/pr_handoff_applied.patch"
   },
@@ -175,8 +176,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T17:37:56Z",
-      "head": "97a6b3b",
+      "updatedAt": "2026-09-25T17:53:04Z",
+      "head": "91c7a47",
       "checks": [
         {
           "name": "verify",
@@ -261,18 +262,18 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
-      "updatedAt": "2026-09-25T17:44:31Z",
-      "head": "2567203",
+      "updatedAt": "2026-09-25T17:54:33Z",
+      "head": "54a8c59",
       "checks": [
         {
           "name": "verify",
-          "conclusion": "FAILURE",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "IN_PROGRESS"
         },
         {
           "name": "verify",
-          "conclusion": "FAILURE",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "IN_PROGRESS"
         },
         {
           "name": "navigation",
@@ -291,7 +292,7 @@
         }
       ],
       "check_summary": {
-        "verify": "FAILURE",
+        "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -400,8 +401,8 @@
         },
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
         },
         {
           "name": "navigation",
@@ -420,7 +421,7 @@
         }
       ],
       "check_summary": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -433,8 +434,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
-      "updatedAt": "2026-09-25T17:32:59Z",
-      "head": "b975e4a",
+      "updatedAt": "2026-09-25T17:54:51Z",
+      "head": "89feb81",
       "checks": [
         {
           "name": "verify",
@@ -442,30 +443,14 @@
           "status": "IN_PROGRESS"
         },
         {
-          "name": "verify",
+          "name": "loss-only-controls",
           "conclusion": "",
           "status": "IN_PROGRESS"
-        },
-        {
-          "name": "navigation",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
-        },
-        {
-          "name": "loss-only-controls",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
-        },
-        {
-          "name": "loss-only-controls",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
         }
       ],
       "check_summary": {
         "verify": "IN_PROGRESS",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
+        "loss-only-controls": "IN_PROGRESS"
       }
     },
     {
@@ -547,10 +532,10 @@
       "pr": 10,
       "role": "chatgpt_eligibility_parallel_already_on_main",
       "title": "Fix PR8 fail-open own-node CONTROLLING eligibility",
-      "state": "OPEN",
+      "state": "CLOSED",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/10",
-      "updatedAt": "2026-09-25T17:09:36Z",
+      "updatedAt": "2026-09-25T17:50:55Z",
       "head": "77d52be",
       "checks": [
         {
@@ -591,12 +576,12 @@
       "repo": "d6g8k5htny-coder/Math-",
       "pr": 9,
       "role": "cursor_d5_mesoscopic_chart_j0",
-      "title": "RN mesoscopic chart: J0 algebra, thin-belt L1 obstruction, PR7 crosswalk",
+      "title": "RN mesoscopic chart: J0 algebra, boundary transition, thin-belt L1",
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
-      "updatedAt": "2026-09-25T17:32:30Z",
-      "head": "1db4b95",
+      "updatedAt": "2026-09-25T17:51:10Z",
+      "head": "5c8e2f8",
       "checks": [
         {
           "name": "replay",
@@ -613,17 +598,12 @@
       "pr": 12,
       "role": "cursor_d5_chart_into_hard_gate_graph",
       "title": "Map PR9 mesoscopic chart-J0 into the D5 hard-gate graph",
-      "state": "OPEN",
+      "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/12",
-      "updatedAt": "2026-09-25T17:33:57Z",
-      "head": "2e2b2a7",
+      "updatedAt": "2026-09-25T17:52:19Z",
+      "head": "707e2da",
       "checks": [
-        {
-          "name": "replay",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
-        },
         {
           "name": "replay",
           "conclusion": "SUCCESS",
@@ -642,8 +622,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T17:35:20Z",
-      "head": "1bcb932",
+      "updatedAt": "2026-09-25T17:48:28Z",
+      "head": "3b97e43",
       "checks": [],
       "check_summary": {}
     }

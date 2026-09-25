@@ -1,12 +1,11 @@
-# Fix for main #105 verify failure
+# Fix for main #105 verify failure — APPLIED
 
-`consumers_check` fails because `docs/CONTRIBUTION_PLAN.md` now names
-`lpw_fold_dispositions` but is absent from `registers/CONSUMERS.json` prose list.
+**Status: absorbed on #105 head `54a8c59`.** Peer commit
+`docs: record CONTRIBUTION_PLAN as a prose consumer of lpw_fold_dispos…`
+matches `pr105_consumers_fix.patch` byte-for-byte (adds
+`docs/CONTRIBUTION_PLAN.md` to `lpw_fold_dispositions.prose`).
 
-```bash
-git checkout <pr105-branch>
-git apply pr105_consumers_fix.patch
-python3 tools/consumers_check.py   # expect problems=0
-```
+Do **not** re-apply the patch on current #105. Keep the file as historical
+recipe only. CI on `54a8c59` was re-queued after the fix push.
 
 Scientific effect NONE.

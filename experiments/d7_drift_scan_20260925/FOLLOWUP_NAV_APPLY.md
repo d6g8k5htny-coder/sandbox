@@ -22,12 +22,17 @@ Also marks Math- eligibility handoff as APPLIED.
 
 ## Conflict watch
 
-Open [main #101](https://github.com/d6g8k5htny-coder/main/pull/101) also edits
-`docs/math_status/README.md` (CERTIFIED q=2 REQUIRED CARRIER ABSENT bullet near
-line 66). This follow-up edits a later Navigation-only block (~line 114). The
-hunks are disjoint: either order applies cleanly on tip `eeebb28` (#99/#100
-merged). Prefer land #101 then this follow-up, or combine both before push.
-Do not overwrite the whole README from one PR onto the other.
+Open inventable PRs also edit `docs/math_status/README.md`:
 
-Also apply `pr_handoff_applied.patch` (see `HANDOFF_APPLIED_APPLY.md`) so the
-eligibility handoff page no longer claims the Math- tip hole is still open.
+- [main #101](https://github.com/d6g8k5htny-coder/main/pull/101) — CERTIFIED q=2
+  REQUIRED CARRIER ABSENT bullet (~line 66)
+- [main #108](https://github.com/d6g8k5htny-coder/main/pull/108) — tip-observe
+  `388a22ca` provenance chain (~line 117)
+
+This follow-up edits a Navigation-only block between those regions. Verified on
+tip `eeebb28`: **nav + #101 + #108 compose in any order** (disjoint hunks). Prefer
+land observe/#101 first if merging separately; do not overwrite the whole README
+from one PR onto another.
+
+`pr97_followup_nav_and_handoff.patch` already includes the handoff APPLIED
+banner (`HANDOFF_APPLIED_APPLY.md`).

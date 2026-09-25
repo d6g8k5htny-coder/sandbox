@@ -1,13 +1,20 @@
 {
-  "as_of_utc": "2026-09-25T17:44:52Z",
+  "as_of_utc": "2026-09-25T17:55:18Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "eeebb28eeab2",
   "note": "Overlap watch for inventable/cursor eng PRs; not acceptance.",
   "sandbox_packages": [
-    "pr105_consumers_fix.patch",
+    "pr97_followup_nav_and_handoff.patch",
     "pr97_followup_nav_links.patch",
-    "pr_handoff_applied.patch"
+    "pr_handoff_applied.patch",
+    "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 \u2014 do not reapply)"
+  ],
+  "absorbed": [
+    "pr105_consumers_fix on main#105@54a8c59"
+  ],
+  "ready": [
+    "pr97_followup_nav_and_handoff.patch"
   ],
   "prs": [
     {
@@ -16,15 +23,17 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "97a6b3b",
+      "head": "91c7a47",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T17:37:56Z",
+      "updatedAt": "2026-09-25T17:53:04Z",
       "files": [
+        ".github/workflows/ci.yml",
         "architecture/scientific_state/README.md",
         "architecture/scientific_state/v1/AUTHORITY_MAP.json",
         "architecture/scientific_state/v1/ID_CROSSWALK.json",
         "architecture/scientific_state/v1/SCHEMA.json",
         "architecture/scientific_state/v1/VERIFICATION_LEVELS.json",
+        "engine/bridge/work_order.py",
         "tests/test_claims_gate_adapter.py",
         "tests/test_scientific_state.py",
         "tools/claims_gate_adapter.py",
@@ -100,14 +109,15 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "2567203",
+      "head": "54a8c59",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
-      "updatedAt": "2026-09-25T17:44:31Z",
+      "updatedAt": "2026-09-25T17:54:33Z",
       "files": [
-        "docs/CONTRIBUTION_PLAN.md"
+        "docs/CONTRIBUTION_PLAN.md",
+        "registers/CONSUMERS.json"
       ],
       "checks": {
-        "verify": "FAILURE",
+        "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -146,20 +156,20 @@
         "docs/OPEN_PROBLEMS_FROZEN_ERRATA_20260925.md"
       ],
       "checks": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
     },
     {
       "number": 108,
-      "title": "docs(inventable): tip-observe 388a22ca (observation only; not re-executed)",
+      "title": "tip-observe eeebb28e",
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "b975e4a",
+      "head": "89feb81",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
-      "updatedAt": "2026-09-25T17:32:59Z",
+      "updatedAt": "2026-09-25T17:55:01Z",
       "files": [
         "docs/math_status/PACKET.json",
         "docs/math_status/README.md",
