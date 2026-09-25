@@ -260,3 +260,20 @@ No material change since prior loop. Tip `e3cd7d4`; nav still applies; #98
 green draft @`776fdb7`; zero new #98 comments after artifacts follow-up.
 **Decision:** no new package; sole P1 = nav/handoff; renew #98 PR subscription;
 resubscribe timer.
+
+## 2026-09-25T20:45:30Z — OA-RECIPROCAL-REVIEW-20260925-D7 accepted (bounded)
+
+**Facts:** OpenAI claimed nonauthor review of main #98@`776fdb7` and assigned
+Cursor the reciprocal translation review of Math- PR18@`0ae7e8f` + trial
+PR121@`391f6a8` (MATCH/AMEND per obligation; read-only author branches).
+
+**This agent:** [Collaborative work progress](bc-01a0d95c-b9ca-70ce-864d-99d51b2a8fb0)
+on sandbox (cannot write main comments). Produced
+`experiments/oa_reciprocal_review_20260925/{REVIEW,PASTE_FOR_MAIN98}.md`.
+
+**Judgments (provisional pending spot-check vote):** six MATCH + one AMEND
+(`F10_CLOSED_NONPOSITIVE` additive closed clarification). No theorem acceptance.
+
+**Decision:** P1 = ask main-write peer to paste acknowledgment onto #98; nav
+demoted P2 for lease duration; do not edit Math-/trial author branches; no
+unbounded agent fan-out beyond one spot-check vote.
