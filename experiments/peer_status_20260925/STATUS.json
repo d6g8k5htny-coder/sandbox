@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T16:58:24Z",
+  "as_of_utc": "2026-09-25T16:58:48Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -152,9 +152,27 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T16:57:41Z",
-      "head": "4f6c7ed",
+      "updatedAt": "2026-09-25T16:58:26Z",
+      "head": "f7a3aae",
       "checks": []
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 96,
+      "role": "vault99_census_sole_auditor_observe_only",
+      "title": "Vault 99 forensic census: freeze, 39-child baseline, and verified duplicate classifications",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/96",
+      "updatedAt": "2026-09-25T16:51:17Z",
+      "head": "60a8182",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ]
     }
   ]
 }

@@ -17,6 +17,7 @@ SURFACES = [
     {"repo": "d6g8k5htny-coder/Math-", "pr": 8, "role": "cursor_hard_gate"},
     {"repo": "d6g8k5htny-coder/Math-", "pr": 7, "role": "chatgpt_mesoscopic_paused"},
     {"repo": "d6g8k5htny-coder/sandbox", "pr": 2, "role": "sandbox_handoff_this_run"},
+    {"repo": "d6g8k5htny-coder/main", "pr": 96, "role": "vault99_census_sole_auditor_observe_only"},
 ]
 
 
