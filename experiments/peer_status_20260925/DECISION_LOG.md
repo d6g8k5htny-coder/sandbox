@@ -594,3 +594,11 @@ IN_PROGRESS (nav + loss-only green). No OA E disposition yet.
 
 **Decision:** no new package; observe CI + OA E; sole P1 = nav/handoff;
 resubscribe timer + renew CI watch.
+
+## 2026-09-25T23:12Z — d7-multimodel-loop; #98@cc6a578 CI green
+
+**Refresh:** tip still `e3cd7d4`; nav ready. #98 `@cc6a578` both verify runs
+**SUCCESS** (~19m); nav + loss-only green. No OA E disposition yet.
+
+**Decision:** no new package; observe OA E re-review; sole P1 = nav/handoff;
+resubscribe timer.
