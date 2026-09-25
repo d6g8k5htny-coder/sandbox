@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.d7-drift-scan/v1",
-  "as_of_utc": "2026-09-25T17:25:20Z",
+  "as_of_utc": "2026-09-25T17:26:17Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -297,6 +297,13 @@
       "summary": "#92 and #101 both touch docs/math_status/README.md",
       "detail": "Merge order matters; #101 is inventable CERTIFIED-q2 carrier ABSENT walk-down.",
       "suggested_eng_action": "Serialize merges; rebase the later PR."
+    },
+    {
+      "id": "D7-SCHEMA-PILOT-98-OK",
+      "severity": "info",
+      "summary": "PR #98 scientific-state schema pilot correctly refuses to own CONTROLLING/lemma_closed",
+      "detail": "AUTHORITY_MAP routes promotion to Math- gate; local tests 9 OK; no fail-open promotion engine reimplementation observed.",
+      "suggested_eng_action": "Keep; do not merge status ownership onto main via this package."
     }
   ],
   "note": "Private eng scan only; not research acceptance or merge authority.",
@@ -335,5 +342,9 @@
       "concern": "Generic \"ci\"/\"verify\" success is frequently mistaken for obligation discharge; math_status_check already prints non-discharge banner",
       "suggested": "Keep banners; avoid READY/CERTIFIED job names (none observed on verify)"
     }
-  ]
+  ],
+  "recommendation": {
+    "duplicate_d0_docs": "Prefer main #92 (superset files + CI green); close #97 as duplicate/superseded after confirming tip identity",
+    "scientific_effect": "NONE"
+  }
 }
