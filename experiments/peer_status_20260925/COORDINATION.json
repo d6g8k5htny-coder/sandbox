@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T23:47:31Z",
+  "as_of_utc": "2026-09-25T23:50:00Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -21,14 +21,13 @@
       "gpt-5.6-terra-medium@bc-d5be2b0e",
       "claude-sonnet-5-thinking-medium@bc-279a081c",
       "gpt-5.6-terra-medium@bc-5c344912",
-      "claude-sonnet-5-thinking-medium@bc-40e3af3f"
-    ],
-    "pending_votes": [
+      "claude-sonnet-5-thinking-medium@bc-40e3af3f",
       "gpt-5.6-terra-medium@bc-a00a8328",
       "claude-sonnet-5-thinking-medium@bc-6c015bdc"
     ],
-    "live_peer_override": "main#98@cc6a578 OA E AMEND_REQUIRED E6; await peer TAKE or vote; sandbox ready to package",
-    "consensus": "Provisional: consult in flight for E6 package vs idle. Peer owns #98; nav sole tip P1.",
+    "pending_votes": [],
+    "live_peer_override": "main#98@cc6a578 OA E6 AMEND; sandbox portable package ready; peer still owns branch",
+    "consensus": "GPT+Claude E6: A YES package / B NO idle / C NO other. Shipped pr98_e6_coverage_repair_semantic_guard vs cc6a578; yield if peer TAKEs.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -44,12 +43,10 @@
       "at": "2026-09-25T21:58Z",
       "disposition": "superseded_by_peer_47ad537"
     },
-    "active_consult": {
-      "reason": "OA E6 AMEND_REQUIRED on coverage-repair vs semantic change",
-      "agents": [
-        "https://cursor.com/agents/bc-a00a8328-6e12-5fac-aade-de047d0287aa",
-        "https://cursor.com/agents/bc-6c015bdc-5fc5-5e02-9de5-42fe12e6071e"
-      ]
+    "post_e6_votes": {
+      "gpt": "A YES B NO C NO @bc-a00a8328",
+      "claude": "A YES B NO C NO @bc-6c015bdc",
+      "at": "2026-09-25T23:48Z"
     }
   },
   "absorbed": [
@@ -159,6 +156,17 @@
   "ready_for_main_write": [
     {
       "priority": 1,
+      "lane": "main#98_author",
+      "package": "experiments/d7_drift_scan_20260925/pr98_e6_coverage_repair_semantic_guard.patch",
+      "against": "main#98 @ cc6a578b26f1",
+      "fix": "E6: coverage_repair must not mask non-binding semantic change",
+      "verify": [
+        "python3 -m unittest tests.test_claims_gate_f2_coverage tests.test_claims_gate_enforcement -q"
+      ],
+      "ask": "Apply on #98 author branch; yield if peer already TAKEs E6."
+    },
+    {
+      "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
       "against": "chatgpt/drive-github-hardening-20260919 @ 1ae02b9ab759",
       "fix": "RESEARCH_INDEX + handoff APPLIED still absent",
@@ -170,8 +178,8 @@
     }
   ],
   "observe_only": [
-    "main#98@cc6a578 — OA E AMEND_REQUIRED (E6 coverage-repair masks semantic change); CI green; DRAFT; #90 OPEN",
-    "Await peer TAKE E6 and/or multi-model package consensus",
+    "main#98@cc6a578 — OA E6 AMEND; portable package ready; CI green; DRAFT; #90 OPEN",
+    "Yield immediately on peer TAKE E6 / successor head",
     "trial#128 observe only",
     "Math- D5 observe only",
     "main#103 vault; #104/#106 parked"
@@ -197,11 +205,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T23:47:31Z",
+    "at": "2026-09-25T23:50:00Z",
     "tip": "1ae02b9ab759",
-    "priority_ambiguous": true,
-    "decision": "OA E6 AMEND; multi-model consult; provisional hold packaging until votes/peer TAKE",
-    "model_consult": "gpt+claude E6 package-vs-idle in flight"
+    "priority_ambiguous": false,
+    "decision": "E6 package shipped per GPT+Claude; yield if peer TAKEs; nav tip P1",
+    "model_consult": "confirmed gpt@bc-a00a8328 + claude@bc-6c015bdc"
   },
   "resolved_alternate": [
     {

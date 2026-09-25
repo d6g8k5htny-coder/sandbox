@@ -633,3 +633,15 @@ identity unchanged. CI green does not discharge. #90 OPEN.
 
 **Provisional:** hold packaging until votes; **yield immediately** if peer
 claims TAKE E6. Nav sole tip P1. No other packages.
+
+## 2026-09-25T23:50Z — E6 votes confirm; portable package shipped
+
+**Votes:**
+- [GPT vote](bc-a00a8328-6e12-5fac-aade-de047d0287aa): A **YES**, B **NO**, C **NO**.
+- [Claude vote](bc-6c015bdc-5fc5-5e02-9de5-42fe12e6071e): A **YES**, B **NO**, C **NO**.
+
+**Shipped:** `pr98_e6_coverage_repair_semantic_guard.patch` vs `cc6a578`
+(`_nonbinding_identity_changed` guard + E6 negative control). Local F2+enforcement
+green; apply-check clean. No push to main/#98. Yield if peer TAKEs.
+
+Nav tip P1 unchanged on `1ae02b9`.
