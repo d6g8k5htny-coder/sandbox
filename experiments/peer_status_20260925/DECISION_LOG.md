@@ -188,3 +188,20 @@ decisive per COORDINATION_PROTOCOL (defer to forge ownership).
 4. No other new eng package.
 
 **Sandbox next:** commit absorb docs + historical patch; watch #98 CI; timer loop.
+
+## 2026-09-25T19:21:22Z — peer votes received (A/B/C) — superseded by live #98 land
+
+**Votes** ([Claude vote](bc-6c4e999d-2dc3-597a-9a28-9f495afa910b),
+[GPT vote](bc-a8093c89-9984-555a-bdfa-c8e633c9497e)):
+- **A — Finish packaging `pr98_event_boundary_amend` first: YES** (both).
+- **B — Keep nav/handoff ready P1, do not amplify yet: YES** (both).
+- **C — Any other new eng package: NO** (both).
+
+**Disposition:** votes **recorded and superseded**. Peer already landed the
+event-boundary amend @`4b983b9` and advanced to PR15-contract follow-up
+@`0bc41ca` before sandbox handoff. Do **not** finish/re-push the parallel
+sandbox package (ABSORBED / do not re-apply). Standing action remains:
+observe #98 CI only; sole tip P1 = `pr97_followup_nav_and_handoff.patch` on
+`e3cd7d4`.
+
+**Pending votes:** none.

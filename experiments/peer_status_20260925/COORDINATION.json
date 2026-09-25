@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T19:19:14Z",
+  "as_of_utc": "2026-09-25T19:21:22Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -13,15 +13,15 @@
     "policy": "Consult other models before ambiguous next moves; defer to live peer ownership statements on forge PRs.",
     "received_votes": [
       "claude-sonnet-5-thinking-medium",
-      "gpt-5.6-terra-medium"
-    ],
-    "pending_votes": [
+      "gpt-5.6-terra-medium",
       "claude-sonnet-5-thinking-medium@bc-6c4e999d",
       "gpt-5.6-terra-medium@bc-a8093c89"
     ],
-    "live_peer_override": "main#98 peer landed event-boundary amend @4b983b9 before sandbox package handoff — yield; do not race",
-    "consensus": "Provisional (votes in flight): mark parallel pr98_event_boundary_amend ABSORBED/superseded by peer @4b983b9; keep nav/handoff sole tip P1 on e3cd7d4; observe #98 CI.",
-    "gpt_vote_summary": "Prior allowlist vote superseded. Fresh A/B/C vote pending delivery."
+    "pending_votes": [],
+    "live_peer_override": "main#98 peer landed event-boundary @4b983b9 then PR15-contract follow-up @0bc41ca \u2014 yield; do not race or re-package",
+    "consensus": "Both A/B/C votes A=YES B=YES C=NO (package #98 amend first). SUPERSEDED by live peer land: amend absorbed; sandbox does not finish/re-push package. Sole tip P1 remains nav/handoff on e3cd7d4; observe #98 CI.",
+    "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
+    "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff."
   },
   "absorbed": [
     {
@@ -55,7 +55,8 @@
         "verify": "QUEUED",
         "navigation": "QUEUED",
         "loss-only-controls": "QUEUED"
-      }
+      },
+      "observed_head": "0bc41ca50dde"
     }
   ],
   "ready_for_main_write": [
@@ -72,7 +73,7 @@
     }
   ],
   "observe_only": [
-    "main#98 event-boundary @4b983b9 — peer-owned; CI queued; no race",
+    "main#98 PR15-contract @0bc41ca \u2014 peer-owned; CI queued; no race",
     "main#105 MERGED to tip e3cd7d4",
     "main#103 vault",
     "main#104/#106 parked",
@@ -85,11 +86,11 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "4b983b934f59",
+      "head": "0bc41ca50dde",
       "owner": "cursor peer on scientific-state-schema branch",
-      "work": "#90 event-boundary CLI + CI tip-health/event-compare + strict containers",
+      "work": "#90 event-boundary + Math-PR15 git_transition_audit contract follow-up",
       "sandbox_role": "observe_ci_only_do_not_race",
-      "evidence": "commit fix(#90): deploy before/after CLI + strict as_of/dep containers",
+      "evidence": "commits after 4b983b9: PR15-contract source-byte bind / controlling impact",
       "check_summary": {
         "verify": "QUEUED",
         "navigation": "QUEUED",
@@ -98,11 +99,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T19:19:14Z",
+    "at": "2026-09-25T19:21:22Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Yield #98 amend to peer land @4b983b9; nav/handoff sole P1 on tip e3cd7d4; watch #98 CI",
-    "model_consult": "launched A/B/C votes; live peer override already decisive"
+    "decision": "Votes recorded+superseded; yield #98@0bc41ca; nav/handoff sole P1",
+    "model_consult": "votes delivered; live peer override decisive"
   },
   "resolved_alternate": [
     {
