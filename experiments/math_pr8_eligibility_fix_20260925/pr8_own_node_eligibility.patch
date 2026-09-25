@@ -51,7 +51,7 @@ index 78a671c..cc0079a 100644
        "required_dependencies": [
          "math.uniform-matrix-cap-lifetime"
 diff --git a/frontiers/downstream_gate_20260925/SOURCE_FILES.json b/frontiers/downstream_gate_20260925/SOURCE_FILES.json
-index a0c005b..3ce6a7f 100644
+index a0c005b..09ac97d 100644
 --- a/frontiers/downstream_gate_20260925/SOURCE_FILES.json
 +++ b/frontiers/downstream_gate_20260925/SOURCE_FILES.json
 @@ -13,8 +13,8 @@
@@ -65,18 +65,9 @@ index a0c005b..3ce6a7f 100644
      },
      "SCOPE.md": {
        "bytes": 2218,
-@@ -24,17 +24,29 @@
-       "bytes": 2753,
+@@ -25,16 +25,20 @@
        "sha256": "53fa0ec88e417882eff2a40e4b575c639d43b7e8787e7fb8917aa22ace79390d"
      },
-+    "__pycache__/hard_gate.cpython-312.pyc": {
-+      "bytes": 20420,
-+      "sha256": "c64ff0b40e207388e248af293b82442d2d2b7d162a0e581719f502a301674fd6"
-+    },
-+    "__pycache__/run_validation.cpython-312.pyc": {
-+      "bytes": 7970,
-+      "sha256": "f06f6388fb4ca7e2406f8d7a1d92f4ba8b5b1fa025f46b4320ae8502d30c4a93"
-+    },
      "hard_gate.py": {
 -      "bytes": 17698,
 -      "sha256": "a5a662badb7d051cff1313810f5660534a13df9573dd87ff61279739d9bcbf94"
