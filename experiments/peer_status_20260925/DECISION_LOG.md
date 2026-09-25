@@ -586,3 +586,11 @@ path+carrier unchanged and object hash validates; does not exempt unchanged
 consumers. Local 76 methods green; hosted CI queued. Ready for OA E re-review.
 
 **Decision:** yield; observe CI + OA; sole tip P1 = nav/handoff.
+
+## 2026-09-25T22:57Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `e3cd7d4`; nav ready. #98 still `@cc6a578` verify
+IN_PROGRESS (nav + loss-only green). No OA E disposition yet.
+
+**Decision:** no new package; observe CI + OA E; sole P1 = nav/handoff;
+resubscribe timer + renew CI watch.

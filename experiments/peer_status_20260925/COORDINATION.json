@@ -184,11 +184,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T22:46:30Z",
+    "at": "2026-09-25T22:57:13Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Peer CI fix @cc6a578; observe CI/OA; nav sole P1",
-    "model_consult": "skipped — peer land decisive"
+    "decision": "Timer: tip/nav unchanged; #98@cc6a578 verify still IN_PROGRESS; yield stands",
+    "model_consult": "skipped — peer tip + CI in flight"
   },
   "resolved_alternate": [
     {
