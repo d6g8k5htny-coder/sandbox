@@ -537,3 +537,11 @@ moved to `7e219c38` with claimed A/B fixes — expect OA to re-bind to new head.
 
 **Decision:** yield; no sandbox E package; observe CI + OA on `7e219c38`;
 nav sole tip P1.
+
+## 2026-09-25T22:04Z — OA A–D MATCH; TAKE E assigned to peer
+
+OA source re-review of `7e219c38`: A/B/C MATCH; D basic MATCH; E
+(extraction/expected_sha256/freshness) **TAKE NOW**. Owner `@cursor TAKE
+bounded repair E`; peer agent `bc-01a0d95b…` starting.
+
+**Decision:** yield E; no sandbox package; observe new head + CI; nav sole P1.

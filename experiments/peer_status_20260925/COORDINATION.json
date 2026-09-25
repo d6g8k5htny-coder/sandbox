@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T22:02:30Z",
+  "as_of_utc": "2026-09-25T22:04:30Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -24,8 +24,8 @@
       "claude-sonnet-5-thinking-medium@bc-40e3af3f"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98@7e219c38 tip freeze for CI+OA A–D re-review; repair E queued pending OA signal; sandbox yield",
-    "consensus": "Peer completed bounded A–D @7e219c38. Yield; observe CI + OA. OA precision (extraction_rule/expected_sha256) may still need follow-up — observe. Nav sole tip P1.",
+    "live_peer_override": "main#98@7e219c38 A–D MATCH; TAKE E assigned to cursor peer bc-01a0d95b; sandbox yield",
+    "consensus": "OA: A/B/C MATCH; D basic MATCH; E TAKE NOW. Peer author lease continues. Sandbox observe only; nav sole tip P1.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -146,9 +146,7 @@
     }
   ],
   "observe_only": [
-    "main#98@7e219c38 — tip freeze; CI+OA A–D re-review; DRAFT; #90 OPEN",
-    "OA re-review of 47ad537 (stale vs tip) still cited A/B — expect re-bind to 7e219c38",
-    "Repair E (extraction_rule/expected_sha256/freshness) queued by peer — do not race",
+    "main#98@7e219c38 — A–D source MATCH; TAKE E in flight (peer); CI pending; DRAFT; #90 OPEN",
     "trial#128 observe only",
     "Math- D5 observe only",
     "main#103 vault; #104/#106 parked"
@@ -162,23 +160,23 @@
       "surface": "main#98",
       "head": "7e219c38e916",
       "owner": "cursor peer bc-01a0d95b (author-repair lease)",
-      "work": "A–D tip freeze for re-review; E queued awaiting OA assign-vs-hold",
+      "work": "TAKE E: expected_sha256/extraction_rule/freshness on controlling bindings",
       "sandbox_role": "observe_ci_only_do_not_race",
-      "evidence": "fix(#90): owner-seed reverse closure + malformed historical schema fail-closed",
+      "evidence": "OA TAKE E @5840285005; peer agent starting",
       "check_summary": {
         "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       },
-      "note": "sandbox yield; no E package while peer holds lease and asks OA"
+      "note": "A–D MATCH at 7e219c38; do not package E"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T22:02:30Z",
+    "at": "2026-09-25T22:04:30Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Tip freeze @7e219c38; observe CI/OA; E not started; nav sole P1",
-    "model_consult": "skipped — peer lease + tip freeze decisive"
+    "decision": "Yield E lease to peer; observe successor tip + CI; nav sole P1",
+    "model_consult": "skipped — peer TAKE E lease decisive"
   },
   "resolved_alternate": [
     {
