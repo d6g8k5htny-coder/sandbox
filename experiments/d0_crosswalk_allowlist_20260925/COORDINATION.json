@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T16:47:42Z",
+  "as_of_utc": "2026-09-25T17:23:11Z",
   "sandbox_run": "bc-01a0d95c-b9ca-70ce-864d-99d51b2a8fb0",
   "sandbox_pr": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
   "accepted_lane": {
@@ -50,11 +50,9 @@
   "lemma_closed": false,
   "peer_cursor_rescue": {
     "pr92": "https://github.com/d6g8k5htny-coder/main/pull/92",
-    "pr93": "https://github.com/d6g8k5htny-coder/main/pull/93",
-    "local_math_status_check": "problems=0 on 75ba519",
-    "ci_subscribed": true,
-    "math_pr8_ci": "exact-checks SUCCESS (observed)",
-    "pr92_head": "292419f"
+    "pr92_ci": "SUCCESS verify+navigation+loss-only @ db0645f",
+    "pr93": "closed",
+    "math_gate": "landed on Math- main with CONTROLLING_ELIGIBLE"
   },
   "hard_gate_prototype": {
     "path": "experiments/hard_gate_v1",
