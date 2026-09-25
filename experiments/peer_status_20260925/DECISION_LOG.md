@@ -434,3 +434,36 @@ verify job at Bernstein replay step). No tip absorb of nav. No new peer push.
 **Decision:** no new package; no fresh model consult; sole P1 = nav/handoff;
 continue observe #98 CI + OA re-review. Replacement timer already armed
 (21:42Z); CI/PR watches live.
+
+## 2026-09-25T21:46Z — OpenAI combined-tip re-review: F2 AMEND_REQUIRED
+
+**Event:** OA comment on main#98 exact head `6e3f774`. F1 ported OK; F2–F5
+present; **AMEND_REQUIRED for F2 source coverage** before #90 can close.
+Keep DRAFT/#90 OPEN. CI still in progress (no green-tip claim).
+
+**Gap:** controlling-hint nodes `Q0-C101-QUALITATIVE-RATE` /
+`D1-v2.2(1)` are unresolved_prose; `unresolved_controlling_sources` is
+report-only (impact-gated); prose multi-source + ignored structured keys +
+ignored `repo` field leave load-bearing sources unmonitored.
+
+**Pending votes:** [GPT](bc-5c344912-c2b4-5db1-b2bc-8c3e446c94ab),
+[Claude](bc-40e3af3f-17e6-545c-b526-33d0badb737b).
+
+**Provisional:** package portable F2 fail-closed amend against `6e3f774` for
+main-write peer (do not push #98). Nav stays ready tip P1. Yield branch race.
+
+## 2026-09-25T21:57Z — peer landed F2 @`47ad537` (sandbox package superseded)
+
+**Facts:** While sandbox drafted `pr98_f2_source_coverage_amend` vs `6e3f774`,
+Cursor peer pushed `47ad537 fix(#90): F2 fail-closed unresolved controlling
+sources + migrate tip bindings` — in-repo `drive/mirrors/…` bindings for
+Q0-C101 + D1-v2.2(1), fail-closed unmonitorable controlling, repo validation,
+CLI negatives. Sandbox parallel recipe (external_frozen HOLD) **ABSORBED /
+do not re-apply**.
+
+**Pending F2 votes** ([GPT](bc-5c344912-c2b4-5db1-b2bc-8c3e446c94ab),
+[Claude](bc-40e3af3f-17e6-545c-b526-33d0badb737b)) may still say package YES —
+**live peer land overrides**.
+
+**Decision:** Mark F2 package absorbed; sole tip P1 = nav/handoff; observe
+#98@`47ad537` CI + OA re-review; no race.

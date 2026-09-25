@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T21:41:17Z",
+  "as_of_utc": "2026-09-25T21:57:25Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -21,9 +21,12 @@
       "gpt-5.6-terra-medium@bc-d5be2b0e",
       "claude-sonnet-5-thinking-medium@bc-279a081c"
     ],
-    "pending_votes": [],
-    "live_peer_override": "main#98@6e3f774 combined F1+F2-F5; sandbox observe CI/re-review only",
-    "consensus": "GPT+Claude confirm: A observe #98 only; B nav sole tip P1 ready unamplified; C no new package.",
+    "pending_votes": [
+      "gpt-5.6-terra-medium@bc-5c344912",
+      "claude-sonnet-5-thinking-medium@bc-40e3af3f"
+    ],
+    "live_peer_override": "main#98@47ad537 F2 fail-closed + tip binding migration; sandbox observe CI/re-review only",
+    "consensus": "Live peer override: F2 AMEND absorbed @47ad537 before sandbox package handoff. Pending GPT+Claude F2-package votes likely YES but SUPERSEDED by peer land. Nav remains sole tip P1.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -32,6 +35,14 @@
       "gpt": "A YES B YES C NO @bc-d5be2b0e",
       "claude": "A YES B YES C NO @bc-279a081c",
       "at": "2026-09-25T21:44Z"
+    },
+    "active_consult": {
+      "reason": "OA F2 AMEND_REQUIRED on combined tip; package-vs-observe vote",
+      "agents": [
+        "https://cursor.com/agents/bc-5c344912-c2b4-5db1-b2bc-8c3e446c94ab",
+        "https://cursor.com/agents/bc-40e3af3f-17e6-545c-b526-33d0badb737b"
+      ],
+      "disposition": "peer_landed_first_at_47ad537_supersedes_sandbox_package"
     }
   },
   "absorbed": [
@@ -87,8 +98,8 @@
       "on": "main#98",
       "head": "776fdb75eb71",
       "action": "do_not_repaste",
-      "evidence": "cursor[bot] comment Reciprocal review \u2014 OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b\u2026)",
-      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND \u2014 same substance."
+      "evidence": "cursor[bot] comment Reciprocal review — OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b…)",
+      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND — same substance."
     },
     {
       "item": "pr98_enforcement_boundary_amend",
@@ -96,9 +107,22 @@
       "head": "ebd745022eee",
       "action": "do_not_reapply",
       "evidence": "commit: fix(#90): enforce five OpenAI boundary families on claims-gate adapter",
-      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race \u2014 observe their new branch; do not duplicate.",
+      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race — observe their new branch; do not duplicate.",
       "check_summary": {
         "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "item": "pr98_f2_source_coverage_amend",
+      "on": "main#98",
+      "head": "47ad537d0858",
+      "action": "do_not_reapply",
+      "evidence": "commit: fix(#90): F2 fail-closed unresolved controlling sources + migrate tip bindings",
+      "note": "Sandbox parallel recipe vs 6e3f774 (external_frozen HOLD) superseded; peer used in-repo drive/mirrors bindings",
+      "check_summary": {
+        "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -114,12 +138,12 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip; #98 combined F1+F2-F5 at 6e3f774 awaiting OpenAI re-review."
+      "ask": "Land on tip; #98@47ad537 F2 fail-closed landed — observe CI + OA re-review."
     }
   ],
   "observe_only": [
-    "main#98@6e3f774 \u2014 OA F1 ported + F2-F5; verify IN_PROGRESS; DRAFT; #90 OPEN; awaiting OA re-review",
-    "trial#128 F1 package \u2014 V1\u2013V5 ACCEPT (V4 upgraded 21:39Z); observe only; do not promote alone",
+    "main#98@47ad537 — F2 fail-closed + binding migration; verify IN_PROGRESS; DRAFT; #90 OPEN",
+    "trial#128 F1 package — V1–V5 ACCEPT; observe only; do not promote alone",
     "Math- D5 (#9/#30/#31 active; #14 CLOSED superseded) observe only",
     "main#103 vault",
     "main#104/#106 parked"
@@ -131,25 +155,25 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "6e3f774f7ccf",
+      "head": "47ad537d0858",
       "owner": "cursor peer on scientific-state-schema branch",
-      "work": "OA F1 ACCEPT ported onto tip; F2-F5 retained",
+      "work": "F2 fail-closed unresolved controlling + migrate Q0/D1 tip bindings",
       "sandbox_role": "observe_ci_only_do_not_race",
-      "evidence": "fix(#90): port ACCEPT'd OpenAI F1 enforcement onto tip with F2–F5",
+      "evidence": "fix(#90): F2 fail-closed unresolved controlling sources + migrate tip bindings",
       "check_summary": {
         "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       },
-      "note": "combined tip ready for OpenAI re-review; sandbox yield"
+      "note": "sandbox F2 package superseded; yield; await CI + OA re-review"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T21:44:44Z",
+    "at": "2026-09-25T21:57:25Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Timer: no material change; GPT+Claude consensus stands; observe #98 verify still IN_PROGRESS",
-    "model_consult": "skipped — consensus confirmed @21:44Z; no forge move"
+    "decision": "Peer F2 land @47ad537; absorb sandbox F2 draft; nav sole P1; observe CI",
+    "model_consult": "F2 votes pending but peer land decisive"
   },
   "resolved_alternate": [
     {
@@ -159,5 +183,5 @@
       "action": "do_not_reapply_patch"
     }
   ],
-  "live_peer_override": "main#98 peer landed event-boundary @4b983b9 then PR15-contract follow-up @0bc41ca \u2014 yield; do not race or re-package"
+  "live_peer_override": "main#98 peer landed event-boundary @4b983b9 then PR15-contract follow-up @0bc41ca — yield; do not race or re-package"
 }
