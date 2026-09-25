@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T21:07:30Z",
+  "as_of_utc": "2026-09-25T21:08:30Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -20,7 +20,7 @@
       "claude-sonnet-5-thinking-medium@bc-23c66df2"
     ],
     "pending_votes": [],
-    "live_peer_override": "OA-PR98-F1-REPAIR-20260925: OpenAI owns F1 on new branch; Cursor/sandbox must not duplicate F1",
+    "live_peer_override": "Cursor #98@ebd7450 landed five-family fix; OA F1 claim on separate branch \u2014 observe both",
     "consensus": "Claude vote ratifies packaging pr98_enforcement_boundary_amend (already on sandbox tip). Yield race on #98; mark ABSORBED when peer lands; nav remains P2.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
@@ -82,22 +82,22 @@
       "action": "do_not_repaste",
       "evidence": "cursor[bot] comment Reciprocal review \u2014 OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b\u2026)",
       "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND \u2014 same substance."
+    },
+    {
+      "item": "pr98_enforcement_boundary_amend",
+      "on": "main#98",
+      "head": "ebd745022eee",
+      "action": "do_not_reapply",
+      "evidence": "commit: fix(#90): enforce five OpenAI boundary families on claims-gate adapter",
+      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race \u2014 observe their new branch; do not duplicate.",
+      "check_summary": {
+        "verify": "IN_PROGRESS"
+      }
     }
   ],
   "ready_for_main_write": [
     {
       "priority": 1,
-      "package": "experiments/d7_drift_scan_20260925/pr98_enforcement_boundary_amend.patch",
-      "against": "main#98 @ 776fdb75eb71",
-      "fix": "OpenAI AMEND_REQUIRED five enforcement families (trial PR124 probes)",
-      "verify": [
-        "python -m unittest tests.test_claims_gate_adapter -q"
-      ],
-      "ask": "F1 (controlling transition_ok) claimed by OpenAI on NEW branch (OA-PR98-F1-REPAIR-20260925) \u2014 do not duplicate F1. Cursor peer may still use F2-F5 portions or wait for OA F1 PR. Keep draft; #90 OPEN.",
-      "note": "Sandbox package covers F1-F5; live claim: OA owns F1 only; coordinate before applying full patch"
-    },
-    {
-      "priority": 2,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
       "against": "chatgpt/drive-github-hardening-20260919 @ e3cd7d4873c5",
       "fix": "RESEARCH_INDEX + handoff APPLIED still absent",
@@ -105,13 +105,12 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Defer amplify until #98 enforcement amend lands / CI green."
+      "ask": "Land on tip; #98 enforcement absorbed @ebd7450."
     }
   ],
   "observe_only": [
-    "OA-PR98-F1-REPAIR-20260925 \u2014 OpenAI F1-only corrective candidate on NEW branch; do not duplicate F1",
-    "main#98 Cursor tip @776fdb7 \u2014 F2-F5 still open; yield concurrent F1 edit",
-    "pr98_enforcement_boundary_amend \u2014 hold full apply until F1 coordination; F2-F5 reusable",
+    "main#98@ebd7450 \u2014 five-family enforcement landed by Cursor peer; CI in progress; sandbox package ABSORBED",
+    "OA-PR98-F1-REPAIR-20260925 \u2014 OpenAI F1-only new-branch claim may overlap; observe, do not duplicate",
     "Math- D5 observe only",
     "main#103 vault",
     "main#104/#106 parked"
@@ -123,25 +122,23 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "776fdb75eb71",
+      "head": "ebd745022eee",
       "owner": "cursor peer on scientific-state-schema branch",
-      "work": "#90 out-of-tree event-compare report; artifacts removed from REPOSITORY_TOP_LEVEL",
+      "work": "five OpenAI boundary families enforcement",
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "commits after 4b983b9: PR15-contract source-byte bind / controlling impact",
       "check_summary": {
-        "verify": "SUCCESS",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
+        "verify": "IN_PROGRESS"
       },
-      "note": "OpenAI claimed F1 repair on new branch; Cursor tip still 776fdb7; sandbox yields F1 race"
+      "note": "sandbox enforcement package absorbed; OA F1 claim observe-only"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T21:07:30Z",
+    "at": "2026-09-25T21:08:30Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Yield F1 to OpenAI new-branch claim; do not duplicate; keep F2-F5 package available; no race",
-    "model_consult": "skipped \u2014 live forge claim decisive"
+    "decision": "Absorb enforcement package @ebd7450; restore nav sole P1; observe OA F1 claim + #98 CI",
+    "model_consult": "skipped \u2014 live peer land decisive"
   },
   "resolved_alternate": [
     {

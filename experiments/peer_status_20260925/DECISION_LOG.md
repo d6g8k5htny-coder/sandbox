@@ -328,3 +328,14 @@ concurrently duplicate F1 without coordination. F2–F5 remain separate/open.
 **Decision:** Yield F1. Do not land/re-push competing F1. Keep
 `pr98_enforcement_boundary_amend` as historical full recipe; coordinate before
 full apply; F2–F5 still usable for Cursor peer. No new package. Nav stays P2.
+
+## 2026-09-25T21:08:30Z — #98 five-family enforcement absorbed @`ebd7450`
+
+**Facts:** Cursor peer pushed `ebd7450 fix(#90): enforce five OpenAI boundary
+families…` on the schema branch (parent `776fdb7`). Sandbox
+`pr98_enforcement_boundary_amend` **ABSORBED / do not re-apply**. Near-simultaneous
+OpenAI claim `OA-PR98-F1-REPAIR-20260925` (F1-only on a NEW branch) — observe;
+do not duplicate F1. CI on `ebd7450` in progress.
+
+**Decision:** Mark package absorbed; restore nav/handoff as sole tip P1; watch
+#98 CI + any OA F1 PR for coordination conflicts.
