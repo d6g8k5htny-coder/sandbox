@@ -512,3 +512,14 @@ IN_PROGRESS.
 **Decision:** Keep yield; observe CI + OA re-review. Note OA precision follow-up
 (extraction_rule / expected_sha256) may still require a later tip — do not
 preempt while peer holds lease. Sole tip P1 = nav/handoff.
+
+## 2026-09-25T22:01Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `e3cd7d4`; RESEARCH_INDEX absent → nav still ready.
+#98 still `@7e219c38` verify IN_PROGRESS (nav + loss-only green). No absorb of
+nav. No new peer push since A–D land.
+
+**Priority ambiguous?** No — peer author lease / A–D land decisive.
+
+**Decision:** no new package; observe #98 CI + OA; sole P1 = nav/handoff;
+resubscribe timer + renew PR watch.

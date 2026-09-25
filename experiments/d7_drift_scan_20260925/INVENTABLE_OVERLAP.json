@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T21:57:25Z",
+  "as_of_utc": "2026-09-25T22:01:04Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "e3cd7d4873c5",
@@ -8,14 +8,12 @@
     "pr97_followup_nav_and_handoff.patch (TOP ready)",
     "pr97_followup_nav_links.patch",
     "pr_handoff_applied.patch",
-    "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa — do not reapply)",
-    "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 — do not reapply)",
-    "pr98_f2_source_coverage_amend.patch (ABSORBED on main#98@47ad537 — do not reapply)"
+    "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa \u2014 do not reapply)",
+    "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 \u2014 do not reapply)"
   ],
   "absorbed": [
     "pr105_consumers_fix on main#105@54a8c59",
-    "pr98_ci_allowlist_fix on main#98@d765efa",
-    "pr98_f2_source_coverage_amend on main#98@47ad537"
+    "pr98_ci_allowlist_fix on main#98@d765efa"
   ],
   "ready": [
     "pr97_followup_nav_and_handoff.patch"
@@ -27,9 +25,9 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "47ad537",
+      "head": "7e219c3",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T21:56:03Z",
+      "updatedAt": "2026-09-25T21:59:32Z",
       "files": [
         ".github/workflows/ci.yml",
         ".gitignore",
