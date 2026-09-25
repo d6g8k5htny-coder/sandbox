@@ -1,0 +1,11 @@
+{
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "target": "d6g8k5htny-coder/Math- PR8",
+  "base_tip": "5887a2f",
+  "defect": "AUTHOR_SIDE_CANDIDATE controlling when deps terminal",
+  "local_tests": 28,
+  "local_mutations": 8,
+  "local_validation_passed": true,
+  "openai_comment": "5835990323"
+}

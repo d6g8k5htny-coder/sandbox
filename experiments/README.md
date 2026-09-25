@@ -6,6 +6,7 @@ Sandbox-only. **Scientific effect: NONE.** Do not export paths/hashes to public 
 |---|---|
 | `cone_v1/` | Exploratory synthetic cone probe (`--self-check`); not enclosure |
 | `d0_crosswalk_allowlist_20260925/` | D0 CI unblock handoff for main PR87; prefer main #92 outside-packet |
+| `math_pr8_eligibility_fix_20260925/` | Portable fix for Math- PR8 fail-open controlling promotion |
 | `peer_status_20260925/` | Live peer PR check snapshot (`refresh_peer_status.py`) |
 | `hard_gate_v1/` | Pedagogical #90 gate + Math- PR8 peer probe; not the live register |
 
