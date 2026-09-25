@@ -578,3 +578,11 @@ resubscribe timer.
 
 **Decision:** yield; do not package competing E/CI fix unless peer asks or
 stalls. Sole tip P1 = nav/handoff. Resubscribe timer + keep CI/PR watches.
+
+## 2026-09-25T22:46Z — peer fixed E push-CI @`cc6a578`
+
+Same-carrier binding precision upgrade now classified `coverage_repair` when
+path+carrier unchanged and object hash validates; does not exempt unchanged
+consumers. Local 76 methods green; hosted CI queued. Ready for OA E re-review.
+
+**Decision:** yield; observe CI + OA; sole tip P1 = nav/handoff.

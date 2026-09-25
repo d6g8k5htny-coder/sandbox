@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T22:32:22Z",
+  "as_of_utc": "2026-09-25T22:46:30Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -24,8 +24,8 @@
       "claude-sonnet-5-thinking-medium@bc-40e3af3f"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98@22d99768 E tip; push-verify RED (claims-gate event-compare F1 on Q0/D1); PR-verify GREEN; peer owns fix",
-    "consensus": "Peer landed E @22d99768 (extraction/expected_sha256/freshness). Yield; observe. Nav sole tip P1.",
+    "live_peer_override": "main#98@cc6a578 E tip CI fix (coverage_repair precision upgrade); observe CI + OA E re-review",
+    "consensus": "Peer repaired push-verify red @cc6a578. Yield; observe. Nav sole tip P1.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -137,6 +137,13 @@
       "head": "22d997686cbb",
       "action": "do_not_race_or_repackage",
       "evidence": "peer bounded repair E complete"
+    },
+    {
+      "item": "pr98_e_push_ci_precision_upgrade",
+      "on": "main#98",
+      "head": "cc6a578b26f1",
+      "action": "do_not_race_or_repackage",
+      "evidence": "peer coverage_repair for same-carrier precision upgrade"
     }
   ],
   "ready_for_main_write": [
@@ -149,12 +156,11 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip; #98@22d99768 E complete — observe CI + OA re-review."
+      "ask": "Land on tip; #98@cc6a578 E+CI-fix — observe CI + OA re-review."
     }
   ],
   "observe_only": [
-    "main#98@22d99768 — E landed; push verify FAIL (7e219c3→22d99768 source-byte seeds on controlling); PR verify PASS; DRAFT; #90 OPEN",
-    "Await peer CI fix and/or OA E re-review",
+    "main#98@cc6a578 — E + precision-upgrade coverage_repair; CI pending; DRAFT; #90 OPEN; await OA E re-review",
     "trial#128 observe only",
     "Math- D5 observe only",
     "main#103 vault; #104/#106 parked"
@@ -166,26 +172,23 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "22d997686cbb",
+      "head": "cc6a578b26f1",
       "owner": "cursor peer bc-01a0d95b",
-      "work": "E scientific-object identity + freshness on controlling bindings",
+      "work": "E identity/freshness + coverage_repair exemption for precision upgrade",
       "sandbox_role": "observe_ci_only_do_not_race",
-      "evidence": "fix head 22d99768; adapter SHA256 18a5412d…",
+      "evidence": "CI failure on E tip repaired; head cc6a578",
       "check_summary": {
-        "verify_pull_request": "SUCCESS",
-        "verify_push": "FAILURE",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
+        "verify": "IN_PROGRESS"
       },
-      "note": "push event-compare fails F1 retained-controlling on E binding enrichment; peer lease"
+      "note": "ready for OA E re-review on cc6a578"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T22:32:22Z",
+    "at": "2026-09-25T22:46:30Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Observe peer CI fix for push-verify red; no sandbox race; nav sole P1",
-    "model_consult": "skipped — peer owns #98 CI repair"
+    "decision": "Peer CI fix @cc6a578; observe CI/OA; nav sole P1",
+    "model_consult": "skipped — peer land decisive"
   },
   "resolved_alternate": [
     {
