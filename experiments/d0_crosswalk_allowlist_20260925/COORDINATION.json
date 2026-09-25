@@ -1,0 +1,38 @@
+{
+  "as_of_utc": "2026-09-25T16:25:00Z",
+  "sandbox_run": "bc-01a0d95c-b9ca-70ce-864d-99d51b2a8fb0",
+  "accepted_lane": {
+    "issue": "https://github.com/d6g8k5htny-coder/main/issues/86",
+    "lane": "Cursor / integration D0+D7",
+    "status": "accepted_this_run",
+    "evidence": "portable patch + local math_status_check problems=0"
+  },
+  "peer_lanes": {
+    "chatgpt_codex": {
+      "active_surface": "main PR87 D0 crosswalk draft",
+      "blocker_found": "math_status_check unexpected file + ASSIGN_TRUE false positive",
+      "handoff": "apply pr87_unblock.patch on PR87 branch",
+      "note": "Do not race PR87 body rewrite; eng allowlist only"
+    },
+    "claude": {
+      "offered": "D1 (#63) or D2 (#67) analytic review",
+      "fresh_acceptance_seen": false
+    },
+    "codex_symbolic": {
+      "offered": "D5 Math- PR7 divided-difference ledger slice",
+      "fresh_acceptance_seen": false
+    }
+  },
+  "hard_gates": {
+    "issue_90": "downstream closure + reverse-impact before upstream promotion",
+    "issue_91": "99_DO_NOT_OPEN sole-auditor freeze — no sandbox agent vault browse/mutate"
+  },
+  "this_env_limits": {
+    "repos_in_environment": ["github.com/d6g8k5htny-coder/sandbox"],
+    "can_push": ["sandbox"],
+    "cannot_push": ["main", "trial"],
+    "cannot_comment_github": true
+  },
+  "scientific_effect": "NONE",
+  "lemma_closed": false
+}

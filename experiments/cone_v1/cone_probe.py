@@ -24,5 +24,26 @@ def run(samples=200000,seed=20260924):
             'role':'exploratory sanity check only','certified':False}
 
 
-if __name__=='__main__':
-    print(json.dumps(run(),indent=2,sort_keys=True))
+
+def self_check(tol_se=8.0):
+    """Bounded private sanity only. Not enclosure, not discharge, not review.
+    Requires |mean-reference| <= tol_se * sample_standard_error on the fixed seed.
+    """
+    out = run()
+    if out['certified'] is not False:
+        raise AssertionError('certified must remain false')
+    if out['role'] != 'exploratory sanity check only':
+        raise AssertionError('role drift')
+    gap = abs(out['mean'] - out['reference'])
+    budget = tol_se * out['sample_standard_error']
+    if gap > budget:
+        raise AssertionError(f'exploratory gap {gap} exceeds {budget}')
+    return {'ok': True, 'gap': gap, 'budget': budget, 'certified': False}
+
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == '--self-check':
+        print(json.dumps(self_check(), indent=2, sort_keys=True))
+    else:
+        print(json.dumps(run(), indent=2, sort_keys=True))
