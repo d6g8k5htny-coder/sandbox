@@ -365,3 +365,12 @@ F2–F5 not fixed in that package.
 
 **Decision:** No sandbox eng package / no silent apply. Observe trial#128 +
 main#98 re-review. Sole tip P1 remains nav/handoff.
+
+## 2026-09-25T21:36:30Z — #98 CI green + OA F1 ACCEPT; yield tip port
+
+**Facts:** CI subscription delivered SUCCESS on `ebd7450`. Cursor nonauthor
+review ACCEPT’d trial#128 F1 vs `776fdb7`; patch does not apply cleanly onto
+`ebd7450`; integration = author-lane port preserving F2–F5.
+
+**Decision:** Confirm CI green in STATUS. Yield F1-port to #98 Cursor peer
+(they hold the lease). No sandbox package/race. Sole tip P1 = nav/handoff.
