@@ -1,6 +1,6 @@
 # D7 scan summary
 
-**Resolved:** #97 **merged**; #92 **closed**. #99/#100 merged; tip `eeebb28`.
+**Resolved:** #97 **merged**; #92 **closed**. #99/#100 merged; tip `848aea2` (#101/#102/#107 merged).
 **#105 consumers fix absorbed** @`54a8c59`.
 **#98 CI allowlist absorbed** @`d765efa`.
 
