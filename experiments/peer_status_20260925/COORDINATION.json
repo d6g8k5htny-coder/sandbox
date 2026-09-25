@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T18:05:27Z",
+  "as_of_utc": "2026-09-25T18:06:09Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -12,8 +12,16 @@
   "multi_model": {
     "policy": "Consult other models before ambiguous next moves; record in DECISION_LOG.",
     "pending_votes": [
-      "gpt-5.6-terra-medium",
-      "claude-sonnet-5-thinking-medium"
+      "gpt-5.6-terra-medium"
+    ],
+    "votes_received": [
+      {
+        "voter": "claude-sonnet-5-thinking-medium",
+        "at_utc": "2026-09-25T18:05:00Z",
+        "A_mark_98_absorbed_stop_repushing": "YES",
+        "B_keep_amplifying_nav_handoff": "YES",
+        "C_attempt_new_package_now": "NO"
+      }
     ]
   },
   "absorbed": [
@@ -51,21 +59,22 @@
     {
       "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
-      "against": "chatgpt/drive-github-hardening-20260919 @ eeebb28",
+      "against": "chatgpt/drive-github-hardening-20260919 @ 848aea2",
       "composes_with": [
-        "main#101 (verify green)",
-        "main#108"
+        "main#101 MERGED into tip",
+        "main#108 still open"
       ],
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land after or with #101/#108; disjoint README hunks."
+      "ask": "Land on tip 848aea2 (after #101/#102/#107); still composes with open #108."
     }
   ],
   "observe_only": [
     "main#98 CI after allowlist absorb (head d765efa)",
     "main#105 CI after consumers absorb",
+    "main#108 tip-observe",
     "main#103 vault audit v2",
     "main#104/#106 parked ledger pin",
     "Math-#9/#14 D5 mesoscopic chart",

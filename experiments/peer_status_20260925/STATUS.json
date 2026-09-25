@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T18:05:27Z",
+  "as_of_utc": "2026-09-25T18:06:17Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -272,8 +272,8 @@
         },
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
         },
         {
           "name": "navigation",
@@ -292,7 +292,7 @@
         }
       ],
       "check_summary": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -638,8 +638,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T18:02:00Z",
-      "head": "0aac3c3",
+      "updatedAt": "2026-09-25T18:05:50Z",
+      "head": "c1cf8a6",
       "checks": [],
       "check_summary": {}
     }
