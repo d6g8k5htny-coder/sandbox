@@ -545,3 +545,12 @@ OA source re-review of `7e219c38`: A/B/C MATCH; D basic MATCH; E
 bounded repair E`; peer agent `bc-01a0d95b…` starting.
 
 **Decision:** yield E; no sandbox package; observe new head + CI; nav sole P1.
+
+## 2026-09-25T22:12Z — peer repair E complete @`22d99768`
+
+Exact head `22d99768`: extraction_rule / expected_sha256 / freshness on
+controlling bindings; Q0 theorem extract validated; D1 frozen body validated;
+master informational-only; entry-point negatives added. A–D retained.
+Hosted verify IN_PROGRESS (36195412945 / 36195408373). Ready for OA E re-review.
+
+**Decision:** yield; observe CI + OA; sole tip P1 = nav/handoff; no package.
