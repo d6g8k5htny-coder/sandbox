@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T18:05:31Z",
+  "as_of_utc": "2026-09-25T18:06:21Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "848aea2a874c",
@@ -121,7 +121,7 @@
         "registers/CONSUMERS.json"
       ],
       "checks": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
