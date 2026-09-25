@@ -4,11 +4,12 @@
   "authority": "NONE",
   "target_issue": 90,
   "role": "sandbox prototype only",
-  "acceptance_slice": "machine checker + negative controls + reverse-impact report",
+  "acceptance_slice": "machine checker + negative controls + reverse-impact + closure-report + mutate-lower",
   "not_done": [
     "land on main",
     "wire into CI",
     "map every campaign claim to graph nodes",
     "authoritative register integration"
-  ]
+  ],
+  "tests_passed": 8
 }

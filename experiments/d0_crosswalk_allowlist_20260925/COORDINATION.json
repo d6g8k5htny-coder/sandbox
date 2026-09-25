@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T16:41:21Z",
+  "as_of_utc": "2026-09-25T16:47:42Z",
   "sandbox_run": "bc-01a0d95c-b9ca-70ce-864d-99d51b2a8fb0",
   "sandbox_pr": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
   "accepted_lane": {
@@ -37,7 +37,12 @@
     ],
     "cannot_push": [
       "main",
-      "trial"
+      "trial",
+      "Math-",
+      "governance-",
+      "google-drive",
+      "meta-framework",
+      "query-"
     ],
     "cannot_comment_github": true
   },
@@ -47,11 +52,38 @@
     "pr92": "https://github.com/d6g8k5htny-coder/main/pull/92",
     "pr93": "https://github.com/d6g8k5htny-coder/main/pull/93",
     "local_math_status_check": "problems=0 on 75ba519",
-    "ci_subscribed": true
+    "ci_subscribed": true,
+    "math_pr8_ci": "exact-checks SUCCESS (observed)",
+    "pr92_head": "292419f"
   },
   "hard_gate_prototype": {
     "path": "experiments/hard_gate_v1",
     "issue": 90,
-    "scientific_effect": "NONE"
+    "scientific_effect": "NONE",
+    "canonical": false,
+    "aligns_to": "Math- PR8"
+  },
+  "canonical_hard_gate": {
+    "math_pr": "https://github.com/d6g8k5htny-coder/Math-/pull/8",
+    "main_crosswalk_pr": "https://github.com/d6g8k5htny-coder/main/pull/92",
+    "main_nav_pr": "https://github.com/d6g8k5htny-coder/main/pull/93",
+    "sandbox_role": "pedagogical_negative_controls_only"
+  },
+  "unblock_strategies": {
+    "preferred_outside_packet": {
+      "main_pr": 92,
+      "companion_nav_pr": 93,
+      "status": "CI verify in_progress; nav/loss-only green; local math_status problems=0"
+    },
+    "allowlist_fallback_sandbox": {
+      "path": "experiments/d0_crosswalk_allowlist_20260925/pr87_unblock.patch",
+      "style": "AUXILIARY_CLASSIFICATION (no PACKET digest pin)"
+    },
+    "allowlist_math_pr8": {
+      "math_pr": 8,
+      "path_on_math": "frontiers/downstream_gate_20260925/D0_CI_UNBLOCK.md",
+      "style": "TRANSCRIPTION + PACKET digest pin",
+      "note": "Do not apply both allowlist styles without reconciling; prefer #92 outside-packet"
+    }
   }
 }

@@ -124,14 +124,23 @@ def check_graph(graph: dict[str, Any]) -> list[str]:
             continue
         for dep_id in dependents(edges, node["id"]):
             d = nodes[dep_id]
-            if d.get("classification") not in {
+            role = d.get("role", "supporting")
+            status = d.get("classification")
+            if role in CONTROLLING_ROLES:
+                if status != "REVALIDATION_REQUIRED":
+                    problems.append(
+                        f"{dep_id}: controlling dependent must be "
+                        f"REVALIDATION_REQUIRED after change to {node['id']} "
+                        f"(found {status})"
+                    )
+            elif status not in {
                 "REVALIDATION_REQUIRED",
                 "REFUTED",
                 "HOLD",
             }:
                 problems.append(
                     f"{dep_id}: reverse-impact required after change to "
-                    f"{node['id']} (found {d.get('classification')})"
+                    f"{node['id']} (found {status})"
                 )
     return problems
 
@@ -151,6 +160,69 @@ def reverse_impact_report(graph: dict[str, Any], changed: str) -> dict[str, Any]
     }
 
 
+
+def closure_report(graph: dict[str, Any]) -> dict[str, Any]:
+    nodes = index_nodes(graph)
+    edges = [e for e in graph.get("edges", []) if e.get("type") == "depends_on"]
+    terminal = []
+    openish = []
+    for nid, node in sorted(nodes.items()):
+        row = {
+            "id": nid,
+            "classification": node.get("classification"),
+            "role": node.get("role", "supporting"),
+        }
+        if node.get("classification") in TERMINAL:
+            terminal.append(row)
+        else:
+            openish.append(row)
+    controlling = [
+        n for n in nodes.values() if n.get("role") in CONTROLLING_ROLES
+    ]
+    return {
+        "schema": "sandbox.hard-gate-closure/v1",
+        "scientific_effect": "NONE",
+        "lemma_closed": False,
+        "authority": "NONE",
+        "node_count": len(nodes),
+        "edge_count": len(edges),
+        "terminal_nodes": terminal,
+        "nonterminal_nodes": openish,
+        "controlling_nodes": [
+            {"id": n["id"], "classification": n.get("classification")}
+            for n in controlling
+        ],
+        "problems": check_graph(graph),
+        "note": "Closure report only; not research acceptance.",
+    }
+
+
+def mutate_lower_and_check(graph: dict[str, Any], lower: str) -> dict[str, Any]:
+    """Negative control: change a lower node and require dependents revalidate.
+
+    Does not write the graph. Returns whether the mutated in-memory copy fails
+    closed as required by issue #90.
+    """
+    import copy
+
+    g = copy.deepcopy(graph)
+    nodes = index_nodes(g)
+    if lower not in nodes:
+        raise ValueError(f"unknown node {lower}")
+    nodes[lower]["source_revision_changed"] = True
+    # Leave dependents untouched — expect reverse-impact failures.
+    problems = check_graph(g)
+    hit = sorted(dependents(g.get("edges", []), lower))
+    return {
+        "changed": lower,
+        "transitive_dependents": hit,
+        "problems": problems,
+        "fails_closed": any("reverse-impact required" in p for p in problems),
+        "scientific_effect": "NONE",
+        "lemma_closed": False,
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -159,6 +231,14 @@ def main(argv: list[str] | None = None) -> int:
     p_impact = sub.add_parser("reverse-impact", help="list transitive dependents")
     p_impact.add_argument("graph", type=Path)
     p_impact.add_argument("changed")
+    p_close = sub.add_parser("closure-report", help="dependency closure snapshot")
+    p_close.add_argument("graph", type=Path)
+    p_mut = sub.add_parser(
+        "mutate-lower",
+        help="negative control: mark lower changed; expect reverse-impact fail",
+    )
+    p_mut.add_argument("graph", type=Path)
+    p_mut.add_argument("changed")
     args = parser.parse_args(argv)
     graph = load_graph(args.graph)
     if args.cmd == "check":
@@ -174,6 +254,13 @@ def main(argv: list[str] | None = None) -> int:
             "not a live research register."
         )
         return 1 if problems else 0
+    if args.cmd == "closure-report":
+        print(json.dumps(closure_report(graph), indent=2, sort_keys=True))
+        return 0
+    if args.cmd == "mutate-lower":
+        report = mutate_lower_and_check(graph, args.changed)
+        print(json.dumps(report, indent=2, sort_keys=True))
+        return 0 if report["fails_closed"] else 1
     report = reverse_impact_report(graph, args.changed)
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0
