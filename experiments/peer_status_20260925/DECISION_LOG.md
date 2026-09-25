@@ -422,3 +422,15 @@ trial#128 observe-only; nav sole tip P1. Pending multi-model votes unchanged.
 `pr97_followup_nav_and_handoff` sole tip P1 unamplified; no new package.
 
 **Sandbox next:** no eng package; watches already live (CI/PR/timer).
+
+## 2026-09-25T21:44:44Z — d7-multimodel-loop timer (stale prompt delivery)
+
+**Refresh:** tip still `e3cd7d4`; RESEARCH_INDEX still absent → nav package still
+needed. #98 still `@6e3f774` verify IN_PROGRESS (nav/loss-only green; long
+verify job at Bernstein replay step). No tip absorb of nav. No new peer push.
+
+**Priority ambiguous?** No — GPT+Claude consensus already confirmed this minute.
+
+**Decision:** no new package; no fresh model consult; sole P1 = nav/handoff;
+continue observe #98 CI + OA re-review. Replacement timer already armed
+(21:42Z); CI/PR watches live.
