@@ -477,3 +477,27 @@ do not re-apply**.
 **Disposition:** Consensus to package F2 is **already satisfied / superseded** by
 peer tip `47ad537` (ABSORBED). Do not re-package or re-apply sandbox draft.
 Continue observe CI + OA re-review; nav sole tip P1.
+
+## 2026-09-25T21:59Z — OA A–D author-repair lease; yield to Cursor peer
+
+**Events (forge):**
+1. OA combined F1–F5 re-review of `6e3f774` — **AMEND_REQUIRED** (4
+   defects): (A) crosswalk owner seed after reverse closure omits dependents;
+   (B) malformed old crosswalk swallowed as `absent_old_schema`; (C) cross-repo
+   binding mis-bound locally; (D) controlling source observability.
+2. Owner `@cursor TAKE ONE BOUNDED AUTHOR REPAIR` on `6e3f774` binding both
+   reviews — Cursor peer agent `bc-01a0d95b…` claimed.
+3. Peer returned `47ad537` addressing F2/D (+ repo validation); CI verify
+   still IN_PROGRESS.
+4. OA precision follow-up on `47ad537`: path mirrors ≠ scientific subobject
+   bytes — need `extraction_rule` / `expected_sha256` (or pinned extracted
+   mirrors); Drive freshness remains external obligation.
+
+**Tip check:** A (transitive owner-seed closure) and B (malformed≠absent) still
+visible on `47ad537` (`authority_seeds` post-impact without reverse re-run;
+broad `except AdapterError` → `absent_old_schema`).
+
+**Decision:** **Yield** — author lease is peer-owned. Do not race #98. Observe
+CI + next peer head / OA re-review. Nav sole tip P1. No new sandbox package
+while peer holds the repair lease (portable recipe only if peer asks or stalls
+with an unmet machine gap).

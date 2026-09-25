@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T21:57:25Z",
+  "as_of_utc": "2026-09-25T21:59:00Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -24,8 +24,8 @@
       "claude-sonnet-5-thinking-medium@bc-40e3af3f"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98@47ad537 F2 fail-closed + tip binding migration; sandbox observe CI/re-review only",
-    "consensus": "GPT+Claude F2 votes A YES / B NO / C NO — SUPERSEDED by peer land @47ad537 (ABSORBED). Nav sole tip P1; observe #98 CI + OA re-review.",
+    "live_peer_override": "main#98@47ad537 author-repair lease (bc-01a0d95b); OA A–D + precision follow-up; sandbox yield",
+    "consensus": "Yield #98 author repair to Cursor peer. F2@47ad537 ABSORBED; A/B still open on tip; OA wants extraction_rule/expected_sha256 precision. Nav sole tip P1.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -135,13 +135,13 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip; #98@47ad537 F2 fail-closed landed — observe CI + OA re-review."
+      "ask": "Land on tip; #98 author-repair lease active @47ad537 — observe only."
     }
   ],
   "observe_only": [
-    "main#98@47ad537 — F2 fail-closed + binding migration; verify IN_PROGRESS; DRAFT; #90 OPEN",
-    "trial#128 F1 package — V1–V5 ACCEPT; observe only; do not promote alone",
-    "Math- D5 (#9/#30/#31 active; #14 CLOSED superseded) observe only",
+    "main#98@47ad537 — F2 land; verify IN_PROGRESS; author lease peer; OA A–D + precision open; DRAFT; #90 OPEN",
+    "trial#128 F1 — V1–V5 ACCEPT; observe only",
+    "Math- D5 observe only",
     "main#103 vault",
     "main#104/#106 parked"
   ],
@@ -153,24 +153,28 @@
     {
       "surface": "main#98",
       "head": "47ad537d0858",
-      "owner": "cursor peer on scientific-state-schema branch",
-      "work": "F2 fail-closed unresolved controlling + migrate Q0/D1 tip bindings",
+      "owner": "cursor peer bc-01a0d95b (author-repair lease)",
+      "work": "Bounded A–D repair after OA combined re-review; F2 head returned; A/B+precision remain",
       "sandbox_role": "observe_ci_only_do_not_race",
-      "evidence": "fix(#90): F2 fail-closed unresolved controlling sources + migrate tip bindings",
+      "evidence": "owner @cursor TAKE ONE BOUNDED AUTHOR REPAIR; peer head 47ad537",
       "check_summary": {
         "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       },
-      "note": "sandbox F2 package superseded; yield; await CI + OA re-review"
+      "open_vs_oa": [
+        "A crosswalk owner transitive reverse still incomplete on tip",
+        "B malformed old schema still mapped to absent_old_schema",
+        "OA precision: extraction_rule/expected_sha256 for scientific subobjects"
+      ]
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T21:58:30Z",
+    "at": "2026-09-25T21:59:00Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "F2 votes confirm package but peer@47ad537 already absorbed; observe CI",
-    "model_consult": "confirmed gpt@bc-5c344912 + claude@bc-40e3af3f (superseded)"
+    "decision": "Yield #98 author lease; observe CI/peer next head; nav sole P1",
+    "model_consult": "skipped — live peer ownership decisive"
   },
   "resolved_alternate": [
     {
