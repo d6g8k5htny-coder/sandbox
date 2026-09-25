@@ -1,8 +1,8 @@
 {
-  "as_of_utc": "2026-09-25T19:11:15Z",
+  "as_of_utc": "2026-09-25T19:19:14Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
-  "hardening_tip": "fcad72366743",
+  "hardening_tip": "e3cd7d4873c5",
   "note": "Overlap watch for inventable/cursor eng PRs; not acceptance.",
   "sandbox_packages": [
     "pr97_followup_nav_and_handoff.patch (TOP ready)",
@@ -25,9 +25,9 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "0449280",
+      "head": "4b983b9",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T18:43:00Z",
+      "updatedAt": "2026-09-25T19:18:37Z",
       "files": [
         ".github/workflows/ci.yml",
         "architecture/scientific_state/README.md",
@@ -46,9 +46,9 @@
         "tools/semantic_digest.py"
       ],
       "checks": {
-        "verify": "SUCCESS",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
+        "verify": "QUEUED",
+        "navigation": "QUEUED",
+        "loss-only-controls": "QUEUED"
       }
     },
     {
@@ -112,17 +112,17 @@
     {
       "number": 105,
       "title": "docs: retire stale CONTRIBUTION_PLAN next-items (LPW identity REFUTED, headline pinned)",
-      "state": "OPEN",
-      "draft": true,
+      "state": "MERGED",
+      "draft": false,
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "91a5e9a",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
-      "updatedAt": "2026-09-25T18:54:17Z",
+      "updatedAt": "2026-09-25T19:16:01Z",
       "files": [
         "docs/CONTRIBUTION_PLAN.md"
       ],
       "checks": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }

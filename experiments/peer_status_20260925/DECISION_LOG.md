@@ -161,3 +161,30 @@ nav block absent). #105 @`91a5e9a` CI in progress. #98 still green draft.
 No material change since prior loop. Tip `fcad723`; nav package still applies;
 #105 @`91a5e9a` verify still in progress; #98 green draft. Keep sole P1 =
 nav/handoff. No new package.
+
+## 2026-09-25T19:19:14Z — #98 event-boundary: peer land supersedes sandbox package
+
+**Facts:**
+- OpenAI AMEND_REQUIRED on #98@`0449280` (malformed dep/`as_of` swallowed;
+  CLI ignored before/after; CI tip identity ≠ base→head).
+- Sandbox began parallel portable amend in `/tmp/main-pr98-amend` (strict
+  containers, argparse, GITHUB_EVENT_PATH compare, entry-point tests) —
+  local EventBoundaryAmendTests 10/10 green.
+- **Live peer override:** Cursor #98 owner pushed
+  `4b983b9 fix(#90): deploy before/after CLI + strict as_of/dep containers`
+  (subcommand CLI + CI tip-health/event-compare) before sandbox handoff.
+- Tip advanced to `e3cd7d4873c5` (#105 merged). Nav/handoff package **still
+  applies**.
+
+**Multi-model:** launched fresh A/B/C votes
+([Claude vote](bc-6c4e999d-2dc3-597a-9a28-9f495afa910b),
+[GPT vote](bc-a8093c89-9984-555a-bdfa-c8e633c9497e)); live peer land already
+decisive per COORDINATION_PROTOCOL (defer to forge ownership).
+
+**Decision:**
+1. Mark `pr98_event_boundary_amend` **ABSORBED / do not re-apply**.
+2. Yield #98 — observe CI @`4b983b9` only; no race.
+3. Keep `pr97_followup_nav_and_handoff.patch` as **sole tip P1** on `e3cd7d4`.
+4. No other new eng package.
+
+**Sandbox next:** commit absorb docs + historical patch; watch #98 CI; timer loop.

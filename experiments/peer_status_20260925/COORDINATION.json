@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T19:11:30Z",
+  "as_of_utc": "2026-09-25T19:19:14Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -15,10 +15,13 @@
       "claude-sonnet-5-thinking-medium",
       "gpt-5.6-terra-medium"
     ],
-    "pending_votes": [],
-    "live_peer_override": "main#98 comment: own #90 adapter first; defer inventable #105-#108 churn until adapter green",
-    "consensus": "Claude A/B/C ratified; GPT allowlist-ask superseded by absorb + live #98 peer ownership. Sandbox yields #98; nav/handoff deferred until #90 adapter CI green.",
-    "gpt_vote_summary": "NEXT: revalidate pr98 allowlist vs d765efa; ASK_MAIN apply allowlist; DO_NOT STATUS churn. SUPERSEDED: allowlist already absorbed; peer owns #90 adapter @fc6caf5."
+    "pending_votes": [
+      "claude-sonnet-5-thinking-medium@bc-6c4e999d",
+      "gpt-5.6-terra-medium@bc-a8093c89"
+    ],
+    "live_peer_override": "main#98 peer landed event-boundary amend @4b983b9 before sandbox package handoff — yield; do not race",
+    "consensus": "Provisional (votes in flight): mark parallel pr98_event_boundary_amend ABSORBED/superseded by peer @4b983b9; keep nav/handoff sole tip P1 on e3cd7d4; observe #98 CI.",
+    "gpt_vote_summary": "Prior allowlist vote superseded. Fresh A/B/C vote pending delivery."
   },
   "absorbed": [
     {
@@ -26,12 +29,7 @@
       "on": "main#98",
       "head": "d765efa",
       "action": "do_not_reapply",
-      "evidence": "commit: fix: allowlist scientific_state and claims_gate_adapter CI commands",
-      "check_summary": {
-        "verify": "IN_PROGRESS",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
-      }
+      "evidence": "commit: fix: allowlist scientific_state and claims_gate_adapter CI commands"
     },
     {
       "item": "Math- CONTROLLING_ELIGIBLE",
@@ -44,12 +42,19 @@
       "on": "main#98",
       "head": "c1821b6",
       "action": "do_not_reapply",
-      "evidence": "commit: fix(#90): surface unsatisfied_required in aggregate HOLD reports",
-      "observed_head": "0449280",
+      "evidence": "commit: fix(#90): surface unsatisfied_required in aggregate HOLD reports"
+    },
+    {
+      "item": "pr98_event_boundary_amend",
+      "on": "main#98",
+      "head": "4b983b934f59",
+      "action": "do_not_reapply",
+      "evidence": "commit: fix(#90): deploy before/after CLI + strict as_of/dep containers",
+      "note": "Sandbox parallel recipe against 0449280 superseded; peer landed first",
       "check_summary": {
-        "verify": "IN_PROGRESS",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
+        "verify": "QUEUED",
+        "navigation": "QUEUED",
+        "loss-only-controls": "QUEUED"
       }
     }
   ],
@@ -57,18 +62,18 @@
     {
       "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
-      "against": "chatgpt/drive-github-hardening-20260919 @ fcad72366743",
-      "fix": "RESEARCH_INDEX + handoff APPLIED still absent after #97/#108",
+      "against": "chatgpt/drive-github-hardening-20260919 @ e3cd7d4873c5",
+      "fix": "RESEARCH_INDEX + handoff APPLIED still absent after #97/#108/#109/#105",
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip after #109; #109 only linked crosswalk from RN_SIDE24_CELL.md. RESEARCH_INDEX + handoff APPLIED + math_status README nav block still absent."
+      "ask": "Land on tip after #105 merge; RESEARCH_INDEX + handoff APPLIED + math_status README nav block still absent. Patch applies cleanly on e3cd7d4."
     }
   ],
   "observe_only": [
-    "main#98 green @0449280 \u2014 peer-owned; no race",
-    "main#105 verify red until consumers re-apply",
+    "main#98 event-boundary @4b983b9 — peer-owned; CI queued; no race",
+    "main#105 MERGED to tip e3cd7d4",
     "main#103 vault",
     "main#104/#106 parked",
     "Math-#9 D5"
@@ -80,31 +85,30 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "0449280",
+      "head": "4b983b934f59",
       "owner": "cursor peer on scientific-state-schema branch",
-      "work": "#90 thin claims_gate_adapter four loss-only cases + duplicate-edge reject",
+      "work": "#90 event-boundary CLI + CI tip-health/event-compare + strict containers",
       "sandbox_role": "observe_ci_only_do_not_race",
-      "evidence": "commit fix(#90): loss-only reverse-impact cases on thin claims adapter",
-      "note": "verify SUCCESS; hold aggregate + digests landed",
+      "evidence": "commit fix(#90): deploy before/after CLI + strict as_of/dep containers",
       "check_summary": {
-        "verify": "SUCCESS",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
+        "verify": "QUEUED",
+        "navigation": "QUEUED",
+        "loss-only-controls": "QUEUED"
       }
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T19:11:30Z",
-    "tip": "fcad723",
+    "at": "2026-09-25T19:19:14Z",
+    "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "No change: nav/handoff sole P1 on fcad723; #105 verify still running; #98 green draft",
-    "model_consult": "skipped \u2014 priority unambiguous"
+    "decision": "Yield #98 amend to peer land @4b983b9; nav/handoff sole P1 on tip e3cd7d4; watch #98 CI",
+    "model_consult": "launched A/B/C votes; live peer override already decisive"
   },
   "resolved_alternate": [
     {
       "item": "pr105_consumers_fix",
-      "on": "main#105@2440881",
-      "how": "removed lpw_fold_dispositions cite; consumers_check problems=0 without CONSUMERS.json edit",
+      "on": "main#105@2440881 then merged e3cd7d4",
+      "how": "cite rewrite then tip merge of CONTRIBUTION_PLAN next-items retire",
       "action": "do_not_reapply_patch"
     }
   ]

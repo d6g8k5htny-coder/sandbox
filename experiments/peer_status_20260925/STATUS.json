@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T19:11:10Z",
+  "as_of_utc": "2026-09-25T19:18:55Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -176,39 +176,39 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T18:43:00Z",
-      "head": "0449280",
+      "updatedAt": "2026-09-25T19:18:37Z",
+      "head": "4b983b9",
       "checks": [
         {
           "name": "verify",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "QUEUED"
         },
         {
           "name": "verify",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "QUEUED"
         },
         {
           "name": "navigation",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "QUEUED"
         },
         {
           "name": "loss-only-controls",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "QUEUED"
         },
         {
           "name": "loss-only-controls",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "QUEUED"
         }
       ],
       "check_summary": {
-        "verify": "SUCCESS",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
+        "verify": "QUEUED",
+        "navigation": "QUEUED",
+        "loss-only-controls": "QUEUED"
       }
     },
     {
@@ -259,21 +259,21 @@
       "pr": 105,
       "role": "cursor_contribution_plan_lpw_consumers_block",
       "title": "docs: retire stale CONTRIBUTION_PLAN next-items (LPW identity REFUTED, headline pinned)",
-      "state": "OPEN",
-      "isDraft": true,
+      "state": "MERGED",
+      "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
-      "updatedAt": "2026-09-25T18:54:17Z",
+      "updatedAt": "2026-09-25T19:16:01Z",
       "head": "91a5e9a",
       "checks": [
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
         },
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
         },
         {
           "name": "navigation",
@@ -292,7 +292,7 @@
         }
       ],
       "check_summary": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -596,8 +596,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
-      "updatedAt": "2026-09-25T19:04:20Z",
-      "head": "d85f4ec",
+      "updatedAt": "2026-09-25T19:16:19Z",
+      "head": "6742548",
       "checks": [
         {
           "name": "replay",
@@ -638,8 +638,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T18:55:48Z",
-      "head": "db29ed9",
+      "updatedAt": "2026-09-25T19:11:32Z",
+      "head": "920398f",
       "checks": [],
       "check_summary": {}
     }

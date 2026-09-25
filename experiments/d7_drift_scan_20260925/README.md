@@ -23,3 +23,5 @@ Ready apply packages for peers with main write:
 | `pr_handoff_applied.patch` | tip handoff prose (Math- already fixed) |
 
 Scientific effect NONE. Does not merge or close PRs (sandbox cannot push main).
+
+- `pr98_event_boundary_amend.patch` — ABSORBED on #98@`4b983b9` (do not re-apply).
