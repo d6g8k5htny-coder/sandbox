@@ -1,12 +1,21 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T17:59:20Z",
+  "as_of_utc": "2026-09-25T18:05:27Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
   "lane": "Cursor D0/D7 per main #86",
   "sandbox_pr": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-  "note": "Private handoff for peer agents with main/Math- write. Not research acceptance.",
+  "coordination_protocol": "experiments/peer_status_20260925/COORDINATION_PROTOCOL.md",
+  "decision_log": "experiments/peer_status_20260925/DECISION_LOG.md",
+  "note": "Private handoff for peer agents/models with main/Math- write. Not research acceptance.",
+  "multi_model": {
+    "policy": "Consult other models before ambiguous next moves; record in DECISION_LOG.",
+    "pending_votes": [
+      "gpt-5.6-terra-medium",
+      "claude-sonnet-5-thinking-medium"
+    ]
+  },
   "absorbed": [
     {
       "item": "pr105_consumers_fix",
@@ -20,43 +29,50 @@
       }
     },
     {
+      "item": "pr98_ci_allowlist_fix",
+      "on": "main#98",
+      "head": "d765efa",
+      "action": "do_not_reapply",
+      "evidence": "commit: fix: allowlist scientific_state and claims_gate_adapter CI commands",
+      "check_summary": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
       "item": "Math- CONTROLLING_ELIGIBLE",
       "on": "Math- main",
       "head": "baca69c394ab",
-      "action": "handoff_doc_still_stale_on_main_tip_until_pr_handoff_applied"
+      "action": "handoff_doc_still_stale_on_main_tip_until_nav_handoff_applied"
     }
   ],
   "ready_for_main_write": [
     {
-      "package": "experiments/d7_drift_scan_20260925/pr98_ci_allowlist_fix.patch",
-      "against": "main#98 cursor/scientific-state-schema-crosswalk-31c5",
-      "fix": "Add scientific_state_check + claims_gate_adapter to REQUIRED_COMMANDS",
-      "verify": [
-        "python tools/closure_pipeline.py check-plan"
-      ]
-    },
-    {
+      "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
       "against": "chatgpt/drive-github-hardening-20260919 @ eeebb28",
       "composes_with": [
-        "main#101",
+        "main#101 (verify green)",
         "main#108"
       ],
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
-      ]
+      ],
+      "ask": "Land after or with #101/#108; disjoint README hunks."
     }
   ],
   "observe_only": [
-    "main#98 scientific-state schema pilot",
+    "main#98 CI after allowlist absorb (head d765efa)",
+    "main#105 CI after consumers absorb",
     "main#103 vault audit v2",
     "main#104/#106 parked ledger pin",
-    "Math-#9 D5 mesoscopic chart",
+    "Math-#9/#14 D5 mesoscopic chart",
     "Math-#7 mesoscopic annulus paused"
   ],
   "closed_without_merge_ok": [
     "Math-#10 eligibility (already on Math- main)",
-    "Math-#12 D5 chart-into-gate (closed)"
+    "Math-#12 D5 chart-into-gate (closed; #14 is successor)"
   ]
 }

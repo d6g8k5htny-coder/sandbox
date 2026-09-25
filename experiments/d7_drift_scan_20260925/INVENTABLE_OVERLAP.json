@@ -1,21 +1,21 @@
 {
-  "as_of_utc": "2026-09-25T17:59:31Z",
+  "as_of_utc": "2026-09-25T18:05:31Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
-  "hardening_tip": "eeebb28eeab2",
+  "hardening_tip": "848aea2a874c",
   "note": "Overlap watch for inventable/cursor eng PRs; not acceptance.",
   "sandbox_packages": [
-    "pr98_ci_allowlist_fix.patch",
-    "pr97_followup_nav_and_handoff.patch",
+    "pr97_followup_nav_and_handoff.patch (TOP ready)",
     "pr97_followup_nav_links.patch",
     "pr_handoff_applied.patch",
+    "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa \u2014 do not reapply)",
     "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 \u2014 do not reapply)"
   ],
   "absorbed": [
-    "pr105_consumers_fix on main#105@54a8c59"
+    "pr105_consumers_fix on main#105@54a8c59",
+    "pr98_ci_allowlist_fix on main#98@d765efa"
   ],
   "ready": [
-    "pr98_ci_allowlist_fix.patch",
     "pr97_followup_nav_and_handoff.patch"
   ],
   "prs": [
@@ -25,9 +25,9 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "91c7a47",
+      "head": "d765efa",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T17:53:04Z",
+      "updatedAt": "2026-09-25T18:05:08Z",
       "files": [
         ".github/workflows/ci.yml",
         "architecture/scientific_state/README.md",
@@ -39,10 +39,12 @@
         "tests/test_claims_gate_adapter.py",
         "tests/test_scientific_state.py",
         "tools/claims_gate_adapter.py",
+        "tools/closure_pipeline.py",
+        "tools/run_checks.py",
         "tools/scientific_state_check.py"
       ],
       "checks": {
-        "verify": "FAILURE",
+        "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -50,12 +52,12 @@
     {
       "number": 101,
       "title": "docs(math_status): STATUS.md \"CERTIFIED\" q=2 envelope is REQUIRED CARRIER ABSENT (walk-down 9, M1)",
-      "state": "OPEN",
-      "draft": true,
+      "state": "MERGED",
+      "draft": false,
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "aff02f2",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/101",
-      "updatedAt": "2026-09-25T17:41:18Z",
+      "updatedAt": "2026-09-25T18:04:59Z",
       "files": [
         "docs/math_status/README.md"
       ],
@@ -68,12 +70,12 @@
     {
       "number": 102,
       "title": "docs(inventable): SIDE24_CELL importers restricted to declared square C; complement named (engineering replay only)",
-      "state": "OPEN",
-      "draft": true,
+      "state": "MERGED",
+      "draft": false,
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "00ffa74",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/102",
-      "updatedAt": "2026-09-25T17:41:19Z",
+      "updatedAt": "2026-09-25T18:05:09Z",
       "files": [
         "README.md",
         "docs/RESEARCH_EXECUTION.md",
@@ -147,12 +149,12 @@
     {
       "number": 107,
       "title": "docs(inventable): OPEN_PROBLEMS frozen errata E1/E2 (OPEN_PROBLEMS.md untouched, archive-pinned)",
-      "state": "OPEN",
-      "draft": true,
+      "state": "MERGED",
+      "draft": false,
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "48d6fbc",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/107",
-      "updatedAt": "2026-09-25T17:41:19Z",
+      "updatedAt": "2026-09-25T18:05:04Z",
       "files": [
         "docs/NAVIGATION.json",
         "docs/OPEN_PROBLEMS_FROZEN_ERRATA_20260925.md"
@@ -171,7 +173,7 @@
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "89feb81",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
-      "updatedAt": "2026-09-25T17:55:01Z",
+      "updatedAt": "2026-09-25T18:04:23Z",
       "files": [
         "docs/math_status/PACKET.json",
         "docs/math_status/README.md",

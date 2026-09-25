@@ -1,10 +1,10 @@
 {
-  "as_of_utc": "2026-09-25T17:59:27Z",
+  "as_of_utc": "2026-09-25T18:05:27Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
   "note": "Private coordination snapshot only; not research acceptance.",
-  "main_open_pr_count": 16,
+  "main_open_pr_count": 13,
   "sandbox_packages": {
     "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
     "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
@@ -176,13 +176,13 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T17:53:04Z",
-      "head": "91c7a47",
+      "updatedAt": "2026-09-25T18:05:08Z",
+      "head": "d765efa",
       "checks": [
         {
           "name": "verify",
-          "conclusion": "FAILURE",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "IN_PROGRESS"
         },
         {
           "name": "verify",
@@ -206,7 +206,7 @@
         }
       ],
       "check_summary": {
-        "verify": "FAILURE",
+        "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -216,16 +216,16 @@
       "pr": 101,
       "role": "inventable_math_status_q2_carrier_absent",
       "title": "docs(math_status): STATUS.md \"CERTIFIED\" q=2 envelope is REQUIRED CARRIER ABSENT (walk-down 9, M1)",
-      "state": "OPEN",
-      "isDraft": true,
+      "state": "MERGED",
+      "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/101",
-      "updatedAt": "2026-09-25T17:41:18Z",
+      "updatedAt": "2026-09-25T18:04:59Z",
       "head": "aff02f2",
       "checks": [
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
         },
         {
           "name": "verify",
@@ -388,16 +388,16 @@
       "pr": 107,
       "role": "inventable_open_problems_frozen_errata",
       "title": "docs(inventable): OPEN_PROBLEMS frozen errata E1/E2 (OPEN_PROBLEMS.md untouched, archive-pinned)",
-      "state": "OPEN",
-      "isDraft": true,
+      "state": "MERGED",
+      "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/107",
-      "updatedAt": "2026-09-25T17:41:19Z",
+      "updatedAt": "2026-09-25T18:05:04Z",
       "head": "48d6fbc",
       "checks": [
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
         },
         {
           "name": "verify",
@@ -434,7 +434,7 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
-      "updatedAt": "2026-09-25T17:55:01Z",
+      "updatedAt": "2026-09-25T18:04:23Z",
       "head": "89feb81",
       "checks": [
         {
@@ -596,8 +596,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
-      "updatedAt": "2026-09-25T17:58:43Z",
-      "head": "ccbf690",
+      "updatedAt": "2026-09-25T18:04:39Z",
+      "head": "ea52f84",
       "checks": [
         {
           "name": "replay",
@@ -636,10 +636,10 @@
       "role": "sandbox_handoff_this_run",
       "title": "Private D0 handoff: unblock main PR87 math_status crosswalk",
       "state": "OPEN",
-      "isDraft": true,
+      "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T17:55:29Z",
-      "head": "3cdd608",
+      "updatedAt": "2026-09-25T18:02:00Z",
+      "head": "0aac3c3",
       "checks": [],
       "check_summary": {}
     }

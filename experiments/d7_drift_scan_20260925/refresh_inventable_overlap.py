@@ -92,12 +92,16 @@ def main() -> int:
         "hardening_tip": (tip_sha or "")[:12],
         "note": "Overlap watch for inventable/cursor eng PRs; not acceptance.",
         "sandbox_packages": [
-            "pr97_followup_nav_and_handoff.patch",
+            "pr97_followup_nav_and_handoff.patch (TOP ready)",
             "pr97_followup_nav_links.patch",
             "pr_handoff_applied.patch",
+            "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa — do not reapply)",
             "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 — do not reapply)",
         ],
-        "absorbed": ["pr105_consumers_fix on main#105@54a8c59"],
+        "absorbed": [
+            "pr105_consumers_fix on main#105@54a8c59",
+            "pr98_ci_allowlist_fix on main#98@d765efa",
+        ],
         "ready": ["pr97_followup_nav_and_handoff.patch"],
         "prs": rows,
     }
