@@ -1,5 +1,13 @@
 # Apply — unblock main PR #87 (`math_status_check`)
 
+# SUPERSEDED for primary path (2026-09-25)
+
+[main PR #87](https://github.com/d6g8k5htny-coder/main/pull/87) was **closed** by the owner
+as superseded by [main PR #92](https://github.com/d6g8k5htny-coder/main/pull/92)
+(outside-packet placement). Keep this allowlist patch only as historical
+fallback if a tip must retain the file inside `docs/math_status/`.
+
+
 **Scientific effect: NONE.** `lemma_closed` stays false. This is eng hygiene for
 issue [#86](https://github.com/d6g8k5htny-coder/main/issues/86) D0, not review
 acceptance and not certificate discharge.
