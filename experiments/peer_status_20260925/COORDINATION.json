@@ -17,24 +17,21 @@
       "claude-sonnet-5-thinking-medium@bc-6c4e999d",
       "gpt-5.6-terra-medium@bc-a8093c89",
       "claude-sonnet-5-thinking-medium@bc-6e5072b3",
-      "claude-sonnet-5-thinking-medium@bc-23c66df2"
-    ],
-    "pending_votes": [
+      "claude-sonnet-5-thinking-medium@bc-23c66df2",
       "gpt-5.6-terra-medium@bc-d5be2b0e",
       "claude-sonnet-5-thinking-medium@bc-279a081c"
     ],
+    "pending_votes": [],
     "live_peer_override": "main#98@6e3f774 combined F1+F2-F5; sandbox observe CI/re-review only",
-    "consensus": "Provisional (pending GPT+Claude votes): A observe #98 only; B nav sole tip P1 ready unamplified; C no new package. Peer land decisive on F1 port.",
+    "consensus": "GPT+Claude confirm: A observe #98 only; B nav sole tip P1 ready unamplified; C no new package.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
     "claude_enforcement_vote": "A YES package five-family amend; B NO idle wait; C NO other packages. Matches already-shipped pr98_enforcement_boundary_amend.",
-    "active_consult": {
-      "reason": "peer PR #98 moved to combined F1+F2-F5 tip; user asked continuous multi-model coordination",
-      "agents": [
-        "https://cursor.com/agents/bc-d5be2b0e-36e9-50da-9284-41c521ef75c3",
-        "https://cursor.com/agents/bc-279a081c-7ef1-5808-ac44-55c7d49000de"
-      ]
+    "post_f1_port_votes": {
+      "gpt": "A YES B YES C NO @bc-d5be2b0e",
+      "claude": "A YES B YES C NO @bc-279a081c",
+      "at": "2026-09-25T21:44Z"
     }
   },
   "absorbed": [
@@ -148,11 +145,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T21:41:17Z",
+    "at": "2026-09-25T21:44:00Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Observe #98@6e3f774 CI + OA re-review; nav sole P1 ready; no new package; multi-model consult in flight",
-    "model_consult": "gpt@bc-d5be2b0e + claude@bc-279a081c pending"
+    "decision": "GPT+Claude confirm observe #98@6e3f774 + nav sole P1; no new package",
+    "model_consult": "confirmed gpt@bc-d5be2b0e + claude@bc-279a081c"
   },
   "resolved_alternate": [
     {

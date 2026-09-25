@@ -411,3 +411,14 @@ re-review + hosted CI on that SHA.
 
 **Decision:** no sandbox eng change. Continue observe #98@`6e3f774` CI;
 trial#128 observe-only; nav sole tip P1. Pending multi-model votes unchanged.
+
+## 2026-09-25T21:44Z — peer votes confirm provisional consensus
+
+**Votes:**
+- [GPT vote](bc-d5be2b0e-36e9-50da-9284-41c521ef75c3): A **YES**, B **YES**, C **NO**.
+- [Claude vote](bc-279a081c-7ef1-5808-ac44-55c7d49000de): A **YES**, B **YES**, C **NO**.
+
+**Consensus (confirmed):** observe #98 CI/OA re-review only; keep
+`pr97_followup_nav_and_handoff` sole tip P1 unamplified; no new package.
+
+**Sandbox next:** no eng package; watches already live (CI/PR/timer).
