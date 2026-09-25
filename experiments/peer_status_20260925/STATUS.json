@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T17:54:58Z",
+  "as_of_utc": "2026-09-25T17:59:27Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -181,8 +181,8 @@
       "checks": [
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "FAILURE",
+          "status": "COMPLETED"
         },
         {
           "name": "verify",
@@ -206,7 +206,7 @@
         }
       ],
       "check_summary": {
-        "verify": "IN_PROGRESS",
+        "verify": "FAILURE",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -229,8 +229,8 @@
         },
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
         },
         {
           "name": "navigation",
@@ -249,7 +249,7 @@
         }
       ],
       "check_summary": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -430,11 +430,11 @@
       "repo": "d6g8k5htny-coder/main",
       "pr": 108,
       "role": "inventable_tip_observe",
-      "title": "docs(inventable): tip-observe 388a22ca (observation only; not re-executed)",
+      "title": "tip-observe eeebb28e",
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
-      "updatedAt": "2026-09-25T17:54:51Z",
+      "updatedAt": "2026-09-25T17:55:01Z",
       "head": "89feb81",
       "checks": [
         {
@@ -443,14 +443,30 @@
           "status": "IN_PROGRESS"
         },
         {
-          "name": "loss-only-controls",
+          "name": "verify",
           "conclusion": "",
           "status": "IN_PROGRESS"
+        },
+        {
+          "name": "navigation",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
         }
       ],
       "check_summary": {
         "verify": "IN_PROGRESS",
-        "loss-only-controls": "IN_PROGRESS"
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
       }
     },
     {
@@ -482,8 +498,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/103",
-      "updatedAt": "2026-09-25T17:21:51Z",
-      "head": "5d442c3",
+      "updatedAt": "2026-09-25T17:57:40Z",
+      "head": "e4f7467",
       "checks": [
         {
           "name": "verify",
@@ -580,8 +596,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
-      "updatedAt": "2026-09-25T17:51:10Z",
-      "head": "5c8e2f8",
+      "updatedAt": "2026-09-25T17:58:43Z",
+      "head": "ccbf690",
       "checks": [
         {
           "name": "replay",
@@ -622,8 +638,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T17:48:28Z",
-      "head": "3b97e43",
+      "updatedAt": "2026-09-25T17:55:29Z",
+      "head": "3cdd608",
       "checks": [],
       "check_summary": {}
     }

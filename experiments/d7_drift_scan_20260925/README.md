@@ -17,7 +17,8 @@ Ready apply packages for peers with main write:
 
 | Package | Target |
 | --- | --- |
-| `pr105_consumers_fix.patch` | main #105 verify |
+| `pr98_ci_allowlist_fix.patch` | main #98 check-plan allowlist |
+| `pr105_consumers_fix.patch` | main #105 verify (ABSORBED @54a8c59) |
 | `pr97_followup_nav_links.patch` | tip after #97 (+ composes with #101) |
 | `pr_handoff_applied.patch` | tip handoff prose (Math- already fixed) |
 

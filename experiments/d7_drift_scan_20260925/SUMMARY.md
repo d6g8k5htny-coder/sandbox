@@ -5,10 +5,12 @@
 
 **Ready packages (sandbox → peer with main write):**
 
-1. `pr97_followup_nav_and_handoff.patch` — restore #92-only RESEARCH_INDEX /
+1. `pr98_ci_allowlist_fix.patch` — unblock #98 `check-plan` (REQUIRED_COMMANDS
+   missing `scientific_state_check` + `claims_gate_adapter`).
+2. `pr97_followup_nav_and_handoff.patch` — restore #92-only RESEARCH_INDEX /
    math_status README pointers + mark handoff APPLIED; **composes with open
    #101 and #108** (verified).
-2. `pr105_consumers_fix.patch` — historical only; do not re-apply on #105.
+3. `pr105_consumers_fix.patch` — historical only; absorbed on #105@54a8c59.
 
 **Observe:** #104/#106 parked. #98 schema pilot (active). Vault #103. Math-
 #9 D5 chart. Math- #10/#12 closed without merge.

@@ -1,10 +1,11 @@
 {
-  "as_of_utc": "2026-09-25T17:55:18Z",
+  "as_of_utc": "2026-09-25T17:59:31Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "eeebb28eeab2",
   "note": "Overlap watch for inventable/cursor eng PRs; not acceptance.",
   "sandbox_packages": [
+    "pr98_ci_allowlist_fix.patch",
     "pr97_followup_nav_and_handoff.patch",
     "pr97_followup_nav_links.patch",
     "pr_handoff_applied.patch",
@@ -14,6 +15,7 @@
     "pr105_consumers_fix on main#105@54a8c59"
   ],
   "ready": [
+    "pr98_ci_allowlist_fix.patch",
     "pr97_followup_nav_and_handoff.patch"
   ],
   "prs": [
@@ -40,7 +42,7 @@
         "tools/scientific_state_check.py"
       ],
       "checks": {
-        "verify": "IN_PROGRESS",
+        "verify": "FAILURE",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -58,7 +60,7 @@
         "docs/math_status/README.md"
       ],
       "checks": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -78,7 +80,7 @@
         "engine/lanes/A5.json"
       ],
       "checks": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
