@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T18:21:31Z",
+  "as_of_utc": "2026-09-25T18:23:20Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -44,18 +44,29 @@
       "on": "main#98",
       "head": "c1821b6",
       "action": "do_not_reapply",
-      "evidence": "commit: fix(#90): surface unsatisfied_required in aggregate HOLD reports"
+      "evidence": "commit: fix(#90): surface unsatisfied_required in aggregate HOLD reports",
+      "observed_head": "0449280",
+      "check_summary": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
     }
   ],
   "ready_for_main_write": [
     {
       "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
-      "against": "main#105 @ 36fe375",
+      "against": "main#105 @36fe375",
       "fix": "Branch rewrite dropped CONSUMERS.json prose entry; re-apply consumers fix",
       "verify": [
         "python3 tools/consumers_check.py"
-      ]
+      ],
+      "check_summary": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
     },
     {
       "priority": 2,
@@ -70,7 +81,8 @@
         "python3 tools/math_status_check.py"
       ],
       "ask": "Ready on tip 848aea2; resume amplify when #98 CI greens.",
-      "deferred_until": "main#98 full hardening CI green after #90 hold aggregate + #95 digests"
+      "deferred_until": "main#98 full hardening CI green after #90 hold aggregate + #95 digests",
+      "note": "#108 tip-observe head 92b10b0; nav prose still absent on tip 848aea2"
     }
   ],
   "observe_only": [
@@ -88,12 +100,17 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "c1821b6",
+      "head": "0449280",
       "owner": "cursor peer on scientific-state-schema branch",
       "work": "#90 thin claims_gate_adapter four loss-only cases + duplicate-edge reject",
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "commit fix(#90): loss-only reverse-impact cases on thin claims adapter",
-      "note": "hold aggregate fix absorbed; watching CI; sandbox does not race"
+      "note": "hold aggregate fix absorbed; watching CI; sandbox does not race",
+      "check_summary": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
     }
   ],
   "reopened": [
@@ -101,5 +118,11 @@
       "item": "pr105_consumers_fix",
       "reason": "PR #105 rewritten to 36fe375 without CONSUMERS.json; verify red again"
     }
-  ]
+  ],
+  "timer_loop": {
+    "at": "2026-09-25T18:23:20Z",
+    "priority_ambiguous": false,
+    "decision": "Keep #105 consumers re-apply as sole top ask; observe #98 CI; nav deferred; no new package.",
+    "model_consult": "skipped \u2014 priority unambiguous per COORDINATION_PROTOCOL"
+  }
 }

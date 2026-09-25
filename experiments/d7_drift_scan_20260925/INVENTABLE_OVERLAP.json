@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T18:06:21Z",
+  "as_of_utc": "2026-09-25T18:22:50Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "848aea2a874c",
@@ -25,9 +25,9 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "d765efa",
+      "head": "0449280",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T18:05:08Z",
+      "updatedAt": "2026-09-25T18:15:05Z",
       "files": [
         ".github/workflows/ci.yml",
         "architecture/scientific_state/README.md",
@@ -38,10 +38,12 @@
         "engine/bridge/work_order.py",
         "tests/test_claims_gate_adapter.py",
         "tests/test_scientific_state.py",
+        "tests/test_semantic_digest.py",
         "tools/claims_gate_adapter.py",
         "tools/closure_pipeline.py",
         "tools/run_checks.py",
-        "tools/scientific_state_check.py"
+        "tools/scientific_state_check.py",
+        "tools/semantic_digest.py"
       ],
       "checks": {
         "verify": "IN_PROGRESS",
@@ -90,12 +92,12 @@
     {
       "number": 104,
       "title": "Retip #38: refuse a non-zero residual on an OUTSIDE cell (controls 33 and 34)",
-      "state": "OPEN",
+      "state": "CLOSED",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "ec3b426",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/104",
-      "updatedAt": "2026-09-25T17:36:46Z",
+      "updatedAt": "2026-09-25T18:07:33Z",
       "files": [
         "research/cover/README.md",
         "research/cover/ledger.py",
@@ -113,15 +115,14 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "54a8c59",
+      "head": "36fe375",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
-      "updatedAt": "2026-09-25T17:54:33Z",
+      "updatedAt": "2026-09-25T18:19:52Z",
       "files": [
-        "docs/CONTRIBUTION_PLAN.md",
-        "registers/CONSUMERS.json"
+        "docs/CONTRIBUTION_PLAN.md"
       ],
       "checks": {
-        "verify": "SUCCESS",
+        "verify": "FAILURE",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -134,7 +135,7 @@
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "3f14638",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/106",
-      "updatedAt": "2026-09-25T17:36:46Z",
+      "updatedAt": "2026-09-25T18:07:37Z",
       "files": [
         "research/cover/README.md",
         "research/cover/ledger.py",
@@ -167,13 +168,13 @@
     },
     {
       "number": 108,
-      "title": "tip-observe eeebb28e",
+      "title": "tip-observe 848aea2a",
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "89feb81",
+      "head": "92b10b0",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
-      "updatedAt": "2026-09-25T18:04:23Z",
+      "updatedAt": "2026-09-25T18:19:15Z",
       "files": [
         "docs/math_status/PACKET.json",
         "docs/math_status/README.md",

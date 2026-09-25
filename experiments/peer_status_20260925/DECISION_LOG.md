@@ -120,3 +120,13 @@ nav/handoff remains ready but deferred until that CI greens.
 Branch rewrite dropped `registers/CONSUMERS.json` update. `consumers_check`
 fails again (same prose drift). Re-list `pr105_consumers_fix.patch` as top
 ready ask; patch still applies. Do not treat prior absorb as current.
+
+## 2026-09-25T18:23:20Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `848aea2`; nav/handoff package still applies; #108
+observe @`92b10b0` did not land RESEARCH_INDEX/handoff APPLIED.
+**#105** @`36fe375` verify FAILURE — CONSUMERS still missing (top ask unchanged).
+**#98** @`0449280` verify IN_PROGRESS — hold aggregate absorbed; observe only.
+**Priority ambiguous?** No — skip extra model consult.
+**Decision:** no new package; keep amplifying `pr105_consumers_fix.patch` for
+#105 peer; hold nav deferred; resubscribe timer.
