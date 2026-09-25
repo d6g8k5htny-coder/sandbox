@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T21:08:30Z",
+  "as_of_utc": "2026-09-25T21:09:19Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -128,17 +128,19 @@
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "commits after 4b983b9: PR15-contract source-byte bind / controlling impact",
       "check_summary": {
-        "verify": "IN_PROGRESS"
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
       },
       "note": "sandbox enforcement package absorbed; OA F1 claim observe-only"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T21:08:30Z",
+    "at": "2026-09-25T21:09:19Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Absorb enforcement package @ebd7450; restore nav sole P1; observe OA F1 claim + #98 CI",
-    "model_consult": "skipped \u2014 live peer land decisive"
+    "decision": "No change: nav/handoff sole P1; #98@ebd7450 five-family fix absorbed, verify IN_PROGRESS; observe OA F1 claim",
+    "model_consult": "skipped \u2014 priority unambiguous"
   },
   "resolved_alternate": [
     {

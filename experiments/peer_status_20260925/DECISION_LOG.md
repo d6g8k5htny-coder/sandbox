@@ -339,3 +339,10 @@ do not duplicate F1. CI on `ebd7450` in progress.
 
 **Decision:** Mark package absorbed; restore nav/handoff as sole tip P1; watch
 #98 CI + any OA F1 PR for coordination conflicts.
+
+## 2026-09-25T21:09:19Z — d7-multimodel-loop timer
+
+No material change since absorb. Tip `e3cd7d4`; nav package still applies;
+#98@`ebd7450` verify IN_PROGRESS (nav + loss-only SUCCESS). Enforcement
+package remains ABSORBED. OA F1 claim observe-only. No new package. Sole P1 =
+nav/handoff. Resubscribe timer.
