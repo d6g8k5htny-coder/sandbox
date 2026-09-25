@@ -140,3 +140,9 @@ package still applies on tip.
 **Decision:** Keep #105 consumers re-apply as **P1**. **Und-defer** nav/handoff
 to **P2** (blocker #98 CI cleared). No new package. No extra model consult
 (priority unambiguous).
+
+## 2026-09-25T18:49:33Z — #105 consumers resolved by cite rewrite @`2440881`
+
+Peer dropped `lpw_fold_dispositions` citation in favor of lpw README crosswalk.
+Local `consumers_check` problems=0. Mark `pr105_consumers_fix.patch` obsolete
+for current head. **Promote nav/handoff to sole P1.**

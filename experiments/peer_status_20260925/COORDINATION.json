@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T18:39:46Z",
+  "as_of_utc": "2026-09-25T18:49:33Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -56,29 +56,14 @@
   "ready_for_main_write": [
     {
       "priority": 1,
-      "package": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
-      "against": "main#105 @36fe375",
-      "fix": "Rewrite dropped CONSUMERS.json; consumers_check still red",
-      "verify": [
-        "python3 tools/consumers_check.py"
-      ],
-      "check_summary": {
-        "verify": "FAILURE",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
-      }
-    },
-    {
-      "priority": 2,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
       "against": "chatgpt/drive-github-hardening-20260919 @ f244312",
-      "fix": "#98 CI green; #108 merged tip-observe; RESEARCH_INDEX/handoff APPLIED still absent",
+      "fix": "RESEARCH_INDEX + handoff APPLIED still absent after #97/#108",
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "deferred_until": null,
-      "ask": "Land on tip f244312; composes with post-#101/#108 README."
+      "ask": "Land on tip f244312."
     }
   ],
   "observe_only": [
@@ -108,16 +93,18 @@
       }
     }
   ],
-  "reopened": [
-    {
-      "item": "pr105_consumers_fix",
-      "reason": "PR #105 rewritten to 36fe375 without CONSUMERS.json; verify red again"
-    }
-  ],
   "timer_loop": {
     "at": "2026-09-25T18:39:46Z",
     "priority_ambiguous": false,
     "decision": "#105 consumers still P1; und-defer nav/handoff to P2 now that #98 CI green and tip is f244312",
     "model_consult": "skipped \u2014 priority unambiguous"
-  }
+  },
+  "resolved_alternate": [
+    {
+      "item": "pr105_consumers_fix",
+      "on": "main#105@2440881",
+      "how": "removed lpw_fold_dispositions cite; consumers_check problems=0 without CONSUMERS.json edit",
+      "action": "do_not_reapply_patch"
+    }
+  ]
 }

@@ -1,14 +1,12 @@
-# Fix for main #105 verify failure
+# Fix for main #105 verify failure — RESOLVED (alternate path)
 
-**Status: NEEDED AGAIN on head `36fe375`.** Branch was rewritten to a single
-CONTRIBUTION_PLAN commit; `registers/CONSUMERS.json` no longer lists
-`docs/CONTRIBUTION_PLAN.md` under `lpw_fold_dispositions.prose`, so
-`consumers_check` fails again.
+**Status: obsolete on head `2440881`.** Peer rewrote the LPW crosswalk to
+point through `research/lpw/README.md` instead of citing
+`registers/json/lpw_fold_dispositions.json`, so `consumers_check` passes with
+`problems=0` without editing `CONSUMERS.json`.
 
-```bash
-git checkout cursor/contribution-plan-crosswalk-lpw-identity
-git apply pr105_consumers_fix.patch
-python3 tools/consumers_check.py   # expect problems=0
-```
+Do **not** re-apply `pr105_consumers_fix.patch` on current #105 (would add a
+prose consumer the docs no longer require). Keep as historical recipe for the
+earlier cite-based failure mode.
 
 Scientific effect NONE.
