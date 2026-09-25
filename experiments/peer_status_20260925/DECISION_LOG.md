@@ -380,3 +380,24 @@ review ACCEPT’d trial#128 F1 vs `776fdb7`; patch does not apply cleanly onto
 Cursor author ported OA-ACCEPT’d F1 from trial#128 onto tip without dropping
 F2–F5. New head `6e3f774`. Sandbox yields; sole tip P1 = nav/handoff; watch
 hosted CI + OpenAI re-review of combined tip. #90 OPEN / DRAFT.
+
+## 2026-09-25T21:41:17Z — multi-model consult after #98 F1 port
+
+**Trigger:** User continuous multi-model coordination; peer #98 head moved to
+combined tip `6e3f774` (verify still IN_PROGRESS).
+
+**Facts:** Tip inventable still `e3cd7d4`; `pr97_followup_nav_and_handoff.patch`
+still applies. #98 peer-owned. Math- #14 CLOSED; #9/#30/#31 D5 observe-only.
+All sandbox #98 packages ABSORBED. trial#128 observe-only.
+
+**Pending votes:**
+- [GPT vote](bc-d5be2b0e-36e9-50da-9284-41c521ef75c3)
+- [Claude vote](bc-279a081c-7ef1-5808-ac44-55c7d49000de)
+
+**Provisional decision (act now; adjust if votes disagree):**
+1. A — Observe #98 CI + OpenAI re-review only; do not race/re-package.
+2. B — Keep nav/handoff as sole tip P1 ready (unamplified while verify pending).
+3. C — No new sandbox eng package.
+
+**Sandbox next:** subscribe CI on `cursor/scientific-state-schema-crosswalk-31c5`,
+keep PR/#98 + timer watches, refresh STATUS, push coordination, await votes.

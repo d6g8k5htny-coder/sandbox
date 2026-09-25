@@ -4,15 +4,19 @@
 
 ## Rule (this run and future actions)
 
-Before choosing the next sandbox eng move:
+Before choosing the next sandbox eng move — **always**, including timer ticks
+and CI/PR deliveries:
 
 1. Refresh `STATUS.json` + inventable overlap.
 2. Check absorb state of ready packages against live PR heads.
 3. Consult at least one other model (Task subagent) when priority is
-   ambiguous or a peer PR just moved.
+   ambiguous, a peer PR just moved, or the user asked continuous multi-model
+   coordination (default for this run: consult GPT+Claude on each material
+   fork; skip only when a live peer ownership statement already decides).
 4. Record the decision in `DECISION_LOG.md` + update `COORDINATION.json`.
 5. Prefer portable packages for main/Math- write peers over STATUS-only churn.
 6. Do not duplicate D5 / vault #91 / parked #104/#106.
+7. Yield immediately when a forge peer owns the branch; observe CI only.
 
 ## Surfaces peers should read
 

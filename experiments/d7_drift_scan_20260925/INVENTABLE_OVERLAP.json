@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T21:25:13Z",
+  "as_of_utc": "2026-09-25T21:41:02Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "e3cd7d4873c5",
@@ -25,9 +25,9 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "ebd7450",
+      "head": "6e3f774",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T21:08:58Z",
+      "updatedAt": "2026-09-25T21:39:25Z",
       "files": [
         ".github/workflows/ci.yml",
         ".gitignore",
@@ -38,6 +38,7 @@
         "architecture/scientific_state/v1/VERIFICATION_LEVELS.json",
         "engine/bridge/work_order.py",
         "tests/test_claims_gate_adapter.py",
+        "tests/test_claims_gate_enforcement.py",
         "tests/test_scientific_state.py",
         "tests/test_semantic_digest.py",
         "tools/claims_gate_adapter.py",
@@ -47,7 +48,7 @@
         "tools/semantic_digest.py"
       ],
       "checks": {
-        "verify": "SUCCESS",
+        "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
