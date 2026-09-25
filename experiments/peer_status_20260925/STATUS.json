@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T18:06:17Z",
+  "as_of_utc": "2026-09-25T18:08:40Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -176,8 +176,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T18:05:08Z",
-      "head": "d765efa",
+      "updatedAt": "2026-09-25T18:08:00Z",
+      "head": "fc6caf5",
       "checks": [
         {
           "name": "verify",
@@ -262,8 +262,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
-      "updatedAt": "2026-09-25T17:54:33Z",
-      "head": "54a8c59",
+      "updatedAt": "2026-09-25T18:07:47Z",
+      "head": "eadd5e6",
       "checks": [
         {
           "name": "verify",
@@ -272,8 +272,8 @@
         },
         {
           "name": "verify",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "IN_PROGRESS"
         },
         {
           "name": "navigation",
@@ -292,7 +292,7 @@
         }
       ],
       "check_summary": {
-        "verify": "SUCCESS",
+        "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -302,10 +302,10 @@
       "pr": 104,
       "role": "cursor_outside_residual_guard_parked",
       "title": "Retip #38: refuse a non-zero residual on an OUTSIDE cell (controls 33 and 34)",
-      "state": "OPEN",
+      "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/104",
-      "updatedAt": "2026-09-25T17:36:46Z",
+      "updatedAt": "2026-09-25T18:07:33Z",
       "head": "ec3b426",
       "checks": [
         {
@@ -348,7 +348,7 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/106",
-      "updatedAt": "2026-09-25T17:36:46Z",
+      "updatedAt": "2026-09-25T18:07:37Z",
       "head": "3f14638",
       "checks": [
         {
@@ -596,8 +596,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
-      "updatedAt": "2026-09-25T18:04:39Z",
-      "head": "ea52f84",
+      "updatedAt": "2026-09-25T18:06:37Z",
+      "head": "9ad2ed2",
       "checks": [
         {
           "name": "replay",
@@ -638,8 +638,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T18:05:50Z",
-      "head": "c1cf8a6",
+      "updatedAt": "2026-09-25T18:08:34Z",
+      "head": "582b619",
       "checks": [],
       "check_summary": {}
     }

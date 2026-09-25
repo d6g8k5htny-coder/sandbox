@@ -59,3 +59,20 @@ handoff APPLIED still absent). Composes with remaining open #108.
 **Decision:** Keep `pr97_followup_nav_and_handoff.patch` as sole top main-write
 ask against tip `848aea2`. No new package. Await peer-model vote delivery to
 confirm; provisional consensus unchanged.
+
+## 2026-09-25T18:08:33Z — live peer override on main #98
+
+**Events:** Owner asked four #90 loss-only adapter cases on #98. Peer cursor
+agent claimed ownership and pushed `fc6caf5` (`fix(#90): loss-only reverse-impact
+cases on thin claims adapter`) with edge-only seeds, canonical snapshots,
+self-hold, strict boolean required, duplicate-edge reject. Peer coordination
+comment: defer inventable #105–#108 churn until #90 adapter CI green.
+
+**Decision:**
+1. **Yield** — sandbox does not race #98 adapter work; observe CI only.
+2. **Defer** amplifying `pr97_followup_nav_and_handoff.patch` landing ask until
+   #98 #90 criterion is green (package stays ready on tip `848aea2`).
+3. Do not open a competing adapter patch from sandbox.
+
+**Sandbox next:** refresh STATUS, watch #98/#105 CI, no new package unless
+peer asks for a portable recipe or CI reveals a gap they are not covering.

@@ -12,6 +12,8 @@
 2. `pr98_ci_allowlist_fix.patch` / `pr105_consumers_fix.patch` — historical;
    do not re-apply.
 
+**Peer-owned:** main #98 #90 adapter @`fc6caf5` (observe CI; do not race).
+
 **Observe:** #104/#106 parked. #98/#105/#108 CI after absorbs. Vault #103.
 Math- #9/#14 D5 chart.
 
