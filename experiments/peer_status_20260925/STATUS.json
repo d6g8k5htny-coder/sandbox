@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T16:58:48Z",
+  "as_of_utc": "2026-09-25T17:02:54Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -51,8 +51,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/92",
-      "updatedAt": "2026-09-25T16:56:31Z",
-      "head": "6b897b9",
+      "updatedAt": "2026-09-25T17:00:14Z",
+      "head": "db0645f",
       "checks": [
         {
           "name": "verify",
@@ -86,10 +86,10 @@
       "pr": 93,
       "role": "cursor_default_home_nav",
       "title": "Surface RN downstream crosswalk and mesoscopic draft from default home",
-      "state": "OPEN",
+      "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/93",
-      "updatedAt": "2026-09-25T16:54:38Z",
+      "updatedAt": "2026-09-25T17:00:28Z",
       "head": "6dd4ca9",
       "checks": [
         {
@@ -152,8 +152,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T16:58:26Z",
-      "head": "f7a3aae",
+      "updatedAt": "2026-09-25T16:58:50Z",
+      "head": "de4944f",
       "checks": []
     },
     {
@@ -164,8 +164,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/96",
-      "updatedAt": "2026-09-25T16:51:17Z",
-      "head": "60a8182",
+      "updatedAt": "2026-09-25T17:02:37Z",
+      "head": "0a7685e",
       "checks": [
         {
           "name": "verify",

@@ -8,5 +8,7 @@
   "local_mutations": 8,
   "local_validation_passed": true,
   "openai_comment": "5835990323",
-  "patch_clean_apply_verified": true
+  "patch_clean_apply_verified": true,
+  "preferred_apply": "main PR92 docs/patches/math_pr8_own_node_eligibility.patch",
+  "role": "private backup; do not race main handoff"
 }

@@ -1,36 +1,35 @@
 # Apply — Math- PR #8 own-node eligibility fix
 
-**Scientific effect: NONE.** Closes the fail-open hole flagged on Math- PR8
-(comment `5835990323` / main #86 second downstream pass).
+**Scientific effect: NONE.**
 
-## Defect
+## Preferred source (do not race)
 
-`promotion_allowed()` allowed `AUTHOR_SIDE_CANDIDATE` to become `controlling`
-when required deps were terminal. Reproduced on tip `5887a2f` with
-`math.p15-full-price`.
+A peer Cursor agent with **main write** already filed the same repair on
+hardening tip as:
 
-## Fix
+- [MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md](https://github.com/d6g8k5htny-coder/main/blob/cursor/downstream-crosswalk-outside-packet-31c5/docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md)
+- patch: `docs/patches/math_pr8_own_node_eligibility.patch` on [main PR #92](https://github.com/d6g8k5htny-coder/main/pull/92)
 
-- Require own-node `PROVED_REVIEWED` for positive controlling eligibility
-- Refuse AUTHOR_SIDE / OPEN / HOLD / REFUTED / etc. even with terminal deps
-- Negative control: P15 full-price + REFUTED boundary ⇒ REFUSED
-- Positive synthetic control: PROVED_REVIEWED + terminal dep ⇒ CONTROLLING
-- Mutation: `bypass_own_node_eligibility`
+**Prefer that main handoff** for Math- writers. This sandbox copy is a
+parallel private backup (different symbol names: `POSITIVE_CONTROLLING_ELIGIBLE`
+here vs `CONTROLLING_ELIGIBLE` there). Apply **one** patch only.
 
-## Apply (needs Math- write)
+## Defect (shared)
+
+`promotion_allowed()` allowed `AUTHOR_SIDE_CANDIDATE` → `controlling` when
+required deps were terminal (reproduced on tip `5887a2f`).
+
+## Sandbox backup apply (only if main handoff unavailable)
 
 ```bash
 git clone https://github.com/d6g8k5htny-coder/Math-.git
 cd Math-
-git fetch origin cursor/downstream-hard-gate-91fa
-git checkout cursor/downstream-hard-gate-91fa
-git apply path/to/pr8_own_node_eligibility.patch
+git checkout 5887a2f8
+git apply path/to/sandbox/experiments/math_pr8_eligibility_fix_20260925/pr8_own_node_eligibility.patch
 cd frontiers/downstream_gate_20260925
-python3 test_hard_gate.py          # 28 tests
+python3 test_hard_gate.py
 python3 run_validation.py --output /tmp/math8_val
-# REPORT.json passed=true; distinct_tests=28; mutations=8
-git commit -am "fix: require own-node PROVED_REVIEWED for controlling promotion"
-git push
+# expect: 28 tests, 8 mutations, passed=true
 ```
 
-This sandbox env cannot push Math- (403). Peer Cursor with Math- write should land.
+This sandbox env cannot push Math- (403).
