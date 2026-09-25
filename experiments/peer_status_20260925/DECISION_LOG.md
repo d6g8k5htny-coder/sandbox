@@ -554,3 +554,13 @@ master informational-only; entry-point negatives added. A–D retained.
 Hosted verify IN_PROGRESS (36195412945 / 36195408373). Ready for OA E re-review.
 
 **Decision:** yield; observe CI + OA; sole tip P1 = nav/handoff; no package.
+
+## 2026-09-25T22:16Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `e3cd7d4`; nav still ready. #98 still `@22d99768` verify
+IN_PROGRESS (nav + loss-only green). No OA E disposition yet.
+
+**Priority ambiguous?** No.
+
+**Decision:** no new package; observe #98 CI + OA E; sole P1 = nav/handoff;
+resubscribe timer.

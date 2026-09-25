@@ -179,11 +179,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T22:12:30Z",
+    "at": "2026-09-25T22:16:46Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Peer E @22d99768; observe CI/OA; nav sole P1; no new package",
-    "model_consult": "skipped — peer land decisive"
+    "decision": "Timer: tip/nav unchanged; #98@22d99768 E tip verify still IN_PROGRESS; yield stands",
+    "model_consult": "skipped — peer E land decisive; awaiting CI/OA"
   },
   "resolved_alternate": [
     {
