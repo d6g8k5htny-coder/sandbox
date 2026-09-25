@@ -1,8 +1,8 @@
 {
-  "as_of_utc": "2026-09-25T18:39:09Z",
+  "as_of_utc": "2026-09-25T18:55:12Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
-  "hardening_tip": "f244312db901",
+  "hardening_tip": "fcad72366743",
   "note": "Overlap watch for inventable/cursor eng PRs; not acceptance.",
   "sandbox_packages": [
     "pr97_followup_nav_and_handoff.patch (TOP ready)",
@@ -27,7 +27,7 @@
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "0449280",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T18:15:05Z",
+      "updatedAt": "2026-09-25T18:43:00Z",
       "files": [
         ".github/workflows/ci.yml",
         "architecture/scientific_state/README.md",
@@ -115,14 +115,14 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "36fe375",
+      "head": "91a5e9a",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
-      "updatedAt": "2026-09-25T18:30:34Z",
+      "updatedAt": "2026-09-25T18:54:17Z",
       "files": [
         "docs/CONTRIBUTION_PLAN.md"
       ],
       "checks": {
-        "verify": "FAILURE",
+        "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }

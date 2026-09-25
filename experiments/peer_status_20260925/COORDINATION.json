@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T18:49:33Z",
+  "as_of_utc": "2026-09-25T18:55:42Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -57,13 +57,13 @@
     {
       "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
-      "against": "chatgpt/drive-github-hardening-20260919 @ f244312",
+      "against": "chatgpt/drive-github-hardening-20260919 @ fcad72366743",
       "fix": "RESEARCH_INDEX + handoff APPLIED still absent after #97/#108",
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip f244312."
+      "ask": "Land on tip after #109; #109 only linked crosswalk from RN_SIDE24_CELL.md. RESEARCH_INDEX + handoff APPLIED + math_status README nav block still absent."
     }
   ],
   "observe_only": [
@@ -94,9 +94,10 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T18:39:46Z",
+    "at": "2026-09-25T18:55:42Z",
+    "tip": "fcad72366743",
     "priority_ambiguous": false,
-    "decision": "#105 consumers still P1; und-defer nav/handoff to P2 now that #98 CI green and tip is f244312",
+    "decision": "Sole P1 remains nav/handoff; #109 did not absorb it; #105 watch CI after merge-base",
     "model_consult": "skipped \u2014 priority unambiguous"
   },
   "resolved_alternate": [

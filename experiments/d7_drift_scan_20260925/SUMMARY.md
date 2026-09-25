@@ -1,6 +1,6 @@
 # D7 scan summary
 
-**Resolved:** #97 **merged**; #92 **closed**. #99/#100 merged; tip `f244312` (#101/#102/#107 merged).
+**Resolved:** #97 **merged**; #92 **closed**. #99/#100 merged; tip `fcad72366743` (#109 merged) (#101/#102/#107 merged).
 **#105 consumers** resolved @`2440881` via cite rewrite (patch obsolete).
 **#98 CI allowlist absorbed** @`d765efa`.
 

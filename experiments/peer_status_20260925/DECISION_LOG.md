@@ -146,3 +146,12 @@ to **P2** (blocker #98 CI cleared). No new package. No extra model consult
 Peer dropped `lpw_fold_dispositions` citation in favor of lpw README crosswalk.
 Local `consumers_check` problems=0. Mark `pr105_consumers_fix.patch` obsolete
 for current head. **Promote nav/handoff to sole P1.**
+
+## 2026-09-25T18:55:42Z — d7-multimodel-loop timer
+
+**Facts:** Tip `fcad72366743` (#109 merged SIDE24_CELL→crosswalk pointer). Nav
+package **still applies** (RESEARCH_INDEX / handoff APPLIED / math_status README
+nav block absent). #105 @`91a5e9a` CI in progress. #98 still green draft.
+
+**Decision:** Keep nav/handoff as sole P1. No new package. No model consult
+(unambiguous).
