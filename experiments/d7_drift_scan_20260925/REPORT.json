@@ -1,0 +1,289 @@
+{
+  "schema": "sandbox.d7-drift-scan/v1",
+  "as_of_utc": "2026-09-25T17:24:17Z",
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "authority": "NONE",
+  "lane": "Cursor D7 per main #86 parallel dispatch",
+  "prs": [
+    {
+      "number": 87,
+      "title": "Downstream RN crosswalk: keep historical walls honest and isolate current blockers",
+      "state": "CLOSED",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/87",
+      "head": "3d4969a",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:09:37Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/math_status/DOWNSTREAM_CROSSWALK_20260925.md"
+      ],
+      "checks": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 92,
+      "title": "Place RN downstream crosswalk outside the closed math_status packet",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/92",
+      "head": "db0645f",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:10:54Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/DOWNSTREAM_RN_CROSSWALK_20260925.md",
+        "docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md",
+        "docs/NAVIGATION.json",
+        "docs/RESEARCH_INDEX.md",
+        "docs/RN_MESOSCOPIC_REDUCTION_CHALLENGE_20260925.md",
+        "docs/math_status/README.md",
+        "docs/patches/math_pr8_eligibility_fix_REPORT.json",
+        "docs/patches/math_pr8_own_node_eligibility.patch",
+        "tests/test_navigation.py"
+      ],
+      "checks": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 93,
+      "title": "Surface RN downstream crosswalk and mesoscopic draft from default home",
+      "state": "CLOSED",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/93",
+      "head": "6dd4ca9",
+      "base": "main",
+      "updatedAt": "2026-09-25T17:09:36Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/RESEARCH_INDEX.md"
+      ],
+      "checks": {
+        "navigation": "SUCCESS",
+        "verify": "SUCCESS"
+      }
+    },
+    {
+      "number": 97,
+      "title": "docs(inventable): RN downstream crosswalk + mesoscopic challenge + Math- #8 handoff (fresh on 077464ef; supersedes #92)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/97",
+      "head": "db75add",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:06:27Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/DOWNSTREAM_RN_CROSSWALK_20260925.md",
+        "docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md",
+        "docs/NAVIGATION.json",
+        "docs/RN_MESOSCOPIC_REDUCTION_CHALLENGE_20260925.md",
+        "docs/patches/math_pr8_eligibility_fix_REPORT.json",
+        "docs/patches/math_pr8_own_node_eligibility.patch",
+        "tests/test_navigation.py"
+      ],
+      "checks": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 98,
+      "title": "Scientific-state schema pilot (#95): authority map + ID crosswalk + fail-closed checker",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
+      "head": "65c1955",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:08:33Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "architecture/scientific_state/README.md",
+        "architecture/scientific_state/v1/AUTHORITY_MAP.json",
+        "architecture/scientific_state/v1/ID_CROSSWALK.json",
+        "architecture/scientific_state/v1/SCHEMA.json",
+        "architecture/scientific_state/v1/VERIFICATION_LEVELS.json",
+        "tests/test_scientific_state.py",
+        "tools/scientific_state_check.py"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 99,
+      "title": "docs(math_status): ENV-RESCOV node walk-down classification \u2014 outcome (b), conditional; no flags flipped",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/99",
+      "head": "6cb85b2",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:13:58Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/math_status/PACKET.json",
+        "docs/math_status/STATUS_RN_UNIF.md",
+        "docs/math_status_nodes/NODE_ENV_RESCOV_20260925.md",
+        "docs/math_status_nodes/env_rescov_b9c2_identity_spotcheck.py"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 100,
+      "title": "docs: mark agent 13's 13 STILL_CONDITIONAL importers (sidecar; F-map rescoped to rungs; no pinned bytes, no flags)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/100",
+      "head": "184617d",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:17:14Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/CONDITIONAL_IMPORTERS_2026-09-25.md"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 101,
+      "title": "docs(math_status): STATUS.md \"CERTIFIED\" q=2 envelope is REQUIRED CARRIER ABSENT (walk-down 9, M1)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/101",
+      "head": "b06fca8",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:21:21Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/math_status/README.md"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 102,
+      "title": "docs(inventable): SIDE24_CELL importers restricted to declared square C; complement named (engineering replay only)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/102",
+      "head": "2d40159",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:21:46Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "README.md",
+        "docs/RESEARCH_EXECUTION.md",
+        "engine/lanes/A5.json"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 103,
+      "title": "Vault audit v2: 80-ID tracker and reverse-impact component \u2014 audit remains OPEN",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/103",
+      "head": "5d442c3",
+      "base": "main",
+      "updatedAt": "2026-09-25T17:21:51Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "audits/vault_99/2026-09-25/INDEX_v2.json",
+        "audits/vault_99/2026-09-25/README.md",
+        "audits/vault_99/2026-09-25/code/reverse_impact.py"
+      ],
+      "checks": {
+        "verify": "SUCCESS"
+      }
+    }
+  ],
+  "duplicate_open_files": {
+    "docs/DOWNSTREAM_RN_CROSSWALK_20260925.md": [
+      92,
+      97
+    ],
+    "docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md": [
+      92,
+      97
+    ],
+    "docs/NAVIGATION.json": [
+      92,
+      97
+    ],
+    "docs/RN_MESOSCOPIC_REDUCTION_CHALLENGE_20260925.md": [
+      92,
+      97
+    ],
+    "docs/math_status/README.md": [
+      92,
+      101
+    ],
+    "docs/patches/math_pr8_eligibility_fix_REPORT.json": [
+      92,
+      97
+    ],
+    "docs/patches/math_pr8_own_node_eligibility.patch": [
+      92,
+      97
+    ],
+    "tests/test_navigation.py": [
+      92,
+      97
+    ]
+  },
+  "findings": [
+    {
+      "id": "D7-DUP-CROSSWALK-92-97",
+      "severity": "high",
+      "summary": "OPEN drafts #92 and #97 both carry DOWNSTREAM_RN_CROSSWALK_20260925.md and related D0 docs",
+      "detail": "#92 is CI-green outside-packet rescue; #97 re-files the same notes on hardening tip 077464ef claiming to supersede #92. Risk of double-landing / catalog drift.",
+      "suggested_eng_action": "Pick one landing tip. Prefer merging the CI-green surface that matches the intended base (hardening inventable tip vs #92 base). Close the other as superseded with explicit comment. Do not merge both."
+    },
+    {
+      "id": "D7-STALE-ELIGIBILITY-HANDOFF",
+      "severity": "medium",
+      "summary": "Math- eligibility handoff docs still describe repair as open while Math- main already has CONTROLLING_ELIGIBLE",
+      "detail": "Observed Math- main tip refuses AUTHOR_SIDE_CANDIDATE controlling promotion. Handoff markdown on #92/#97 still useful as history but should be marked APPLIED/SUPERSEDED after tip sync.",
+      "suggested_eng_action": "After #92/#97 settlement, add one-line APPLIED note pointing at Math- tip SHA; do not re-apply the patch."
+    },
+    {
+      "id": "D7-PR87-ALREADY-CLOSED",
+      "severity": "info",
+      "summary": "PR87 already closed as superseded by #92",
+      "detail": "Matches #86 D7 instruction to reconcile/close PR87.",
+      "suggested_eng_action": "None."
+    },
+    {
+      "id": "D7-VAULT-96-103-SOLE-AUDITOR",
+      "severity": "info",
+      "summary": "Vault census PRs #96/#103 are sole-auditor surfaces",
+      "detail": "Other agents observe only unless #91 records explicit delegation.",
+      "suggested_eng_action": "No assist from sandbox/Cursor integration lane."
+    }
+  ],
+  "note": "Private eng scan only; not research acceptance or merge authority."
+}
