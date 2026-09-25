@@ -7,5 +7,6 @@
   "local_tests": 28,
   "local_mutations": 8,
   "local_validation_passed": true,
-  "openai_comment": "5835990323"
+  "openai_comment": "5835990323",
+  "patch_clean_apply_verified": true
 }

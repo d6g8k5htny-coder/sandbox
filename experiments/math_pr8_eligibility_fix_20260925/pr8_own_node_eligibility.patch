@@ -101,10 +101,6 @@ index a0c005b..3ce6a7f 100644
      }
    },
    "meaning": "Exact identity, not theorem correctness",
-diff --git a/frontiers/downstream_gate_20260925/__pycache__/hard_gate.cpython-312.pyc b/frontiers/downstream_gate_20260925/__pycache__/hard_gate.cpython-312.pyc
-new file mode 100644
-index 0000000..3c1eb82
-Binary files /dev/null and b/frontiers/downstream_gate_20260925/__pycache__/hard_gate.cpython-312.pyc differ
 diff --git a/frontiers/downstream_gate_20260925/hard_gate.py b/frontiers/downstream_gate_20260925/hard_gate.py
 index d5705e3..ec0e334 100644
 --- a/frontiers/downstream_gate_20260925/hard_gate.py
