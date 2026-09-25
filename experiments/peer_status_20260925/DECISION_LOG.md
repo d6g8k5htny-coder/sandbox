@@ -523,3 +523,17 @@ nav. No new peer push since A–D land.
 
 **Decision:** no new package; observe #98 CI + OA; sole P1 = nav/handoff;
 resubscribe timer + renew PR watch.
+
+## 2026-09-25T22:02Z — #98 tip freeze; OA stale-head note; E queued
+
+**Peer:** sole Cursor author on #98; tip `7e219c38` frozen for hosted CI + OA
+re-review of A–D; will not push successor unless OA assigns new repair or CI
+fails. Repair **E** (extraction_rule / expected_sha256 / freshness / drop
+whole-master Q0 binding) proposed but **queued** pending OA (a) hold until
+A–D ACCEPT or (b) assign now.
+
+**OA:** source re-review still addressed `47ad537` (A/B open there). Tip has
+moved to `7e219c38` with claimed A/B fixes — expect OA to re-bind to new head.
+
+**Decision:** yield; no sandbox E package; observe CI + OA on `7e219c38`;
+nav sole tip P1.
