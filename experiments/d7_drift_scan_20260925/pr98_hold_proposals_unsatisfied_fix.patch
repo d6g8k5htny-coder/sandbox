@@ -1,0 +1,147 @@
+diff --git a/tests/test_claims_gate_adapter.py b/tests/test_claims_gate_adapter.py
+index eae58bf..a74bf58 100644
+--- a/tests/test_claims_gate_adapter.py
++++ b/tests/test_claims_gate_adapter.py
+@@ -338,5 +338,93 @@ class ClaimsGateAdapterTests(unittest.TestCase):
+         self.assertIs(graph["promotion_permission"], False)
+ 
+ 
++    def test_aggregate_hold_includes_author_side_unsatisfied(self):
++        """compare_claims_files must surface AUTHOR_SIDE unsatisfied HOLDs."""
++        old = _load_tip_claims()
++        new = copy.deepcopy(old)
++        new["premises"]["prem.author-side"] = {
++            "statement": "author-side only premise",
++            # CLOSED display maps to AUTHOR_SIDE_CANDIDATE (not PROVED_REVIEWED).
++            "status_frozen_v2_2": "CLOSED",
++            "depends_on": [],
++            "sub_obligations": [],
++        }
++        new["claims"]["synthetic.dependent"] = {
++            "statement": "dependent needing author-side premise",
++            "grade": "OPEN",
++            "depends_on": ["prem.author-side"],
++            "sub_obligations": [],
++        }
++        report = CGA.compare_claims_files(old, new)
++        self.assertIn("synthetic.dependent", report["hold_proposals"])
++        hold = report["hold_proposals"]["synthetic.dependent"]
++        self.assertTrue(
++            any(u["id"] == "prem.author-side" for u in hold["unsatisfied_required"]),
++            hold,
++        )
++        self.assertFalse(hold["refuted_required"])
++        self.assertFalse(hold["blocked_absent"])
++        self.assertIn("HOLD", hold["proposals"])
++        self.assertFalse(report["promotion_permission"])
++
++    def test_aggregate_hold_includes_superseded_nonblocking_unsatisfied(self):
++        """Still-required SUPERSEDED_NONBLOCKING remains aggregate HOLD."""
++        claims = _load_tip_claims()
++        graph = CGA.claims_to_gate_graph(claims)
++        graph["nodes"]["prem.superseded"] = {
++            "bucket": "premises",
++            "classification": "SUPERSEDED_NONBLOCKING",
++            "controlling": False,
++            "fingerprint": "sup",
++            "version": claims["as_of"],
++            "source_snapshot": "sup",
++        }
++        graph["nodes"]["synthetic.dependent"] = {
++            "bucket": "claims",
++            "classification": "OPEN_ACTIVE",
++            "controlling": False,
++            "fingerprint": "syn",
++            "version": claims["as_of"],
++            "source_snapshot": "syn",
++        }
++        graph["edges"].append(
++            {
++                "from": "synthetic.dependent",
++                "to": "prem.superseded",
++                "required": True,
++                "relation": "depends_on",
++            }
++        )
++        # compare_claims_files filter (shared with audit_tip) via required_holds fields.
++        holds = {
++            nid: CGA.required_holds(graph, nid)
++            for nid in sorted(graph["nodes"])
++            if (
++                CGA.required_holds(graph, nid)["refuted_required"]
++                or CGA.required_holds(graph, nid)["blocked_absent"]
++                or CGA.required_holds(graph, nid)["unsatisfied_required"]
++            )
++        }
++        self.assertIn("synthetic.dependent", holds)
++        self.assertTrue(
++            any(
++                u["id"] == "prem.superseded"
++                for u in holds["synthetic.dependent"]["unsatisfied_required"]
++            )
++        )
++        self.assertIn("HOLD", holds["synthetic.dependent"]["proposals"])
++
++    def test_audit_tip_reports_hold_nodes(self):
++        report = CGA.audit_tip(ROOT)
++        self.assertIn("hold_node_count", report)
++        self.assertIn("hold_node_ids", report)
++        self.assertIn("hold_proposals", report)
++        self.assertEqual(report["hold_node_count"], len(report["hold_node_ids"]))
++        self.assertEqual(set(report["hold_node_ids"]), set(report["hold_proposals"]))
++        self.assertFalse(report["promotion_permission"])
++        # Tip has many still-required non-PROVED_REVIEWED premises → fail-closed HOLDs.
++        self.assertGreater(report["hold_node_count"], 0)
++
++
+ if __name__ == "__main__":
+     unittest.main()
+diff --git a/tools/claims_gate_adapter.py b/tools/claims_gate_adapter.py
+index 5a9a681..9de6454 100644
+--- a/tools/claims_gate_adapter.py
++++ b/tools/claims_gate_adapter.py
+@@ -449,12 +449,15 @@ def compare_claims_files(
+     old_g = claims_to_gate_graph(old_claims, crosswalk=crosswalk, authority_map=authority_map)
+     new_g = claims_to_gate_graph(new_claims, crosswalk=crosswalk, authority_map=authority_map)
+     impact = reverse_impact_between(old_g, new_g)
+-    holds = {
+-        nid: required_holds(new_g, nid)
+-        for nid in sorted(new_g["nodes"])
+-        if required_holds(new_g, nid)["refuted_required"]
+-        or required_holds(new_g, nid)["blocked_absent"]
+-    }
++    holds = {}
++    for nid in sorted(new_g["nodes"]):
++        hold = required_holds(new_g, nid)
++        if (
++            hold["refuted_required"]
++            or hold["blocked_absent"]
++            or hold["unsatisfied_required"]
++        ):
++            holds[nid] = hold
+     return {
+         "reverse_impact": impact,
+         "hold_proposals": holds,
+@@ -474,12 +477,22 @@ def audit_tip(root: Path | None = None) -> dict[str, Any]:
+     graph = claims_to_gate_graph(claims, crosswalk=crosswalk, authority_map=authority)
+     # Self-compare: identity before/after should yield empty impact.
+     impact = reverse_impact_between(graph, copy.deepcopy(graph))
++    # Aggregate HOLD report must include unsatisfied_required (not only REFUTED /
++    # BLOCKED_ABSENT), matching compare_claims_files.
++    hold_nodes = {}
++    for nid in sorted(graph["nodes"]):
++        hold = required_holds(graph, nid)
++        if hold["refuted_required"] or hold["blocked_absent"] or hold["unsatisfied_required"]:
++            hold_nodes[nid] = hold
+     return {
+         "nodes": len(graph["nodes"]),
+         "edges": len(graph["edges"]),
+         "sub_obligation_edges": sum(1 for e in graph["edges"] if e["relation"] == "sub_obligation"),
+         "depends_on_edges": sum(1 for e in graph["edges"] if e["relation"] == "depends_on"),
+         "identity_impacted": impact["impacted"],
++        "hold_node_ids": sorted(hold_nodes),
++        "hold_node_count": len(hold_nodes),
++        "hold_proposals": hold_nodes,
+         "promotion_permission": False,
+         "scientific_effect": "NONE",
+         "problems": [],

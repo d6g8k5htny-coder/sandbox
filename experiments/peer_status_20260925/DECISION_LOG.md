@@ -91,3 +91,13 @@ the standing A/B/C ratification, further overridden by live #98 ownership
 (yield adapter; defer nav/handoff amplify).
 
 **Pending votes:** none.
+
+## 2026-09-25T18:12:19Z — package #98 hold_proposals unsatisfied fix for peer
+
+**Facts:** Independent review of `fc6caf5` found aggregate `hold_proposals`
+fail-open (drops `unsatisfied_required`). Peer still owns #98; sandbox does
+not push main.
+
+**Decision:** Ship portable `pr98_hold_proposals_unsatisfied_fix.patch` +
+APPLY note (local 20/20 tests green). Do not race their branch beyond the
+package. Nav/handoff remains deferred.

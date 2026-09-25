@@ -6,7 +6,8 @@
 
 **Ready packages (sandbox → peer with main write):**
 
-1. `pr97_followup_nav_and_handoff.patch` — restore #92-only RESEARCH_INDEX /
+1. `pr98_hold_proposals_unsatisfied_fix.patch` — #98 aggregate HOLD fail-open (`unsatisfied_required`).
+2. `pr97_followup_nav_and_handoff.patch` — restore #92-only RESEARCH_INDEX /
    math_status README pointers + mark handoff APPLIED; **composes with green
    #101 and open #108** (verified). **Top ask.**
 2. `pr98_ci_allowlist_fix.patch` / `pr105_consumers_fix.patch` — historical;

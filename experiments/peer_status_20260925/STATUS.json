@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T18:08:40Z",
+  "as_of_utc": "2026-09-25T18:12:26Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -176,8 +176,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T18:08:00Z",
-      "head": "fc6caf5",
+      "updatedAt": "2026-09-25T18:11:50Z",
+      "head": "4c8f4bf",
       "checks": [
         {
           "name": "verify",
@@ -434,8 +434,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
-      "updatedAt": "2026-09-25T18:04:23Z",
-      "head": "89feb81",
+      "updatedAt": "2026-09-25T18:10:10Z",
+      "head": "92b10b0",
       "checks": [
         {
           "name": "verify",
@@ -494,12 +494,12 @@
       "repo": "d6g8k5htny-coder/main",
       "pr": 103,
       "role": "vault_audit_v2_observe_only",
-      "title": "Vault audit v2: 80-ID tracker and reverse-impact component \u2014 audit remains OPEN",
+      "title": "Vault audit v4: 80/80 reviewed; controlled intake guard installed",
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/103",
-      "updatedAt": "2026-09-25T17:57:40Z",
-      "head": "e4f7467",
+      "updatedAt": "2026-09-25T18:10:37Z",
+      "head": "107091d",
       "checks": [
         {
           "name": "verify",
@@ -596,8 +596,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
-      "updatedAt": "2026-09-25T18:06:37Z",
-      "head": "9ad2ed2",
+      "updatedAt": "2026-09-25T18:10:03Z",
+      "head": "4ea7251",
       "checks": [
         {
           "name": "replay",
@@ -638,8 +638,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T18:08:34Z",
-      "head": "582b619",
+      "updatedAt": "2026-09-25T18:09:26Z",
+      "head": "955b23f",
       "checks": [],
       "check_summary": {}
     }
