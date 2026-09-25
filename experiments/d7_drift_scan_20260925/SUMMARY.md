@@ -1,6 +1,6 @@
 # D7 scan summary
 
-**Resolved:** #97 **merged**; #92 **closed**. #99/#100 merged; tip `848aea2` (#101/#102/#107 merged).
+**Resolved:** #97 **merged**; #92 **closed**. #99/#100 merged; tip `f244312` (#101/#102/#107 merged).
 **#105 consumers fix REOPENED** @`36fe375` (rewrite dropped CONSUMERS.json).
 **#98 CI allowlist absorbed** @`d765efa`.
 

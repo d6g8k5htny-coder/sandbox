@@ -1,8 +1,8 @@
 {
-  "as_of_utc": "2026-09-25T18:22:50Z",
+  "as_of_utc": "2026-09-25T18:39:09Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
-  "hardening_tip": "848aea2a874c",
+  "hardening_tip": "f244312db901",
   "note": "Overlap watch for inventable/cursor eng PRs; not acceptance.",
   "sandbox_packages": [
     "pr97_followup_nav_and_handoff.patch (TOP ready)",
@@ -46,7 +46,7 @@
         "tools/semantic_digest.py"
       ],
       "checks": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -117,7 +117,7 @@
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "36fe375",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
-      "updatedAt": "2026-09-25T18:19:52Z",
+      "updatedAt": "2026-09-25T18:30:34Z",
       "files": [
         "docs/CONTRIBUTION_PLAN.md"
       ],
@@ -169,12 +169,12 @@
     {
       "number": 108,
       "title": "tip-observe 848aea2a",
-      "state": "OPEN",
-      "draft": true,
+      "state": "MERGED",
+      "draft": false,
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "92b10b0",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
-      "updatedAt": "2026-09-25T18:19:15Z",
+      "updatedAt": "2026-09-25T18:31:31Z",
       "files": [
         "docs/math_status/PACKET.json",
         "docs/math_status/README.md",
@@ -184,7 +184,7 @@
         "docs/math_status_probes/README.md"
       ],
       "checks": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }

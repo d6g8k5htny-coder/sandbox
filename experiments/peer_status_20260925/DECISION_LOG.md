@@ -130,3 +130,13 @@ observe @`92b10b0` did not land RESEARCH_INDEX/handoff APPLIED.
 **Priority ambiguous?** No — skip extra model consult.
 **Decision:** no new package; keep amplifying `pr105_consumers_fix.patch` for
 #105 peer; hold nav deferred; resubscribe timer.
+
+## 2026-09-25T18:39:46Z — d7-multimodel-loop timer
+
+**Facts:** Tip advanced to `f244312` (#108 merged). #98 verify **SUCCESS**
+@`0449280`. #105 still FAILURE @`36fe375` without CONSUMERS.json. Nav/handoff
+package still applies on tip.
+
+**Decision:** Keep #105 consumers re-apply as **P1**. **Und-defer** nav/handoff
+to **P2** (blocker #98 CI cleared). No new package. No extra model consult
+(priority unambiguous).
