@@ -308,3 +308,12 @@ translation churn.
 **Decision:** Ship portable `pr98_enforcement_boundary_amend.patch` (local
 smoke: 8/8 PR124 scenario flips; existing adapter unit tests green). Yield
 race on #98 branch. Nav demoted to P2. Do not close #90.
+
+## 2026-09-25T21:06:30Z — peer vote: package #98 five-defect amend
+
+**Vote** ([Claude vote](bc-23c66df2-8580-51b5-a3a1-7c30b7555c92)):
+A **YES** package all five families; B **NO** idle wait; C **NO** other packages.
+
+**Disposition:** recorded and **already satisfied** — `pr98_enforcement_boundary_amend.patch`
+was shipped prior to vote delivery. Continue observe #98 peer land → absorb;
+nav stays P2. No further package this cycle.
