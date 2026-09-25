@@ -4,7 +4,7 @@ set -euo pipefail
 WORK="${1:-/tmp/math-pr8-probe}"
 TOKEN="${GH_TOKEN:-${GITHUB_TOKEN:-}}"
 if [[ -z "$TOKEN" ]]; then TOKEN="$(gh auth token)"; fi
-BRANCH="${MATH_GATE_BRANCH:-cursor/downstream-hard-gate-91fa}"
+BRANCH="${MATH_GATE_BRANCH:-main}"
 rm -rf "$WORK"
 git clone --depth 1 -b "$BRANCH" \
   "https://x-access-token:${TOKEN}@github.com/d6g8k5htny-coder/Math-.git" "$WORK"

@@ -41,6 +41,18 @@ class HardGateTests(unittest.TestCase):
         self.assertIn("BLOCKED_ABSENT", cp.stdout)
         self.assertIn("forces HOLD", cp.stdout)
 
+    def test_refuted_dep_forces_hold(self):
+        cp = run("check", str(FIX / "refuted_dep_promoted.json"))
+        self.assertEqual(cp.returncode, 1)
+        self.assertIn("REFUTED", cp.stdout)
+        self.assertIn("forces HOLD", cp.stdout)
+
+    def test_author_side_controlling_not_eligible(self):
+        cp = run("check", str(FIX / "author_side_promoted.json"))
+        self.assertEqual(cp.returncode, 1)
+        self.assertIn("CONTROLLING_ELIGIBLE", cp.stdout)
+        self.assertIn("AUTHOR_SIDE_ONLY", cp.stdout)
+
     def test_missing_revalidation_fails(self):
         cp = run("check", str(FIX / "missing_revalidation.json"))
         self.assertEqual(cp.returncode, 1)

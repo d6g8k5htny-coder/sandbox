@@ -4,7 +4,9 @@ Sandbox prototype of the owner hard-gate in
 [main #90](https://github.com/d6g8k5htny-coder/main/issues/90):
 
 - fail-closed on controlling **promotion** over non-terminal deps
-- `BLOCKED_ABSENT` forces dependent HOLD
+- own-node eligibility: only `CONTROLLING_ELIGIBLE={PROVED_REVIEWED}` may claim
+  controlling promotion (author-side labels refuse)
+- `BLOCKED_ABSENT` / required `REFUTED` force dependent HOLD
 - reverse-impact report + required `REVALIDATION_REQUIRED` marking
 - `closure-report` dependency snapshot
 - `mutate-lower` negative control (changed lower holds dependents)

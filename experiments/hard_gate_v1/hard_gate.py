@@ -24,12 +24,22 @@ NONTERMINAL = frozenset({
     "HOLD",
     "REVALIDATION_REQUIRED",
     "AUTHOR_SIDE_ONLY",
+    "AUTHOR_SIDE_CANDIDATE",
+    "AUTHOR_SIDE_REDUCTION",
 })
 CONTROLLING_ROLES = frozenset({"controlling", "campaign_controlling"})
 # A controlling node may sit HOLD/OPEN/REVALIDATION_REQUIRED over unfinished
 # deps. Fail closed only when it claims a promoted terminal success.
-PROMOTED_CONTROLLING = frozenset({"PROVED_REVIEWED"})  # positive eligibility only
-POSITIVE_CONTROLLING_ELIGIBLE = PROMOTED_CONTROLLING
+# Aligns with Math- tip CONTROLLING_ELIGIBLE = {PROVED_REVIEWED}.
+CONTROLLING_ELIGIBLE = frozenset({"PROVED_REVIEWED"})
+PROMOTED_CONTROLLING = CONTROLLING_ELIGIBLE
+POSITIVE_CONTROLLING_ELIGIBLE = CONTROLLING_ELIGIBLE  # alias; prefer CONTROLLING_ELIGIBLE
+# Author-side labels are never positive controlling eligibility (#90 / Math- tip).
+AUTHOR_SIDE = frozenset({
+    "AUTHOR_SIDE_ONLY",
+    "AUTHOR_SIDE_CANDIDATE",
+    "AUTHOR_SIDE_REDUCTION",
+})
 
 
 def load_graph(path: Path) -> dict[str, Any]:
@@ -90,7 +100,7 @@ def check_graph(graph: dict[str, Any]) -> list[str]:
         if to not in nodes:
             problems.append(f"edge to unknown node {to!r}")
 
-    # Illegal promotion / BLOCKED_ABSENT force-HOLD.
+    # Illegal promotion / BLOCKED_ABSENT / REFUTED force-HOLD / own-node eligibility.
     for node in nodes.values():
         status = node.get("classification")
         role = node.get("role", "supporting")
@@ -103,16 +113,24 @@ def check_graph(graph: dict[str, Any]) -> list[str]:
         ]
         if role not in CONTROLLING_ROLES:
             continue
+        # Own-node eligibility: controlling role + author-side label is never
+        # CONTROLLING_ELIGIBLE (Math- tip / main #90).
+        if status in AUTHOR_SIDE:
+            problems.append(
+                f"{node['id']}: controlling role with {status} is outside "
+                f"CONTROLLING_ELIGIBLE={sorted(CONTROLLING_ELIGIBLE)}"
+            )
+            continue
         for dep in deps:
             dstatus = nodes[dep]["classification"] if dep in nodes else None
-            if dstatus == "BLOCKED_ABSENT":
-                # Rule 2: BLOCKED_ABSENT dep forces dependent HOLD (or stronger stop).
+            if dstatus in {"BLOCKED_ABSENT", "REFUTED"}:
+                # Required BLOCKED_ABSENT / REFUTED dep forces dependent HOLD.
                 if status not in {"HOLD", "BLOCKED_ABSENT", "REFUTED"}:
                     problems.append(
-                        f"{node['id']}: required BLOCKED_ABSENT dependency "
+                        f"{node['id']}: required {dstatus} dependency "
                         f"{dep} forces HOLD (found {status})"
                     )
-            elif status in PROMOTED_CONTROLLING and dstatus not in TERMINAL:
+            elif status in CONTROLLING_ELIGIBLE and dstatus not in TERMINAL:
                 problems.append(
                     f"{node['id']}: controlling promotion {status} blocked by "
                     f"nonterminal dependency {dep} ({dstatus})"
