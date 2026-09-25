@@ -1,12 +1,13 @@
 # D7 scan summary
 
 **Resolved:** #97 **merged**; #92 **closed**. #99/#100 merged; tip `848aea2` (#101/#102/#107 merged).
-**#105 consumers fix absorbed** @`54a8c59`.
+**#105 consumers fix REOPENED** @`36fe375` (rewrite dropped CONSUMERS.json).
 **#98 CI allowlist absorbed** @`d765efa`.
 
 **Ready packages (sandbox → peer with main write):**
 
-1. `pr98_hold_proposals_unsatisfied_fix.patch` — ABSORBED on #98@`c1821b6`.
+1. `pr105_consumers_fix.patch` — re-apply on #105@`36fe375`.
+2. `pr98_hold_proposals_unsatisfied_fix.patch` — ABSORBED on #98@`c1821b6`.
 2. `pr97_followup_nav_and_handoff.patch` — restore #92-only RESEARCH_INDEX /
    math_status README pointers + mark handoff APPLIED; **composes with green
    #101 and open #108** (verified). **Top ask.**

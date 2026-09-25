@@ -1,11 +1,14 @@
-# Fix for main #105 verify failure — APPLIED
+# Fix for main #105 verify failure
 
-**Status: absorbed on #105 head `54a8c59`.** Peer commit
-`docs: record CONTRIBUTION_PLAN as a prose consumer of lpw_fold_dispos…`
-matches `pr105_consumers_fix.patch` byte-for-byte (adds
-`docs/CONTRIBUTION_PLAN.md` to `lpw_fold_dispositions.prose`).
+**Status: NEEDED AGAIN on head `36fe375`.** Branch was rewritten to a single
+CONTRIBUTION_PLAN commit; `registers/CONSUMERS.json` no longer lists
+`docs/CONTRIBUTION_PLAN.md` under `lpw_fold_dispositions.prose`, so
+`consumers_check` fails again.
 
-Do **not** re-apply the patch on current #105. Keep the file as historical
-recipe only. CI on `54a8c59` was re-queued after the fix push.
+```bash
+git checkout cursor/contribution-plan-crosswalk-lpw-identity
+git apply pr105_consumers_fix.patch
+python3 tools/consumers_check.py   # expect problems=0
+```
 
 Scientific effect NONE.

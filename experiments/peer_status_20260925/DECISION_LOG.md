@@ -114,3 +114,9 @@ on `4c8f4bf`+patch. No competing work; keep package as top ask for #98 peer.
 Peer landed `fix(#90): surface unsatisfied_required in aggregate HOLD reports`.
 Sandbox package marked ABSORBED (do not re-apply). Continue observe #98 CI;
 nav/handoff remains ready but deferred until that CI greens.
+
+## 2026-09-25T18:21:31Z — #105 consumers fix reopened @`36fe375`
+
+Branch rewrite dropped `registers/CONSUMERS.json` update. `consumers_check`
+fails again (same prose drift). Re-list `pr105_consumers_fix.patch` as top
+ready ask; patch still applies. Do not treat prior absorb as current.
