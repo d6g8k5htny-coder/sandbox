@@ -346,3 +346,12 @@ No material change since absorb. Tip `e3cd7d4`; nav package still applies;
 #98@`ebd7450` verify IN_PROGRESS (nav + loss-only SUCCESS). Enforcement
 package remains ABSORBED. OA F1 claim observe-only. No new package. Sole P1 =
 nav/handoff. Resubscribe timer.
+
+## 2026-09-25T21:25:15Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `e3cd7d4`; nav package still applies.
+**#98** @`ebd7450` verify **SUCCESS** (all checks green); still DRAFT; OpenAI
+re-review pending; OA F1 claim not yet a visible separate PR.
+**Priority ambiguous?** No.
+**Decision:** no new package; sole P1 = nav/handoff; observe #98 re-review;
+resubscribe timer.

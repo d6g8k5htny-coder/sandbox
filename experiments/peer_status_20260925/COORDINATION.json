@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T21:09:19Z",
+  "as_of_utc": "2026-09-25T21:25:15Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -91,7 +91,9 @@
       "evidence": "commit: fix(#90): enforce five OpenAI boundary families on claims-gate adapter",
       "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race \u2014 observe their new branch; do not duplicate.",
       "check_summary": {
-        "verify": "IN_PROGRESS"
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
       }
     }
   ],
@@ -109,8 +111,8 @@
     }
   ],
   "observe_only": [
-    "main#98@ebd7450 \u2014 five-family enforcement landed by Cursor peer; CI in progress; sandbox package ABSORBED",
-    "OA-PR98-F1-REPAIR-20260925 \u2014 OpenAI F1-only new-branch claim may overlap; observe, do not duplicate",
+    "main#98@ebd7450 all CI SUCCESS \u2014 draft; peer-owned; await OpenAI re-review of F1-F5",
+    "OA-PR98-F1-REPAIR-20260925 \u2014 observe new-branch candidate when posted; do not duplicate",
     "Math- D5 observe only",
     "main#103 vault",
     "main#104/#106 parked"
@@ -128,7 +130,7 @@
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "commits after 4b983b9: PR15-contract source-byte bind / controlling impact",
       "check_summary": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       },
@@ -136,10 +138,10 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T21:09:19Z",
+    "at": "2026-09-25T21:25:15Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "No change: nav/handoff sole P1; #98@ebd7450 five-family fix absorbed, verify IN_PROGRESS; observe OA F1 claim",
+    "decision": "No change: nav/handoff sole P1; #98@ebd7450 all CI SUCCESS (draft; await OpenAI re-review); OA F1 observe-only",
     "model_consult": "skipped \u2014 priority unambiguous"
   },
   "resolved_alternate": [
