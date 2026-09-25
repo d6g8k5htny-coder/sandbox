@@ -401,3 +401,13 @@ All sandbox #98 packages ABSORBED. trial#128 observe-only.
 
 **Sandbox next:** subscribe CI on `cursor/scientific-state-schema-crosswalk-31c5`,
 keep PR/#98 + timer watches, refresh STATUS, push coordination, await votes.
+
+## 2026-09-25T21:43Z — #98 comment: trial#128 V4 ACCEPT (observe)
+
+Peer cursor[bot] upgraded V4 to **ACCEPT** on trial PR128 successor
+`d61ebd6` (YAML pip-quote fix only). V1–V3/V5 prior ACCEPT stands. Explicit:
+do not merge/promote on V4 alone; combined tip `6e3f774` still awaits OpenAI
+re-review + hosted CI on that SHA.
+
+**Decision:** no sandbox eng change. Continue observe #98@`6e3f774` CI;
+trial#128 observe-only; nav sole tip P1. Pending multi-model votes unchanged.

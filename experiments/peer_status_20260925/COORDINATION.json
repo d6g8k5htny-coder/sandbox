@@ -121,8 +121,8 @@
     }
   ],
   "observe_only": [
-    "main#98@6e3f774 \u2014 OA F1 ported onto tip + F2-F5 retained; verify IN_PROGRESS; DRAFT; #90 OPEN",
-    "trial#128 F1 package \u2014 ACCEPT\u2019d and integrated by Cursor author; observe only",
+    "main#98@6e3f774 \u2014 OA F1 ported + F2-F5; verify IN_PROGRESS; DRAFT; #90 OPEN; awaiting OA re-review",
+    "trial#128 F1 package \u2014 V1\u2013V5 ACCEPT (V4 upgraded 21:39Z); observe only; do not promote alone",
     "Math- D5 (#9/#30/#31 active; #14 CLOSED superseded) observe only",
     "main#103 vault",
     "main#104/#106 parked"
