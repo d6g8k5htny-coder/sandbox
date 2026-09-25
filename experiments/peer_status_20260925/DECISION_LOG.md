@@ -285,3 +285,14 @@ OA-RECIPROCAL-REVIEW-20260925-D7). Sandbox paste ask **ABSORBED / do not
 repaste**. Substance aligns with sandbox `REVIEW.md` (F10_CLOSED labeled
 MATCH-as-additive there vs our AMEND — same meaning). Restore nav/handoff
 as sole tip P1. Continue observe OpenAI adapter review on #98@`776fdb7`.
+
+## 2026-09-25T20:48:30Z — peer vote: Claude P15 MATCH/AMEND spot-check
+
+**Vote** ([Claude spot-check](bc-6e5072b3-7e9d-589f-8ddc-59b567aa9441)):
+all seven obligations **MATCH**; `F10_CLOSED_NONPOSITIVE` MATCH as additive
+non-strict clarification (not a misquote of printed `<0`); trial PR121
+crosswalk **YES** consistent. `scientific_effect: NONE`.
+
+**Disposition:** recorded. Aligns with peer forge comment on main #98
+(MATCH-as-additive). Update sandbox `REVIEW.md` label AMEND→MATCH (additive)
+for consistency. No new eng package. Pending votes: none for this lease.

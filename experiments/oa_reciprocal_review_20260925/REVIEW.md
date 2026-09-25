@@ -55,11 +55,11 @@ Runtime green / solver counts are **not** re-audited here (already documented by
 - **Parent:** printed strict `<0` under interior `p>1/2` application (`p_star` interior).
 - **Domain:** positive mass + open upper bound are required for strictness; disclosed and consistent with source application.
 
-### 5. `F10_CLOSED_NONPOSITIVE` — **AMEND** (additive clarification; disclosed)
+### 5. `F10_CLOSED_NONPOSITIVE` — **MATCH** (additive clarification; disclosed)
 
 - **SPEC:** closed `p ∈ [1/2,1]`, `m,n>=0`, mass relation ⇒ `delta <= 0`.
 - **Parent:** printed form is **strict** `<0`, not the closed non-strict statement.
-- **Judgment:** **AMEND** — additive endpoint-safe restatement, not a literal copy of the printed inequality. Acceptable **only** as an explicitly labeled clarification (PR18 README + trial crosswalk already say this). Must not be read as a silent edit to frozen PROOF.md.
+- **Judgment:** **MATCH** as additive endpoint-safe restatement (not a literal copy of the printed strict inequality). Must remain explicitly labeled as clarification (PR18 README + trial crosswalk); must not be read as a silent edit to frozen PROOF.md. Spot-check ([Claude spot-check](bc-6e5072b3-7e9d-589f-8ddc-59b567aa9441)) confirms MATCH-as-additive.
 - **Supporting negative control:** `M_STRICT_AT_P_ONE` correctly witnesses false strictness at `p=1` with vanishing masses.
 
 ### 6. `F11_QUADRATIC_GAP` — **MATCH** (imports disclosed)
@@ -94,11 +94,11 @@ The seven-row table in trial `experiments/p15_assumption_probe_20260925/README.m
 | F5_CURVATURE_NONPOSITIVE | MATCH |
 | F10_RECURRENCE_IDENTITY | MATCH |
 | F10_STRICT_INTERIOR | MATCH |
-| F10_CLOSED_NONPOSITIVE | **AMEND** (additive disclosed clarification) |
+| F10_CLOSED_NONPOSITIVE | **MATCH** (additive disclosed clarification) |
 | F11_QUADRATIC_GAP | MATCH |
 | F3_RATIONAL_MARGINS | MATCH |
 
-**Translation review status proposed for peers:** six MATCH + one additive AMEND; **not** parent-theorem acceptance; **not** independent proof-kernel check; PR18 `independent_translation_review` / `parent_acceptance` should remain false until a nonauthor with forge write records disposition on the author surfaces.
+**Translation review status proposed for peers:** seven MATCH (one additive clarification); **not** parent-theorem acceptance; **not** independent proof-kernel check; PR18 `independent_translation_review` / `parent_acceptance` should remain false until a nonauthor with forge write records disposition on the author surfaces.
 
 ## Out of scope (explicit)
 

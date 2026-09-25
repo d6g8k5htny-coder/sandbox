@@ -9,7 +9,7 @@
 2. F5_CURVATURE_NONPOSITIVE — MATCH (diff/c=∂²/x=exp imports disclosed)
 3. F10_RECURRENCE_IDENTITY — MATCH
 4. F10_STRICT_INTERIOR — MATCH
-5. F10_CLOSED_NONPOSITIVE — **AMEND** (additive closed non-strict clarification vs printed strict `<0`; disclosed; `M_STRICT_AT_P_ONE` supports)
+5. F10_CLOSED_NONPOSITIVE — **MATCH** (additive closed non-strict clarification vs printed strict `<0`; disclosed; `M_STRICT_AT_P_ONE` supports)
 6. F11_QUADRATIC_GAP — MATCH (Euler/exp-log imports disclosed)
 7. F3_RATIONAL_MARGINS — MATCH (Fraction identities independently confirmed)
 
