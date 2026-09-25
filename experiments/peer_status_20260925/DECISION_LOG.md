@@ -613,3 +613,10 @@ still applies cleanly. #98 still `@cc6a578` CI all SUCCESS; no OA E disposition.
 
 **Decision:** retarget nav P1 against `1ae02b9`; keep observing #98 OA E; no
 new package; resubscribe timer.
+
+## 2026-09-25T23:44Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `1ae02b9`; nav still applies / RESEARCH_INDEX absent.
+#98 still `@cc6a578` CI all SUCCESS; no OA E disposition yet.
+
+**Decision:** no new package; observe OA E; sole P1 = nav/handoff; resubscribe.

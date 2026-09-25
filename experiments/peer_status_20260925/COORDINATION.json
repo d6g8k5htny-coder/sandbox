@@ -186,11 +186,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T23:28:34Z",
+    "at": "2026-09-25T23:44:33Z",
     "tip": "1ae02b9ab759",
     "priority_ambiguous": false,
-    "decision": "Tip advanced 1ae02b9 (claim audit); nav still applies; #98@cc6a578 CI green await OA E",
-    "model_consult": "skipped — tip move clear; nav retarget; peer #98 lease stands"
+    "decision": "Timer: tip/nav unchanged; #98@cc6a578 CI green; still awaiting OA E; no package",
+    "model_consult": "skipped — no forge move; peer tip stable"
   },
   "resolved_alternate": [
     {
