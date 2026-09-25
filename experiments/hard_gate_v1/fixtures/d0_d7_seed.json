@@ -1,0 +1,30 @@
+{
+  "schema": "sandbox.hard-gate/v1",
+  "as_of": "2026-09-25",
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "authority": "NONE",
+  "role": "private exploratory seed for main issue 90; not a claim register",
+  "nodes": [
+    {"id": "D0_historical_RN_walls", "classification": "OPEN", "role": "supporting", "note": "PR87/PR92 crosswalk in flight"},
+    {"id": "D0_absent_carriers", "classification": "BLOCKED_ABSENT", "role": "supporting", "note": "rnu_env / CL bundle / allcell_fdz ABSENT"},
+    {"id": "D1_parent_gaussian_KR", "classification": "OPEN", "role": "supporting", "issue": 63},
+    {"id": "D2_lifetime_successor", "classification": "OPEN", "role": "supporting", "issue": 67},
+    {"id": "D3_coefficient", "classification": "OPEN", "role": "supporting", "issue": 65},
+    {"id": "D4_RN_count_crosswalk", "classification": "OPEN", "role": "supporting", "issue": 76},
+    {"id": "D5_mesoscopic_annulus", "classification": "OPEN", "role": "supporting", "math_pr": 7},
+    {"id": "D6_P15", "classification": "OPEN", "role": "supporting", "issue": 74},
+    {"id": "D7_engineering_provenance", "classification": "OPEN", "role": "supporting"},
+    {"id": "UPSTREAM_NEW_THEOREM", "classification": "HOLD", "role": "controlling", "note": "must stay HOLD while deps unresolved"}
+  ],
+  "edges": [
+    {"type": "depends_on", "from": "D2_lifetime_successor", "to": "D1_parent_gaussian_KR"},
+    {"type": "depends_on", "from": "D4_RN_count_crosswalk", "to": "D0_historical_RN_walls"},
+    {"type": "depends_on", "from": "D5_mesoscopic_annulus", "to": "D4_RN_count_crosswalk"},
+    {"type": "depends_on", "from": "UPSTREAM_NEW_THEOREM", "to": "D0_historical_RN_walls"},
+    {"type": "depends_on", "from": "UPSTREAM_NEW_THEOREM", "to": "D1_parent_gaussian_KR"},
+    {"type": "depends_on", "from": "UPSTREAM_NEW_THEOREM", "to": "D2_lifetime_successor"},
+    {"type": "depends_on", "from": "UPSTREAM_NEW_THEOREM", "to": "D6_P15"},
+    {"type": "depends_on", "from": "UPSTREAM_NEW_THEOREM", "to": "D0_absent_carriers"}
+  ]
+}

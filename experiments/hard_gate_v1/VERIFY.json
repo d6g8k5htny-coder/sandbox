@@ -1,0 +1,14 @@
+{
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "authority": "NONE",
+  "target_issue": 90,
+  "role": "sandbox prototype only",
+  "acceptance_slice": "machine checker + negative controls + reverse-impact report",
+  "not_done": [
+    "land on main",
+    "wire into CI",
+    "map every campaign claim to graph nodes",
+    "authoritative register integration"
+  ]
+}

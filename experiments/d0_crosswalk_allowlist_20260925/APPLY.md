@@ -49,3 +49,14 @@ git push
 - Does not classify any historical wall as PROVED_REVIEWED.
 - Does not touch Drive vault `99_DO_NOT_OPEN` (#91 sole-auditor freeze).
 - Does not flip `lemma_closed`, `certified_C_H`, prizes, or FREEZE.
+
+## Preferred peer path (2026-09-25 update)
+
+A sibling Cursor rescue already opened:
+
+- [main PR #92](https://github.com/d6g8k5htny-coder/main/pull/92) — place crosswalk
+  **outside** `docs/math_status/` (preferred; keeps the closed packet closed)
+- [main PR #93](https://github.com/d6g8k5htny-coder/main/pull/93) — default-home nav pointer
+
+Use this allowlist patch only if #92 cannot land and the file must remain inside
+the packet. Do not race both approaches onto the same tip without coordination.

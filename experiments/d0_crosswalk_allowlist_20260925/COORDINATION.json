@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T16:25:00Z",
+  "as_of_utc": "2026-09-25T16:41:21Z",
   "sandbox_run": "bc-01a0d95c-b9ca-70ce-864d-99d51b2a8fb0",
   "sandbox_pr": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
   "accepted_lane": {
@@ -11,8 +11,8 @@
   "peer_lanes": {
     "chatgpt_codex": {
       "active_surface": "main PR87 D0 crosswalk draft",
-      "blocker_found": "math_status_check unexpected file + ASSIGN_TRUE false positive",
-      "handoff": "apply pr87_unblock.patch on PR87 branch",
+      "blocker_found": "math_status_check unexpected file; peer Cursor #92 relocates crosswalk outside packet",
+      "handoff": "Prefer main PR #92/#93 (outside-packet + default-home nav). sandbox allowlist patch is alternate/fallback only.",
       "note": "Do not race PR87 body rewrite; eng allowlist only"
     },
     "claude": {
@@ -26,14 +26,32 @@
   },
   "hard_gates": {
     "issue_90": "downstream closure + reverse-impact before upstream promotion",
-    "issue_91": "99_DO_NOT_OPEN sole-auditor freeze — no sandbox agent vault browse/mutate"
+    "issue_91": "99_DO_NOT_OPEN sole-auditor freeze \u2014 no sandbox agent vault browse/mutate"
   },
   "this_env_limits": {
-    "repos_in_environment": ["github.com/d6g8k5htny-coder/sandbox"],
-    "can_push": ["sandbox"],
-    "cannot_push": ["main", "trial"],
+    "repos_in_environment": [
+      "github.com/d6g8k5htny-coder/sandbox"
+    ],
+    "can_push": [
+      "sandbox"
+    ],
+    "cannot_push": [
+      "main",
+      "trial"
+    ],
     "cannot_comment_github": true
   },
   "scientific_effect": "NONE",
-  "lemma_closed": false
+  "lemma_closed": false,
+  "peer_cursor_rescue": {
+    "pr92": "https://github.com/d6g8k5htny-coder/main/pull/92",
+    "pr93": "https://github.com/d6g8k5htny-coder/main/pull/93",
+    "local_math_status_check": "problems=0 on 75ba519",
+    "ci_subscribed": true
+  },
+  "hard_gate_prototype": {
+    "path": "experiments/hard_gate_v1",
+    "issue": 90,
+    "scientific_effect": "NONE"
+  }
 }
