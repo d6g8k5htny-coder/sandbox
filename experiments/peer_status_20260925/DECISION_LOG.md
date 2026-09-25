@@ -602,3 +602,14 @@ resubscribe timer + renew CI watch.
 
 **Decision:** no new package; observe OA E re-review; sole P1 = nav/handoff;
 resubscribe timer.
+
+## 2026-09-25T23:28Z — d7-multimodel-loop; inventable tip → `1ae02b9`
+
+**Refresh:** tip advanced `e3cd7d4` → `1ae02b9` (“Integrate fail-closed claim
+audit repairs”). RESEARCH_INDEX still absent. `pr97_followup_nav_and_handoff`
+still applies cleanly. #98 still `@cc6a578` CI all SUCCESS; no OA E disposition.
+
+**Priority ambiguous?** No.
+
+**Decision:** retarget nav P1 against `1ae02b9`; keep observing #98 OA E; no
+new package; resubscribe timer.

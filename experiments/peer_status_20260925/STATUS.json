@@ -1,10 +1,10 @@
 {
-  "as_of_utc": "2026-09-25T23:12:52Z",
+  "as_of_utc": "2026-09-25T23:28:29Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
   "note": "Private coordination snapshot only; not research acceptance.",
-  "main_open_pr_count": 15,
+  "main_open_pr_count": 14,
   "sandbox_packages": {
     "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
     "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
@@ -176,7 +176,7 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T22:45:41Z",
+      "updatedAt": "2026-09-25T23:15:42Z",
       "head": "cc6a578",
       "checks": [
         {
@@ -596,8 +596,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
-      "updatedAt": "2026-09-25T23:11:55Z",
-      "head": "ca89160",
+      "updatedAt": "2026-09-25T23:26:40Z",
+      "head": "e36a300",
       "checks": [
         {
           "name": "replay",
@@ -638,8 +638,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T22:57:29Z",
-      "head": "c7ca4c4",
+      "updatedAt": "2026-09-25T23:13:13Z",
+      "head": "b5798fe",
       "checks": [],
       "check_summary": {}
     }
