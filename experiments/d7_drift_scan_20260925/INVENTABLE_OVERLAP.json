@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T22:16:45Z",
+  "as_of_utc": "2026-09-25T22:32:21Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "e3cd7d4873c5",
@@ -50,7 +50,7 @@
         "tools/semantic_digest.py"
       ],
       "checks": {
-        "verify": "IN_PROGRESS",
+        "verify": "FAILURE",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }

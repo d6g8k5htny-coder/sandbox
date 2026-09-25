@@ -564,3 +564,17 @@ IN_PROGRESS (nav + loss-only green). No OA E disposition yet.
 
 **Decision:** no new package; observe #98 CI + OA E; sole P1 = nav/handoff;
 resubscribe timer.
+
+## 2026-09-25T22:32Z — d7-multimodel-loop; split CI on E tip
+
+**Refresh:** tip still `e3cd7d4`; nav ready. #98 `@22d99768`:
+- PR verify **SUCCESS** (36195412945)
+- push verify **FAILURE** (36195408373) — `event-compare` 7e219c3→22d99768
+  seeds Q0/D1 scientific-object impact; F1
+  `CONTROLLING_SOURCE_REQUIRES_REVALIDATION` → `transition_ok:false`.
+  `coverage_repairs: []` (E enrichment not classified as coverage repair).
+
+**Priority ambiguous?** No — peer owns #98; CI fail is on their tip.
+
+**Decision:** yield; do not package competing E/CI fix unless peer asks or
+stalls. Sole tip P1 = nav/handoff. Resubscribe timer + keep CI/PR watches.

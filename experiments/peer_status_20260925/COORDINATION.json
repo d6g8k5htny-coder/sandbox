@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T22:12:30Z",
+  "as_of_utc": "2026-09-25T22:32:22Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -24,7 +24,7 @@
       "claude-sonnet-5-thinking-medium@bc-40e3af3f"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98@22d99768 repair E complete; sandbox observe CI + OA E re-review only",
+    "live_peer_override": "main#98@22d99768 E tip; push-verify RED (claims-gate event-compare F1 on Q0/D1); PR-verify GREEN; peer owns fix",
     "consensus": "Peer landed E @22d99768 (extraction/expected_sha256/freshness). Yield; observe. Nav sole tip P1.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
@@ -153,7 +153,8 @@
     }
   ],
   "observe_only": [
-    "main#98@22d99768 — E complete; verify IN_PROGRESS; DRAFT; #90 OPEN; await OA E re-review",
+    "main#98@22d99768 — E landed; push verify FAIL (7e219c3→22d99768 source-byte seeds on controlling); PR verify PASS; DRAFT; #90 OPEN",
+    "Await peer CI fix and/or OA E re-review",
     "trial#128 observe only",
     "Math- D5 observe only",
     "main#103 vault; #104/#106 parked"
@@ -171,19 +172,20 @@
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "fix head 22d99768; adapter SHA256 18a5412d…",
       "check_summary": {
-        "verify": "IN_PROGRESS",
-        "navigation": "QUEUED",
-        "loss-only-controls": "QUEUED"
+        "verify_pull_request": "SUCCESS",
+        "verify_push": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
       },
-      "note": "ready for OA E re-review; do not race"
+      "note": "push event-compare fails F1 retained-controlling on E binding enrichment; peer lease"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T22:16:46Z",
+    "at": "2026-09-25T22:32:22Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Timer: tip/nav unchanged; #98@22d99768 E tip verify still IN_PROGRESS; yield stands",
-    "model_consult": "skipped — peer E land decisive; awaiting CI/OA"
+    "decision": "Observe peer CI fix for push-verify red; no sandbox race; nav sole P1",
+    "model_consult": "skipped — peer owns #98 CI repair"
   },
   "resolved_alternate": [
     {
