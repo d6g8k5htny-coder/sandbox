@@ -501,3 +501,14 @@ broad `except AdapterError` → `absent_old_schema`).
 CI + next peer head / OA re-review. Nav sole tip P1. No new sandbox package
 while peer holds the repair lease (portable recipe only if peer asks or stalls
 with an unmet machine gap).
+
+## 2026-09-25T22:00Z — peer A–D complete @`7e219c38`
+
+Cursor peer returned exact head `7e219c38` covering owner-seed reverse closure
+(A), malformed≠absent historical schema (B), cross-repo unresolved (C), tip
+bindings retained from `47ad537` (D). Local 70 methods green; hosted verify
+IN_PROGRESS.
+
+**Decision:** Keep yield; observe CI + OA re-review. Note OA precision follow-up
+(extraction_rule / expected_sha256) may still require a later tip — do not
+preempt while peer holds lease. Sole tip P1 = nav/handoff.

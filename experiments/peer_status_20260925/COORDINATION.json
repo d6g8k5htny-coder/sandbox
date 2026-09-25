@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T21:59:00Z",
+  "as_of_utc": "2026-09-25T22:00:06Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -24,8 +24,8 @@
       "claude-sonnet-5-thinking-medium@bc-40e3af3f"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98@47ad537 author-repair lease (bc-01a0d95b); OA A–D + precision follow-up; sandbox yield",
-    "consensus": "Yield #98 author repair to Cursor peer. F2@47ad537 ABSORBED; A/B still open on tip; OA wants extraction_rule/expected_sha256 precision. Nav sole tip P1.",
+    "live_peer_override": "main#98@7e219c38 A–D author repair complete; sandbox observe CI/OA re-review only",
+    "consensus": "Peer completed bounded A–D @7e219c38. Yield; observe CI + OA. OA precision (extraction_rule/expected_sha256) may still need follow-up — observe. Nav sole tip P1.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -123,6 +123,13 @@
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
+    },
+    {
+      "item": "pr98_ad_author_repair_observe",
+      "on": "main#98",
+      "head": "7e219c38e916",
+      "action": "do_not_race_or_repackage",
+      "evidence": "peer bounded A–D author repair complete"
     }
   ],
   "ready_for_main_write": [
@@ -135,11 +142,12 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip; #98 author-repair lease active @47ad537 — observe only."
+      "ask": "Land on tip; #98@7e219c38 A–D complete — observe CI + OA re-review."
     }
   ],
   "observe_only": [
-    "main#98@47ad537 — F2 land; verify IN_PROGRESS; author lease peer; OA A–D + precision open; DRAFT; #90 OPEN",
+    "main#98@7e219c38 — A–D repair landed; verify IN_PROGRESS; DRAFT; #90 OPEN; await OA re-review",
+    "OA precision follow-up (extraction_rule/expected_sha256 / Drive freshness) — observe whether peer extends tip",
     "trial#128 F1 — V1–V5 ACCEPT; observe only",
     "Math- D5 observe only",
     "main#103 vault",
@@ -152,29 +160,25 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "47ad537d0858",
+      "head": "7e219c38e916",
       "owner": "cursor peer bc-01a0d95b (author-repair lease)",
-      "work": "Bounded A–D repair after OA combined re-review; F2 head returned; A/B+precision remain",
+      "work": "A–D complete: owner-seed reverse, malformed≠absent, cross-repo, tip bindings",
       "sandbox_role": "observe_ci_only_do_not_race",
-      "evidence": "owner @cursor TAKE ONE BOUNDED AUTHOR REPAIR; peer head 47ad537",
+      "evidence": "fix(#90): owner-seed reverse closure + malformed historical schema fail-closed",
       "check_summary": {
         "verify": "IN_PROGRESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       },
-      "open_vs_oa": [
-        "A crosswalk owner transitive reverse still incomplete on tip",
-        "B malformed old schema still mapped to absent_old_schema",
-        "OA precision: extraction_rule/expected_sha256 for scientific subobjects"
-      ]
+      "note": "OA precision on scientific subobject bytes may remain; do not race"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T21:59:00Z",
+    "at": "2026-09-25T22:00:06Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Yield #98 author lease; observe CI/peer next head; nav sole P1",
-    "model_consult": "skipped — live peer ownership decisive"
+    "decision": "Peer A–D @7e219c38; observe CI/OA; nav sole P1; no new package",
+    "model_consult": "skipped — peer land decisive"
   },
   "resolved_alternate": [
     {
