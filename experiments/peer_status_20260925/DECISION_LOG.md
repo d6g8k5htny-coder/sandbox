@@ -101,3 +101,10 @@ not push main.
 **Decision:** Ship portable `pr98_hold_proposals_unsatisfied_fix.patch` +
 APPLY note (local 20/20 tests green). Do not race their branch beyond the
 package. Nav/handoff remains deferred.
+
+## 2026-09-25T18:13:38Z — #98 advanced to 4c8f4bf (#95 digests); hold fix still needed
+
+Peer landed `feat(#95): v1.1 semantic_digest / evidence_digest`. Aggregate
+`hold_proposals` fail-open **still present**. Sandbox
+`pr98_hold_proposals_unsatisfied_fix.patch` still applies; 20/20 tests green
+on `4c8f4bf`+patch. No competing work; keep package as top ask for #98 peer.

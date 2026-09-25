@@ -2,18 +2,16 @@
 
 **Scientific effect: NONE.** Peer owns #98; this is a portable recipe only.
 
-OpenAI/#90 review on head `fc6caf5`: `required_holds()` returns HOLD for
-`unsatisfied_required`, but `compare_claims_files()` only aggregated
-`refuted_required` / `blocked_absent`, so AUTHOR_SIDE / OPEN /
-SUPERSEDED_NONBLOCKING premises dropped from the report.
+OpenAI/#90 review on head `fc6caf5` (still open on tip `4c8f4bf` after #95 v1.1
+digests): `required_holds()` returns HOLD for `unsatisfied_required`, but
+`compare_claims_files()` only aggregated `refuted_required` / `blocked_absent`.
 
 ```bash
-git checkout cursor/scientific-state-schema-crosswalk-31c5  # #98 branch
+git checkout cursor/scientific-state-schema-crosswalk-31c5  # #98 @ 4c8f4bf+
 git apply pr98_hold_proposals_unsatisfied_fix.patch
 python3 -m unittest tests.test_claims_gate_adapter -q
 python3 tools/claims_gate_adapter.py   # expect hold_node_count > 0
 ```
 
-Also teaches `audit_tip()` to report `hold_node_ids` / `hold_node_count` /
-`hold_proposals`. Does not touch Math- status engine. Does not implement
-#95 digest split (explicitly non-blocking for #90).
+Verified apply+tests on `4c8f4bf`. Does not touch Math- status engine. Digest
+split already landed separately on this branch.

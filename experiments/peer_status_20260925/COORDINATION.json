@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T18:12:19Z",
+  "as_of_utc": "2026-09-25T18:13:38Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -55,14 +55,14 @@
     {
       "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr98_hold_proposals_unsatisfied_fix.patch",
-      "against": "main#98 @ fc6caf5",
+      "against": "main#98 @ 4c8f4bf (still applies after #95 v1.1 digest commit)",
       "owner": "peer on #98 (sandbox does not push main)",
       "fix": "include unsatisfied_required in hold_proposals + audit_tip hold counts; negative controls",
       "verify": [
         "python3 -m unittest tests.test_claims_gate_adapter -q",
         "python3 tools/claims_gate_adapter.py"
       ],
-      "local_verify": "20 unittest methods OK; tip hold_node_count=13"
+      "local_verify": "20 unittest methods OK on 4c8f4bf + patch"
     },
     {
       "priority": 2,
@@ -95,11 +95,12 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "fc6caf5",
+      "head": "4c8f4bf",
       "owner": "cursor peer on scientific-state-schema branch",
       "work": "#90 thin claims_gate_adapter four loss-only cases + duplicate-edge reject",
       "sandbox_role": "observe_ci_only_do_not_race",
-      "evidence": "commit fix(#90): loss-only reverse-impact cases on thin claims adapter"
+      "evidence": "commit fix(#90): loss-only reverse-impact cases on thin claims adapter",
+      "note": "#95 v1.1 digests landed; hold_proposals fail-open still open \u2014 apply sandbox patch"
     }
   ]
 }
