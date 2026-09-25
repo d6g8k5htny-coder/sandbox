@@ -645,3 +645,11 @@ claims TAKE E6. Nav sole tip P1. No other packages.
 green; apply-check clean. No push to main/#98. Yield if peer TAKEs.
 
 Nav tip P1 unchanged on `1ae02b9`.
+
+## 2026-09-25T23:53Z — peer E6 land @`2d3374c`; sandbox package ABSORBED
+
+Peer returned `2d3374c` with `_coverage_repair_allowed` (non-binding identity +
+edge/authority/other-seed guards) and E6 negative control. Sandbox
+`pr98_e6_coverage_repair_semantic_guard` **ABSORBED / do not re-apply**.
+
+**Decision:** yield; observe CI + OA E6 re-review; sole tip P1 = nav/handoff.

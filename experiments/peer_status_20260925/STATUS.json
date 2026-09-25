@@ -1,10 +1,10 @@
 {
-  "as_of_utc": "2026-09-25T23:44:29Z",
+  "as_of_utc": "2026-09-25T23:53:54Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
   "note": "Private coordination snapshot only; not research acceptance.",
-  "main_open_pr_count": 14,
+  "main_open_pr_count": 15,
   "sandbox_packages": {
     "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
     "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
@@ -176,28 +176,13 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T23:15:42Z",
-      "head": "cc6a578",
+      "updatedAt": "2026-09-25T23:53:02Z",
+      "head": "2d3374c",
       "checks": [
         {
           "name": "verify",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
-        },
-        {
-          "name": "verify",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
-        },
-        {
-          "name": "navigation",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
-        },
-        {
-          "name": "loss-only-controls",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "IN_PROGRESS"
         },
         {
           "name": "loss-only-controls",
@@ -206,8 +191,7 @@
         }
       ],
       "check_summary": {
-        "verify": "SUCCESS",
-        "navigation": "SUCCESS",
+        "verify": "IN_PROGRESS",
         "loss-only-controls": "SUCCESS"
       }
     },
@@ -596,8 +580,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
-      "updatedAt": "2026-09-25T23:41:36Z",
-      "head": "84635f7",
+      "updatedAt": "2026-09-25T23:51:56Z",
+      "head": "e65fb1f",
       "checks": [
         {
           "name": "replay",
@@ -638,8 +622,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T23:29:09Z",
-      "head": "2a625c4",
+      "updatedAt": "2026-09-25T23:50:31Z",
+      "head": "56cd4a0",
       "checks": [],
       "check_summary": {}
     }
