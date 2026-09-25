@@ -1,9 +1,15 @@
 {
-  "as_of_utc": "2026-09-25T17:35:18Z",
+  "as_of_utc": "2026-09-25T17:45:38Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
   "note": "Private coordination snapshot only; not research acceptance.",
+  "main_open_pr_count": 16,
+  "sandbox_packages": {
+    "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
+    "pr97_followup_nav_links": "experiments/d7_drift_scan_20260925/pr97_followup_nav_links.patch",
+    "pr_handoff_applied": "experiments/d7_drift_scan_20260925/pr_handoff_applied.patch"
+  },
   "surfaces": [
     {
       "repo": "d6g8k5htny-coder/main",
@@ -41,7 +47,12 @@
           "conclusion": "SUCCESS",
           "status": "COMPLETED"
         }
-      ]
+      ],
+      "check_summary": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
     },
     {
       "repo": "d6g8k5htny-coder/main",
@@ -79,7 +90,12 @@
           "conclusion": "SUCCESS",
           "status": "COMPLETED"
         }
-      ]
+      ],
+      "check_summary": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
     },
     {
       "repo": "d6g8k5htny-coder/main",
@@ -117,7 +133,12 @@
           "conclusion": "SUCCESS",
           "status": "COMPLETED"
         }
-      ]
+      ],
+      "check_summary": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
     },
     {
       "repo": "d6g8k5htny-coder/main",
@@ -140,7 +161,354 @@
           "conclusion": "SUCCESS",
           "status": "COMPLETED"
         }
-      ]
+      ],
+      "check_summary": {
+        "navigation": "SUCCESS",
+        "verify": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 98,
+      "role": "cursor_scientific_state_schema_pilot",
+      "title": "Scientific-state schema pilot (#95): authority map + ID crosswalk + fail-closed checker",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
+      "updatedAt": "2026-09-25T17:37:56Z",
+      "head": "97a6b3b",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "",
+          "status": "IN_PROGRESS"
+        },
+        {
+          "name": "verify",
+          "conclusion": "",
+          "status": "IN_PROGRESS"
+        },
+        {
+          "name": "navigation",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 101,
+      "role": "inventable_math_status_q2_carrier_absent",
+      "title": "docs(math_status): STATUS.md \"CERTIFIED\" q=2 envelope is REQUIRED CARRIER ABSENT (walk-down 9, M1)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/101",
+      "updatedAt": "2026-09-25T17:41:18Z",
+      "head": "aff02f2",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "",
+          "status": "IN_PROGRESS"
+        },
+        {
+          "name": "verify",
+          "conclusion": "",
+          "status": "IN_PROGRESS"
+        },
+        {
+          "name": "navigation",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 105,
+      "role": "cursor_contribution_plan_lpw_consumers_block",
+      "title": "docs: retire stale CONTRIBUTION_PLAN next-items (LPW identity REFUTED, headline pinned)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
+      "updatedAt": "2026-09-25T17:44:31Z",
+      "head": "2567203",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "FAILURE",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "verify",
+          "conclusion": "FAILURE",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "navigation",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 104,
+      "role": "cursor_outside_residual_guard_parked",
+      "title": "Retip #38: refuse a non-zero residual on an OUTSIDE cell (controls 33 and 34)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/104",
+      "updatedAt": "2026-09-25T17:36:46Z",
+      "head": "ec3b426",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "FAILURE",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "verify",
+          "conclusion": "FAILURE",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "navigation",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 106,
+      "role": "cursor_retip46_cellcount_parked",
+      "title": "Retip #46: pin the 61,642 uniform-cost cell count (control 35)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/106",
+      "updatedAt": "2026-09-25T17:36:46Z",
+      "head": "3f14638",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "FAILURE",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "verify",
+          "conclusion": "FAILURE",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "navigation",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 107,
+      "role": "inventable_open_problems_frozen_errata",
+      "title": "docs(inventable): OPEN_PROBLEMS frozen errata E1/E2 (OPEN_PROBLEMS.md untouched, archive-pinned)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/107",
+      "updatedAt": "2026-09-25T17:41:19Z",
+      "head": "48d6fbc",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "",
+          "status": "IN_PROGRESS"
+        },
+        {
+          "name": "verify",
+          "conclusion": "",
+          "status": "IN_PROGRESS"
+        },
+        {
+          "name": "navigation",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 108,
+      "role": "inventable_tip_observe",
+      "title": "docs(inventable): tip-observe 388a22ca (observation only; not re-executed)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
+      "updatedAt": "2026-09-25T17:32:59Z",
+      "head": "b975e4a",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "",
+          "status": "IN_PROGRESS"
+        },
+        {
+          "name": "verify",
+          "conclusion": "",
+          "status": "IN_PROGRESS"
+        },
+        {
+          "name": "navigation",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 96,
+      "role": "vault99_census_sole_auditor_observe_only",
+      "title": "Vault 99 forensic census: freeze, 39-child baseline, and verified duplicate classifications",
+      "state": "MERGED",
+      "isDraft": false,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/96",
+      "updatedAt": "2026-09-25T17:19:32Z",
+      "head": "035e4db",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "verify": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 103,
+      "role": "vault_audit_v2_observe_only",
+      "title": "Vault audit v2: 80-ID tracker and reverse-impact component \u2014 audit remains OPEN",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/103",
+      "updatedAt": "2026-09-25T17:21:51Z",
+      "head": "5d442c3",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "verify": "SUCCESS"
+      }
     },
     {
       "repo": "d6g8k5htny-coder/Math-",
@@ -168,7 +536,43 @@
           "conclusion": "SUCCESS",
           "status": "COMPLETED"
         }
-      ]
+      ],
+      "check_summary": {
+        "replay": "SUCCESS",
+        "exact-checks": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/Math-",
+      "pr": 10,
+      "role": "chatgpt_eligibility_parallel_already_on_main",
+      "title": "Fix PR8 fail-open own-node CONTROLLING eligibility",
+      "state": "OPEN",
+      "isDraft": false,
+      "url": "https://github.com/d6g8k5htny-coder/Math-/pull/10",
+      "updatedAt": "2026-09-25T17:09:36Z",
+      "head": "77d52be",
+      "checks": [
+        {
+          "name": "replay",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "replay",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "exact-checks",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "replay": "SUCCESS",
+        "exact-checks": "SUCCESS"
+      }
     },
     {
       "repo": "d6g8k5htny-coder/Math-",
@@ -180,7 +584,55 @@
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/7",
       "updatedAt": "2026-09-25T12:31:57Z",
       "head": "0f5ce60",
-      "checks": []
+      "checks": [],
+      "check_summary": {}
+    },
+    {
+      "repo": "d6g8k5htny-coder/Math-",
+      "pr": 9,
+      "role": "cursor_d5_mesoscopic_chart_j0",
+      "title": "RN mesoscopic chart: J0 algebra, thin-belt L1 obstruction, PR7 crosswalk",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
+      "updatedAt": "2026-09-25T17:32:30Z",
+      "head": "1db4b95",
+      "checks": [
+        {
+          "name": "replay",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "replay": "SUCCESS"
+      }
+    },
+    {
+      "repo": "d6g8k5htny-coder/Math-",
+      "pr": 12,
+      "role": "cursor_d5_chart_into_hard_gate_graph",
+      "title": "Map PR9 mesoscopic chart-J0 into the D5 hard-gate graph",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/Math-/pull/12",
+      "updatedAt": "2026-09-25T17:33:57Z",
+      "head": "2e2b2a7",
+      "checks": [
+        {
+          "name": "replay",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "replay",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "replay": "SUCCESS"
+      }
     },
     {
       "repo": "d6g8k5htny-coder/sandbox",
@@ -190,27 +642,10 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T17:35:15Z",
-      "head": "90d2802",
-      "checks": []
-    },
-    {
-      "repo": "d6g8k5htny-coder/main",
-      "pr": 96,
-      "role": "vault99_census_sole_auditor_observe_only",
-      "title": "Vault 99 forensic census: freeze, 39-child baseline, and verified duplicate classifications",
-      "state": "MERGED",
-      "isDraft": false,
-      "url": "https://github.com/d6g8k5htny-coder/main/pull/96",
-      "updatedAt": "2026-09-25T17:19:32Z",
-      "head": "035e4db",
-      "checks": [
-        {
-          "name": "verify",
-          "conclusion": "SUCCESS",
-          "status": "COMPLETED"
-        }
-      ]
+      "updatedAt": "2026-09-25T17:35:20Z",
+      "head": "1bcb932",
+      "checks": [],
+      "check_summary": {}
     }
   ]
 }

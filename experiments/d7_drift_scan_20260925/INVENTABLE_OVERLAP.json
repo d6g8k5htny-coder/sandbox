@@ -1,7 +1,14 @@
 {
-  "as_of_utc": "2026-09-25T17:30:16Z",
+  "as_of_utc": "2026-09-25T17:44:52Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
+  "hardening_tip": "eeebb28eeab2",
+  "note": "Overlap watch for inventable/cursor eng PRs; not acceptance.",
+  "sandbox_packages": [
+    "pr105_consumers_fix.patch",
+    "pr97_followup_nav_links.patch",
+    "pr_handoff_applied.patch"
+  ],
   "prs": [
     {
       "number": 98,
@@ -9,50 +16,19 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "c1236a7",
+      "head": "97a6b3b",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
+      "updatedAt": "2026-09-25T17:37:56Z",
       "files": [
         "architecture/scientific_state/README.md",
         "architecture/scientific_state/v1/AUTHORITY_MAP.json",
         "architecture/scientific_state/v1/ID_CROSSWALK.json",
         "architecture/scientific_state/v1/SCHEMA.json",
         "architecture/scientific_state/v1/VERIFICATION_LEVELS.json",
+        "tests/test_claims_gate_adapter.py",
         "tests/test_scientific_state.py",
+        "tools/claims_gate_adapter.py",
         "tools/scientific_state_check.py"
-      ],
-      "checks": {
-        "verify": "IN_PROGRESS",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
-      }
-    },
-    {
-      "number": 99,
-      "title": "docs(math_status): ENV-RESCOV node walk-down classification \u2014 outcome (b), conditional; no flags flipped",
-      "state": "OPEN",
-      "draft": true,
-      "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "6cb85b2",
-      "files": [
-        "docs/math_status/PACKET.json",
-        "docs/math_status/STATUS_RN_UNIF.md",
-        "docs/math_status_nodes/NODE_ENV_RESCOV_20260925.md",
-        "docs/math_status_nodes/env_rescov_b9c2_identity_spotcheck.py"
-      ],
-      "checks": {
-        "verify": "IN_PROGRESS",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
-      }
-    },
-    {
-      "number": 100,
-      "title": "docs: mark agent 13's 13 STILL_CONDITIONAL importers (sidecar; F-map rescoped to rungs; no pinned bytes, no flags)",
-      "state": "OPEN",
-      "draft": true,
-      "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "184617d",
-      "files": [
-        "docs/CONDITIONAL_IMPORTERS_2026-09-25.md"
       ],
       "checks": {
         "verify": "IN_PROGRESS",
@@ -66,7 +42,9 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "486c68a",
+      "head": "aff02f2",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/101",
+      "updatedAt": "2026-09-25T17:41:18Z",
       "files": [
         "docs/math_status/README.md"
       ],
@@ -82,7 +60,9 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "d661b01",
+      "head": "00ffa74",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/102",
+      "updatedAt": "2026-09-25T17:41:19Z",
       "files": [
         "README.md",
         "docs/RESEARCH_EXECUTION.md",
@@ -101,18 +81,98 @@
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "ec3b426",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/104",
+      "updatedAt": "2026-09-25T17:36:46Z",
       "files": [
         "research/cover/README.md",
         "research/cover/ledger.py",
         "tests/test_cover.py"
       ],
       "checks": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 105,
+      "title": "docs: retire stale CONTRIBUTION_PLAN next-items (LPW identity REFUTED, headline pinned)",
+      "state": "OPEN",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "2567203",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
+      "updatedAt": "2026-09-25T17:44:31Z",
+      "files": [
+        "docs/CONTRIBUTION_PLAN.md"
+      ],
+      "checks": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 106,
+      "title": "Retip #46: pin the 61,642 uniform-cost cell count (control 35)",
+      "state": "OPEN",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "3f14638",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/106",
+      "updatedAt": "2026-09-25T17:36:46Z",
+      "files": [
+        "research/cover/README.md",
+        "research/cover/ledger.py",
+        "tests/test_cover.py"
+      ],
+      "checks": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 107,
+      "title": "docs(inventable): OPEN_PROBLEMS frozen errata E1/E2 (OPEN_PROBLEMS.md untouched, archive-pinned)",
+      "state": "OPEN",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "48d6fbc",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/107",
+      "updatedAt": "2026-09-25T17:41:19Z",
+      "files": [
+        "docs/NAVIGATION.json",
+        "docs/OPEN_PROBLEMS_FROZEN_ERRATA_20260925.md"
+      ],
+      "checks": {
         "verify": "IN_PROGRESS",
-        "navigation": "IN_PROGRESS",
-        "loss-only-controls": "IN_PROGRESS"
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 108,
+      "title": "docs(inventable): tip-observe 388a22ca (observation only; not re-executed)",
+      "state": "OPEN",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "b975e4a",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
+      "updatedAt": "2026-09-25T17:32:59Z",
+      "files": [
+        "docs/math_status/PACKET.json",
+        "docs/math_status/README.md",
+        "docs/math_status/STATUS_JETMOD.md",
+        "docs/math_status_probes/INVENTABLE_INSTRUMENTATION_STATUS_INDEX.json",
+        "docs/math_status_probes/INVENTABLE_PROBES_INDEX.json",
+        "docs/math_status_probes/README.md"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
       }
     }
-  ],
-  "duplicate_open_files": {},
-  "note": "Continue D7 inventable overlap after #97 merge"
+  ]
 }

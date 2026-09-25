@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.d7-drift-scan/v1",
-  "as_of_utc": "2026-09-25T17:35:13Z",
+  "as_of_utc": "2026-09-25T17:44:52Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -28,7 +28,7 @@
     {
       "number": 92,
       "title": "Place RN downstream crosswalk outside the closed math_status packet",
-      "state": "OPEN",
+      "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/92",
       "head": "db0645f",
@@ -73,7 +73,7 @@
     {
       "number": 97,
       "title": "docs(inventable): RN downstream crosswalk + mesoscopic challenge + Math- #8 handoff (fresh on 077464ef; supersedes #92)",
-      "state": "OPEN",
+      "state": "MERGED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/97",
       "head": "db75add",
@@ -101,9 +101,9 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "head": "65c1955",
+      "head": "c1236a7",
       "base": "chatgpt/drive-github-hardening-20260919",
-      "updatedAt": "2026-09-25T17:08:33Z",
+      "updatedAt": null,
       "author": "d6g8k5htny-coder",
       "files": [
         "architecture/scientific_state/README.md",
@@ -123,12 +123,12 @@
     {
       "number": 99,
       "title": "docs(math_status): ENV-RESCOV node walk-down classification \u2014 outcome (b), conditional; no flags flipped",
-      "state": "OPEN",
+      "state": "MERGED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/99",
       "head": "6cb85b2",
       "base": "chatgpt/drive-github-hardening-20260919",
-      "updatedAt": "2026-09-25T17:13:58Z",
+      "updatedAt": null,
       "author": "d6g8k5htny-coder",
       "files": [
         "docs/math_status/PACKET.json",
@@ -145,12 +145,12 @@
     {
       "number": 100,
       "title": "docs: mark agent 13's 13 STILL_CONDITIONAL importers (sidecar; F-map rescoped to rungs; no pinned bytes, no flags)",
-      "state": "OPEN",
+      "state": "MERGED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/100",
       "head": "184617d",
       "base": "chatgpt/drive-github-hardening-20260919",
-      "updatedAt": "2026-09-25T17:17:14Z",
+      "updatedAt": null,
       "author": "d6g8k5htny-coder",
       "files": [
         "docs/CONDITIONAL_IMPORTERS_2026-09-25.md"
@@ -167,9 +167,9 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/101",
-      "head": "b06fca8",
+      "head": "486c68a",
       "base": "chatgpt/drive-github-hardening-20260919",
-      "updatedAt": "2026-09-25T17:21:21Z",
+      "updatedAt": null,
       "author": "d6g8k5htny-coder",
       "files": [
         "docs/math_status/README.md"
@@ -186,9 +186,9 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/102",
-      "head": "2d40159",
+      "head": "d661b01",
       "base": "chatgpt/drive-github-hardening-20260919",
-      "updatedAt": "2026-09-25T17:21:46Z",
+      "updatedAt": null,
       "author": "d6g8k5htny-coder",
       "files": [
         "README.md",
@@ -218,6 +218,26 @@
       ],
       "checks": {
         "verify": "SUCCESS"
+      }
+    },
+    {
+      "number": 104,
+      "title": "Retip #38: refuse a non-zero residual on an OUTSIDE cell (controls 33 and 34)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": null,
+      "head": "ec3b426",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": null,
+      "files": [
+        "research/cover/README.md",
+        "research/cover/ledger.py",
+        "tests/test_cover.py"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "IN_PROGRESS",
+        "loss-only-controls": "IN_PROGRESS"
       }
     }
   ],
@@ -374,5 +394,12 @@
     "note": "Inventable tip landing won; #92 closed as superseded by #97 despite being a file superset. Follow tip 077464ef line."
   },
   "followup_patch": "pr97_followup_nav_links.patch",
-  "pr105_fix": "pr105_consumers_fix.patch"
+  "pr105_fix": "pr105_consumers_fix.patch",
+  "hardening_tip_note": "eeebb28 after #99/#100 merge; #97 merged earlier",
+  "ready_packages": [
+    "pr105_consumers_fix.patch",
+    "pr97_followup_nav_links.patch",
+    "pr_handoff_applied.patch"
+  ],
+  "hardening_tip": "eeebb28eeab2"
 }
