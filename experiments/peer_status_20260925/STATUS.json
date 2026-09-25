@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T17:25:27Z",
+  "as_of_utc": "2026-09-25T17:28:28Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -48,10 +48,10 @@
       "pr": 92,
       "role": "cursor_d0_crosswalk_outside_packet",
       "title": "Place RN downstream crosswalk outside the closed math_status packet",
-      "state": "OPEN",
+      "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/92",
-      "updatedAt": "2026-09-25T17:10:54Z",
+      "updatedAt": "2026-09-25T17:26:02Z",
       "head": "db0645f",
       "checks": [
         {
@@ -86,16 +86,16 @@
       "pr": 97,
       "role": "inventable_d0_crosswalk_duplicate_of_92",
       "title": "docs(inventable): RN downstream crosswalk + mesoscopic challenge + Math- #8 handoff (fresh on 077464ef; supersedes #92)",
-      "state": "OPEN",
-      "isDraft": true,
+      "state": "MERGED",
+      "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/97",
-      "updatedAt": "2026-09-25T17:25:07Z",
+      "updatedAt": "2026-09-25T17:26:36Z",
       "head": "db75add",
       "checks": [
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
         },
         {
           "name": "verify",
@@ -190,8 +190,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T17:24:50Z",
-      "head": "e59586a",
+      "updatedAt": "2026-09-25T17:26:19Z",
+      "head": "3387f28",
       "checks": []
     },
     {

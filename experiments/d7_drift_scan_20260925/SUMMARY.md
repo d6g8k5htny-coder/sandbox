@@ -1,18 +1,12 @@
 # D7 scan summary
 
-**Highest priority:** OPEN drafts **#92** (head `db0645f`, CI green)
-and **#97** (head `db75add`) both edit the same D0
-crosswalk/handoff set on base `chatgpt/drive-github-hardening-20260919`.
+**Resolved:** #97 **merged**; #92 **closed** (not merged). D0 docs landed on
+hardening inventable tip.
 
-Eng should land **one** and close the other as superseded.
+**Follow-up:** #92 also edited `docs/RESEARCH_INDEX.md` and
+`docs/math_status/README.md` which #97 did not. Diff tip vs #92 head `db0645f`
+and cherry-pick if still wanted.
 
-Also: `#92`/`#101` both touch `docs/math_status/README.md` — serialize merges.
-
-Math- eligibility repair already on Math- `main` — mark handoff docs APPLIED after tip sync.
-
-Vault #96/#103: observe only.
-
-Actions-label hygiene: `h3-search-and-certify-pilot` name still contains "certify"
-despite pilot scope — low severity naming drift.
+Math- eligibility already on Math- `main`. Vault #96/#103 observe only.
 
 Scientific effect: NONE.

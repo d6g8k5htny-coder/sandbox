@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.d7-drift-scan/v1",
-  "as_of_utc": "2026-09-25T17:26:17Z",
+  "as_of_utc": "2026-09-25T17:29:29Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -258,10 +258,10 @@
   "findings": [
     {
       "id": "D7-DUP-CROSSWALK-92-97",
-      "severity": "high",
+      "severity": "resolved",
       "summary": "OPEN drafts #92 and #97 both carry DOWNSTREAM_RN_CROSSWALK_20260925.md and related D0 docs",
       "detail": "#92 head db0645f and #97 head db75add share base branch chatgpt/drive-github-hardening-20260919 and overlapping D0 doc paths. Land one; close the other as superseded.",
-      "suggested_eng_action": "Pick one landing tip. Prefer merging the CI-green surface that matches the intended base (hardening inventable tip vs #92 base). Close the other as superseded with explicit comment. Do not merge both."
+      "suggested_eng_action": "Done: #97 merged, #92 closed. Watch for missing RESEARCH_INDEX / math_status README deltas that lived only on #92."
     },
     {
       "id": "D7-STALE-ELIGIBILITY-HANDOFF",
@@ -286,10 +286,10 @@
     },
     {
       "id": "D7-BASE-SPLIT-92-97",
-      "severity": "high",
+      "severity": "resolved",
       "summary": "#92 and #97 target different bases while editing the same D0 doc set",
       "detail": "Landing both would fork the crosswalk across default-home vs hardening inventable tip. Catalog/nav drift risk.",
-      "suggested_eng_action": "Choose the intended research tip (hardening inventable vs #92 base). Close the non-chosen PR as superseded after cherry-pick if needed."
+      "suggested_eng_action": "Done: #97 merged, #92 closed. Watch for missing RESEARCH_INDEX / math_status README deltas that lived only on #92."
     },
     {
       "id": "D7-MATH-STATUS-README-92-101",
@@ -304,6 +304,13 @@
       "summary": "PR #98 scientific-state schema pilot correctly refuses to own CONTROLLING/lemma_closed",
       "detail": "AUTHORITY_MAP routes promotion to Math- gate; local tests 9 OK; no fail-open promotion engine reimplementation observed.",
       "suggested_eng_action": "Keep; do not merge status ownership onto main via this package."
+    },
+    {
+      "id": "D7-92-ONLY-FILES-MAY-NEED-REPLAY",
+      "severity": "medium",
+      "summary": "#92-only paths may be absent after #97 merge: RESEARCH_INDEX.md and math_status/README.md edits",
+      "detail": "Compare merged tip to #92 head db0645f for those two files; cherry-pick if still wanted.",
+      "suggested_eng_action": "Apply pr97_followup_nav_links.patch (packaged); marks eligibility handoff APPLIED."
     }
   ],
   "note": "Private eng scan only; not research acceptance or merge authority.",
@@ -346,5 +353,11 @@
   "recommendation": {
     "duplicate_d0_docs": "Prefer main #92 (superset files + CI green); close #97 as duplicate/superseded after confirming tip identity",
     "scientific_effect": "NONE"
-  }
+  },
+  "resolution": {
+    "pr97": "MERGED",
+    "pr92": "CLOSED_not_merged",
+    "note": "Inventable tip landing won; #92 closed as superseded by #97 despite being a file superset. Follow tip 077464ef line."
+  },
+  "followup_patch": "pr97_followup_nav_links.patch"
 }
