@@ -1,0 +1,12 @@
+diff --git a/registers/CONSUMERS.json b/registers/CONSUMERS.json
+index acceb67..54c14db 100644
+--- a/registers/CONSUMERS.json
++++ b/registers/CONSUMERS.json
+@@ -283,6 +283,7 @@
+     "research/lpw/README.md"
+    ],
+    "prose": [
++    "docs/CONTRIBUTION_PLAN.md",
+     "research/identities/README.md",
+     "research/lpw/README.md"
+    ]
