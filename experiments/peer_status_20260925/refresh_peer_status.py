@@ -13,6 +13,7 @@ OUT = Path(__file__).resolve().parent / "STATUS.json"
 SURFACES = [
     {"repo": "d6g8k5htny-coder/main", "pr": 87, "role": "chatgpt_d0_crosswalk_in_packet"},
     {"repo": "d6g8k5htny-coder/main", "pr": 92, "role": "cursor_d0_crosswalk_outside_packet"},
+    {"repo": "d6g8k5htny-coder/main", "pr": 97, "role": "inventable_d0_crosswalk_duplicate_of_92"},
     {"repo": "d6g8k5htny-coder/main", "pr": 93, "role": "cursor_default_home_nav"},
     {"repo": "d6g8k5htny-coder/Math-", "pr": 8, "role": "cursor_hard_gate"},
     {"repo": "d6g8k5htny-coder/Math-", "pr": 7, "role": "chatgpt_mesoscopic_paused"},

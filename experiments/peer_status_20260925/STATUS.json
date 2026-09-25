@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T17:23:14Z",
+  "as_of_utc": "2026-09-25T17:25:27Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -58,6 +58,44 @@
           "name": "verify",
           "conclusion": "SUCCESS",
           "status": "COMPLETED"
+        },
+        {
+          "name": "verify",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "navigation",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": "loss-only-controls",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ]
+    },
+    {
+      "repo": "d6g8k5htny-coder/main",
+      "pr": 97,
+      "role": "inventable_d0_crosswalk_duplicate_of_92",
+      "title": "docs(inventable): RN downstream crosswalk + mesoscopic challenge + Math- #8 handoff (fresh on 077464ef; supersedes #92)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/97",
+      "updatedAt": "2026-09-25T17:25:07Z",
+      "head": "db75add",
+      "checks": [
+        {
+          "name": "verify",
+          "conclusion": "",
+          "status": "IN_PROGRESS"
         },
         {
           "name": "verify",
@@ -152,8 +190,8 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T17:23:13Z",
-      "head": "da2e19d",
+      "updatedAt": "2026-09-25T17:24:50Z",
+      "head": "e59586a",
       "checks": []
     },
     {

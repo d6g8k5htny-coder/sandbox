@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.d7-drift-scan/v1",
-  "as_of_utc": "2026-09-25T17:24:48Z",
+  "as_of_utc": "2026-09-25T17:25:20Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -260,7 +260,7 @@
       "id": "D7-DUP-CROSSWALK-92-97",
       "severity": "high",
       "summary": "OPEN drafts #92 and #97 both carry DOWNSTREAM_RN_CROSSWALK_20260925.md and related D0 docs",
-      "detail": "#92 is CI-green outside-packet rescue; #97 re-files the same notes on hardening tip 077464ef claiming to supersede #92. Risk of double-landing / catalog drift.",
+      "detail": "#92 head db0645f and #97 head db75add share base branch chatgpt/drive-github-hardening-20260919 and overlapping D0 doc paths. Land one; close the other as superseded.",
       "suggested_eng_action": "Pick one landing tip. Prefer merging the CI-green surface that matches the intended base (hardening inventable tip vs #92 base). Close the other as superseded with explicit comment. Do not merge both."
     },
     {
@@ -299,5 +299,41 @@
       "suggested_eng_action": "Serialize merges; rebase the later PR."
     }
   ],
-  "note": "Private eng scan only; not research acceptance or merge authority."
+  "note": "Private eng scan only; not research acceptance or merge authority.",
+  "pr92_97_comparison": {
+    "same_base_branch": true,
+    "base": "chatgpt/drive-github-hardening-20260919",
+    "base_oid_92": "077464e",
+    "base_oid_97": "077464e",
+    "head_92": "db0645f",
+    "head_97": "db75add",
+    "files_only_92": [
+      "docs/RESEARCH_INDEX.md",
+      "docs/math_status/README.md"
+    ],
+    "files_only_97": [],
+    "files_both": [
+      "docs/DOWNSTREAM_RN_CROSSWALK_20260925.md",
+      "docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md",
+      "docs/NAVIGATION.json",
+      "docs/RN_MESOSCOPIC_REDUCTION_CHALLENGE_20260925.md",
+      "docs/patches/math_pr8_eligibility_fix_REPORT.json",
+      "docs/patches/math_pr8_own_node_eligibility.patch",
+      "tests/test_navigation.py"
+    ]
+  },
+  "misleading_actions_labels": [
+    {
+      "workflow": "h3-search-and-certify-pilot",
+      "path": ".github/workflows/h3-solver-pilot.yml",
+      "concern": "Name contains \"certify\" while pilot/non-discharge; readers may overread Actions label",
+      "suggested": "Prefer display name without certify, or keep explicit \"pilot / no discharge\" in name (already partially present as pilot)"
+    },
+    {
+      "workflow": "ci",
+      "path": ".github/workflows/ci.yml",
+      "concern": "Generic \"ci\"/\"verify\" success is frequently mistaken for obligation discharge; math_status_check already prints non-discharge banner",
+      "suggested": "Keep banners; avoid READY/CERTIFIED job names (none observed on verify)"
+    }
+  ]
 }
