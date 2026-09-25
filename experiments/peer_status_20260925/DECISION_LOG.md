@@ -374,3 +374,9 @@ review ACCEPT’d trial#128 F1 vs `776fdb7`; patch does not apply cleanly onto
 
 **Decision:** Confirm CI green in STATUS. Yield F1-port to #98 Cursor peer
 (they hold the lease). No sandbox package/race. Sole tip P1 = nav/handoff.
+
+## 2026-09-25T21:38:30Z — #98 F1 port landed @`6e3f774`
+
+Cursor author ported OA-ACCEPT’d F1 from trial#128 onto tip without dropping
+F2–F5. New head `6e3f774`. Sandbox yields; sole tip P1 = nav/handoff; watch
+hosted CI + OpenAI re-review of combined tip. #90 OPEN / DRAFT.

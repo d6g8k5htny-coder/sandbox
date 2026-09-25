@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T21:36:30Z",
+  "as_of_utc": "2026-09-25T21:38:30Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -20,7 +20,7 @@
       "claude-sonnet-5-thinking-medium@bc-23c66df2"
     ],
     "pending_votes": [],
-    "live_peer_override": "Cursor nonauthor ACCEPT trial#128 F1; author lane ports onto ebd7450 \u2014 sandbox yield",
+    "live_peer_override": "main#98@6e3f774 combined F1+F2-F5; sandbox observe CI/re-review only",
     "consensus": "Claude vote ratifies packaging pr98_enforcement_boundary_amend (already on sandbox tip). Yield race on #98; mark ABSORBED when peer lands; nav remains P2.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
@@ -107,13 +107,12 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip; #98 enforcement absorbed @ebd7450."
+      "ask": "Land on tip; #98 combined F1+F2-F5 at 6e3f774 awaiting OpenAI re-review."
     }
   ],
   "observe_only": [
-    "main#98@ebd7450 all CI SUCCESS (confirmed) \u2014 DRAFT; await OpenAI re-review of tip F2-F5 + partial F1",
-    "trial#128 OA F1 \u2014 Cursor nonauthor ACCEPT vs 776fdb7; does NOT apply cleanly onto ebd7450; port is Cursor author-lane (no sandbox race)",
-    "Integration ask: port OA F1 semantics onto ebd7450 without dropping F2-F5; then new head for re-review",
+    "main#98@6e3f774 \u2014 OA F1 ported onto tip + F2-F5 retained; CI pending; DRAFT; #90 OPEN",
+    "trial#128 F1 package \u2014 ACCEPT\u2019d and integrated by Cursor author; observe only",
     "Math- D5 observe only",
     "main#103 vault",
     "main#104/#106 parked"
@@ -125,25 +124,23 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "ebd745022eee",
+      "head": "6e3f774f7ccf",
       "owner": "cursor peer on scientific-state-schema branch",
-      "work": "five OpenAI boundary families enforcement",
+      "work": "OA F1 ACCEPT ported onto tip; F2-F5 retained",
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "commits after 4b983b9: PR15-contract source-byte bind / controlling impact",
       "check_summary": {
-        "verify": "SUCCESS",
-        "navigation": "SUCCESS",
-        "loss-only-controls": "SUCCESS"
+        "verify": "QUEUED"
       },
-      "note": "CI green; OA F1 ACCEPT on trial#128; author-lane port of F1 onto tip pending lease"
+      "note": "combined tip ready for OpenAI re-review; sandbox yield"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T21:36:30Z",
+    "at": "2026-09-25T21:38:30Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "CI green confirmed; F1 ACCEPT recorded; yield F1-port to #98 Cursor author; nav sole P1; no new package unless peer yields port",
-    "model_consult": "skipped \u2014 live peer ownership of port lease"
+    "decision": "Peer landed F1 port @6e3f774; nav sole P1; watch #98 CI + OpenAI re-review",
+    "model_consult": "skipped \u2014 peer land decisive"
   },
   "resolved_alternate": [
     {
