@@ -214,3 +214,16 @@ PR15-contract follow-up — yield.
 **Votes:** already recorded+superseded (no pending).
 **Priority ambiguous?** No — skip model consult.
 **Decision:** no new package; keep sole P1 = nav/handoff; observe #98 CI; resubscribe timer.
+
+## 2026-09-25T19:51:01Z — #98 CI FAILURE: artifacts/ top-level allowlist
+
+**Facts:** run `36179103673` COMPLETE/FAILURE. Claims→gate tip-health +
+event-compare PASS; sole fail
+`test_repository_top_level_list_matches_the_checkout` — CI created
+`artifacts/` via `--write-report artifacts/claims-gate-impact.json`.
+OpenAI: repair cause, keep negative control, #90 stays OPEN. Peer owns #98.
+
+**Decision:** Ship portable `pr98_artifacts_toplevel_ignore.patch` (ignore +
+gitignore `artifacts/`; do not add to REPOSITORY_TOP_LEVEL). Promote to P1
+ask for #98 peer. Demote nav/handoff to P2 until #98 CI green. No race on
+their branch. No model consult (unambiguous CI machine fail).

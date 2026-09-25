@@ -1,10 +1,9 @@
 # Next actions (eng; scientific effect NONE)
 
-1. **P1 — main-write:** apply `pr97_followup_nav_and_handoff.patch` on tip
-   `e3cd7d4873c5` (#105 merged; RESEARCH_INDEX / handoff APPLIED /
-   math_status README nav still missing; patch applies cleanly).
-2. **#98:** observe event-boundary amend @`4b983b9` (CI queued; peer-owned;
-   sandbox parallel package ABSORBED / do not re-apply).
-3. **Observe:** vault; parked #104/#106; Math- D5.
+1. **P1 — #98 peer:** apply `pr98_artifacts_toplevel_ignore.patch` on `0bc41ca`
+   (CI `artifacts/` trips top-level allowlist; Claims→gate steps already green).
+2. **P2 — main-write tip:** `pr97_followup_nav_and_handoff.patch` on `e3cd7d4`
+   after #98 CI recovers.
+3. **Observe:** OpenAI #90 re-review; vault; parked #104/#106; Math- D5.
 
 `lemma_closed` stays false.

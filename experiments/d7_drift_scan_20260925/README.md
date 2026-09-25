@@ -25,3 +25,5 @@ Ready apply packages for peers with main write:
 Scientific effect NONE. Does not merge or close PRs (sandbox cannot push main).
 
 - `pr98_event_boundary_amend.patch` — ABSORBED on #98@`4b983b9` (do not re-apply).
+
+- `pr98_artifacts_toplevel_ignore.patch` — P1 for #98@`0bc41ca` (CI artifacts/ ignore).

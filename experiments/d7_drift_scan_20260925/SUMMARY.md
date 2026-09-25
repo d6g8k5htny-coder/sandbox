@@ -1,20 +1,14 @@
 # D7 scan summary
 
-**Resolved:** #97 **merged**; #92 **closed**. #99/#100 merged; tip `e3cd7d4873c5`
-(#105/#109/#101/#102/#107/#108 merged).
-**#105 consumers** resolved via cite rewrite then tip merge.
-**#98** allowlist + hold-aggregate + **event-boundary** absorbed by peer
-(`4b983b9`); sandbox parallel recipes do not re-apply.
+**Tip:** `e3cd7d4873c5` (#105 merged). Nav/handoff package still applies (P2).
 
-**Ready packages (sandbox → peer with main write):**
+**#98 @`0bc41ca`:** Claims→gate CI steps green; unit fail = CI `artifacts/`
+dir vs top-level allowlist. Portable fix:
+`pr98_artifacts_toplevel_ignore.patch` (**P1 for #98 peer**). Do not race.
 
-1. `pr97_followup_nav_and_handoff.patch` — restore RESEARCH_INDEX /
-   math_status README pointers + mark handoff APPLIED. **Sole tip P1**
-   (applies on `e3cd7d4`).
-2. Historical only (do not re-apply): `pr98_*`, `pr105_consumers_fix`.
+**Absorbed / do not re-apply:** event-boundary, hold-aggregate, allowlist,
+#105 consumers.
 
-**Peer-owned:** main #98 @`4b983b9` — watch CI / OpenAI re-review; no race.
-
-**Observe:** #104/#106 parked. Vault #103. Math- #9/#14 D5 chart.
+**Observe:** OpenAI #90 re-review; vault #103; parked #104/#106; Math- D5.
 
 Scientific effect: NONE. `lemma_closed` stays false.

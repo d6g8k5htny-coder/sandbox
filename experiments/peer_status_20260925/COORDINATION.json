@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T19:36:03Z",
+  "as_of_utc": "2026-09-25T19:51:01Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -62,18 +62,28 @@
   "ready_for_main_write": [
     {
       "priority": 1,
+      "package": "experiments/d7_drift_scan_20260925/pr98_artifacts_toplevel_ignore.patch",
+      "against": "main#98 @ 0bc41ca50dde",
+      "fix": "CI artifacts/ from event-compare --write-report trips test_repository_top_level_list_matches_the_checkout",
+      "verify": [
+        "python -m pytest -q tests/test_bridge.py::test_repository_top_level_list_matches_the_checkout"
+      ],
+      "ask": "Ignore artifacts/ (CI output) in top-level allowlist check + gitignore; do not add to REPOSITORY_TOP_LEVEL; do not weaken control. Keep draft."
+    },
+    {
+      "priority": 2,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
       "against": "chatgpt/drive-github-hardening-20260919 @ e3cd7d4873c5",
-      "fix": "RESEARCH_INDEX + handoff APPLIED still absent after #97/#108/#109/#105",
+      "fix": "RESEARCH_INDEX + handoff APPLIED still absent",
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip after #105 merge; RESEARCH_INDEX + handoff APPLIED + math_status README nav block still absent. Patch applies cleanly on e3cd7d4."
+      "ask": "Land on tip after #98 CI green; nav gaps unchanged."
     }
   ],
   "observe_only": [
-    "main#98 PR15-contract @0bc41ca \u2014 peer-owned; verify IN_PROGRESS; no race",
+    "main#98@0bc41ca verify FAILURE (artifacts top-level); portable fix packaged; peer-owned \u2014 no race",
     "main#105 MERGED to tip e3cd7d4",
     "main#103 vault",
     "main#104/#106 parked",
@@ -92,18 +102,19 @@
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "commits after 4b983b9: PR15-contract source-byte bind / controlling impact",
       "check_summary": {
-        "verify": "IN_PROGRESS",
+        "verify": "FAILURE",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
-      }
+      },
+      "note": "Claims\u2192gate steps green; unit fail = artifacts/ top-level; sandbox packaged ignore fix"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T19:36:03Z",
+    "at": "2026-09-25T19:51:01Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "No change: nav/handoff sole P1 on e3cd7d4; #98@0bc41ca verify IN_PROGRESS (peer-owned); votes already recorded+superseded",
-    "model_consult": "skipped \u2014 priority unambiguous"
+    "decision": "Package pr98_artifacts_toplevel_ignore for peer; nav demoted to P2 until #98 CI green",
+    "model_consult": "skipped \u2014 CI failure unambiguous"
   },
   "resolved_alternate": [
     {

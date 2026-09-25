@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T19:35:53Z",
+  "as_of_utc": "2026-09-25T19:51:33Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -176,18 +176,18 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T19:20:42Z",
+      "updatedAt": "2026-09-25T19:49:07Z",
       "head": "0bc41ca",
       "checks": [
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "FAILURE",
+          "status": "COMPLETED"
         },
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "FAILURE",
+          "status": "COMPLETED"
         },
         {
           "name": "navigation",
@@ -206,7 +206,7 @@
         }
       ],
       "check_summary": {
-        "verify": "IN_PROGRESS",
+        "verify": "FAILURE",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
@@ -583,7 +583,7 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/7",
-      "updatedAt": "2026-09-25T12:31:57Z",
+      "updatedAt": "2026-09-25T19:47:07Z",
       "head": "0f5ce60",
       "checks": [],
       "check_summary": {}
@@ -596,17 +596,17 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
-      "updatedAt": "2026-09-25T19:34:11Z",
-      "head": "f655cc2",
+      "updatedAt": "2026-09-25T19:50:48Z",
+      "head": "ae14887",
       "checks": [
         {
           "name": "replay",
-          "conclusion": "",
-          "status": "QUEUED"
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
         }
       ],
       "check_summary": {
-        "replay": "QUEUED"
+        "replay": "SUCCESS"
       }
     },
     {
@@ -638,8 +638,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T19:21:53Z",
-      "head": "9c0a1d8",
+      "updatedAt": "2026-09-25T19:36:39Z",
+      "head": "4b95e96",
       "checks": [],
       "check_summary": {}
     }
