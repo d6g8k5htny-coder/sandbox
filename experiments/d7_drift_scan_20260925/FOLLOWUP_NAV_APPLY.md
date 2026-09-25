@@ -16,3 +16,9 @@ python3 tools/math_status_check.py   # expect problems=0
 ```
 
 Also marks Math- eligibility handoff as APPLIED.
+
+## Conflict watch
+
+Open [main #101](https://github.com/d6g8k5htny-coder/main/pull/101) also edits
+`docs/math_status/README.md`. Rebase/serialize: land #101 first or merge this
+follow-up after rebasing onto #101 tip. Do not silently clobber either edit.

@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.d7-drift-scan/v1",
-  "as_of_utc": "2026-09-25T17:29:29Z",
+  "as_of_utc": "2026-09-25T17:30:35Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -311,6 +311,13 @@
       "summary": "#92-only paths may be absent after #97 merge: RESEARCH_INDEX.md and math_status/README.md edits",
       "detail": "Compare merged tip to #92 head db0645f for those two files; cherry-pick if still wanted.",
       "suggested_eng_action": "Apply pr97_followup_nav_links.patch (packaged); marks eligibility handoff APPLIED."
+    },
+    {
+      "id": "D7-FOLLOWUP-VS-101",
+      "severity": "medium",
+      "summary": "Follow-up nav patch and open #101 both edit docs/math_status/README.md",
+      "detail": "Serialize merges to avoid clobbering CERTIFIED-q2 ABSENT walk-down vs crosswalk pointer.",
+      "suggested_eng_action": "Land #101 then rebase follow-up patch, or combine in one PR."
     }
   ],
   "note": "Private eng scan only; not research acceptance or merge authority.",
