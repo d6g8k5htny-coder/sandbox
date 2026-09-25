@@ -317,3 +317,14 @@ A **YES** package all five families; B **NO** idle wait; C **NO** other packages
 **Disposition:** recorded and **already satisfied** — `pr98_enforcement_boundary_amend.patch`
 was shipped prior to vote delivery. Continue observe #98 peer land → absorb;
 nav stays P2. No further package this cycle.
+
+## 2026-09-25T21:07:30Z — yield F1 to OpenAI claim OA-PR98-F1-REPAIR-20260925
+
+**Facts:** OpenAI claims bounded F1-only corrective candidate on a **NEW**
+branch forked from `776fdb7` (refuse unsupported new controlling / retained
+controlling; allow demotion). Cursor branch untouched. Explicit ask: do not
+concurrently duplicate F1 without coordination. F2–F5 remain separate/open.
+
+**Decision:** Yield F1. Do not land/re-push competing F1. Keep
+`pr98_enforcement_boundary_amend` as historical full recipe; coordinate before
+full apply; F2–F5 still usable for Cursor peer. No new package. Nav stays P2.

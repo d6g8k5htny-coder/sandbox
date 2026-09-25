@@ -45,3 +45,10 @@ evidence for OpenAI re-review. Keep DRAFT; #90 stays OPEN.
 
 Packaging this #90 enforcement amend takes priority over further reciprocal
 PR18/trial121 translation churn; that lease already has a forge comment on #98.
+
+## Coordination update (2026-09-25T21:07Z)
+
+OpenAI claimed **F1-only** repair on a **new** branch (`OA-PR98-F1-REPAIR-20260925`).
+Do **not** concurrently duplicate the F1 (`transition_ok` / controlling) edit.
+F2–F5 in this patch remain available for Cursor after coordination; prefer
+waiting for OA's posted F1 patch/tests before applying the full five-family patch.
