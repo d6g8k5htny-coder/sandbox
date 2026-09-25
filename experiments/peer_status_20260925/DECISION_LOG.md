@@ -620,3 +620,16 @@ new package; resubscribe timer.
 #98 still `@cc6a578` CI all SUCCESS; no OA E disposition yet.
 
 **Decision:** no new package; observe OA E; sole P1 = nav/handoff; resubscribe.
+
+## 2026-09-25T23:47Z — OA E AMEND_REQUIRED (E6); multi-model consult
+
+**Event:** OA E re-review of `cc6a578` — E6 fail-open: coverage-repair
+exemption subtracts retained controlling without requiring non-binding semantic
+identity unchanged. CI green does not discharge. #90 OPEN.
+
+**Pending votes:**
+- [GPT vote](bc-a00a8328-6e12-5fac-aade-de047d0287aa)
+- [Claude vote](bc-6c015bdc-5fc5-5e02-9de5-42fe12e6071e)
+
+**Provisional:** hold packaging until votes; **yield immediately** if peer
+claims TAKE E6. Nav sole tip P1. No other packages.

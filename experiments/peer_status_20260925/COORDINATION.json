@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T23:28:34Z",
+  "as_of_utc": "2026-09-25T23:47:31Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -23,9 +23,12 @@
       "gpt-5.6-terra-medium@bc-5c344912",
       "claude-sonnet-5-thinking-medium@bc-40e3af3f"
     ],
-    "pending_votes": [],
-    "live_peer_override": "main#98@cc6a578 E tip CI GREEN (both verify); await OA E re-review; sandbox observe",
-    "consensus": "Tip 1ae02b9; nav/handoff still sole ready package (applies clean). #98@cc6a578 CI green; observe OA E. No new package.",
+    "pending_votes": [
+      "gpt-5.6-terra-medium@bc-a00a8328",
+      "claude-sonnet-5-thinking-medium@bc-6c015bdc"
+    ],
+    "live_peer_override": "main#98@cc6a578 OA E AMEND_REQUIRED E6; await peer TAKE or vote; sandbox ready to package",
+    "consensus": "Provisional: consult in flight for E6 package vs idle. Peer owns #98; nav sole tip P1.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -40,6 +43,13 @@
       "claude": "A YES B NO C NO @bc-40e3af3f",
       "at": "2026-09-25T21:58Z",
       "disposition": "superseded_by_peer_47ad537"
+    },
+    "active_consult": {
+      "reason": "OA E6 AMEND_REQUIRED on coverage-repair vs semantic change",
+      "agents": [
+        "https://cursor.com/agents/bc-a00a8328-6e12-5fac-aade-de047d0287aa",
+        "https://cursor.com/agents/bc-6c015bdc-5fc5-5e02-9de5-42fe12e6071e"
+      ]
     }
   },
   "absorbed": [
@@ -160,7 +170,8 @@
     }
   ],
   "observe_only": [
-    "main#98@cc6a578 — E + CI-fix; verify SUCCESS (both); DRAFT; #90 OPEN; await OA E re-review",
+    "main#98@cc6a578 — OA E AMEND_REQUIRED (E6 coverage-repair masks semantic change); CI green; DRAFT; #90 OPEN",
+    "Await peer TAKE E6 and/or multi-model package consensus",
     "trial#128 observe only",
     "Math- D5 observe only",
     "main#103 vault; #104/#106 parked"
@@ -174,7 +185,7 @@
       "surface": "main#98",
       "head": "cc6a578b26f1",
       "owner": "cursor peer bc-01a0d95b",
-      "work": "E identity/freshness + coverage_repair exemption for precision upgrade",
+      "work": "OA E6 AMEND: coverage_repair must not mask semantic change",
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "CI failure on E tip repaired; head cc6a578",
       "check_summary": {
@@ -182,15 +193,15 @@
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       },
-      "note": "CI green; ready for OA E re-review; do not race"
+      "note": "author lane peer; no TAKE yet; votes in flight"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T23:44:33Z",
+    "at": "2026-09-25T23:47:31Z",
     "tip": "1ae02b9ab759",
-    "priority_ambiguous": false,
-    "decision": "Timer: tip/nav unchanged; #98@cc6a578 CI green; still awaiting OA E; no package",
-    "model_consult": "skipped — no forge move; peer tip stable"
+    "priority_ambiguous": true,
+    "decision": "OA E6 AMEND; multi-model consult; provisional hold packaging until votes/peer TAKE",
+    "model_consult": "gpt+claude E6 package-vs-idle in flight"
   },
   "resolved_alternate": [
     {
