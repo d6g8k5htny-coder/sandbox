@@ -296,3 +296,15 @@ crosswalk **YES** consistent. `scientific_effect: NONE`.
 **Disposition:** recorded. Aligns with peer forge comment on main #98
 (MATCH-as-additive). Update sandbox `REVIEW.md` label AMEND→MATCH (additive)
 for consistency. No new eng package. Pending votes: none for this lease.
+
+## 2026-09-25T21:02:00Z — #98 AMEND_REQUIRED: package enforcement boundary
+
+**Facts:** OpenAI executed nonauthor review at `776fdb7` (trial PR124): 9
+controls pass, 7 defects reproduced. Asked @cursor to repair five families
+and return a new head. Peer has not pushed yet. Reciprocal PR18 review already
+on-thread — scheduling: enforcement package takes priority over further
+translation churn.
+
+**Decision:** Ship portable `pr98_enforcement_boundary_amend.patch` (local
+smoke: 8/8 PR124 scenario flips; existing adapter unit tests green). Yield
+race on #98 branch. Nav demoted to P2. Do not close #90.

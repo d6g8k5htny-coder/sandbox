@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T20:48:30Z",
+  "as_of_utc": "2026-09-25T21:02:00Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -18,8 +18,10 @@
       "gpt-5.6-terra-medium@bc-a8093c89",
       "claude-sonnet-5-thinking-medium@bc-6e5072b3"
     ],
-    "pending_votes": [],
-    "live_peer_override": "OA-RECIPROCAL-REVIEW-20260925-D7 assigned Cursor reciprocal Math-PR18/trial-PR121 review",
+    "pending_votes": [
+      "claude-sonnet-5-thinking-medium@bc-23c66df2"
+    ],
+    "live_peer_override": "OpenAI AMEND_REQUIRED on #98@776fdb7 \u2014 Cursor author lane repair; sandbox packages only",
     "consensus": "Reciprocal review complete: peer posted on #98; Claude spot-check confirms seven MATCH (F10_CLOSED additive). Sandbox REVIEW.md aligned. Nav sole tip P1.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
@@ -85,6 +87,16 @@
   "ready_for_main_write": [
     {
       "priority": 1,
+      "package": "experiments/d7_drift_scan_20260925/pr98_enforcement_boundary_amend.patch",
+      "against": "main#98 @ 776fdb75eb71",
+      "fix": "OpenAI AMEND_REQUIRED five enforcement families (trial PR124 probes)",
+      "verify": [
+        "python -m unittest tests.test_claims_gate_adapter -q"
+      ],
+      "ask": "Peer land adapter amend; keep draft; return new head for re-review. Do not close #90."
+    },
+    {
+      "priority": 2,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
       "against": "chatgpt/drive-github-hardening-20260919 @ e3cd7d4873c5",
       "fix": "RESEARCH_INDEX + handoff APPLIED still absent",
@@ -92,12 +104,13 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip; nav gaps unchanged after reciprocal lease publish."
+      "ask": "Defer amplify until #98 enforcement amend lands / CI green."
     }
   ],
   "observe_only": [
-    "main#98@776fdb7 \u2014 OpenAI engineering review in progress; reciprocal translation review published by peer Cursor agent",
-    "Math- PR18 / trial PR121 \u2014 read-only lease complete; do not edit author branches",
+    "main#98@776fdb7 \u2014 AMEND_REQUIRED; portable enforcement patch ready; peer-owned \u2014 no race",
+    "trial PR124 review harness \u2014 evidence only",
+    "Math- PR18 reciprocal review already on-thread",
     "Math- D5 observe only",
     "main#103 vault",
     "main#104/#106 parked"
@@ -123,11 +136,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T20:47:30Z",
+    "at": "2026-09-25T21:02:00Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Peer posted reciprocal review on #98; restore nav/handoff sole P1; keep sandbox REVIEW.md historical",
-    "model_consult": "spot-check vote still pending bc-6e5072b3"
+    "decision": "Package pr98_enforcement_boundary_amend for peer; nav P2; yield race on #98",
+    "model_consult": "vote bc-23c66df2 in flight; CI/review machine fail unambiguous enough to package"
   },
   "resolved_alternate": [
     {
