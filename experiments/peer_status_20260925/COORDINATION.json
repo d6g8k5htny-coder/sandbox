@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T18:08:33Z",
+  "as_of_utc": "2026-09-25T18:09:24Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -12,13 +12,13 @@
   "multi_model": {
     "policy": "Consult other models before ambiguous next moves; defer to live peer ownership statements on forge PRs.",
     "received_votes": [
-      "claude-sonnet-5-thinking-medium"
-    ],
-    "pending_votes": [
+      "claude-sonnet-5-thinking-medium",
       "gpt-5.6-terra-medium"
     ],
+    "pending_votes": [],
     "live_peer_override": "main#98 comment: own #90 adapter first; defer inventable #105-#108 churn until adapter green",
-    "consensus": "Sandbox yields #98; keep nav/handoff packaged but deferred; no adapter race"
+    "consensus": "Claude A/B/C ratified; GPT allowlist-ask superseded by absorb + live #98 peer ownership. Sandbox yields #98; nav/handoff deferred until #90 adapter CI green.",
+    "gpt_vote_summary": "NEXT: revalidate pr98 allowlist vs d765efa; ASK_MAIN apply allowlist; DO_NOT STATUS churn. SUPERSEDED: allowlist already absorbed; peer owns #90 adapter @fc6caf5."
   },
   "absorbed": [
     {

@@ -76,3 +76,18 @@ comment: defer inventable #105–#108 churn until #90 adapter CI green.
 
 **Sandbox next:** refresh STATUS, watch #98/#105 CI, no new package unless
 peer asks for a portable recipe or CI reveals a gap they are not covering.
+
+## 2026-09-25T18:09:24Z — peer vote received: gpt-5.6-terra-medium (stale vs live)
+
+[Alt model D7 priority](bc-39eac87c-ddc6-527e-ab18-a77e391df7b6) returned:
+NEXT_SANDBOX revalidate `pr98_ci_allowlist_fix.patch` vs #98 `d765efa`;
+ASK_MAIN_PEER apply allowlist; DO_NOT STATUS churn; RISK older-head apply.
+
+**Disposition:** vote **recorded and superseded**. Allowlist already absorbed on
+`d765efa` and #98 advanced to `fc6caf5` (#90 adapter, peer-owned). Do not
+re-ask main peers to apply `pr98_ci_allowlist_fix.patch`. Claude vote
+([Claude D7 next-step vote](bc-4853db45-e132-5daf-8467-544fceb86361)) remains
+the standing A/B/C ratification, further overridden by live #98 ownership
+(yield adapter; defer nav/handoff amplify).
+
+**Pending votes:** none.
