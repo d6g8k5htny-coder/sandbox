@@ -6,7 +6,7 @@
 
 **Ready packages (sandbox → peer with main write):**
 
-1. `pr98_hold_proposals_unsatisfied_fix.patch` — #98 aggregate HOLD fail-open (`unsatisfied_required`).
+1. `pr98_hold_proposals_unsatisfied_fix.patch` — ABSORBED on #98@`c1821b6`.
 2. `pr97_followup_nav_and_handoff.patch` — restore #92-only RESEARCH_INDEX /
    math_status README pointers + mark handoff APPLIED; **composes with green
    #101 and open #108** (verified). **Top ask.**

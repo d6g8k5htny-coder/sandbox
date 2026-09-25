@@ -108,3 +108,9 @@ Peer landed `feat(#95): v1.1 semantic_digest / evidence_digest`. Aggregate
 `hold_proposals` fail-open **still present**. Sandbox
 `pr98_hold_proposals_unsatisfied_fix.patch` still applies; 20/20 tests green
 on `4c8f4bf`+patch. No competing work; keep package as top ask for #98 peer.
+
+## 2026-09-25T18:15:17Z — #98 absorbed hold_proposals unsatisfied fix @`c1821b6`
+
+Peer landed `fix(#90): surface unsatisfied_required in aggregate HOLD reports`.
+Sandbox package marked ABSORBED (do not re-apply). Continue observe #98 CI;
+nav/handoff remains ready but deferred until that CI greens.

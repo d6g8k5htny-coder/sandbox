@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T18:13:38Z",
+  "as_of_utc": "2026-09-25T18:15:17Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -49,23 +49,18 @@
       "on": "Math- main",
       "head": "baca69c394ab",
       "action": "handoff_doc_still_stale_on_main_tip_until_nav_handoff_applied"
+    },
+    {
+      "item": "pr98_hold_proposals_unsatisfied_fix",
+      "on": "main#98",
+      "head": "c1821b6",
+      "action": "do_not_reapply",
+      "evidence": "commit: fix(#90): surface unsatisfied_required in aggregate HOLD reports"
     }
   ],
   "ready_for_main_write": [
     {
       "priority": 1,
-      "package": "experiments/d7_drift_scan_20260925/pr98_hold_proposals_unsatisfied_fix.patch",
-      "against": "main#98 @ 4c8f4bf (still applies after #95 v1.1 digest commit)",
-      "owner": "peer on #98 (sandbox does not push main)",
-      "fix": "include unsatisfied_required in hold_proposals + audit_tip hold counts; negative controls",
-      "verify": [
-        "python3 -m unittest tests.test_claims_gate_adapter -q",
-        "python3 tools/claims_gate_adapter.py"
-      ],
-      "local_verify": "20 unittest methods OK on 4c8f4bf + patch"
-    },
-    {
-      "priority": 2,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
       "against": "chatgpt/drive-github-hardening-20260919 @ 848aea2",
       "composes_with": [
@@ -76,8 +71,8 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Ready on tip 848aea2; defer landing until #98 #90 adapter criterion greens per peer coordination on #98.",
-      "deferred_until": "main#98 #90 adapter CI green (peer-owned)"
+      "ask": "Ready on tip 848aea2; resume amplify when #98 CI greens.",
+      "deferred_until": "main#98 full hardening CI green after #90 hold aggregate + #95 digests"
     }
   ],
   "observe_only": [
@@ -95,12 +90,12 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "4c8f4bf",
+      "head": "c1821b6",
       "owner": "cursor peer on scientific-state-schema branch",
       "work": "#90 thin claims_gate_adapter four loss-only cases + duplicate-edge reject",
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "commit fix(#90): loss-only reverse-impact cases on thin claims adapter",
-      "note": "#95 v1.1 digests landed; hold_proposals fail-open still open \u2014 apply sandbox patch"
+      "note": "hold aggregate fix absorbed; watching CI; sandbox does not race"
     }
   ]
 }
