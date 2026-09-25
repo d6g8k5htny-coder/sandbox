@@ -1,11 +1,12 @@
 {
   "as_of_utc": "2026-09-25T16:25:00Z",
   "sandbox_run": "bc-01a0d95c-b9ca-70ce-864d-99d51b2a8fb0",
+  "sandbox_pr": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
   "accepted_lane": {
     "issue": "https://github.com/d6g8k5htny-coder/main/issues/86",
     "lane": "Cursor / integration D0+D7",
     "status": "accepted_this_run",
-    "evidence": "portable patch + local math_status_check problems=0"
+    "evidence": "portable patch + local math_status_check problems=0 + sandbox PR2"
   },
   "peer_lanes": {
     "chatgpt_codex": {
