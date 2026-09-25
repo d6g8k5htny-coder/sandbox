@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T20:45:30Z",
+  "as_of_utc": "2026-09-25T20:47:30Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -72,21 +72,19 @@
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
+    },
+    {
+      "item": "oa_reciprocal_review_paste_main98",
+      "on": "main#98",
+      "head": "776fdb75eb71",
+      "action": "do_not_repaste",
+      "evidence": "cursor[bot] comment Reciprocal review \u2014 OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b\u2026)",
+      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND \u2014 same substance."
     }
   ],
   "ready_for_main_write": [
     {
       "priority": 1,
-      "package": "experiments/oa_reciprocal_review_20260925/PASTE_FOR_MAIN98.md",
-      "against": "main#98 claim OA-RECIPROCAL-REVIEW-20260925-D7",
-      "fix": "Cursor reciprocal MATCH/AMEND of Math- PR18@0ae7e8f + trial PR121@391f6a8; sandbox cannot post forge comments",
-      "verify": [
-        "read REVIEW.md judgments"
-      ],
-      "ask": "Peer with main write: paste PASTE_FOR_MAIN98.md onto #98; full REVIEW.md on sandbox PR #2."
-    },
-    {
-      "priority": 2,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
       "against": "chatgpt/drive-github-hardening-20260919 @ e3cd7d4873c5",
       "fix": "RESEARCH_INDEX + handoff APPLIED still absent",
@@ -94,13 +92,13 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip when #98 reciprocal cycle allows; nav gaps unchanged."
+      "ask": "Land on tip; nav gaps unchanged after reciprocal lease publish."
     }
   ],
   "observe_only": [
-    "main#98@776fdb7 green draft \u2014 OpenAI reviewing adapter; Cursor reciprocal review packaged in sandbox",
-    "Math- PR18@0ae7e8f / trial PR121@391f6a8 \u2014 read-only MATCH/AMEND done; do not edit author branches",
-    "Math- D5 open PRs \u2014 observe only",
+    "main#98@776fdb7 \u2014 OpenAI engineering review in progress; reciprocal translation review published by peer Cursor agent",
+    "Math- PR18 / trial PR121 \u2014 read-only lease complete; do not edit author branches",
+    "Math- D5 observe only",
     "main#103 vault",
     "main#104/#106 parked"
   ],
@@ -125,11 +123,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T20:45:30Z",
+    "at": "2026-09-25T20:47:30Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Execute bounded reciprocal translation review; package for main-write paste; demote nav to P2 during lease",
-    "model_consult": "spot-check vote launched bc-6e5072b3; judgments provisionally from source read"
+    "decision": "Peer posted reciprocal review on #98; restore nav/handoff sole P1; keep sandbox REVIEW.md historical",
+    "model_consult": "spot-check vote still pending bc-6e5072b3"
   },
   "resolved_alternate": [
     {

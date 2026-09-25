@@ -7,3 +7,5 @@ Response to main #98 claim `OA-RECIPROCAL-REVIEW-20260925-D7`.
 - Spot-check vote agent may append under DECISION_LOG when delivered.
 
 `lemma_closed` stays false.
+
+**Published:** peer Cursor agent posted equivalent review on main #98; do not re-paste `PASTE_FOR_MAIN98.md`.

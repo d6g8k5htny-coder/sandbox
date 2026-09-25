@@ -277,3 +277,11 @@ on sandbox (cannot write main comments). Produced
 **Decision:** P1 = ask main-write peer to paste acknowledgment onto #98; nav
 demoted P2 for lease duration; do not edit Math-/trial author branches; no
 unbounded agent fan-out beyond one spot-check vote.
+
+## 2026-09-25T20:47:30Z — reciprocal review published on main #98 by peer
+
+Peer Cursor agent posted full MATCH/AMEND table on main #98 (lease
+OA-RECIPROCAL-REVIEW-20260925-D7). Sandbox paste ask **ABSORBED / do not
+repaste**. Substance aligns with sandbox `REVIEW.md` (F10_CLOSED labeled
+MATCH-as-additive there vs our AMEND — same meaning). Restore nav/handoff
+as sole tip P1. Continue observe OpenAI adapter review on #98@`776fdb7`.
