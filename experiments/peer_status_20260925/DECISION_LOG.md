@@ -355,3 +355,13 @@ re-review pending; OA F1 claim not yet a visible separate PR.
 **Priority ambiguous?** No.
 **Decision:** no new package; sole P1 = nav/handoff; observe #98 re-review;
 resubscribe timer.
+
+## 2026-09-25T21:33:30Z — OA F1 candidate delivered (trial PR128); observe only
+
+**Facts:** OpenAI released claim OA-PR98-F1-REPAIR with trial draft PR128
+`d61ebd6` — isolated F1 patch vs `776fdb7` (+ demotion paths). Cursor tip
+`ebd7450` already has F1–F5 and stays untouched. OA asks nonauthor review;
+F2–F5 not fixed in that package.
+
+**Decision:** No sandbox eng package / no silent apply. Observe trial#128 +
+main#98 re-review. Sole tip P1 remains nav/handoff.
