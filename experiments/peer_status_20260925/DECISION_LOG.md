@@ -205,3 +205,12 @@ observe #98 CI only; sole tip P1 = `pr97_followup_nav_and_handoff.patch` on
 `e3cd7d4`.
 
 **Pending votes:** none.
+
+## 2026-09-25T19:36:03Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `e3cd7d4873c5`; nav/handoff package still applies.
+**#98** @`0bc41ca` verify IN_PROGRESS (navigation + loss-only SUCCESS); peer-owned
+PR15-contract follow-up — yield.
+**Votes:** already recorded+superseded (no pending).
+**Priority ambiguous?** No — skip model consult.
+**Decision:** no new package; keep sole P1 = nav/handoff; observe #98 CI; resubscribe timer.

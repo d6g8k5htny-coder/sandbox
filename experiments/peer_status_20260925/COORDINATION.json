@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-25T19:21:22Z",
+  "as_of_utc": "2026-09-25T19:36:03Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -73,7 +73,7 @@
     }
   ],
   "observe_only": [
-    "main#98 PR15-contract @0bc41ca \u2014 peer-owned; CI queued; no race",
+    "main#98 PR15-contract @0bc41ca \u2014 peer-owned; verify IN_PROGRESS; no race",
     "main#105 MERGED to tip e3cd7d4",
     "main#103 vault",
     "main#104/#106 parked",
@@ -92,18 +92,18 @@
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "commits after 4b983b9: PR15-contract source-byte bind / controlling impact",
       "check_summary": {
-        "verify": "QUEUED",
-        "navigation": "QUEUED",
-        "loss-only-controls": "QUEUED"
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
       }
     }
   ],
   "timer_loop": {
-    "at": "2026-09-25T19:21:22Z",
+    "at": "2026-09-25T19:36:03Z",
     "tip": "e3cd7d4873c5",
     "priority_ambiguous": false,
-    "decision": "Votes recorded+superseded; yield #98@0bc41ca; nav/handoff sole P1",
-    "model_consult": "votes delivered; live peer override decisive"
+    "decision": "No change: nav/handoff sole P1 on e3cd7d4; #98@0bc41ca verify IN_PROGRESS (peer-owned); votes already recorded+superseded",
+    "model_consult": "skipped \u2014 priority unambiguous"
   },
   "resolved_alternate": [
     {
