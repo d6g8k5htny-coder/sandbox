@@ -20,3 +20,5 @@ python3 hard_gate.py closure-report fixtures/d0_d7_seed.json
 python3 hard_gate.py mutate-lower fixtures/d0_d7_seed.json D1_parent_gaussian_KR
 python3 tests/test_hard_gate.py
 ```
+
+See also sibling `../math_pr8_eligibility_fix_20260925/` for the portable Math- PR8 own-node eligibility repair.

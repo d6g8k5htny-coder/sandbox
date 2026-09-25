@@ -28,7 +28,8 @@ NONTERMINAL = frozenset({
 CONTROLLING_ROLES = frozenset({"controlling", "campaign_controlling"})
 # A controlling node may sit HOLD/OPEN/REVALIDATION_REQUIRED over unfinished
 # deps. Fail closed only when it claims a promoted terminal success.
-PROMOTED_CONTROLLING = frozenset({"PROVED_REVIEWED", "SUPERSEDED_NONBLOCKING"})
+PROMOTED_CONTROLLING = frozenset({"PROVED_REVIEWED"})  # positive eligibility only
+POSITIVE_CONTROLLING_ELIGIBLE = PROMOTED_CONTROLLING
 
 
 def load_graph(path: Path) -> dict[str, Any]:
