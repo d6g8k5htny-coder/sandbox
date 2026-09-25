@@ -237,3 +237,12 @@ Tip still `e3cd7d4`; nav package still applies. #98 verify QUEUED.
 
 **Decision:** Mark artifacts package ABSORBED. Restore nav/handoff as sole P1.
 Yield #98; watch CI. No new package. No model consult.
+
+## 2026-09-25T20:08:57Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `e3cd7d4873c5`; nav/handoff package still applies.
+**#98** @`776fdb7` verify **SUCCESS** (navigation + loss-only SUCCESS); still DRAFT;
+OpenAI #90 re-review pending. Artifacts package remain ABSORBED.
+**Priority ambiguous?** No — skip model consult.
+**Decision:** no new package; keep sole P1 = nav/handoff; observe #98 re-review;
+resubscribe timer.

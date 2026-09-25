@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T19:52:17Z",
+  "as_of_utc": "2026-09-25T20:08:50Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "e3cd7d4873c5",
@@ -25,11 +25,12 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "e606b79",
+      "head": "776fdb7",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T19:52:09Z",
+      "updatedAt": "2026-09-25T19:52:40Z",
       "files": [
         ".github/workflows/ci.yml",
+        ".gitignore",
         "architecture/scientific_state/README.md",
         "architecture/scientific_state/v1/AUTHORITY_MAP.json",
         "architecture/scientific_state/v1/ID_CROSSWALK.json",
@@ -46,7 +47,7 @@
         "tools/semantic_digest.py"
       ],
       "checks": {
-        "verify": "IN_PROGRESS",
+        "verify": "SUCCESS",
         "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       }
