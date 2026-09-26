@@ -1,9 +1,9 @@
 # Next actions (eng; scientific effect NONE)
 
 1. **P1 — main-write tip:** apply `pr97_followup_nav_and_handoff.patch` on
-   `ebedb7802024` (apply-check clean; sole tip P1).
-2. **#90 CLOSED** (eng-gate) at `2026-09-26T01:20:06Z` after #98 MERGED
-   @ `ebedb780`. Observe-only; no further #98/#90 eng work.
-3. **Observe:** Math- D5; vault; parked; trial#128 CLOSED.
+   `7caac254cbba` (apply-check clean post-#118).
+2. **Closed eng-gate:** #98 MERGED; #90 CLOSED (eng-gate only).
+3. **Observe:** open inventable DRAFTs (#124/#122/#121/#120/…); Math- D5;
+   vault; parked.
 
 `lemma_closed` stays false. No theorem acceptance.

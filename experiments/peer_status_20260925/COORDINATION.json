@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-26T01:38:24Z",
+  "as_of_utc": "2026-09-26T01:55:45Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -33,11 +33,13 @@
       "gpt-5.6-terra-medium@bc-22392d4b",
       "claude-sonnet-5-thinking-medium@bc-e56e57e2",
       "gpt-5.6-terra-medium@bc-d1dd435e",
-      "claude-sonnet-5-thinking-medium@bc-b3d896aa"
+      "claude-sonnet-5-thinking-medium@bc-b3d896aa",
+      "gpt-5.6-terra-medium@bc-b5dfb8b9",
+      "claude-sonnet-5-thinking-medium@bc-1dde2026"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#90 CLOSED eng-gate; #98 MERGED @ebedb780; sandbox nav tip P1",
-    "consensus": "#90 CLOSED; #98 MERGED; observe-only; nav STILL_READY on ebedb780",
+    "live_peer_override": "tip advanced #118 →7caac254cbba (Q0 ledger); sandbox nav tip P1; observe open inventable DRAFTs",
+    "consensus": "IDLE; no new package; nav sole tip P1 vs 7caac254cbba; observe open DRAFTs",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -82,6 +84,11 @@
       "gpt": "A OBSERVE NAV_RECHECK YES @bc-d1dd435e",
       "claude": "A OBSERVE NAV_RECHECK YES @bc-b3d896aa",
       "at": "2026-09-26T01:18Z"
+    },
+    "post_118_tip_votes": {
+      "gpt": "A IDLE NAV_P1 YES @bc-b5dfb8b9",
+      "claude": "A IDLE NAV_P1 YES @bc-1dde2026",
+      "at": "2026-09-26T01:55Z"
     }
   },
   "absorbed": [
@@ -229,18 +236,20 @@
     {
       "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
-      "against": "chatgpt/drive-github-hardening-20260919 @ ebedb7802024",
-      "gap": "RESEARCH_INDEX prose + handoff APPLIED still absent (file may exist)",
+      "against": "chatgpt/drive-github-hardening-20260919 @ 7caac254cbba",
+      "gap": "RESEARCH_INDEX prose + handoff APPLIED still absent (file may exist); apply-check clean post-#118",
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip ebedb780; #90 CLOSED / #98 MERGED — sole tip P1."
+      "ask": "Land on tip 7caac254cbba post-#118; #90 CLOSED / #98 MERGED — sole tip P1."
     }
   ],
   "observe_only": [
     "main#90 CLOSED eng-gate @2026-09-26T01:20:06Z after #98 merge — observe-only",
     "main#98 MERGED @ebedb780 (b59359e) — OA eng ACCEPT satisfied; observe-only",
+    "main#118 MERGED @7caac254cbba (exact Q0 ledger custody) — tip advanced; observe-only",
+    "open inventable DRAFTs (#124/#122/#121/#120/…) peer/owner-authored — do not race",
     "trial#128 CLOSED (observe)",
     "Math- D5 observe only (#51 tip a385339)",
     "main#103 vault; #104/#106 parked"
@@ -263,11 +272,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-26T01:38:24Z",
-    "tip": "ebedb7802024",
+    "at": "2026-09-26T01:55:45Z",
+    "tip": "7caac254cbba",
     "priority_ambiguous": false,
-    "decision": "tip still ebedb780; #98 MERGED/#90 CLOSED; nav sole tip P1; no new package",
-    "model_consult": "skipped — no tip move / no priority ambiguity"
+    "decision": "IDLE; tip 7caac254cbba (#118); nav sole tip P1; no new package; observe open DRAFTs",
+    "model_consult": "gpt@bc-b5dfb8b9 + claude@bc-1dde2026"
   },
   "resolved_alternate": [
     {
@@ -277,5 +286,5 @@
       "action": "do_not_reapply_patch"
     }
   ],
-  "live_peer_override": "main#90 CLOSED eng-gate; #98 MERGED @ebedb780; sandbox nav tip P1"
+  "live_peer_override": "tip advanced #118 →7caac254cbba (Q0 ledger); sandbox nav tip P1; observe open inventable DRAFTs"
 }

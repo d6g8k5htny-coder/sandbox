@@ -824,3 +824,16 @@ CLOSED eng-gate. Nav still sole tip P1. No new inventable ready package.
 
 **Decision:** keep nav tip P1; no new package; resubscribe. Model consult
 skipped — no tip move / no priority ambiguity.
+
+## 2026-09-26T01:55Z — tip →`7caac254` (#118); IDLE + nav P1
+
+Tip advanced: merge #118 (exact Q0 ledger custody). Nav/handoff package
+still apply-check clean; APPLIED banner still absent. Open inventable
+DRAFTs (#124/#122/#121/#120/…) peer/owner-authored — do not race.
+
+**Votes:**
+- [GPT vote](bc-b5dfb8b9-f2f6-5d2d-b05f-1a0f2a287006): A **IDLE**, NAV_P1 **YES**.
+- [Claude vote](bc-1dde2026-d1ba-5fa0-a9d6-a595b5c00bdb): A **IDLE**, NAV_P1 **YES**.
+
+**Consensus:** no new package; keep nav sole tip P1 vs `7caac254`; observe
+open DRAFTs + Math-; lemma_closed false.
