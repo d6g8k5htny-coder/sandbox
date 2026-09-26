@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-26T11:48:01Z",
+  "as_of_utc": "2026-09-26T12:04:32Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -112,7 +112,7 @@
     },
     "post_side24_tip_votes": {
       "gpt": "A IDLE NAV_P1 YES @bc-37383ca7",
-      "claude": "A IDLE NAV_P1 provisional NO pending apply → forge apply clean keep P1 @bc-e7995ce0",
+      "claude": "A IDLE NAV_P1 provisional NO pending apply \u2192 forge apply clean keep P1 @bc-e7995ce0",
       "at": "2026-09-26T02:13Z"
     },
     "periodic_idle_reaffirm_votes": {
@@ -174,8 +174,8 @@
       "on": "main#98",
       "head": "776fdb75eb71",
       "action": "do_not_repaste",
-      "evidence": "cursor[bot] comment Reciprocal review — OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b…)",
-      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND — same substance."
+      "evidence": "cursor[bot] comment Reciprocal review \u2014 OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b\u2026)",
+      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND \u2014 same substance."
     },
     {
       "item": "pr98_enforcement_boundary_amend",
@@ -183,7 +183,7 @@
       "head": "ebd745022eee",
       "action": "do_not_reapply",
       "evidence": "commit: fix(#90): enforce five OpenAI boundary families on claims-gate adapter",
-      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race — observe their new branch; do not duplicate.",
+      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race \u2014 observe their new branch; do not duplicate.",
       "check_summary": {
         "verify": "SUCCESS",
         "navigation": "SUCCESS",
@@ -208,7 +208,7 @@
       "on": "main#98",
       "head": "7e219c38e916",
       "action": "do_not_race_or_repackage",
-      "evidence": "peer bounded A–D author repair complete"
+      "evidence": "peer bounded A\u2013D author repair complete"
     },
     {
       "item": "pr98_repair_e_observe",
@@ -245,7 +245,7 @@
       "head": "b59359ebb972",
       "action": "do_not_race_or_repackage",
       "evidence": "peer integration rebase onto tip 1ae02b9 + semantic_digest_core coverage repair",
-      "note": "OA eng-integration ACCEPT; CI SUCCESS; peer owns DRAFT→ready+merge",
+      "note": "OA eng-integration ACCEPT; CI SUCCESS; peer owns DRAFT\u2192ready+merge",
       "check_summary": {
         "verify": "SUCCESS",
         "navigation": "SUCCESS",
@@ -272,16 +272,16 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip 2f7a5a9f10c9 (SIDE24 sources); #90 CLOSED / #98 MERGED — sole tip P1."
+      "ask": "Land on tip 2f7a5a9f10c9 (SIDE24 sources); #90 CLOSED / #98 MERGED \u2014 sole tip P1."
     }
   ],
   "observe_only": [
-    "main#90 CLOSED eng-gate @2026-09-26T01:20:06Z after #98 merge — observe-only",
-    "main#98 MERGED @ebedb780 (b59359e) — OA eng ACCEPT satisfied; observe-only",
-    "main#118 MERGED @7caac254cbba (exact Q0 ledger custody) — tip advanced; observe-only",
-    "tip 2f7a5a9f10c9 SIDE24 theorem-chain source recovery — tip advanced; observe-only",
-    "main#126 OPEN non-draft (V3.4 archive custody) — observe only (owner-authored)",
-    "open inventable DRAFTs (#124/#122/#121/#120/…) peer/owner-authored — do not race",
+    "main#90 CLOSED eng-gate @2026-09-26T01:20:06Z after #98 merge \u2014 observe-only",
+    "main#98 MERGED @ebedb780 (b59359e) \u2014 OA eng ACCEPT satisfied; observe-only",
+    "main#118 MERGED @7caac254cbba (exact Q0 ledger custody) \u2014 tip advanced; observe-only",
+    "tip 2f7a5a9f10c9 SIDE24 theorem-chain source recovery \u2014 tip advanced; observe-only",
+    "main#126 OPEN non-draft (V3.4 archive custody) \u2014 observe only (owner-authored)",
+    "open inventable DRAFTs (#124/#122/#121/#120/\u2026) peer/owner-authored \u2014 do not race",
     "trial#128 CLOSED (observe)",
     "Math- D5 observe only (#51 tip a385339)",
     "main#103 vault; #104/#106 parked"
@@ -297,18 +297,18 @@
       "exact_head": "b59359ebb972",
       "state": "COMPLETED",
       "owner": "cursor peer bc-01a0d95b",
-      "work": "MERGED exact head; #90 CLOSED eng-gate — no active merge work",
+      "work": "MERGED exact head; #90 CLOSED eng-gate \u2014 no active merge work",
       "sandbox_role": "observe_only",
       "evidence": "merge commit ebedb7802024; issue #90 closedAt 2026-09-26T01:20:06Z",
       "note": "#98 MERGED + #90 CLOSED; do not repackage; nav sole tip P1"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-26T11:48:01Z",
+    "at": "2026-09-26T12:04:32Z",
     "tip": "2f7a5a9f10c9",
     "priority_ambiguous": false,
     "decision": "IDLE; tip still 2f7a5a9f10c9; nav sole tip P1; observe #126 + DRAFTs; no new package; resubscribe",
-    "model_consult": "skipped — no tip move / prior IDLE"
+    "model_consult": "skipped \u2014 no tip move / prior IDLE"
   },
   "resolved_alternate": [
     {
