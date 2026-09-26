@@ -333,7 +333,7 @@
     "tip": "96e5175306f7",
     "priority_ambiguous": false,
     "decision": "IDLE; tip still 96e5175306f7; nav sole tip P1; observe DRAFTs; no new package; resubscribe",
-    "model_consult": "skipped — no tip move / prior IDLE"
+    "model_consult": "skipped — no tip move / prior IDLE (last: GPT@bc-11268828 + Claude@bc-076ef138)"
   },
   "resolved_alternate": [
     {
