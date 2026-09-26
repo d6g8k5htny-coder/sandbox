@@ -1242,3 +1242,10 @@ artifacts). Nav/handoff apply-check clean; APPLIED banner still absent.
 - [Claude vote](bc-d1f50e20-f76d-5879-96fb-0b4f135f853b): A **IDLE**, NAV_P1 **YES**.
 
 **Consensus:** IDLE; nav sole tip P1 vs `96e51753`; no new package.
+
+## 2026-09-26T16:18Z timer stable IDLE nav P1 consult skipped
+
+**Refresh:** tip still `96e51753`; nav sole tip P1. No new ready package.
+
+**Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
+skipped — no tip move / prior IDLE.
