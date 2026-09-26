@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-26T15:44:24Z",
+  "as_of_utc": "2026-09-26T16:01:02Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -65,11 +65,13 @@
       "gpt-5.6-terra-medium@bc-434c8b20",
       "claude-sonnet-5-thinking-medium@bc-0695db63",
       "gpt-5.6-terra-medium@bc-133a4dc8",
-      "claude-sonnet-5-thinking-medium@bc-8e51fe51"
+      "claude-sonnet-5-thinking-medium@bc-8e51fe51",
+      "gpt-5.6-terra-medium@bc-8f8ff1f1",
+      "claude-sonnet-5-thinking-medium@bc-d1f50e20"
     ],
     "pending_votes": [],
-    "live_peer_override": "tip cd66a655d0a9 (#126 MERGED); sandbox nav tip P1; observe remaining DRAFTs",
-    "consensus": "IDLE; keep nav tip P1; no new package",
+    "live_peer_override": "tip 96e5175306f7 (#21 MERGED); sandbox nav tip P1; observe remaining DRAFTs",
+    "consensus": "IDLE; nav sole tip P1 vs 96e51753; no new package",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -126,9 +128,9 @@
       "at": "2026-09-26T02:13Z"
     },
     "periodic_idle_reaffirm_votes": {
-      "gpt": "A IDLE NAV_P1 YES @bc-133a4dc8",
-      "claude": "A IDLE NAV_P1 YES @bc-8e51fe51",
-      "at": "2026-09-26T15:10Z"
+      "gpt": "A IDLE NAV_P1 YES @bc-8f8ff1f1",
+      "claude": "A IDLE NAV_P1 YES @bc-d1f50e20",
+      "at": "2026-09-26T16:01Z"
     }
   },
   "absorbed": [
@@ -276,13 +278,13 @@
     {
       "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
-      "against": "chatgpt/drive-github-hardening-20260919 @ cd66a655d0a9",
-      "gap": "RESEARCH_INDEX prose + handoff APPLIED still absent (file may exist); apply-check clean on cd66a655 (NO_APPLIED)",
+      "against": "chatgpt/drive-github-hardening-20260919 @ 96e5175306f7",
+      "gap": "RESEARCH_INDEX prose + handoff APPLIED still absent (file may exist); apply-check clean on 96e51753 (NO_APPLIED)",
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip cd66a655d0a9 (#126 MERGED SIDE24 custody); #90 CLOSED / #98 MERGED \u2014 sole tip P1."
+      "ask": "Land on tip 96e5175306f7 (#21 MERGED architectural admission attestations); #90 CLOSED / #98 MERGED \u2014 sole tip P1."
     }
   ],
   "observe_only": [
@@ -291,6 +293,7 @@
     "main#118 MERGED @7caac254cbba (exact Q0 ledger custody) \u2014 tip advanced; observe-only",
     "tip 2f7a5a9f10c9 SIDE24 theorem-chain source recovery \u2014 tip advanced; observe-only",
     "main#126 MERGED @cd66a655d0a9 (SIDE24 replay archive + arithmetic custody) \u2014 tip advanced; observe-only",
+    "main#21 MERGED @96e5175306f7 (architectural admission attestations + H3 artifacts) \u2014 tip advanced; observe-only",
     "open inventable DRAFTs (#124/#122/#121/#120/\u2026) peer/owner-authored \u2014 do not race",
     "trial#128 CLOSED (observe)",
     "Math- D5 observe only (#51 tip a385339)",
@@ -314,11 +317,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-26T15:44:24Z",
-    "tip": "cd66a655d0a9",
+    "at": "2026-09-26T16:01:02Z",
+    "tip": "96e5175306f7",
     "priority_ambiguous": false,
-    "decision": "IDLE; tip still cd66a655d0a9; nav sole tip P1; observe DRAFTs; no new package; resubscribe",
-    "model_consult": "skipped — no tip move / prior IDLE"
+    "decision": "IDLE; tip 96e5175306f7 (#21 MERGED); nav sole tip P1; observe DRAFTs; no new package; GPT+Claude IDLE+NAV_P1 YES",
+    "model_consult": "GPT@bc-8f8ff1f1 + Claude@bc-d1f50e20 \u2014 A IDLE NAV_P1 YES"
   },
   "resolved_alternate": [
     {
@@ -328,5 +331,5 @@
       "action": "do_not_reapply_patch"
     }
   ],
-  "live_peer_override": "tip cd66a655d0a9 (#126 MERGED); sandbox nav tip P1; observe remaining DRAFTs"
+  "live_peer_override": "tip 96e5175306f7 (#21 MERGED); sandbox nav tip P1; observe remaining DRAFTs"
 }

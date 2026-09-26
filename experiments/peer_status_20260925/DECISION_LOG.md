@@ -1231,3 +1231,14 @@ skipped — no tip move / prior IDLE.
 
 **Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
 skipped — no tip move / prior IDLE.
+
+## 2026-09-26T16:01Z — tip →`96e51753` (#21); IDLE + nav P1
+
+Tip advanced: merge #21 (architectural admission attestations + H3
+artifacts). Nav/handoff apply-check clean; APPLIED banner still absent.
+
+**Votes:**
+- [GPT vote](bc-8f8ff1f1-8ee2-5aa1-b6c6-6f8520b0b7db): A **IDLE**, NAV_P1 **YES**.
+- [Claude vote](bc-d1f50e20-f76d-5879-96fb-0b4f135f853b): A **IDLE**, NAV_P1 **YES**.
+
+**Consensus:** IDLE; nav sole tip P1 vs `96e51753`; no new package.
