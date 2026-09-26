@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-26T00:00:05Z",
+  "as_of_utc": "2026-09-26T00:16:02Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "1ae02b9ab759",
@@ -25,9 +25,9 @@
       "state": "OPEN",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
-      "head": "2d3374c",
+      "head": "5cf4f36",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T23:53:02Z",
+      "updatedAt": "2026-09-26T00:06:46Z",
       "files": [
         ".github/workflows/ci.yml",
         ".gitignore",
@@ -50,7 +50,7 @@
         "tools/semantic_digest.py"
       ],
       "checks": {
-        "verify": "FAILURE",
+        "verify": "IN_PROGRESS",
         "loss-only-controls": "SUCCESS"
       }
     },
@@ -132,13 +132,13 @@
     },
     {
       "number": 106,
-      "title": "Retip #46: pin the 61,642 uniform-cost cell count (control 35)",
-      "state": "OPEN",
+      "title": "SUPERSEDED/BLOCKED PARENT \u2014 retip 61,642 cell-count control",
+      "state": "CLOSED",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
       "head": "3f14638",
       "url": "https://github.com/d6g8k5htny-coder/main/pull/106",
-      "updatedAt": "2026-09-25T18:07:37Z",
+      "updatedAt": "2026-09-26T00:09:22Z",
       "files": [
         "research/cover/README.md",
         "research/cover/ledger.py",

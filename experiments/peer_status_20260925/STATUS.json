@@ -1,10 +1,10 @@
 {
-  "as_of_utc": "2026-09-26T00:07:28Z",
+  "as_of_utc": "2026-09-26T00:15:59Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
   "note": "Private coordination snapshot only; not research acceptance.",
-  "main_open_pr_count": 15,
+  "main_open_pr_count": 12,
   "sandbox_packages": {
     "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
     "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
@@ -328,11 +328,11 @@
       "repo": "d6g8k5htny-coder/main",
       "pr": 106,
       "role": "cursor_retip46_cellcount_parked",
-      "title": "Retip #46: pin the 61,642 uniform-cost cell count (control 35)",
-      "state": "OPEN",
+      "title": "SUPERSEDED/BLOCKED PARENT \u2014 retip 61,642 cell-count control",
+      "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/106",
-      "updatedAt": "2026-09-25T18:07:37Z",
+      "updatedAt": "2026-09-26T00:09:22Z",
       "head": "3f14638",
       "checks": [
         {
@@ -622,8 +622,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-26T00:04:23Z",
-      "head": "4f50d7e",
+      "updatedAt": "2026-09-26T00:07:30Z",
+      "head": "8cf1c03",
       "checks": [],
       "check_summary": {}
     }

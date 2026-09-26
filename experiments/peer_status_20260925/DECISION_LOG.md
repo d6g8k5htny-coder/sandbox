@@ -690,3 +690,11 @@ digest/coverage on identical successor + order-reverse changes digest.
 Hosted CI pending.
 
 **Decision:** yield; observe CI + OA; sole tip P1 = nav/handoff.
+
+## 2026-09-26T00:16Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `1ae02b9`; nav ready. #98 still `@5cf4f36` verify
+IN_PROGRESS (loss-only green). No OA disposition yet.
+
+**Decision:** no new package; observe CI + OA; sole P1 = nav/handoff;
+resubscribe timer.
