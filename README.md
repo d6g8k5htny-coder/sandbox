@@ -1,7 +1,7 @@
 # sandbox — public exploratory workspace
 
-Private exploratory and adversarial experiments for Dylan Roy’s research
-workspace. This repository is **not** a public artifact catalog and **not** a
+Public exploratory and adversarial experiments for Dylan Roy’s research
+workspace. This repository is a public artifact catalog and **not** a
 scientific-status register.
 
 ## Boundaries (eng)
