@@ -816,3 +816,11 @@ still sole tip P1 (apply previously verified). No new inventable package.
 
 **Decision:** keep nav tip P1; no new package; resubscribe. Model consult
 skipped — forge closure facts already recorded.
+
+## 2026-09-26T01:37Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `ebedb780` (post-merge CI SUCCESS). #98 MERGED; #90
+CLOSED eng-gate. Nav still sole tip P1. No new inventable ready package.
+
+**Decision:** keep nav tip P1; no new package; resubscribe. Model consult
+skipped — no tip move / no priority ambiguity.
