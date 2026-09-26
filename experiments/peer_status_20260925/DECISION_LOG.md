@@ -1345,3 +1345,10 @@ skipped — no tip move / prior IDLE.
 
 **Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
 skipped — no tip move / prior IDLE.
+
+## 2026-09-26T19:57Z timer stable IDLE nav P1 consult skipped
+
+**Refresh:** tip still `96e51753`; nav sole tip P1. No new ready package.
+
+**Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
+skipped — no tip move / prior IDLE.
