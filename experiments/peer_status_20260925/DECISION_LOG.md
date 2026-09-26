@@ -673,3 +673,11 @@ validates gate (24 adversarial + 77 tests). Minimal repair: restore exact
 cc6a578 order (theorem then master); keep E6; add regression.
 
 **Decision:** yield; no sandbox package (data-only on peer tip); nav sole P1.
+
+## 2026-09-26T00:04Z — peer push-CI repair @`feea1df`
+
+Order-stable `semantic_digest_normalized` + sorted coverage payload; tip
+`claims/graph.json` restored to `cc6a578` content. E6 regressions retained.
+Hosted CI queued. Ready for OA re-review.
+
+**Decision:** yield; observe CI + OA; sole tip P1 = nav/handoff.

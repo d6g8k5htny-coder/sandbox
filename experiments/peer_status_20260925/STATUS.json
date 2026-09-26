@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-26T00:00:02Z",
+  "as_of_utc": "2026-09-26T00:04:22Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -176,13 +176,13 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-25T23:53:02Z",
-      "head": "2d3374c",
+      "updatedAt": "2026-09-26T00:03:41Z",
+      "head": "feea1df",
       "checks": [
         {
           "name": "verify",
-          "conclusion": "FAILURE",
-          "status": "COMPLETED"
+          "conclusion": "",
+          "status": "IN_PROGRESS"
         },
         {
           "name": "loss-only-controls",
@@ -191,7 +191,7 @@
         }
       ],
       "check_summary": {
-        "verify": "FAILURE",
+        "verify": "IN_PROGRESS",
         "loss-only-controls": "SUCCESS"
       }
     },
@@ -622,8 +622,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T23:53:57Z",
-      "head": "522313b",
+      "updatedAt": "2026-09-26T00:03:20Z",
+      "head": "e3d37e0",
       "checks": [],
       "check_summary": {}
     }
