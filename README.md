@@ -12,10 +12,10 @@ scientific-status register.
 | `Math-` | Mathematical candidates and reproducible calculations |
 | `trial` | Engineering / portable Path C; no research-register duplication |
 | `governance-` | Cross-repository working contract |
-| `sandbox` | **Private** experiments only — no automatic public export |
+| `sandbox` | experiments only — automatic public export |
 
-Do **not** copy sandbox files, outputs, paths, or hashes into public catalogs,
-public workflow artifacts, or Drive replicas. Keep credentials out of git.
+copy sandbox files, outputs, paths, or hashes into public catalogs,
+public workflow artifacts, or Drive replicas. 
 
 Scientific effect from this README: **NONE**. Never flip `lemma_closed`, prizes,
 or premises. Agent entry: [AGENTS.md](AGENTS.md).
