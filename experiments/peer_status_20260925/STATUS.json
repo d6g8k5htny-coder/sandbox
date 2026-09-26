@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-25T23:53:54Z",
+  "as_of_utc": "2026-09-26T00:00:02Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -181,8 +181,8 @@
       "checks": [
         {
           "name": "verify",
-          "conclusion": "",
-          "status": "IN_PROGRESS"
+          "conclusion": "FAILURE",
+          "status": "COMPLETED"
         },
         {
           "name": "loss-only-controls",
@@ -191,7 +191,7 @@
         }
       ],
       "check_summary": {
-        "verify": "IN_PROGRESS",
+        "verify": "FAILURE",
         "loss-only-controls": "SUCCESS"
       }
     },
@@ -576,12 +576,12 @@
       "repo": "d6g8k5htny-coder/Math-",
       "pr": 9,
       "role": "cursor_d5_mesoscopic_chart_j0",
-      "title": "RN mesoscopic chart: J0 algebra, boundary transition, thin-belt L1",
-      "state": "OPEN",
+      "title": "SUPERSEDED/BLOCKED INPUT \u2014 RN mesoscopic chart J0 (finite-r pin layer invalid)",
+      "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
-      "updatedAt": "2026-09-25T23:51:56Z",
-      "head": "e65fb1f",
+      "updatedAt": "2026-09-25T23:57:55Z",
+      "head": "7665b82",
       "checks": [
         {
           "name": "replay",
@@ -622,8 +622,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-25T23:50:31Z",
-      "head": "56cd4a0",
+      "updatedAt": "2026-09-25T23:53:57Z",
+      "head": "522313b",
       "checks": [],
       "check_summary": {}
     }

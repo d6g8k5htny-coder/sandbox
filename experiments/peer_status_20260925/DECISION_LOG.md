@@ -653,3 +653,13 @@ edge/authority/other-seed guards) and E6 negative control. Sandbox
 `pr98_e6_coverage_repair_semantic_guard` **ABSORBED / do not re-apply**.
 
 **Decision:** yield; observe CI + OA E6 re-review; sole tip P1 = nav/handoff.
+
+## 2026-09-26T00:00Z — d7-multimodel-loop; E6 tip push-verify red
+
+**Refresh:** tip still `1ae02b9`; nav ready. #98 `@2d3374c` push verify
+**FAILURE** (36202702251): event-compare `cc6a578`→`2d3374c` leaves
+`Q0-C101-QUALITATIVE-RATE` in `controlling_impacted` with
+`coverage_repairs: []` (E6 guard likely treating Q0 binding-order/metadata
+as non-exempt). Peer owns CI repair.
+
+**Decision:** yield; no new package; sole tip P1 = nav/handoff; resubscribe.
