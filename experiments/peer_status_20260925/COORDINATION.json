@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-26T00:04:30Z",
+  "as_of_utc": "2026-09-26T00:07:30Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -26,8 +26,8 @@
       "claude-sonnet-5-thinking-medium@bc-6c015bdc"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98@feea1df E6+order-stable digests; observe CI + OA re-review",
-    "consensus": "Peer repaired push-CI @feea1df (normalized digests + tip graph restore). Observe. Nav tip P1.",
+    "live_peer_override": "main#98@5cf4f36 Q0 order restored exact cc6a578; E6 not weakened; observe CI/OA",
+    "consensus": "Peer @5cf4f36: theorem-first Q0 bindings + E6 order-sensitivity retained. Observe. Nav tip P1.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -178,11 +178,11 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip 1ae02b9; #98@feea1df E6 CI-fix — observe CI/OA."
+      "ask": "Land on tip 1ae02b9; #98@5cf4f36 — observe CI/OA E6."
     }
   ],
   "observe_only": [
-    "main#98@feea1df — E6 + order-stable semantic/coverage digests; CI pending; DRAFT; #90 OPEN; await OA re-review",
+    "main#98@5cf4f36 — Q0 binding order = cc6a578; E6 intact; CI pending; DRAFT; #90 OPEN; await OA",
     "trial#128 observe only",
     "Math- D5 observe only",
     "main#103 vault; #104/#106 parked"
@@ -194,21 +194,21 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "feea1df7726f",
+      "head": "5cf4f366c70d",
       "owner": "cursor peer bc-01a0d95b",
-      "work": "E6 + order-stable digests; tip claims restored to cc6a578 content",
+      "work": "Restore Q0 theorem-first order; drop order-normalized digest; keep E6",
       "sandbox_role": "observe_ci_only_do_not_race",
-      "evidence": "fix head feea1df; push CI repair",
+      "evidence": "head 5cf4f36; regression test_e6_cc6_successor_preserves_q0_binding_order",
       "check_summary": {
         "verify": "IN_PROGRESS"
       }
     }
   ],
   "timer_loop": {
-    "at": "2026-09-26T00:04:30Z",
+    "at": "2026-09-26T00:07:30Z",
     "tip": "1ae02b9ab759",
     "priority_ambiguous": false,
-    "decision": "Peer @feea1df; observe CI/OA; nav sole tip P1",
+    "decision": "Peer @5cf4f36; observe CI/OA; nav sole tip P1",
     "model_consult": "skipped — peer land decisive"
   },
   "resolved_alternate": [

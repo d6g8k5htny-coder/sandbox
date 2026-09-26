@@ -681,3 +681,12 @@ Order-stable `semantic_digest_normalized` + sorted coverage payload; tip
 Hosted CI queued. Ready for OA re-review.
 
 **Decision:** yield; observe CI + OA; sole tip P1 = nav/handoff.
+
+## 2026-09-26T00:07Z — peer @`5cf4f36`: exact Q0 order; E6 not weakened
+
+Restored theorem-first / master-second bindings matching `cc6a578`; removed
+interim order-normalized digest (would weaken E6). New regression for stable
+digest/coverage on identical successor + order-reverse changes digest.
+Hosted CI pending.
+
+**Decision:** yield; observe CI + OA; sole tip P1 = nav/handoff.
