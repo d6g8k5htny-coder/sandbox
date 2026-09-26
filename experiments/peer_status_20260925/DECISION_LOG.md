@@ -1076,3 +1076,13 @@ skipped — no tip move / prior IDLE.
 
 **Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
 skipped — no tip move / prior IDLE.
+
+## 2026-09-26T10:41Z — periodic multimodel reaffirm; IDLE + nav P1
+
+**Refresh:** tip still `2f7a5a9`; nav sole tip P1. #126 still OPEN observe.
+
+**Votes:**
+- [GPT vote](bc-241659b8-b5a0-5d80-85f2-f39339c3bb39): A **IDLE**, NAV_P1 **YES**.
+- [Claude vote](bc-989b11e9-fba3-5e41-8fd7-0e896ee1c3ee): A **IDLE**, NAV_P1 **YES**.
+
+**Consensus:** IDLE; keep nav tip P1; no new package.
