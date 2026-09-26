@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-26T00:31:37Z",
+  "as_of_utc": "2026-09-26T00:34:23Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -23,11 +23,13 @@
       "gpt-5.6-terra-medium@bc-5c344912",
       "claude-sonnet-5-thinking-medium@bc-40e3af3f",
       "gpt-5.6-terra-medium@bc-a00a8328",
-      "claude-sonnet-5-thinking-medium@bc-6c015bdc"
+      "claude-sonnet-5-thinking-medium@bc-6c015bdc",
+      "gpt-5.6-terra-medium@bc-2dff56a5",
+      "claude-sonnet-5-thinking-medium@bc-cdb260f8"
     ],
     "pending_votes": [],
     "live_peer_override": "main#98@5cf4f36 CI GREEN; await OA E6 re-review; sandbox observe",
-    "consensus": "CI green on 5cf4f36. Observe OA E6. Nav sole tip P1. No new package.",
+    "consensus": "A OBSERVE + NAV_P1 YES (GPT+Claude). Await OA E6. Nav sole tip P1. No new package.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -47,6 +49,11 @@
       "gpt": "A YES B NO C NO @bc-a00a8328",
       "claude": "A YES B NO C NO @bc-6c015bdc",
       "at": "2026-09-25T23:48Z"
+    },
+    "post_ci_green_observe_votes": {
+      "gpt": "A OBSERVE NAV_P1 YES @bc-2dff56a5",
+      "claude": "A OBSERVE NAV_P1 YES @bc-cdb260f8",
+      "at": "2026-09-26T00:34Z"
     }
   },
   "absorbed": [
@@ -183,8 +190,8 @@
   ],
   "observe_only": [
     "main#98@5cf4f36 — verify SUCCESS; DRAFT; #90 OPEN; await OA E6 re-review",
-    "trial#128 observe only",
-    "Math- D5 observe only",
+    "trial#128 CLOSED (observe)",
+    "Math- D5 observe only (#51 tip a385339)",
     "main#103 vault; #104/#106 parked"
   ],
   "closed_without_merge_ok": [
@@ -207,11 +214,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-26T00:31:37Z",
+    "at": "2026-09-26T00:34:23Z",
     "tip": "1ae02b9ab759",
     "priority_ambiguous": false,
-    "decision": "#98@5cf4f36 CI green; observe OA E6; nav sole tip P1",
-    "model_consult": "skipped — peer tip stable; awaiting OA"
+    "decision": "GPT+Claude A OBSERVE + NAV_P1 YES; await OA E6; nav sole tip P1",
+    "model_consult": "gpt@bc-2dff56a5 + claude@bc-cdb260f8"
   },
   "resolved_alternate": [
     {
