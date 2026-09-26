@@ -959,3 +959,10 @@ skipped — no tip move / prior IDLE.
 - [Claude vote](bc-f141d7ae-d06e-54c9-8652-7ba8e29b7f01): A **IDLE**, NAV_P1 **YES**.
 
 **Consensus:** IDLE; keep nav tip P1; no new package.
+
+## 2026-09-26T06:32Z timer (stable; IDLE; nav P1; consult skipped)
+
+**Refresh:** tip still `2f7a5a9`; nav sole tip P1. No new ready package.
+
+**Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
+skipped — no tip move / prior IDLE.
