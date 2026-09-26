@@ -883,3 +883,10 @@ inventable DRAFTs unchanged peer/owner-owned.
 - [Claude vote](bc-3fd25a3b-252c-5d55-9db1-27d70dae17e3): A **IDLE**, NAV_P1 **YES**.
 
 **Consensus:** IDLE; keep nav tip P1; observe #126 + DRAFTs; no new package.
+
+## 2026-09-26T03:37Z timer (stable; IDLE; nav P1; consult skipped)
+
+**Refresh:** tip still `2f7a5a9`; nav sole tip P1. No new ready package.
+
+**Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
+skipped — no tip move / prior IDLE.
