@@ -767,3 +767,20 @@ verify IN_PROGRESS (push+PR); nav/loss-only green. No OA final readback yet.
 
 **Decision:** no new package; observe CI + OA; sole P1 = nav/handoff;
 resubscribe. Model consult skipped — peer ownership + prior yield stands.
+
+## 2026-09-26T01:16Z — OA final eng-integration ACCEPT; CI green; yield merge
+
+**CI:** all checks SUCCESS on `#98@b59359e`.
+**OA:** FINAL BOUNDED INTEGRATION READBACK — **ACCEPT** at engineering
+integration scope (not scientific). Satisfies #90 eng condition from
+5841626296. Event-compare transition_ok; Q0 impacted+coverage_repairs;
+promotion_permission false. Author directive: DRAFT→ready, merge **only**
+exact head `b59359e` with expected-head protection, post merge SHA +
+compare/readback; then #90 may close at eng-gate scope.
+
+**Votes:**
+- [GPT vote](bc-22392d4b-5fd9-5e79-ad87-8f664b84baca): A **OBSERVE/YIELD**, NAV_P1 **YES**.
+- [Claude vote](bc-e56e57e2-3685-537a-9d86-656eebdaf380): A **OBSERVE/YIELD**, NAV_P1 **YES**.
+
+**Consensus:** yield peer merge; record ACCEPT; keep nav tip P1 until tip
+moves; recheck after merge. No new package. lemma_closed false.
