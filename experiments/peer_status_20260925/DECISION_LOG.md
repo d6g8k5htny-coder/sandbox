@@ -799,3 +799,12 @@ still absent). No #98 packages remain.
 
 **Consensus:** absorb #98 as merged; sole tip P1 = nav/handoff vs `ebedb780`;
 observe #90 close + any merge receipt; no new package. lemma_closed false.
+
+## 2026-09-26T01:20Z — #90 CLOSED (eng-gate); nav remains tip P1
+
+Issue #90 closed after #98 merge receipt / eng-gate scope. Tip still
+`ebedb780`. Nav/handoff package still sole tip P1 (apply-check clean).
+No scientific acceptance; lemma_closed false.
+
+**Decision:** observe-only on closed #90/#98; keep nav tip P1; no new
+package this tick. Model consult skipped — closure is forge fact.

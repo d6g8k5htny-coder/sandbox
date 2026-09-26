@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-26T01:18:21Z",
+  "as_of_utc": "2026-09-26T01:21:44Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -36,8 +36,8 @@
       "claude-sonnet-5-thinking-medium@bc-b3d896aa"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98 MERGED @ebedb780; observe #90 eng-gate close + merge receipt; sandbox nav tip P1",
-    "consensus": "#98 MERGED; A OBSERVE; nav STILL_READY on ebedb780; watch #90",
+    "live_peer_override": "main#90 CLOSED eng-gate; #98 MERGED @ebedb780; sandbox nav tip P1",
+    "consensus": "#90 CLOSED; #98 MERGED; observe-only; nav STILL_READY on ebedb780",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -235,11 +235,12 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip ebedb780; #98 merged — observe #90 close."
+      "ask": "Land on tip ebedb780; #90 CLOSED / #98 MERGED — sole tip P1."
     }
   ],
   "observe_only": [
-    "main#98 MERGED @ebedb780 (b59359e) — OA eng ACCEPT; observe merge receipt + #90 eng-gate close",
+    "main#90 CLOSED eng-gate @2026-09-26T01:20:06Z after #98 merge — observe-only",
+    "main#98 MERGED @ebedb780 (b59359e) — OA eng ACCEPT satisfied; observe-only",
     "trial#128 CLOSED (observe)",
     "Math- D5 observe only (#51 tip a385339)",
     "main#103 vault; #104/#106 parked"
@@ -253,20 +254,20 @@
       "surface": "main#98",
       "head": "ebedb7802024",
       "exact_head": "b59359ebb972",
-      "state": "MERGED",
+      "state": "COMPLETED",
       "owner": "cursor peer bc-01a0d95b",
-      "work": "merged exact head; observe merge receipt + #90 eng-gate close",
-      "sandbox_role": "observe_receipt_only",
-      "evidence": "merge commit ebedb7802024 parents 1ae02b9 + b59359e",
-      "note": "#98 MERGED; do not repackage; observe #90 close"
+      "work": "MERGED exact head; #90 CLOSED eng-gate — no active merge work",
+      "sandbox_role": "observe_only",
+      "evidence": "merge commit ebedb7802024; issue #90 closedAt 2026-09-26T01:20:06Z",
+      "note": "#98 MERGED + #90 CLOSED; do not repackage; nav sole tip P1"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-26T01:18:21Z",
+    "at": "2026-09-26T01:21:44Z",
     "tip": "ebedb7802024",
     "priority_ambiguous": false,
-    "decision": "#98 MERGED; nav sole tip P1; observe #90",
-    "model_consult": "recorded — gpt@bc-d1dd435e + claude@bc-b3d896aa A OBSERVE NAV_RECHECK YES"
+    "decision": "#90 CLOSED; #98 MERGED; nav sole tip P1 on ebedb780; no new package",
+    "model_consult": "skipped — #90 closure is forge fact"
   },
   "resolved_alternate": [
     {
@@ -276,5 +277,5 @@
       "action": "do_not_reapply_patch"
     }
   ],
-  "live_peer_override": "main#98 MERGED @ebedb780; observe #90 eng-gate close + merge receipt; sandbox nav tip P1"
+  "live_peer_override": "main#90 CLOSED eng-gate; #98 MERGED @ebedb780; sandbox nav tip P1"
 }
