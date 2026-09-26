@@ -784,3 +784,18 @@ compare/readback; then #90 may close at eng-gate scope.
 
 **Consensus:** yield peer merge; record ACCEPT; keep nav tip P1 until tip
 moves; recheck after merge. No new package. lemma_closed false.
+
+## 2026-09-26T01:18Z — #98 MERGED @`ebedb780`; nav still tip P1
+
+Peer completed OA-directed exact-head merge. Tip is now merge commit
+`ebedb7802024` (parents `1ae02b9` + `b59359e`). #90 still OPEN pending
+merge receipt / eng-gate close. Nav/handoff package **apply-check clean**
+on new tip (RESEARCH_INDEX exists but patch substance + APPLIED banner
+still absent). No #98 packages remain.
+
+**Votes:**
+- [GPT vote](bc-d1dd435e-f735-59ca-9aed-febcf5d99e1b): A **OBSERVE**, NAV_RECHECK **YES**.
+- [Claude vote](bc-b3d896aa-3b68-57db-a54f-d7b4fe83a916): A **OBSERVE**, NAV_RECHECK **YES**.
+
+**Consensus:** absorb #98 as merged; sole tip P1 = nav/handoff vs `ebedb780`;
+observe #90 close + any merge receipt; no new package. lemma_closed false.
