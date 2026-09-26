@@ -1,10 +1,10 @@
 {
-  "as_of_utc": "2026-09-26T19:24:10Z",
+  "as_of_utc": "2026-09-26T19:41:07Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
   "note": "Private coordination snapshot only; not research acceptance.",
-  "main_open_pr_count": 18,
+  "main_open_pr_count": 19,
   "sandbox_packages": {
     "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
     "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
@@ -638,8 +638,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-26T19:07:57Z",
-      "head": "227a15e",
+      "updatedAt": "2026-09-26T19:25:13Z",
+      "head": "6963f76",
       "checks": [],
       "check_summary": {}
     }
