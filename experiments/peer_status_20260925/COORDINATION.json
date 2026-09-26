@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-26T00:34:23Z",
+  "as_of_utc": "2026-09-26T00:45:44Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -25,11 +25,13 @@
       "gpt-5.6-terra-medium@bc-a00a8328",
       "claude-sonnet-5-thinking-medium@bc-6c015bdc",
       "gpt-5.6-terra-medium@bc-2dff56a5",
-      "claude-sonnet-5-thinking-medium@bc-cdb260f8"
+      "claude-sonnet-5-thinking-medium@bc-cdb260f8",
+      "gpt-5.6-terra-medium@bc-6566d12c",
+      "claude-sonnet-5-thinking-medium@bc-6e4897c1"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98@5cf4f36 CI GREEN; await OA E6 re-review; sandbox observe",
-    "consensus": "A OBSERVE + NAV_P1 YES (GPT+Claude). Await OA E6. Nav sole tip P1. No new package.",
+    "live_peer_override": "main#98@5cf4f36 OA E6 ACCEPT eng-scope; peer rebase onto 1ae02b9; sandbox yield",
+    "consensus": "A OBSERVE/YIELD + NAV_P1 YES after OA E6 ACCEPT; peer owns rebase; nav sole tip P1",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -54,6 +56,11 @@
       "gpt": "A OBSERVE NAV_P1 YES @bc-2dff56a5",
       "claude": "A OBSERVE NAV_P1 YES @bc-cdb260f8",
       "at": "2026-09-26T00:34Z"
+    },
+    "post_e6_accept_votes": {
+      "gpt": "A OBSERVE NAV_P1 YES @bc-6566d12c",
+      "claude": "A OBSERVE NAV_P1 YES @bc-6e4897c1",
+      "at": "2026-09-26T00:43Z"
     }
   },
   "absorbed": [
@@ -109,8 +116,8 @@
       "on": "main#98",
       "head": "776fdb75eb71",
       "action": "do_not_repaste",
-      "evidence": "cursor[bot] comment Reciprocal review — OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b…)",
-      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND — same substance."
+      "evidence": "cursor[bot] comment Reciprocal review \u2014 OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b\u2026)",
+      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND \u2014 same substance."
     },
     {
       "item": "pr98_enforcement_boundary_amend",
@@ -118,7 +125,7 @@
       "head": "ebd745022eee",
       "action": "do_not_reapply",
       "evidence": "commit: fix(#90): enforce five OpenAI boundary families on claims-gate adapter",
-      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race — observe their new branch; do not duplicate.",
+      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race \u2014 observe their new branch; do not duplicate.",
       "check_summary": {
         "verify": "SUCCESS",
         "navigation": "SUCCESS",
@@ -143,7 +150,7 @@
       "on": "main#98",
       "head": "7e219c38e916",
       "action": "do_not_race_or_repackage",
-      "evidence": "peer bounded A–D author repair complete"
+      "evidence": "peer bounded A\u2013D author repair complete"
     },
     {
       "item": "pr98_repair_e_observe",
@@ -185,11 +192,11 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip 1ae02b9; #98@5cf4f36 CI green — observe OA E6 re-review."
+      "ask": "Land on tip 1ae02b9; #98 OA E6 ACCEPT eng-scope \u2014 peer rebase onto tip; observe."
     }
   ],
   "observe_only": [
-    "main#98@5cf4f36 — verify SUCCESS; DRAFT; #90 OPEN; await OA E6 re-review",
+    "main#98@5cf4f36 \u2014 OA E6 ACCEPT eng-scope; peer rebase onto 1ae02b9; #90 OPEN until integration CI",
     "trial#128 CLOSED (observe)",
     "Math- D5 observe only (#51 tip a385339)",
     "main#103 vault; #104/#106 parked"
@@ -203,22 +210,22 @@
       "surface": "main#98",
       "head": "5cf4f366c70d",
       "owner": "cursor peer bc-01a0d95b",
-      "work": "Restore Q0 theorem-first order; drop order-normalized digest; keep E6",
+      "work": "OA-directed rebase onto tip 1ae02b9 preserving D1/Q0/E6; then event-compare + CI",
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "head 5cf4f36; regression test_e6_cc6_successor_preserves_q0_binding_order",
       "check_summary": {
         "verify": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       },
-      "note": "CI green; ready for OA E6 re-review; do not race"
+      "note": "OA E6 ACCEPT eng-scope; do not race rebase"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-26T00:34:23Z",
+    "at": "2026-09-26T00:45:44Z",
     "tip": "1ae02b9ab759",
     "priority_ambiguous": false,
-    "decision": "GPT+Claude A OBSERVE + NAV_P1 YES; await OA E6; nav sole tip P1",
-    "model_consult": "gpt@bc-2dff56a5 + claude@bc-cdb260f8"
+    "decision": "OA E6 ACCEPT; yield peer rebase; nav sole tip P1",
+    "model_consult": "gpt@bc-6566d12c + claude@bc-6e4897c1"
   },
   "resolved_alternate": [
     {
@@ -228,5 +235,5 @@
       "action": "do_not_reapply_patch"
     }
   ],
-  "live_peer_override": "main#98 peer landed event-boundary @4b983b9 then PR15-contract follow-up @0bc41ca — yield; do not race or re-package"
+  "live_peer_override": "main#98 peer landed event-boundary @4b983b9 then PR15-contract follow-up @0bc41ca \u2014 yield; do not race or re-package"
 }

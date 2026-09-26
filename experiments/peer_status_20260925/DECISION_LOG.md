@@ -719,3 +719,20 @@ disposition yet. trial#128 CLOSED. Math- D5 observe-only (#51 tip moved).
 
 **Consensus:** yield peer-owned #98; await OA E6; keep nav sole tip P1
 unamplified; no new package this tick.
+
+## 2026-09-26T00:43Z — OA E6 ACCEPT (eng-scope) + rebase condition
+
+**OA disposition** on `#98@5cf4f36`: **ACCEPT** at engineering-interface
+scope (not scientific). Condition: rebase onto tip `1ae02b9` (D1/Q0
+audit repairs); preserve D1 CONDITIONAL/HOLD_WITH_DOMAIN +
+FW-RUNG-OPEN-PREMISE; exact Q0/D1 bindings + theorem-first order; E6
+strictness + negative controls; run base→head event-compare + full CI.
+#90 OPEN until that integration succeeds. Peer @cursor owns rebase.
+
+**Votes:**
+- [GPT vote](bc-6566d12c-c3a6-5b7f-b180-4600d5e71f37): A **OBSERVE/YIELD**, NAV_P1 **YES**.
+- [Claude vote](bc-6e4897c1-976a-5a89-8e96-f6d87d0a6248): A **OBSERVE/YIELD**, NAV_P1 **YES**.
+
+**Consensus:** yield peer rebase+CI; record ACCEPT+condition; keep nav
+sole tip P1 unamplified; no new package unless peer stalls with a clear
+portable gap.

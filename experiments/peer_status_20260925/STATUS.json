@@ -1,10 +1,10 @@
 {
-  "as_of_utc": "2026-09-26T00:33:33Z",
+  "as_of_utc": "2026-09-26T00:45:41Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
   "note": "Private coordination snapshot only; not research acceptance.",
-  "main_open_pr_count": 12,
+  "main_open_pr_count": 14,
   "sandbox_packages": {
     "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
     "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
@@ -176,7 +176,7 @@
       "state": "OPEN",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
-      "updatedAt": "2026-09-26T00:33:26Z",
+      "updatedAt": "2026-09-26T00:42:53Z",
       "head": "5cf4f36",
       "checks": [
         {
@@ -622,8 +622,8 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-26T00:31:55Z",
-      "head": "c61cee5",
+      "updatedAt": "2026-09-26T00:36:07Z",
+      "head": "5d458c7",
       "checks": [],
       "check_summary": {}
     }
