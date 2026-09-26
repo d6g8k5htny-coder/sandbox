@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-26T00:00:07Z",
+  "as_of_utc": "2026-09-26T00:03:30Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -26,7 +26,7 @@
       "claude-sonnet-5-thinking-medium@bc-6c015bdc"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98@2d3374c E6 land; push-verify RED (Q0 controlling_impacted, coverage_repairs empty); peer owns CI fix",
+    "live_peer_override": "main#98@2d3374c OA: restore Q0 binding order (theorem then master); do not weaken E6; peer owns data fix",
     "consensus": "Peer landed E6 @2d3374c before/alongside sandbox package. ABSORBED. Nav tip P1. Observe CI/OA.",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
@@ -175,7 +175,8 @@
     }
   ],
   "observe_only": [
-    "main#98@2d3374c — E6 landed; push verify FAIL (cc6a578→2d3374c Q0 retained-controlling); await peer CI fix + OA E6 re-review",
+    "main#98@2d3374c — push CI red; OA root cause = Q0 source_bindings order reverse vs cc6a578; restore theorem-first; E6 logic OK (trialPR138)",
+    "Await peer data-order fix + CI green + OA E6 re-review",
     "trial#128 observe only",
     "Math- D5 observe only",
     "main#103 vault; #104/#106 parked"
@@ -189,22 +190,22 @@
       "surface": "main#98",
       "head": "2d3374c58276",
       "owner": "cursor peer bc-01a0d95b",
-      "work": "E6 coverage_repair non-binding identity guard",
+      "work": "Restore Q0 source_bindings order (theorem first, master second); keep E6 intact",
       "sandbox_role": "observe_ci_only_do_not_race",
       "evidence": "New exact head 2d3374c; sandbox E6 package ABSORBED",
       "check_summary": {
         "verify_push": "FAILURE",
         "loss-only-controls": "SUCCESS"
       },
-      "note": "push event-compare fails F1 on Q0; coverage_repairs=[]; peer lease"
+      "note": "OA isolated data-order bug; do not package competing weaken-E6; yield peer"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-26T00:00:07Z",
+    "at": "2026-09-26T00:03:30Z",
     "tip": "1ae02b9ab759",
     "priority_ambiguous": false,
-    "decision": "Observe peer CI fix for E6 push-verify red; nav sole tip P1; no package",
-    "model_consult": "skipped — peer owns #98 CI"
+    "decision": "Yield Q0 binding-order data fix to peer; E6 logic validated; nav sole tip P1",
+    "model_consult": "skipped — OA root cause + peer lease decisive"
   },
   "resolved_alternate": [
     {

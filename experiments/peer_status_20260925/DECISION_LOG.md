@@ -663,3 +663,13 @@ edge/authority/other-seed guards) and E6 negative control. Sandbox
 as non-exempt). Peer owns CI repair.
 
 **Decision:** yield; no new package; sole tip P1 = nav/handoff; resubscribe.
+
+## 2026-09-26T00:03Z — OA isolates Q0 binding-order CI fail; yield peer
+
+OA: push CI red is **not** an E6 logic defect. `2d3374c` reversed Q0
+`source_bindings` vs `cc6a578` (theorem-first → master-first), changing
+`semantic_digest` + `coverage_sha256`. E6 correctly refuses. trialPR138
+validates gate (24 adversarial + 77 tests). Minimal repair: restore exact
+cc6a578 order (theorem then master); keep E6; add regression.
+
+**Decision:** yield; no sandbox package (data-only on peer tip); nav sole P1.
