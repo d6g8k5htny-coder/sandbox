@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-26T22:16:39Z",
+  "as_of_utc": "2026-09-26T22:32:54Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "96e5175306f7",
@@ -8,8 +8,8 @@
     "pr97_followup_nav_and_handoff.patch (TOP ready)",
     "pr97_followup_nav_links.patch",
     "pr_handoff_applied.patch",
-    "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa — do not reapply)",
-    "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 — do not reapply)"
+    "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa \u2014 do not reapply)",
+    "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 \u2014 do not reapply)"
   ],
   "absorbed": [
     "pr105_consumers_fix on main#105@54a8c59",
@@ -133,7 +133,7 @@
     },
     {
       "number": 106,
-      "title": "SUPERSEDED/BLOCKED PARENT — retip 61,642 cell-count control",
+      "title": "SUPERSEDED/BLOCKED PARENT \u2014 retip 61,642 cell-count control",
       "state": "CLOSED",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
