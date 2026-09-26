@@ -744,3 +744,18 @@ no peer rebase push yet. Prior GPT+Claude yield stands.
 
 **Decision:** no new package; observe peer rebase+CI; sole P1 = nav/handoff;
 resubscribe timer. Model consult skipped — peer ownership already decides.
+
+## 2026-09-26T00:55Z — peer integration head `b59359e`; observe CI/OA
+
+Peer merged tip `1ae02b9` into `#98` + coverage-repair follow-up
+(`semantic_digest_core` for unresolved→monitorable when core unchanged).
+Exact head `b59359ebb972`. MERGEABLE; verify IN_PROGRESS; nav/loss-only green.
+Clarification: Q0 remains in `controlling_impacted` and `coverage_repairs`
+(exemption path). Awaiting OA final bounded readback after CI terminal.
+
+**Votes:**
+- [GPT vote](bc-e06f8607-5420-54a2-bfcd-5a3b1e6980e0): A **OBSERVE/YIELD**, NAV_P1 **YES**.
+- [Claude vote](bc-4c0c67f8-cacd-5559-b419-62a4621bb86a): A **OBSERVE/YIELD**; keep nav unamplified.
+
+**Consensus:** yield; observe hosted CI + OA readback; sole tip P1 = nav/handoff
+(still vs `1ae02b9`); no new package.

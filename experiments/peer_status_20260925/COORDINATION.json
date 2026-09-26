@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-26T00:47:39Z",
+  "as_of_utc": "2026-09-26T00:56:03Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -27,11 +27,13 @@
       "gpt-5.6-terra-medium@bc-2dff56a5",
       "claude-sonnet-5-thinking-medium@bc-cdb260f8",
       "gpt-5.6-terra-medium@bc-6566d12c",
-      "claude-sonnet-5-thinking-medium@bc-6e4897c1"
+      "claude-sonnet-5-thinking-medium@bc-6e4897c1",
+      "gpt-5.6-terra-medium@bc-e06f8607",
+      "claude-sonnet-5-thinking-medium@bc-4c0c67f8"
     ],
     "pending_votes": [],
-    "live_peer_override": "main#98@5cf4f36 OA E6 ACCEPT eng-scope; peer rebase onto 1ae02b9; sandbox yield",
-    "consensus": "A OBSERVE/YIELD + NAV_P1 YES after OA E6 ACCEPT; peer owns rebase; nav sole tip P1",
+    "live_peer_override": "main#98@b59359e integration head; CI in progress; await OA readback; sandbox yield",
+    "consensus": "A OBSERVE/YIELD after peer b59359e; watch CI+OA; nav sole tip P1",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -61,6 +63,11 @@
       "gpt": "A OBSERVE NAV_P1 YES @bc-6566d12c",
       "claude": "A OBSERVE NAV_P1 YES @bc-6e4897c1",
       "at": "2026-09-26T00:43Z"
+    },
+    "post_integration_head_votes": {
+      "gpt": "A OBSERVE NAV_P1 YES @bc-e06f8607",
+      "claude": "A OBSERVE keep-nav-unamplified @bc-4c0c67f8",
+      "at": "2026-09-26T00:55Z"
     }
   },
   "absorbed": [
@@ -116,8 +123,8 @@
       "on": "main#98",
       "head": "776fdb75eb71",
       "action": "do_not_repaste",
-      "evidence": "cursor[bot] comment Reciprocal review \u2014 OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b\u2026)",
-      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND \u2014 same substance."
+      "evidence": "cursor[bot] comment Reciprocal review — OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b…)",
+      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND — same substance."
     },
     {
       "item": "pr98_enforcement_boundary_amend",
@@ -125,7 +132,7 @@
       "head": "ebd745022eee",
       "action": "do_not_reapply",
       "evidence": "commit: fix(#90): enforce five OpenAI boundary families on claims-gate adapter",
-      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race \u2014 observe their new branch; do not duplicate.",
+      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race — observe their new branch; do not duplicate.",
       "check_summary": {
         "verify": "SUCCESS",
         "navigation": "SUCCESS",
@@ -150,7 +157,7 @@
       "on": "main#98",
       "head": "7e219c38e916",
       "action": "do_not_race_or_repackage",
-      "evidence": "peer bounded A\u2013D author repair complete"
+      "evidence": "peer bounded A–D author repair complete"
     },
     {
       "item": "pr98_repair_e_observe",
@@ -180,6 +187,19 @@
       "head": "feea1df7726f",
       "action": "do_not_race_or_repackage",
       "evidence": "peer order-stable digests + tip graph restore"
+    },
+    {
+      "item": "pr98_integration_head_b59359e_observe",
+      "on": "main#98",
+      "head": "b59359ebb972",
+      "action": "do_not_race_or_repackage",
+      "evidence": "peer integration rebase onto tip 1ae02b9 + semantic_digest_core coverage repair",
+      "note": "observe-only peer land; await CI+OA final readback",
+      "check_summary": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
     }
   ],
   "ready_for_main_write": [
@@ -192,11 +212,11 @@
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land on tip 1ae02b9; #98 OA E6 ACCEPT eng-scope \u2014 peer rebase onto tip; observe."
+      "ask": "Land on tip 1ae02b9; #98@b59359e integration — observe CI+OA readback."
     }
   ],
   "observe_only": [
-    "main#98@5cf4f36 \u2014 OA E6 ACCEPT eng-scope; peer rebase onto 1ae02b9; #90 OPEN until integration CI",
+    "main#98@b59359e — MERGEABLE; verify IN_PROGRESS; OA E6 ACCEPT eng-scope + tip rebase; await CI+OA final readback",
     "trial#128 CLOSED (observe)",
     "Math- D5 observe only (#51 tip a385339)",
     "main#103 vault; #104/#106 parked"
@@ -208,24 +228,25 @@
   "peer_owned": [
     {
       "surface": "main#98",
-      "head": "5cf4f366c70d",
+      "head": "b59359ebb972",
       "owner": "cursor peer bc-01a0d95b",
-      "work": "OA-directed rebase onto tip 1ae02b9 preserving D1/Q0/E6; then event-compare + CI",
+      "work": "Integration rebase + semantic_digest_core coverage repair; CI+OA readback",
       "sandbox_role": "observe_ci_only_do_not_race",
-      "evidence": "head 5cf4f36; regression test_e6_cc6_successor_preserves_q0_binding_order",
+      "evidence": "head b59359ebb972; OA E6 ACCEPT + tip 1ae02b9 rebase",
       "check_summary": {
-        "verify": "SUCCESS",
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
         "loss-only-controls": "SUCCESS"
       },
-      "note": "OA E6 ACCEPT eng-scope; do not race rebase"
+      "note": "do not race"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-26T00:47:39Z",
+    "at": "2026-09-26T00:56:03Z",
     "tip": "1ae02b9ab759",
     "priority_ambiguous": false,
-    "decision": "timer: #98 still CONFLICTING@5cf4f36; yield peer rebase; nav sole tip P1",
-    "model_consult": "skipped — peer ownership + prior A OBSERVE/YIELD stands"
+    "decision": "#98@b59359e observe CI+OA; nav sole tip P1",
+    "model_consult": "gpt@bc-e06f8607 + claude@bc-4c0c67f8"
   },
   "resolved_alternate": [
     {
@@ -235,5 +256,5 @@
       "action": "do_not_reapply_patch"
     }
   ],
-  "live_peer_override": "main#98 peer landed event-boundary @4b983b9 then PR15-contract follow-up @0bc41ca \u2014 yield; do not race or re-package"
+  "live_peer_override": "main#98 peer landed event-boundary @4b983b9 then PR15-contract follow-up @0bc41ca — yield; do not race or re-package"
 }
