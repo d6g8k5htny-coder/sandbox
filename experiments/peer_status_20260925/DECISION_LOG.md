@@ -849,3 +849,11 @@ peer/owner-owned — do not race.
 - [Claude vote](bc-e7995ce0-ab16-5f74-b6fb-b6e0cde0d249): A **IDLE**; NAV_P1 provisional NO pending apply — **forge apply clean → keep P1**.
 
 **Consensus:** IDLE; nav sole tip P1 vs `2f7a5a9`; no new package.
+
+## 2026-09-26T02:31Z — d7-multimodel-loop timer
+
+**Refresh:** tip still `2f7a5a9` (CI SUCCESS). Nav sole tip P1. No new
+ready package.
+
+**Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
+skipped — no tip move / prior IDLE.
