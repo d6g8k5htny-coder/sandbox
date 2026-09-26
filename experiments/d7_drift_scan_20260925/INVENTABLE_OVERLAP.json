@@ -1,8 +1,8 @@
 {
-  "as_of_utc": "2026-09-26T01:55:45Z",
+  "as_of_utc": "2026-09-26T02:14:57Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
-  "hardening_tip": "7caac254cbba",
+  "hardening_tip": "2f7a5a9f10c9",
   "note": "Overlap watch for inventable/cursor eng PRs; not acceptance.",
   "sandbox_packages": [
     "pr97_followup_nav_and_handoff.patch (TOP ready)",
