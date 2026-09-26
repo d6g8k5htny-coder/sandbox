@@ -1158,3 +1158,14 @@ skipped — no tip move / prior IDLE.
 - [Claude vote](bc-e9d3ab84-fdc5-5588-922d-c5bd494e19af): A **IDLE**, NAV_P1 **YES**.
 
 **Consensus:** IDLE; keep nav tip P1; no new package.
+
+## 2026-09-26T13:30Z — tip →`cd66a655` (#126); IDLE + nav P1
+
+Tip advanced: #126 MERGED (SIDE24 replay archive + arithmetic custody).
+Nav/handoff apply-check clean; APPLIED banner still absent.
+
+**Votes:**
+- [GPT vote](bc-4f20279e-043c-5f6a-97a9-c5479228ed33): A **IDLE**, NAV_P1 **YES**.
+- [Claude vote](bc-3e3bf61d-b168-5f90-a977-debe259bd181): A **IDLE**, NAV_P1 **YES**.
+
+**Consensus:** IDLE; nav sole tip P1 vs `cd66a655`; observe remaining DRAFTs; no new package.
