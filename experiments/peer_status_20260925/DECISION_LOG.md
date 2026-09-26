@@ -1176,3 +1176,10 @@ Nav/handoff apply-check clean; APPLIED banner still absent.
 
 **Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
 skipped — no tip move / prior IDLE.
+
+## 2026-09-26T14:03Z timer stable IDLE nav P1 consult skipped
+
+**Refresh:** tip still `cd66a655`; nav sole tip P1. No new ready package.
+
+**Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
+skipped — no tip move / prior IDLE.
