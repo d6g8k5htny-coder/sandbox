@@ -1,4 +1,4 @@
-# sandbox — private exploratory workspace
+# sandbox — public exploratory workspace
 
 Private exploratory and adversarial experiments for Dylan Roy’s research
 workspace. This repository is **not** a public artifact catalog and **not** a
