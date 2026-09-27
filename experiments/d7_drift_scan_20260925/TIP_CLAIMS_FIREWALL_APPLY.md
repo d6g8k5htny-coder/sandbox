@@ -7,8 +7,9 @@ flags. Eng-only: prose count reconciliation + closed arithmetic vocabulary on
 evidence/carrier metadata + control-test sync after `H3-RUNG-FLOOR` landed as
 `CERTIFIED_RUNG`.
 
-**Status:** portable sandbox package. Sandbox cannot push `main`; a peer with
-main write applies.
+**Status:** **SUPERSEDED** by main #169 @`cad99e28` (merged into tip
+`e7652a130398` via #124 lineage). `do_not_reapply` — CONFLICT vs tip. Historical
+recipe only; removed from `ready_for_main_write`.
 
 ## Failure addressed
 

@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T18:54:26Z",
+  "as_of_utc": "2026-09-27T19:14:41Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -133,11 +133,13 @@
       "gpt-5.6-terra-medium@bc-dff71003",
       "claude-sonnet-5-thinking-medium@bc-cdf48c90",
       "gpt-5.6-terra-medium@bc-f013598f",
-      "claude-sonnet-5-thinking-medium@bc-7a5fcfa0"
+      "claude-sonnet-5-thinking-medium@bc-7a5fcfa0",
+      "gpt-5.6-terra-medium@bc-f1c13bc0",
+      "claude-sonnet-5-thinking-medium@bc-d9671592"
     ],
     "pending_votes": [],
-    "live_peer_override": "tip 8e2eda4dec88 RED (verify FAILED after #111 merge); portable claims-firewall CI repair ready for main-write peers; nav retarget P2; observe remaining DRAFTs; NO inventable tip push",
-    "consensus": "RETARGET nav tip P2 @8e2eda4; PACKAGE portable tip claims-firewall repair as tip CI P1 for main-write peers; IDLE otherwise / yield DRAFTs; NO inventable tip push",
+    "live_peer_override": "tip e7652a130398 (#124 MERGED); #169 superseded sandbox claims-firewall; Claims→gate H3-RUNG-FLOOR UNRESOLVED_CONTROLLING_SOURCE observe-only; nav sole tip P1; NO inventable tip push",
+    "consensus": "SUPERSEDE claims-firewall via #169; RETARGET nav tip P1 @e7652a130398; OBSERVE Claims→gate UNRESOLVED_CONTROLLING_SOURCE (do not amplify draft gate-binding as ready P1); NO inventable tip push",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -190,7 +192,7 @@
     },
     "post_side24_tip_votes": {
       "gpt": "A IDLE NAV_P1 YES @bc-37383ca7",
-      "claude": "A IDLE NAV_P1 provisional NO pending apply \u2192 forge apply clean keep P1 @bc-e7995ce0",
+      "claude": "A IDLE NAV_P1 provisional NO pending apply → forge apply clean keep P1 @bc-e7995ce0",
       "at": "2026-09-26T02:13Z"
     },
     "periodic_idle_reaffirm_votes": {
@@ -202,7 +204,7 @@
     "d0_d7_peer_model_vote": {
       "claude": "A YES B YES C NO @bc-current",
       "at": "2026-09-27T07:27Z",
-      "note": "verified tip 38a3e070ff4c == main#135 MERGED (gh api); trial/main #98/#90/#126/#21/#135 all MERGED (gh pr view); no pr97_followup_nav_and_handoff PR/branch found on trial \u2014 package remains local sandbox artifact, apply-clean/APPLIED-absent unchanged. Reaffirm IDLE nav sole tip P1. SUPERSEDED by tip_move_111 @8e2eda4."
+      "note": "verified tip 38a3e070ff4c == main#135 MERGED (gh api); trial/main #98/#90/#126/#21/#135 all MERGED (gh pr view); no pr97_followup_nav_and_handoff PR/branch found on trial — package remains local sandbox artifact, apply-clean/APPLIED-absent unchanged. Reaffirm IDLE nav sole tip P1. SUPERSEDED by tip_move_111 @8e2eda4."
     },
     "tip_move_135_votes": {
       "gpt": "A YES B NO C NO @bc-e49a1494",
@@ -214,7 +216,13 @@
       "gpt": "A YES B YES C YES D NO @bc-f013598f",
       "claude": "A YES B YES C YES D NO @bc-7a5fcfa0",
       "at": "2026-09-27T18:50Z",
-      "disposition": "RETARGET nav @8e2eda4dec88; PACKAGE portable tip claims-firewall CI repair (P1 while tip red); nav/handoff P2; IDLE otherwise / yield DRAFTs; NO inventable tip push"
+      "disposition": "SUPERSEDED by tip_move_124: claims-firewall absorbed on #169; nav retargeted P1 @e7652a130398"
+    },
+    "tip_move_124_votes": {
+      "gpt": "A YES B YES C NO D NO @bc-f1c13bc0",
+      "claude": "A YES B YES C NO D NO @bc-d9671592",
+      "at": "2026-09-27T19:14Z",
+      "disposition": "Mark claims-firewall SUPERSEDED by #169; RETARGET nav tip P1 @e7652a130398; OBSERVE new Claims→gate UNRESOLVED_CONTROLLING_SOURCE (do not amplify new package as ready P1); NO inventable tip push"
     }
   },
   "absorbed": [
@@ -270,8 +278,8 @@
       "on": "main#98",
       "head": "776fdb75eb71",
       "action": "do_not_repaste",
-      "evidence": "cursor[bot] comment Reciprocal review \u2014 OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b\u2026)",
-      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND \u2014 same substance."
+      "evidence": "cursor[bot] comment Reciprocal review — OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b…)",
+      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND — same substance."
     },
     {
       "item": "pr98_enforcement_boundary_amend",
@@ -279,7 +287,7 @@
       "head": "ebd745022eee",
       "action": "do_not_reapply",
       "evidence": "commit: fix(#90): enforce five OpenAI boundary families on claims-gate adapter",
-      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race \u2014 observe their new branch; do not duplicate.",
+      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race — observe their new branch; do not duplicate.",
       "check_summary": {
         "verify": "SUCCESS",
         "navigation": "SUCCESS",
@@ -304,7 +312,7 @@
       "on": "main#98",
       "head": "7e219c38e916",
       "action": "do_not_race_or_repackage",
-      "evidence": "peer bounded A\u2013D author repair complete"
+      "evidence": "peer bounded A–D author repair complete"
     },
     {
       "item": "pr98_repair_e_observe",
@@ -341,7 +349,7 @@
       "head": "b59359ebb972",
       "action": "do_not_race_or_repackage",
       "evidence": "peer integration rebase onto tip 1ae02b9 + semantic_digest_core coverage repair",
-      "note": "OA eng-integration ACCEPT; CI SUCCESS; peer owns DRAFT\u2192ready+merge",
+      "note": "OA eng-integration ACCEPT; CI SUCCESS; peer owns DRAFT→ready+merge",
       "check_summary": {
         "verify": "SUCCESS",
         "navigation": "SUCCESS",
@@ -356,51 +364,52 @@
       "action": "do_not_repackage",
       "evidence": "MERGED @ebedb7802024 (parents 1ae02b9 + b59359e)",
       "note": "OA eng-integration ACCEPT satisfied; absorb full branch"
+    },
+    {
+      "item": "pr_tip_claims_firewall_repair",
+      "on": "main#169 / tip",
+      "head": "cad99e28da77",
+      "tip_after": "e7652a130398",
+      "action": "do_not_reapply",
+      "conflict_vs_tip": true,
+      "evidence": "main#169 MERGED @cad99e28 (claims_check H3-RUNG-FLOOR interval + prose count); tip advanced via #124 @e7652a130398",
+      "note": "Sandbox portable package SUPERSEDED by #169 / tip; CONFLICT if re-applied. Do not re-list in ready_for_main_write."
     }
   ],
   "ready_for_main_write": [
     {
       "priority": 1,
-      "package": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch",
-      "apply_recipe": "experiments/d7_drift_scan_20260925/TIP_CLAIMS_FIREWALL_APPLY.md",
-      "against": "chatgpt/drive-github-hardening-20260919 @ 8e2eda4dec88",
-      "gap": "tip verify FAILED: claims README count 26 vs graph 27; H3-RUNG-FLOOR evidence arithmetic not on closed vocabulary (FW-FLOAT-NOT-CERTIFIED)",
-      "verify": [
-        "python3 tools/claims_check.py",
-        "python3 -m pytest tests/test_claims.py tests/test_claims_firewalls.py -q"
-      ],
-      "ask": "Land portable claims-firewall CI repair on tip 8e2eda4dec88 (#111 MERGED; tip red). Eng-only; scientific effect NONE. Prefer over nav while tip CI fails."
-    },
-    {
-      "priority": 2,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
-      "against": "chatgpt/drive-github-hardening-20260919 @ 8e2eda4dec88",
-      "gap": "RESEARCH_INDEX prose + handoff APPLIED still absent (file may exist); apply-check clean on 8e2eda4 (NO_APPLIED)",
+      "against": "chatgpt/drive-github-hardening-20260919 @ e7652a130398",
+      "gap": "RESEARCH_INDEX prose + handoff APPLIED still absent (file may exist); apply-check clean on e7652a13 (NO_APPLIED)",
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Retarget land on tip 8e2eda4dec88 after CI repair P1 (or in parallel if peer owns CI). Nav apply CLEAN; not absorbed."
+      "ask": "Land nav/handoff on tip e7652a130398 (#124 MERGED). Sole ready P1. Eng-only; scientific effect NONE. Claims-firewall superseded by #169."
     }
   ],
   "observe_only": [
-    "main#90 CLOSED eng-gate @2026-09-26T01:20:06Z after #98 merge \u2014 observe-only",
-    "main#98 MERGED @ebedb780 (b59359e) \u2014 OA eng ACCEPT satisfied; observe-only",
-    "main#118 MERGED @7caac254cbba (exact Q0 ledger custody) \u2014 tip advanced; observe-only",
-    "tip 2f7a5a9f10c9 SIDE24 theorem-chain source recovery \u2014 tip advanced; observe-only",
-    "main#126 MERGED @cd66a655d0a9 (SIDE24 replay archive + arithmetic custody) \u2014 tip advanced; observe-only",
-    "main#21 MERGED @96e5175306f7 (architectural admission attestations + H3 artifacts) \u2014 tip advanced; observe-only",
-    "main#135 MERGED @38a3e070ff4c (interval docs errata; eng-only) \u2014 tip advanced; observe-only",
-    "main#111 MERGED @8e2eda4dec88 (also absorbed #148/#140/#136/#134) \u2014 tip advanced; observe-only",
-    "main#148 MERGED (absorbed into tip via #111) \u2014 observe-only",
-    "main#140 MERGED (absorbed into tip via #111) \u2014 observe-only",
-    "main#136 MERGED (absorbed into tip via #111) \u2014 observe-only",
-    "main#134 MERGED (absorbed into tip via #111) \u2014 observe-only",
-    "tip 8e2eda4dec88 CI verify FAILED \u2014 observe; portable claims-firewall repair packaged for main-write peers",
-    "open inventable DRAFTs (#124/#122/#121/#110/#8/#7) peer/owner-authored \u2014 do not race",
+    "main#90 CLOSED eng-gate @2026-09-26T01:20:06Z after #98 merge — observe-only",
+    "main#98 MERGED @ebedb780 (b59359e) — OA eng ACCEPT satisfied; observe-only",
+    "main#118 MERGED @7caac254cbba (exact Q0 ledger custody) — tip advanced; observe-only",
+    "tip 2f7a5a9f10c9 SIDE24 theorem-chain source recovery — tip advanced; observe-only",
+    "main#126 MERGED @cd66a655d0a9 (SIDE24 replay archive + arithmetic custody) — tip advanced; observe-only",
+    "main#21 MERGED @96e5175306f7 (architectural admission attestations + H3 artifacts) — tip advanced; observe-only",
+    "main#135 MERGED @38a3e070ff4c (interval docs errata; eng-only) — tip advanced; observe-only",
+    "main#111 MERGED @8e2eda4dec88 (also absorbed #148/#140/#136/#134) — tip advanced; observe-only",
+    "main#148 MERGED (absorbed into tip via #111) — observe-only",
+    "main#140 MERGED (absorbed into tip via #111) — observe-only",
+    "main#136 MERGED (absorbed into tip via #111) — observe-only",
+    "main#134 MERGED (absorbed into tip via #111) — observe-only",
+    "open inventable DRAFTs (#122/#121/#110/#8/#7) peer/owner-authored — do not race",
     "trial#128 CLOSED (observe)",
     "Math- D5 observe only (#51 tip a385339)",
-    "main#103 vault; #104/#106 parked"
+    "main#103 vault; #104/#106 parked",
+    "main#169 MERGED @cad99e28 (claims_check H3-RUNG-FLOOR interval + prose count) — superseded sandbox claims-firewall; observe-only",
+    "main#124 MERGED @e7652a130398 (Q0-C103 C1/C2 honesty repair) — tip advanced; observe-only",
+    "tip e7652a130398 CI verify FAILED — Claims→gate H3-RUNG-FLOOR UNRESOLVED_CONTROLLING_SOURCE; OBSERVE (do not amplify draft pr_tip_h3_rung_floor_gate_binding as ready P1); peer triage",
+    "draft observe/recipe only: experiments/d7_drift_scan_20260925/pr_tip_h3_rung_floor_gate_binding.patch + TIP_H3_RUNG_FLOOR_GATE_BINDING_APPLY.md (multimodel observe-first; not ready_for_main_write)"
   ],
   "closed_without_merge_ok": [
     "Math-#10 eligibility (already on Math- main)",
@@ -413,18 +422,18 @@
       "exact_head": "b59359ebb972",
       "state": "COMPLETED",
       "owner": "cursor peer bc-01a0d95b",
-      "work": "MERGED exact head; #90 CLOSED eng-gate \u2014 no active merge work",
+      "work": "MERGED exact head; #90 CLOSED eng-gate — no active merge work",
       "sandbox_role": "observe_only",
       "evidence": "merge commit ebedb7802024; issue #90 closedAt 2026-09-26T01:20:06Z",
-      "note": "#98 MERGED + #90 CLOSED; do not repackage; tip CI repair P1 + nav P2 @8e2eda4"
+      "note": "#98 MERGED + #90 CLOSED; tip e7652a130398; sole ready P1 = nav; claims-firewall superseded by #169; gate red observe-only"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T18:54:26Z",
-    "tip": "8e2eda4dec88",
+    "at": "2026-09-27T19:14:41Z",
+    "tip": "e7652a130398",
     "priority_ambiguous": false,
-    "decision": "IDLE tip-CI-red packages ready; tip still 8e2eda4dec88 verify FAILED; claims-firewall P1 + nav P2 stand; yield DRAFTs; NO inventable tip push",
-    "model_consult": "skipped — tip unchanged 8e2eda4dec88; cite tip-move votes GPT@bc-f013598f + Claude@bc-7a5fcfa0"
+    "decision": "tip moved #124; claims-firewall SUPERSEDED by #169; sole ready P1 = nav @e7652a130398; OBSERVE Claims→gate UNRESOLVED_CONTROLLING_SOURCE; NO inventable tip push",
+    "model_consult": "recorded tip-move votes GPT@bc-f1c13bc0 + Claude@bc-d9671592 (A YES B YES C NO D NO)"
   },
   "resolved_alternate": [
     {
@@ -434,6 +443,6 @@
       "action": "do_not_reapply_patch"
     }
   ],
-  "live_peer_override": "tip 8e2eda4dec88 RED (verify FAILED after #111); portable claims-firewall CI repair ready on sandbox PR#2; nav retarget P2; observe remaining DRAFTs; NO inventable tip push",
-  "stray_branch_note": "origin/cursor/tip-claims-firewall-repair-b645 briefly held the portable package before absorb into cursor/d0-crosswalk-allowlist-8fb0 (PR#2); prefer single PR — do not open a second sandbox PR for -b645"
+  "live_peer_override": "tip e7652a130398 (#124 MERGED); #169 superseded claims-firewall; Claims→gate H3-RUNG-FLOOR UNRESOLVED_CONTROLLING_SOURCE observe; nav sole tip P1; NO inventable tip push",
+  "stray_branch_note": "Delete origin/cursor/tip-e7652a-observe-* if present (observe-only draft must not linger as a parallel PR branch). Prefer single sandbox PR#2 cursor/d0-crosswalk-allowlist-8fb0."
 }

@@ -1,0 +1,25 @@
+diff --git a/claims/graph.json b/claims/graph.json
+index 5f20eed..db14b30 100644
+--- a/claims/graph.json
++++ b/claims/graph.json
+@@ -314,7 +314,19 @@
+      "note": "Byte-exact carrier recovery is provenance, not proof."
+     }
+    ],
+-   "source": "H3_RUNG_FLOOR.md (H3-closure line, companion to the frozen H3_CLOSURE.md)"
++   "source": "H3_RUNG_FLOOR.md (H3-closure line, companion to the frozen H3_CLOSURE.md)",
++   "source_bindings": [
++    {
++     "repo": "d6g8k5htny-coder/main",
++     "path": "engine/rn_engine/frozen/K3_SIDE24_LB/UPPER2D/H3_closure/H3_RUNG_FLOOR.md",
++     "role": "scientific_object",
++     "extraction_rule": "whole_file",
++     "expected_sha256": "6347275d86c56842b719b36180e535bc1793d6995ddb68464db2960820440dfa",
++     "mirror_freshness": "verified_at_bind",
++     "freshness_meaning": "In-repo frozen engine certificate (not a Drive mirror). GitHub monitors these repo bytes; expected_sha256 matches evidence[0].",
++     "note": "Structured binding of the frozen certificate body already cited by evidence[0] (7003 B, sha256 6347275d…). Makes CERTIFIED_RUNG controlling source byte-monitorable for Claims→gate F2. Binding only; no grade, lemma_closed, or theorem-status change."
++    }
++   ]
+   },
+   "RN5-NEAR-POINT-CERTS": {
+    "track": "UPPER2D",

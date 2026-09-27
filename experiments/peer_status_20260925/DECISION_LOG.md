@@ -2185,3 +2185,34 @@ already handled ~18:51Z; local HEAD `ff2f342`.
 no inventable tip push.
 Scientific effect NONE; `lemma_closed` false.
 
+## 2026-09-27T19:14Z — tip moved #124; #169 supersedes firewall; observe gate red
+
+Tip: `8e2eda4dec88` → `e7652a130398` (Merge #124 Q0-C103 C1/C2 honesty repair).
+Also **#169 MERGED** @`cad99e28` (claims_check H3-RUNG-FLOOR interval + prose count)
+— sandbox `pr_tip_claims_firewall_repair` **SUPERSEDED / do_not_reapply**
+(CONFLICT vs tip; absorbed on #169 / tip).
+
+Tip CI verify still **FAILED**: Claims→gate `H3-RUNG-FLOOR` →
+`UNRESOLVED_CONTROLLING_SOURCE` (binding_kind:unresolved_prose). New class of
+fail after firewall/vocab went green on #169 — **OBSERVE** only; do **not**
+amplify draft gate-binding package as ready P1.
+
+Nav apply-check CLEAN on new tip; NOT absorbed (no APPLIED banner).
+
+**Votes:**
+- [GPT vote](bc-f1c13bc0): A **YES**, B **YES**, C **NO**, D **NO**.
+- [Claude vote](bc-d9671592): A **YES**, B **YES**, C **NO**, D **NO**.
+
+**Consensus:** Mark claims-firewall repair **SUPERSEDED** by #169; **RETARGET**
+nav tip **P1** @`e7652a130398`; **OBSERVE** new Claims→gate
+`UNRESOLVED_CONTROLLING_SOURCE` (do not amplify new package as ready P1);
+**NO** inventable tip push.
+
+**Sandbox action:** keep
+`pr_tip_h3_rung_floor_gate_binding.patch` +
+`TIP_H3_RUNG_FLOOR_GATE_BINDING_APPLY.md` as observe/draft recipe only (not
+`ready_for_main_write`). Delete stray `origin/cursor/tip-e7652a-observe-*` if
+present. Do not push main/Math-.
+
+Scientific effect NONE; `lemma_closed` false.
+

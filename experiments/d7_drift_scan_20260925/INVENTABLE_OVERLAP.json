@@ -1,23 +1,24 @@
 {
-  "as_of_utc": "2026-09-27T18:54:26Z",
+  "as_of_utc": "2026-09-27T19:14:41Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
-  "hardening_tip": "8e2eda4dec88",
-  "note": "Overlap watch for inventable/cursor eng PRs; not acceptance. Tip #111 MERGED; CI verify FAILED; claims-firewall repair P1.",
+  "hardening_tip": "e7652a130398",
+  "note": "Overlap watch for inventable/cursor eng PRs; not acceptance. Tip #124 MERGED @e7652a130398; #169 superseded claims-firewall; sole ready = nav; gate-binding draft observe-only.",
   "sandbox_packages": [
-    "pr_tip_claims_firewall_repair.patch (TOP ready — tip CI P1)",
-    "pr97_followup_nav_and_handoff.patch (P2 retarget @8e2eda4)",
+    "pr97_followup_nav_and_handoff.patch (sole tip P1 @e7652a13)",
+    "pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 / tip — do not reapply)",
+    "pr_tip_h3_rung_floor_gate_binding.patch (OBSERVE/draft only — not ready)",
     "pr97_followup_nav_links.patch",
     "pr_handoff_applied.patch",
-    "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa \u2014 do not reapply)",
-    "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 \u2014 do not reapply)"
+    "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa — do not reapply)",
+    "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 — do not reapply)"
   ],
   "absorbed": [
+    "pr_tip_claims_firewall_repair on main#169@cad99e28 / tip e7652a130398 (SUPERSEDED; CONFLICT vs tip)",
     "pr105_consumers_fix on main#105@54a8c59",
     "pr98_ci_allowlist_fix on main#98@d765efa"
   ],
   "ready": [
-    "pr_tip_claims_firewall_repair.patch",
     "pr97_followup_nav_and_handoff.patch"
   ],
   "prs": [
@@ -135,7 +136,7 @@
     },
     {
       "number": 106,
-      "title": "SUPERSEDED/BLOCKED PARENT \u2014 retip 61,642 cell-count control",
+      "title": "SUPERSEDED/BLOCKED PARENT — retip 61,642 cell-count control",
       "state": "CLOSED",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
