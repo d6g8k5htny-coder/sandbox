@@ -2172,3 +2172,16 @@ prefer single PR#2; do not open a second sandbox PR. Do not push main/Math-.
 
 Scientific effect NONE; `lemma_closed` false.
 
+## 2026-09-27T18:54Z timer IDLE tip red packages ready consult skipped
+
+**Refresh:** tip still `8e2eda4dec88`; tip CI verify still **FAILED**. Packages stand
+(claims-firewall P1, nav P2). peer_repair none. Stale delayed timer after tip-move
+already handled ~18:51Z; local HEAD `ff2f342`.
+
+**Model consult:** skipped — tip unchanged `8e2eda4dec88` / cite tip-move votes
+(GPT@bc-f013598f + Claude@bc-7a5fcfa0). COORDINATION as_of+timer_loop refreshed.
+
+**Decision:** IDLE tip-CI-red; packages ready stand; observe DRAFTs; no new package;
+no inventable tip push.
+Scientific effect NONE; `lemma_closed` false.
+
