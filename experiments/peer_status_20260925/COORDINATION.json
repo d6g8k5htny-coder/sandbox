@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T08:20:26Z",
+  "as_of_utc": "2026-09-27T08:36:54Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -370,11 +370,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T08:20:26Z",
+    "at": "2026-09-27T08:36:54Z",
     "tip": "38a3e070ff4c",
     "priority_ambiguous": false,
     "decision": "IDLE; tip still 38a3e070ff4c; nav sole tip P1; observe DRAFTs; no new package; resubscribe",
-    "model_consult": "reaffirm; tip unchanged 38a3e070ff4c; cite GPT@bc-76f9394a + Claude@bc-6d9e3478"
+    "model_consult": "skipped; tip unchanged 38a3e070ff4c; cite last votes GPT@bc-76f9394a + Claude@bc-6d9e3478"
   },
   "resolved_alternate": [
     {
