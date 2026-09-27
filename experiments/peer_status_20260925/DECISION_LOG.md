@@ -1477,3 +1477,11 @@ COORDINATION as_of+timer_loop skipped citing last votes.
 - [Claude vote](bc-dabf1d62-68d0-5e88-9a23-e902af33c1f6): A **IDLE**, NAV_P1 **YES**.
 
 **Consensus:** IDLE; keep nav tip P1; no new package.
+
+## 2026-09-27T00:14Z timer stable IDLE nav P1 consult skipped
+
+**Refresh:** tip still `96e51753`; nav sole tip P1. No new ready package.
+
+**Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
+skipped — no tip move / prior IDLE (last: GPT@bc-f7dce783 + Claude@bc-dabf1d62).
+COORDINATION as_of+timer_loop skipped citing last votes.
