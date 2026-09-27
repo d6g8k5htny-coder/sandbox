@@ -2276,3 +2276,18 @@ non-draft — yield; do not race. No inventable tip push from sandbox.
 @`9458b903f57f`; IDLE observe #172/#7; **NO** inventable tip push.
 
 Scientific effect NONE; `lemma_closed` false.
+
+## 2026-09-27T20:17Z timer IDLE tip 9458b903 nav P1 READY consult skipped
+
+**Refresh:** tip still `9458b903f57f` (#8 MERGED after #122); tip CI verify
+still **IN_PROGRESS**; navigation + loss-only-controls **SUCCESS**. Sole ready
+P1 = nav READY_CLEAN. Yield #172 DRAFT / #7 OPEN — do not race. No inventable
+tip push.
+
+**Model consult:** skipped — tip unchanged `9458b903f57f` / cite tip-move votes
+(GPT@bc-32e0616a + Claude@bc-26f1a3ca) CONSENSUS IDLE NAV_P1_READY.
+COORDINATION as_of+timer_loop refreshed.
+
+**Decision:** IDLE NAV_P1_READY; keep nav tip P1 @`9458b903f57f`; yield #172/#7;
+no new package; no inventable tip push.
+Scientific effect NONE; `lemma_closed` false.
