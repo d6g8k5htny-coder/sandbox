@@ -1,10 +1,10 @@
 {
-  "as_of_utc": "2026-09-27T22:46:06Z",
+  "as_of_utc": "2026-09-27T23:01:26Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
-  "note": "Private coordination snapshot only; not research acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; navigation/loss-only SUCCESS; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN @a01c72f19378; IDLE yield #172 DRAFT; observe #180/#181 MERGED@main (not tip); NO inventable tip push.",
-  "main_open_pr_count": 3,
+  "note": "Private coordination snapshot only; not research acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; navigation/loss-only SUCCESS; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN @a01c72f19378; IDLE yield #172/#184; observe #183 MERGED@main (not tip); NO inventable tip push.",
+  "main_open_pr_count": 0,
   "sandbox_packages": {
     "pr_tip_claims_firewall_repair": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 \u2014 do_not_reapply)",
     "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch (sole tip P1 READY_CLEAN @a01c72f19378)",
@@ -675,10 +675,10 @@
     "main#171 @d4ad3bbe9dc3 H3-RUNG-FLOOR gate (prior)"
   ],
   "observe_open": [
-    "main#172 DRAFT \u2014 yield",
+    "main#172 CLOSED DRAFT \u2014 yield",
     "main#180 MERGED@main \u2014 observe closed (not tip)",
     "main#181 MERGED@main \u2014 observe closed (not tip)",
-    "main#183 OPEN ready \u2014 observe (not tip)",
-    "main#184 DRAFT \u2014 observe (successor to #172; not tip)"
+    "main#183 MERGED@main \u2014 observe (not tip)",
+    "main#184 MERGED@main \u2014 yield (successor to #172; not tip)"
   ]
 }

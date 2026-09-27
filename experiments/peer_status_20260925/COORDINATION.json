@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T22:46:06Z",
+  "as_of_utc": "2026-09-27T23:01:26Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -147,7 +147,7 @@
     ],
     "pending_votes": [],
     "live_peer_override": "tip a01c72f19378 (#7 MERGED after #174); tip verify SUCCESS; nav/loss-only SUCCESS; nav sole tip P1 READY_CLEAN; NO inventable tip push",
-    "consensus": "IDLE NAV_P1_READY \u2014 tip unchanged a01c72f19378; nav sole tip P1 READY_CLEAN; IDLE observe #172; NO inventable tip push",
+    "consensus": "IDLE NAV_P1_READY \u2014 tip unchanged a01c72f19378; nav sole tip P1 READY_CLEAN; yield #172/#184; observe #183; NO inventable tip push",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -468,11 +468,11 @@
     "main#171 MERGED @d4ad3bbe9dc3 (H3-RUNG-FLOOR gate binding); tip verify SUCCESS \u2014 absorbed; observe-only",
     "main#122 MERGED @9ce5c66f2fd5 (SARD-G) \u2014 tip advanced; observe-only",
     "main#8 MERGED @9458b903f57f (rn-sector-review) \u2014 tip; observe-only",
-    "open inventable: main#172 DRAFT \u2014 do not race / yield",
+    "main#172 CLOSED DRAFT \u2014 yield (closed; do not race)",
     "main#180 MERGED@main 4c5bc12 (release custody) \u2014 observe closed; not tip",
     "main#181 MERGED@main 447a77f (Math- lane contract) \u2014 observe closed; not tip",
-    "main#183 OPEN ready (formal CI fail-closed) \u2014 observe, not tip; do not race",
-    "main#184 DRAFT (Dropbox recon successor to #172) \u2014 observe; do not race",
+    "main#183 MERGED@main d0c0512 (formal CI fail-closed) \u2014 observe closed; not tip",
+    "main#184 MERGED@main 648b024 (Dropbox recon successor to #172) \u2014 yield closed; not tip",
     "main#174 MERGED (docs: queue reconciliation record) \u2014 tip advanced; observe-only",
     "main#7 MERGED @a01c72f19378 (P15 foundation review) \u2014 tip; observe-only"
   ],
@@ -494,10 +494,10 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T22:46:06Z",
+    "at": "2026-09-27T23:01:26Z",
     "tip": "a01c72f19378",
     "priority_ambiguous": false,
-    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172; observe #180/#181 MERGED@main (not tip); NO inventable tip push",
+    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172/#184; observe #183 MERGED@main (not tip); NO inventable tip push",
     "model_consult": "skipped \u2014 tip unchanged a01c72f19378; cite tip-move GPT@bc-65740037 + Claude@bc-c55940bc CONSENSUS IDLE NAV_P1_READY"
   },
   "resolved_alternate": [
