@@ -1524,3 +1524,11 @@ Still no `Status: APPLIED` on tip handoff.
 **Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
 skipped — tip unchanged `38a3e07` / cite last tip-move votes (GPT@bc-e49a1494 +
 Claude@bc-3cceda05). COORDINATION as_of+timer_loop refreshed.
+
+## 2026-09-27T02:05Z timer stable IDLE nav P1 consult skipped
+
+**Refresh:** tip still `38a3e07`; nav sole tip P1. No new ready package.
+
+**Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
+skipped — tip unchanged `38a3e07` / cite last tip-move votes (GPT@bc-e49a1494 +
+Claude@bc-3cceda05). COORDINATION as_of+timer_loop refreshed.
