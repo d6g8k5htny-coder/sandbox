@@ -1503,3 +1503,15 @@ COORDINATION as_of+timer_loop refreshed.
 - [Claude vote](bc-c63bd530-5c0d-51cf-97cf-28158475bea4): A **IDLE**, NAV_P1 **YES**.
 
 **Consensus:** IDLE; keep nav tip P1; no new package.
+
+## 2026-09-27T01:29Z — tip moved #135; multimodel retarget nav P1
+
+Tip: `96e5175306f7` → `38a3e070ff4c` (Merge #135 interval docs errata; eng-only).
+Nav apply-check CLEAN on new tip; NOT absorbed (no APPLIED banner).
+
+**Votes:**
+- [GPT vote](bc-e49a1494): A **YES**, B **NO**, C **NO**.
+- [Claude vote](bc-3cceda05): A **YES**, B **YES**, C **NO**.
+
+**Consensus:** RETARGET nav sole tip P1 against `38a3e070ff4c`; no new package;
+then IDLE observe / yield peer DRAFTs. Scientific effect NONE; `lemma_closed` false.
