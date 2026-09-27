@@ -218,20 +218,13 @@ def verify_review_record(root: Path, component: dict[str, Any], module_identity:
 
 def evaluate_component(root: Path, component: dict[str, Any], sources: dict[str, dict[str, Any]],
                        evidence_decls: dict[str, Any] | None, standard_axioms: frozenset[str],
-                       formal_author_provider: str) -> dict[str, Any]:
+                       assumed_registry: dict[str, dict[str, Any]], formal_author_provider: str) -> dict[str, Any]:
     cid = component.get('component_id')
     _require(isinstance(cid, str) and cid.strip(), 'component without component_id')
     declared = component.get('formalization_status')
     declared_level = _level(declared)
     review = component.get('formalization_review')
     _require(review in REVIEW_LADDER, 'unknown formalization_review: ' + repr(review))
-    assumed = component.get('assumed_axioms')
-    _require(isinstance(assumed, list), 'assumed_axioms must be a list')
-    for entry in assumed:
-        _require(isinstance(entry, dict) and isinstance(entry.get('name'), str)
-                 and isinstance(entry.get('scope_note'), str) and entry['scope_note'].strip(),
-                 'each assumed axiom needs name and nonempty scope_note: ' + cid)
-    assumed_names = {a['name'] for a in assumed}
     _require(isinstance(component.get('does_not_claim'), str) and component['does_not_claim'].strip(),
              'component must state what it does not claim: ' + cid)
 
@@ -241,13 +234,13 @@ def evaluate_component(root: Path, component: dict[str, Any], sources: dict[str,
         'declared_review': review,
         'verified_status': 'none',
         'verified_review': 'none',
-        'conditional_on': sorted(assumed_names),
+        'conditional_on': [],
         'reasons': [],
     }
     if declared == 'none':
         _require(review == 'none', 'unformalized component cannot carry a review level')
-        result['verified_review'] = 'none'
         result['promotion_token'] = None
+        result['non_discharge'] = True
         result['ok'] = True
         return result
 
@@ -263,16 +256,20 @@ def evaluate_component(root: Path, component: dict[str, Any], sources: dict[str,
     kind = scan['declarations'][decl]['kind']
     verified = 1  # specified
 
-    undeclared_axioms = [a for a in scan['axioms'] if a not in assumed_names]
-    _require(not undeclared_axioms, 'module declares axioms not listed in assumed_axioms: ' + ','.join(undeclared_axioms))
+    # Every axiom written in the module must be registered with a scope note.
+    unregistered = [a for a in scan['axioms'] if a not in assumed_registry]
+    _require(not unregistered, 'module declares axioms not in assumed_axioms registry: ' + ','.join(unregistered))
+    conditional: set[str] = set()
 
     if kind in ('theorem', 'lemma') and not scan['sorry']:
-        verified = 2  # proved (author-side text level)
+        verified = 2  # proved (author-side text level); conservatively conditional on all module axioms
+        conditional = set(scan['axioms'])
         if evidence_decls is not None and decl in evidence_decls:
             axioms = set(evidence_decls[decl]['axioms'])
-            foreign = sorted(axioms - standard_axioms - assumed_names)
-            _require(not foreign, 'kernel evidence shows undeclared axioms for %s: %s' % (decl, ','.join(foreign)))
             _require('sorryAx' not in axioms, 'kernel evidence shows sorryAx for ' + decl)
+            foreign = sorted(axioms - standard_axioms - set(assumed_registry))
+            _require(not foreign, 'kernel evidence shows unregistered axioms for %s: %s' % (decl, ','.join(foreign)))
+            conditional = axioms - standard_axioms
             verified = 3  # kernel-checked
             result['kernel_axioms'] = sorted(axioms)
     elif kind in ('theorem', 'lemma') and scan['sorry']:
@@ -280,6 +277,7 @@ def evaluate_component(root: Path, component: dict[str, Any], sources: dict[str,
     else:
         _require(declared_level <= 1, 'a def/abbrev cannot be declared proved or kernel-checked: ' + decl)
 
+    result['conditional_on'] = sorted(conditional)
     result['verified_status'] = STATUS_LADDER[verified]
     if declared_level > verified:
         result['reasons'].append('declared %s exceeds verifiable %s' % (declared, STATUS_LADDER[verified]))
@@ -298,7 +296,7 @@ def evaluate_component(root: Path, component: dict[str, Any], sources: dict[str,
         token = TOKEN_SPECIFIED
     elif effective == 'proved':
         token = TOKEN_PROVED_AUTHOR
-    elif assumed_names:
+    elif conditional:
         token = TOKEN_KERNEL_CONDITIONAL
     elif result['verified_review'] == 'nonauthor-aligned':
         token = TOKEN_KERNEL_ALIGNED
@@ -337,6 +335,17 @@ def run_gate(root: Path | None = None, *, status: dict[str, Any] | None = None,
 
     sources = verify_source_pins(root, pins)
 
+    registry_raw = status.get('assumed_axioms')
+    _require(isinstance(registry_raw, list), 'assumed_axioms registry must be a list (possibly empty)')
+    assumed_registry: dict[str, dict[str, Any]] = {}
+    for entry in registry_raw:
+        _require(isinstance(entry, dict) and isinstance(entry.get('name'), str) and entry['name'].strip()
+                 and isinstance(entry.get('scope_note'), str) and entry['scope_note'].strip(),
+                 'each assumed axiom needs a name and a nonempty scope_note')
+        _require(entry['name'] not in standard, 'standard axioms are not assumed axioms: ' + entry['name'])
+        _require(entry['name'] not in assumed_registry, 'duplicate assumed axiom: ' + entry['name'])
+        assumed_registry[entry['name']] = entry
+
     evidence_decls: dict[str, Any] | None = None
     evidence_path = formal_dir / 'BUILD_EVIDENCE.json'
     if evidence is None and evidence_path.is_file():
@@ -362,7 +371,7 @@ def run_gate(root: Path | None = None, *, status: dict[str, Any] | None = None,
         _require(isinstance(comps, list) and comps, 'object has no components: ' + obj['object_id'])
         results = []
         for comp in comps:
-            res = evaluate_component(root, comp, sources, evidence_decls, standard, author['formal_provider'])
+            res = evaluate_component(root, comp, sources, evidence_decls, standard, assumed_registry, author['formal_provider'])
             _require(res['component_id'] not in seen_components, 'duplicate component_id: ' + res['component_id'])
             seen_components.add(res['component_id'])
             results.append(res)

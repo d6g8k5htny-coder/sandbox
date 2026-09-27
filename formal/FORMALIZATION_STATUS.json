@@ -22,6 +22,8 @@
     "Classical.choice",
     "Quot.sound"
   ],
+  "assumed_axioms": [],
+  "assumed_axioms_meaning": "registry of every `axiom` written in the Lean project (parent theorems assumed, not verified); each needs a scope note; a kernel-checked theorem depending on one is CONDITIONAL and never satisfies the formal lane",
   "lean": {
     "project_root": "formal/lean",
     "toolchain": "leanprover/lean4:v4.34.1",
@@ -72,7 +74,6 @@
           "lean_statement": "theorem image_constant_eq : (1458 : ℕ) * (76 * 24 ^ 6 + 15) = 21175738586478",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "the derivative bound (2) itself: only the integer product is checked"
         },
@@ -84,7 +85,6 @@
           "lean_statement": "theorem exp_partial_sum_gt_ten : (10 : ℝ) < ∑ i ∈ range 21, ((288 : ℝ) / 125) ^ i / (Nat.factorial i : ℝ)",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "that the partial sum bounds exp (that is the next component)"
         },
@@ -96,7 +96,6 @@
           "lean_statement": "theorem ten_lt_exp_288_div_125 : (10 : ℝ) < Real.exp (288 / 125)",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "anything about the periodic covariance"
         },
@@ -108,7 +107,6 @@
           "lean_statement": "theorem exp_neg_288_lt : Real.exp (-288) < 1 / (10 : ℝ) ^ 125",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "the image-sum inequality that uses it"
         },
@@ -120,7 +118,6 @@
           "lean_statement": "theorem geometric_ratio_lt_half : (512 : ℝ) * Real.exp (-864) < 1 / 2",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "that the displayed ratio is the correct term ratio of the image series (informal step)"
         },
@@ -132,7 +129,6 @@
           "lean_statement": "theorem covariance_relative_lt_eps : (60 : ℚ) * (21175738586478 / 10 ^ 125) < 1 / 10 ^ 108",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "the spectral-norm and Schur-complement comparison (3) itself"
         },
@@ -144,7 +140,6 @@
           "lean_statement": "theorem density_comparison_lt_reported : (32 : ℚ) / 10 ^ 108 < 1 / 10 ^ 106",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "the ratio bound 1±32ε (specified separately)"
         },
@@ -156,7 +151,6 @@
           "lean_statement": "theorem exponent_budget_d2 : a 2 + 2 * b 2 < 14 ∧ 2 * a 2 + b 2 < 13",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "the Gaussian density comparison that motivates a and b"
         },
@@ -168,7 +162,6 @@
           "lean_statement": "theorem exponent_budget_d3 : a 3 + 2 * b 3 < 14 ∧ 2 * a 3 + b 3 < 13",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "the Gaussian density comparison that motivates a and b"
         },
@@ -180,7 +173,6 @@
           "lean_statement": "def ratio_bound_statement : Prop := ∀ d ∈ ({2, 3} : Finset ℕ), ∀ ε : ℝ, 0 < ε → ε < 1 / 28 → (1 + ε) ^ (a d : ℝ) / (1 - ε) ^ (b d : ℝ) < 1 + 32 * ε ∧ 1 - 32 * ε < (1 - ε) ^ (a d : ℝ) / (1 + ε) ^ (b d : ℝ)",
           "formalization_status": "specified",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "truth of the statement; it is a Prop definition without proof"
         },
@@ -192,7 +184,6 @@
           "lean_statement": "theorem cone_integral_identity (a : ℝ) : ∫ z in (0 : ℝ)..a, (a - z) ^ 2 * Real.exp (-z / 2) / 2 = a ^ 2 - 4 * a + 8 - 8 * Real.exp (-a / 2)",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "that this integral is the conditional cone moment (Gaussian step is specified separately)"
         },
@@ -204,7 +195,6 @@
           "lean_statement": "theorem D2_algebra : (1 / 2 : ℝ) * (25 / 3 - 20 / 3 + 8 - 8 * Real.sqrt (3 / 8)) = D2",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "the Gaussian moment values 25/3, 5/3, sqrt(3/8) (specified separately)"
         },
@@ -216,7 +206,6 @@
           "lean_statement": "theorem D2_bounds : (2.38384359054 : ℝ) < D2 ∧ D2 < 2.38384359056",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "that 29/6-sqrt(6) is the true cone moment of the periodic law"
         },
@@ -228,7 +217,6 @@
           "lean_statement": "theorem D2_lt_untruncated : D2 < 29 / 6",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "which of the two values is the cone moment; only that they differ (D_2 < 29/6)"
         },
@@ -240,7 +228,6 @@
           "lean_statement": "def gaussian_inputs_statement : Prop := (∫ s, s ^ 4 ∂(gaussianReal 0 (5 / 3 : NNReal))) = 25 / 3 ∧ (∫ s, Real.exp (-s ^ 2 / 2) ∂(gaussianReal 0 (5 / 3 : NNReal))) = Real.sqrt (3 / 8)",
           "formalization_status": "specified",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "truth of the statement; Prop definition against Mathlib gaussianReal, no proof"
         },
@@ -252,7 +239,6 @@
           "lean_statement": "noncomputable def referenceCoefficient (d : ℕ) : ℝ := Real.Gamma (7 / 6) * (3 / 2 : ℝ) ^ ((1 : ℝ) / 3) * coneMoment (d - 1) / (2 * Real.sqrt 3 * Real.pi ^ (d - 1) * Real.sqrt Real.pi)",
           "formalization_status": "specified",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "that c_d,ref equals the parent coefficient; it is the nonperiodic reference expression only"
         },
@@ -264,7 +250,6 @@
           "lean_statement": "def reference_enclosure_statement : Prop := (ref2Lo : ℝ) < referenceCoefficient 2 ∧ referenceCoefficient 2 < ref2Hi ∧ (ref3Lo : ℝ) < referenceCoefficient 3 ∧ referenceCoefficient 3 < ref3Hi",
           "formalization_status": "specified",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "kernel verification of Γ(7/6), π and root enclosures; informal evidence is the Python interval code"
         },
@@ -276,7 +261,6 @@
           "lean_statement": "def periodization_statement (c : ℕ → ℝ) : Prop := ∀ d ∈ ({2, 3} : Finset ℕ), |c d / referenceCoefficient d - 1| < (periodizationBound : ℝ)",
           "formalization_status": "specified",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "truth of (4); depends on the unformalized parent (main #63) and §3–§4 analysis"
         },
@@ -288,7 +272,6 @@
           "lean_statement": "theorem perturbed_bounds {c r lo hi δ : ℝ} (hlo : 0 < lo) (h₁ : lo < r) (h₂ : r < hi) (hδ : 0 < δ) (hδ1 : δ < 1) (h : |c / r - 1| < δ) : (1 - δ) * lo < c ∧ c < (1 + δ) * hi",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "any numerical value; pure real-inequality lemma"
         },
@@ -300,7 +283,6 @@
           "lean_statement": "theorem enclosure_of_reference (c : ℕ → ℝ) (href : reference_enclosure_statement) (hper : periodization_statement c) : enclosure_statement c",
           "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "either hypothesis; the theorem is conditional on two specified Props"
         },
@@ -312,7 +294,6 @@
           "lean_statement": "def enclosure_statement (c : ℕ → ℝ) : Prop := (0.07340691930603427103 : ℝ) < c 2 ∧ c 2 < 0.07340691930603427104 ∧ (0.04177593184059834334 : ℝ) < c 3 ∧ c 3 < 0.04177593184059834335",
           "formalization_status": "specified",
           "formalization_review": "author-side",
-          "assumed_axioms": [],
           "review_record": null,
           "does_not_claim": "truth for the parent-defined c_d,24; the periodic coefficient is not defined in Lean (parent main #63 unformalized)"
         }

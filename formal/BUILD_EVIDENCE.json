@@ -1,8 +1,7 @@
 {
   "build": {
     "command": "lake build",
-    "exit_code": 0,
-    "note": "reused existing build artifacts"
+    "exit_code": 0
   },
   "declarations": {
     "Side24.D2_algebra": {
