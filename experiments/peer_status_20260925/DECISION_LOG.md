@@ -1515,3 +1515,12 @@ Nav apply-check CLEAN on new tip; NOT absorbed (no APPLIED banner).
 
 **Consensus:** RETARGET nav sole tip P1 against `38a3e070ff4c`; no new package;
 then IDLE observe / yield peer DRAFTs. Scientific effect NONE; `lemma_closed` false.
+
+## 2026-09-27T01:48Z timer stable IDLE nav P1 consult skipped
+
+**Refresh:** tip still `38a3e07`; nav sole tip P1. No new ready package.
+Still no `Status: APPLIED` on tip handoff.
+
+**Decision:** IDLE stands; keep nav tip P1; resubscribe. Model consult
+skipped — tip unchanged `38a3e07` / cite last tip-move votes (GPT@bc-e49a1494 +
+Claude@bc-3cceda05). COORDINATION as_of+timer_loop refreshed.
