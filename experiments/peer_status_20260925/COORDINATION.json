@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T21:28:55Z",
+  "as_of_utc": "2026-09-27T21:30:51Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -490,11 +490,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T21:28:55Z",
+    "at": "2026-09-27T21:30:51Z",
     "tip": "a01c72f19378",
     "priority_ambiguous": false,
-    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172; NO inventable tip push",
-    "model_consult": "skipped \u2014 tip unchanged a01c72f19378; cite tip-move GPT@bc-65740037 + Claude@bc-c55940bc CONSENSUS IDLE NAV_P1_READY"
+    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172; NO inventable tip push; timer recreated ~21:30Z",
+    "model_consult": "skipped \u2014 tip unchanged a01c72f19378; cite tip-move GPT@bc-65740037 + Claude@bc-c55940bc CONSENSUS IDLE NAV_P1_READY; fresh timer recreate"
   },
   "resolved_alternate": [
     {
