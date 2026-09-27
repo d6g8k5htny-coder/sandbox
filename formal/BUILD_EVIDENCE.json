@@ -1,0 +1,193 @@
+{
+  "build": {
+    "command": "lake build",
+    "exit_code": 0,
+    "note": "reused existing build artifacts"
+  },
+  "declarations": {
+    "Side24.D2_algebra": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.D2_bounds": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.D2_lt_untruncated": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.cone_integral_identity": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.covariance_relative_lt_eps": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.density_comparison_lt_reported": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.enclosure_of_reference": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.enclosure_statement": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.exp_neg_288_lt": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.exp_partial_sum_gt_ten": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.exponent_budget_d2": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.exponent_budget_d3": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.gaussian_inputs_statement": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.geometric_ratio_lt_half": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.image_constant_eq": {
+      "axioms": [
+        "propext"
+      ]
+    },
+    "Side24.periodization_statement": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.perturbed_bounds": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.ratio_bound_statement": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.referenceCoefficient": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.reference_enclosure_statement": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "Side24.ten_lt_exp_288_div_125": {
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    }
+  },
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "lemma_closed": false,
+  "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "meaning": "kernel acceptance of the encoded statements at these exact bytes; not translation fidelity, not theorem acceptance",
+  "object": "FORMAL-LAYER-BUILD-EVIDENCE-v1",
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "sorry_free": true,
+  "sources": {
+    "Side24Formal.lean": {
+      "bytes": 88,
+      "sha256": "75307dcf6471d6201557fd610013e2a5ef5a47b27b2011f88fa3eb34ee7d06d5"
+    },
+    "Side24Formal/ConeMoment.lean": {
+      "bytes": 4086,
+      "sha256": "01e017ec528e0ca045b0eab2d21ba28d431d346eec0457bf38a10be08f447a6a"
+    },
+    "Side24Formal/Ledger.lean": {
+      "bytes": 4189,
+      "sha256": "d3be23f13130614b3858f9a1262c4141c87a1a1d8dbcb77879ffd6a62b85716b"
+    },
+    "Side24Formal/Reference.lean": {
+      "bytes": 6206,
+      "sha256": "0281d652a01997964ec72facda9ea76bcb660f332dbacfd8bf45ee59b8782cec"
+    },
+    "lake-manifest.json": {
+      "bytes": 3146,
+      "sha256": "b6bf071a38d455614c7628855312ec82d1045afaf0a561e4124c173de203fa40"
+    },
+    "lakefile.toml": {
+      "bytes": 169,
+      "sha256": "a7dd307f3c5dbbfb0ed6b7e43f2149332a1770834de69214c9c02504a1eb3dac"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    }
+  },
+  "toolchain": "leanprover/lean4:v4.34.1"
+}

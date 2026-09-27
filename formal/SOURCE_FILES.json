@@ -1,0 +1,37 @@
+{
+  "files": {
+    "Side24Formal.lean": {
+      "bytes": 88,
+      "sha256": "75307dcf6471d6201557fd610013e2a5ef5a47b27b2011f88fa3eb34ee7d06d5"
+    },
+    "Side24Formal/ConeMoment.lean": {
+      "bytes": 4086,
+      "sha256": "01e017ec528e0ca045b0eab2d21ba28d431d346eec0457bf38a10be08f447a6a"
+    },
+    "Side24Formal/Ledger.lean": {
+      "bytes": 4189,
+      "sha256": "d3be23f13130614b3858f9a1262c4141c87a1a1d8dbcb77879ffd6a62b85716b"
+    },
+    "Side24Formal/Reference.lean": {
+      "bytes": 6206,
+      "sha256": "0281d652a01997964ec72facda9ea76bcb660f332dbacfd8bf45ee59b8782cec"
+    },
+    "lake-manifest.json": {
+      "bytes": 3146,
+      "sha256": "b6bf071a38d455614c7628855312ec82d1045afaf0a561e4124c173de203fa40"
+    },
+    "lakefile.toml": {
+      "bytes": 169,
+      "sha256": "a7dd307f3c5dbbfb0ed6b7e43f2149332a1770834de69214c9c02504a1eb3dac"
+    },
+    "lean-toolchain": {
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    }
+  },
+  "meaning": "byte identities of the Lean project; a match proves identity, not correctness or acceptance",
+  "object": "FORMAL-LAYER-SOURCE-FILES-v1",
+  "project_root": "formal/lean",
+  "schema_version": 1,
+  "scientific_effect": "NONE"
+}

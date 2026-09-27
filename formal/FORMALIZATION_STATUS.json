@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "object": "FORMAL-LAYER-STATUS-20260927-v1",
+  "layer": "L1-formal (Lean 4 + Mathlib); Layer 0 = provenance/scope/hard gate in Math-",
+  "repository": "d6g8k5htny-coder/sandbox",
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "mathematical_acceptance": false,
+  "status_ladder": [
+    "none",
+    "specified",
+    "proved",
+    "kernel-checked"
+  ],
+  "review_ladder": [
+    "none",
+    "author-side",
+    "nonauthor-aligned"
+  ],
+  "standard_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "lean": {
+    "project_root": "formal/lean",
+    "toolchain": "leanprover/lean4:v4.34.1",
+    "mathlib": {
+      "scope": "leanprover-community",
+      "rev": "v4.34.1"
+    },
+    "build_evidence": "formal/BUILD_EVIDENCE.json"
+  },
+  "ladder_meaning": {
+    "none": "no Lean artifact",
+    "specified": "the statement (or object) is a Lean definition that compiles; nothing is proved",
+    "proved": "a sorry-free Lean theorem exists in the pinned module (author-side text-level check only)",
+    "kernel-checked": "BUILD_EVIDENCE.json records `lake build` success and `#print axioms` ⊆ standard ∪ declared assumed axioms for exactly these source bytes",
+    "author-side": "formalization written by the formal author; statement alignment unreviewed",
+    "nonauthor-aligned": "a distinct reviewer attested that the Lean statement matches the informal statement, bound to the module sha256 (FORMALIZATION_REVIEW_LANE.md)"
+  },
+  "objects": [
+    {
+      "object_id": "SIDE24-COEFFICIENT-D23-20260924-v1",
+      "hard_gate_node": "math.side24-coefficient",
+      "informal_source": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "path": "coefficients/side24_v1/PROOF.md",
+        "commit": "760340e921ac4ceda296b8118da936f1133e956e",
+        "blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+        "sha256": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769"
+      },
+      "informal_disposition": "AUTHOR_SIDE_CANDIDATE in Math- GRAPH.json; HOLD_WITH_DOMAIN in LANDING_CLAIMS.json; parent main #63 unreviewed",
+      "authorship": {
+        "informal_provider": "OpenAI / ChatGPT",
+        "formal_provider": "Anthropic / Claude (Cursor cloud agent)",
+        "formal_note": "AI-generated Lean; author-side until a distinct reviewer aligns statements"
+      },
+      "parent_dependencies": [
+        {
+          "id": "main#63:eq15.2-parent",
+          "formalization_status": "none",
+          "handling": "not introduced as a Lean axiom; every statement about c_d,24 is parametrized by an arbitrary c : ℕ → ℝ, so the hypotheses of enclosure_of_reference are the scope"
+        }
+      ],
+      "components": [
+        {
+          "component_id": "side24.ledger.image-constant",
+          "informal_ref": "PROOF.md §2 eq.(2): E = 1458·(76·24^6+15)·10^(-125) = 21175738586478·10^(-125)",
+          "lean_module": "Side24Formal/Ledger.lean",
+          "lean_decl": "Side24.image_constant_eq",
+          "lean_statement": "theorem image_constant_eq : (1458 : ℕ) * (76 * 24 ^ 6 + 15) = 21175738586478",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "the derivative bound (2) itself: only the integer product is checked"
+        },
+        {
+          "component_id": "side24.ledger.exp-partial-sum",
+          "informal_ref": "PROOF.md §2: \"The code proves e^(288/125)>10 using the positive rational Taylor sum through 20\" — the rational partial sum",
+          "lean_module": "Side24Formal/Ledger.lean",
+          "lean_decl": "Side24.exp_partial_sum_gt_ten",
+          "lean_statement": "theorem exp_partial_sum_gt_ten : (10 : ℝ) < ∑ i ∈ range 21, ((288 : ℝ) / 125) ^ i / (Nat.factorial i : ℝ)",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "that the partial sum bounds exp (that is the next component)"
+        },
+        {
+          "component_id": "side24.ledger.exp-lower",
+          "informal_ref": "PROOF.md §2: e^(288/125) > 10",
+          "lean_module": "Side24Formal/Ledger.lean",
+          "lean_decl": "Side24.ten_lt_exp_288_div_125",
+          "lean_statement": "theorem ten_lt_exp_288_div_125 : (10 : ℝ) < Real.exp (288 / 125)",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "anything about the periodic covariance"
+        },
+        {
+          "component_id": "side24.ledger.exp-neg-288",
+          "informal_ref": "PROOF.md §2: \"hence e^(-288)<10^(-125)\"",
+          "lean_module": "Side24Formal/Ledger.lean",
+          "lean_decl": "Side24.exp_neg_288_lt",
+          "lean_statement": "theorem exp_neg_288_lt : Real.exp (-288) < 1 / (10 : ℝ) ^ 125",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "the image-sum inequality that uses it"
+        },
+        {
+          "component_id": "side24.ledger.geometric-ratio",
+          "informal_ref": "PROOF.md §2: \"successive terms have ratio at most 512e^(-864)<1/2\"",
+          "lean_module": "Side24Formal/Ledger.lean",
+          "lean_decl": "Side24.geometric_ratio_lt_half",
+          "lean_statement": "theorem geometric_ratio_lt_half : (512 : ℝ) * Real.exp (-864) < 1 / 2",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "that the displayed ratio is the correct term ratio of the image series (informal step)"
+        },
+        {
+          "component_id": "side24.ledger.covariance-relative",
+          "informal_ref": "PROOF.md eq.(3): 60E < ε = 10^(-108)",
+          "lean_module": "Side24Formal/Ledger.lean",
+          "lean_decl": "Side24.covariance_relative_lt_eps",
+          "lean_statement": "theorem covariance_relative_lt_eps : (60 : ℚ) * (21175738586478 / 10 ^ 125) < 1 / 10 ^ 108",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "the spectral-norm and Schur-complement comparison (3) itself"
+        },
+        {
+          "component_id": "side24.ledger.density-comparison",
+          "informal_ref": "PROOF.md §4: \"safely between 1-32ε and 1+32ε\", hence (4) with 32ε < 10^(-106)",
+          "lean_module": "Side24Formal/Ledger.lean",
+          "lean_decl": "Side24.density_comparison_lt_reported",
+          "lean_statement": "theorem density_comparison_lt_reported : (32 : ℚ) / 10 ^ 108 < 1 / 10 ^ 106",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "the ratio bound 1±32ε (specified separately)"
+        },
+        {
+          "component_id": "side24.ledger.exponent-budget-d2",
+          "informal_ref": "PROOF.md §4: a=m+2/3+n/2, b=d+n/2; for d=2, a+2b<14 and 2a+b<13",
+          "lean_module": "Side24Formal/Ledger.lean",
+          "lean_decl": "Side24.exponent_budget_d2",
+          "lean_statement": "theorem exponent_budget_d2 : a 2 + 2 * b 2 < 14 ∧ 2 * a 2 + b 2 < 13",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "the Gaussian density comparison that motivates a and b"
+        },
+        {
+          "component_id": "side24.ledger.exponent-budget-d3",
+          "informal_ref": "PROOF.md §4: for d=3, a+2b<14 and 2a+b<13",
+          "lean_module": "Side24Formal/Ledger.lean",
+          "lean_decl": "Side24.exponent_budget_d3",
+          "lean_statement": "theorem exponent_budget_d3 : a 3 + 2 * b 3 < 14 ∧ 2 * a 3 + b 3 < 13",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "the Gaussian density comparison that motivates a and b"
+        },
+        {
+          "component_id": "side24.ledger.ratio-bound",
+          "informal_ref": "PROOF.md §4: \"elementary bounds on log(1+ε), -log(1-ε) and exp give ratio ... safely between 1-32ε and 1+32ε\"",
+          "lean_module": "Side24Formal/Ledger.lean",
+          "lean_decl": "Side24.ratio_bound_statement",
+          "lean_statement": "def ratio_bound_statement : Prop := ∀ d ∈ ({2, 3} : Finset ℕ), ∀ ε : ℝ, 0 < ε → ε < 1 / 28 → (1 + ε) ^ (a d : ℝ) / (1 - ε) ^ (b d : ℝ) < 1 + 32 * ε ∧ 1 - 32 * ε < (1 - ε) ^ (a d : ℝ) / (1 + ε) ^ (b d : ℝ)",
+          "formalization_status": "specified",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "truth of the statement; it is a Prop definition without proof"
+        },
+        {
+          "component_id": "side24.cone.integral-identity",
+          "informal_ref": "PROOF.md §1: ∫_0^a (a-z)^2 e^(-z/2) dz/2 = a^2-4a+8-8e^(-a/2) (informal: a ≥ 0; formal: every real a)",
+          "lean_module": "Side24Formal/ConeMoment.lean",
+          "lean_decl": "Side24.cone_integral_identity",
+          "lean_statement": "theorem cone_integral_identity (a : ℝ) : ∫ z in (0 : ℝ)..a, (a - z) ^ 2 * Real.exp (-z / 2) / 2 = a ^ 2 - 4 * a + 8 - 8 * Real.exp (-a / 2)",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "that this integral is the conditional cone moment (Gaussian step is specified separately)"
+        },
+        {
+          "component_id": "side24.cone.d2-algebra",
+          "informal_ref": "PROOF.md §1: D_2 = (1/2)[25/3-20/3+8-8sqrt(3/8)] = 29/6-sqrt(6)",
+          "lean_module": "Side24Formal/ConeMoment.lean",
+          "lean_decl": "Side24.D2_algebra",
+          "lean_statement": "theorem D2_algebra : (1 / 2 : ℝ) * (25 / 3 - 20 / 3 + 8 - 8 * Real.sqrt (3 / 8)) = D2",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "the Gaussian moment values 25/3, 5/3, sqrt(3/8) (specified separately)"
+        },
+        {
+          "component_id": "side24.cone.d2-bounds",
+          "informal_ref": "ENCLOSURE.json cone_moments[\"3\"] = \"29/6-sqrt(6)\"; outward decimal enclosure of that constant",
+          "lean_module": "Side24Formal/ConeMoment.lean",
+          "lean_decl": "Side24.D2_bounds",
+          "lean_statement": "theorem D2_bounds : (2.38384359054 : ℝ) < D2 ∧ D2 < 2.38384359056",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "that 29/6-sqrt(6) is the true cone moment of the periodic law"
+        },
+        {
+          "component_id": "side24.cone.truncation-essential",
+          "informal_ref": "PROOF.md §1: \"half the UNTRUNCATED determinant-squared moment would instead give 29/6, an incorrect value\"",
+          "lean_module": "Side24Formal/ConeMoment.lean",
+          "lean_decl": "Side24.D2_lt_untruncated",
+          "lean_statement": "theorem D2_lt_untruncated : D2 < 29 / 6",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "which of the two values is the cone moment; only that they differ (D_2 < 29/6)"
+        },
+        {
+          "component_id": "side24.cone.gaussian-inputs",
+          "informal_ref": "PROOF.md §1: Var(s)=5/3, E s^4 = 25/3, E exp(-s^2/2) = sqrt(3/8)",
+          "lean_module": "Side24Formal/ConeMoment.lean",
+          "lean_decl": "Side24.gaussian_inputs_statement",
+          "lean_statement": "def gaussian_inputs_statement : Prop := (∫ s, s ^ 4 ∂(gaussianReal 0 (5 / 3 : NNReal))) = 25 / 3 ∧ (∫ s, Real.exp (-s ^ 2 / 2) ∂(gaussianReal 0 (5 / 3 : NNReal))) = Real.sqrt (3 / 8)",
+          "formalization_status": "specified",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "truth of the statement; Prop definition against Mathlib gaussianReal, no proof"
+        },
+        {
+          "component_id": "side24.reference.definition",
+          "informal_ref": "PROOF.md eq.(1): c_d,ref = Γ(7/6)(3/2)^(1/3) D_(d-1) / [2√3 π^(d-1) √π]",
+          "lean_module": "Side24Formal/Reference.lean",
+          "lean_decl": "Side24.referenceCoefficient",
+          "lean_statement": "noncomputable def referenceCoefficient (d : ℕ) : ℝ := Real.Gamma (7 / 6) * (3 / 2 : ℝ) ^ ((1 : ℝ) / 3) * coneMoment (d - 1) / (2 * Real.sqrt 3 * Real.pi ^ (d - 1) * Real.sqrt Real.pi)",
+          "formalization_status": "specified",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "that c_d,ref equals the parent coefficient; it is the nonperiodic reference expression only"
+        },
+        {
+          "component_id": "side24.reference.enclosure-statement",
+          "informal_ref": "coefficient.py reference_coefficient(d): 80-digit outward rational enclosure of c_d,ref (author rational-interval arithmetic)",
+          "lean_module": "Side24Formal/Reference.lean",
+          "lean_decl": "Side24.reference_enclosure_statement",
+          "lean_statement": "def reference_enclosure_statement : Prop := (ref2Lo : ℝ) < referenceCoefficient 2 ∧ referenceCoefficient 2 < ref2Hi ∧ (ref3Lo : ℝ) < referenceCoefficient 3 ∧ referenceCoefficient 3 < ref3Hi",
+          "formalization_status": "specified",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "kernel verification of Γ(7/6), π and root enclosures; informal evidence is the Python interval code"
+        },
+        {
+          "component_id": "side24.reference.periodization",
+          "informal_ref": "PROOF.md eq.(4): |c_d,24/c_d,ref - 1| < 10^(-106), d=2,3",
+          "lean_module": "Side24Formal/Reference.lean",
+          "lean_decl": "Side24.periodization_statement",
+          "lean_statement": "def periodization_statement (c : ℕ → ℝ) : Prop := ∀ d ∈ ({2, 3} : Finset ℕ), |c d / referenceCoefficient d - 1| < (periodizationBound : ℝ)",
+          "formalization_status": "specified",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "truth of (4); depends on the unformalized parent (main #63) and §3–§4 analysis"
+        },
+        {
+          "component_id": "side24.reference.perturbed-bounds",
+          "informal_ref": "PROOF.md §5: relative perturbation applied to exact rational endpoints",
+          "lean_module": "Side24Formal/Reference.lean",
+          "lean_decl": "Side24.perturbed_bounds",
+          "lean_statement": "theorem perturbed_bounds {c r lo hi δ : ℝ} (hlo : 0 < lo) (h₁ : lo < r) (h₂ : r < hi) (hδ : 0 < δ) (hδ1 : δ < 1) (h : |c / r - 1| < δ) : (1 - δ) * lo < c ∧ c < (1 + δ) * hi",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "any numerical value; pure real-inequality lemma"
+        },
+        {
+          "component_id": "side24.reference.enclosure-of-reference",
+          "informal_ref": "PROOF.md §5: \"The periodization allowance in (4) is applied to exact rational endpoints BEFORE the final outward rounding\" — the implication (reference enclosure ∧ (4)) → displayed bounds",
+          "lean_module": "Side24Formal/Reference.lean",
+          "lean_decl": "Side24.enclosure_of_reference",
+          "lean_statement": "theorem enclosure_of_reference (c : ℕ → ℝ) (href : reference_enclosure_statement) (hper : periodization_statement c) : enclosure_statement c",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "either hypothesis; the theorem is conditional on two specified Props"
+        },
+        {
+          "component_id": "side24.theorem.enclosure",
+          "informal_ref": "PROOF.md displayed theorem: 0.07340691930603427103 < c_2,24 < 0.07340691930603427104 and 0.04177593184059834334 < c_3,24 < 0.04177593184059834335",
+          "lean_module": "Side24Formal/Reference.lean",
+          "lean_decl": "Side24.enclosure_statement",
+          "lean_statement": "def enclosure_statement (c : ℕ → ℝ) : Prop := (0.07340691930603427103 : ℝ) < c 2 ∧ c 2 < 0.07340691930603427104 ∧ (0.04177593184059834334 : ℝ) < c 3 ∧ c 3 < 0.04177593184059834335",
+          "formalization_status": "specified",
+          "formalization_review": "author-side",
+          "assumed_axioms": [],
+          "review_record": null,
+          "does_not_claim": "truth for the parent-defined c_d,24; the periodic coefficient is not defined in Lean (parent main #63 unformalized)"
+        }
+      ]
+    }
+  ]
+}
