@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T00:16:11Z",
+  "as_of_utc": "2026-09-27T00:32:29Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -337,7 +337,7 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T00:16:11Z",
+    "at": "2026-09-27T00:32:29Z",
     "tip": "96e5175306f7",
     "priority_ambiguous": false,
     "decision": "IDLE; tip still 96e5175306f7; nav sole tip P1; observe DRAFTs; no new package; resubscribe",
