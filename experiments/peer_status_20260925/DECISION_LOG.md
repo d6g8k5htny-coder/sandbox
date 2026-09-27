@@ -1734,3 +1734,14 @@ new push.
 
 **Decision:** IDLE; keep nav tip P1 @`38a3e070ff4c`; observe DRAFTs; no new package.
 Scientific effect NONE; `lemma_closed` false.
+
+## 2026-09-27T07:28Z — periodic multimodel reaffirm; IDLE + nav P1
+
+**Refresh:** tip still `38a3e070ff4c`; nav sole tip P1. No new ready package.
+
+**Votes:**
+- [GPT vote](bc-7a9669a0-a650-53b4-bf31-f514bd54cdfc): A **YES**, B **YES**, C **NO**.
+- [Claude vote](bc-c192f9c3-745c-5fcd-b286-b4abf9eb628e): A **YES**, B **YES**, C **NO**.
+
+**Consensus:** IDLE; keep nav tip P1 @`38a3e070ff4c`; no new package.
+Scientific effect NONE; `lemma_closed` false.
