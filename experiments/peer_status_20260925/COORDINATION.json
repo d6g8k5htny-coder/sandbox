@@ -1,11 +1,11 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T20:17:35Z",
+  "as_of_utc": "2026-09-27T20:35:45Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
-  "tip_sha": "9458b903f57f",
-  "tip_msg": "Merge pull request #8 from d6g8k5htny-coder/codex/rn-sector-review-20260921",
+  "tip_sha": "a01c72f19378",
+  "tip_msg": "Merge pull request #7 from d6g8k5htny-coder/codex/p15-foundation-review-20260921",
   "lane": "Cursor D0/D7 per main #86",
   "sandbox_pr": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
   "coordination_protocol": "experiments/peer_status_20260925/COORDINATION_PROTOCOL.md",
@@ -141,11 +141,13 @@
       "gpt-5.6-terra-medium@bc-9515d4c5",
       "claude-sonnet-5-thinking-medium@bc-7d2ec13c",
       "gpt-5.6-terra-medium@bc-32e0616a",
-      "claude-sonnet-5-thinking-medium@bc-26f1a3ca"
+      "claude-sonnet-5-thinking-medium@bc-26f1a3ca",
+      "gpt-5.6-terra-medium@bc-65740037",
+      "claude-sonnet-5-thinking-medium@bc-c55940bc"
     ],
     "pending_votes": [],
-    "live_peer_override": "tip 9458b903f57f (#8 MERGED after #122); tip verify IN_PROGRESS; nav/loss-only SUCCESS; nav sole tip P1 READY_CLEAN; NO inventable tip push",
-    "consensus": "IDLE NAV_P1_READY — ABSORB #122+#8 @9458b903f57f; RETARGET nav sole tip P1 READY_CLEAN; IDLE observe #172/#7; NO inventable tip push",
+    "live_peer_override": "tip a01c72f19378 (#7 MERGED after #174); tip verify IN_PROGRESS; nav/loss-only SUCCESS; nav sole tip P1 READY_CLEAN; NO inventable tip push",
+    "consensus": "IDLE NAV_P1_READY \u2014 ABSORB #7+#174 @a01c72f19378; RETARGET nav sole tip P1 READY_CLEAN; IDLE observe #172; NO inventable tip push",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -198,25 +200,25 @@
     },
     "post_side24_tip_votes": {
       "gpt": "A IDLE NAV_P1 YES @bc-37383ca7",
-      "claude": "A IDLE NAV_P1 provisional NO pending apply → forge apply clean keep P1 @bc-e7995ce0",
+      "claude": "A IDLE NAV_P1 provisional NO pending apply \u2192 forge apply clean keep P1 @bc-e7995ce0",
       "at": "2026-09-26T02:13Z"
     },
     "periodic_idle_reaffirm_votes": {
       "gpt": "A YES B YES C NO @bc-dff71003",
       "claude": "A YES B YES C NO @bc-cdf48c90",
       "at": "2026-09-27T18:29Z",
-      "note": "stable IDLE reaffirm; tip unchanged 38a3e070ff4c; keep nav P1; no new package — SUPERSEDED by tip_move_111"
+      "note": "stable IDLE reaffirm; tip unchanged 38a3e070ff4c; keep nav P1; no new package \u2014 SUPERSEDED by tip_move_111"
     },
     "d0_d7_peer_model_vote": {
       "claude": "A YES B YES C NO @bc-current",
       "at": "2026-09-27T07:27Z",
-      "note": "verified tip 38a3e070ff4c == main#135 MERGED (gh api); trial/main #98/#90/#126/#21/#135 all MERGED (gh pr view); no pr97_followup_nav_and_handoff PR/branch found on trial — package remains local sandbox artifact, apply-clean/APPLIED-absent unchanged. Reaffirm IDLE nav sole tip P1. SUPERSEDED by tip_move_111 @8e2eda4."
+      "note": "verified tip 38a3e070ff4c == main#135 MERGED (gh api); trial/main #98/#90/#126/#21/#135 all MERGED (gh pr view); no pr97_followup_nav_and_handoff PR/branch found on trial \u2014 package remains local sandbox artifact, apply-clean/APPLIED-absent unchanged. Reaffirm IDLE nav sole tip P1. SUPERSEDED by tip_move_111 @8e2eda4."
     },
     "tip_move_135_votes": {
       "gpt": "A YES B NO C NO @bc-e49a1494",
       "claude": "A YES B YES C NO @bc-3cceda05",
       "at": "2026-09-27T01:29Z",
-      "disposition": "RETARGET nav sole tip P1 @38a3e070ff4c; IDLE observe / yield peer DRAFTs — SUPERSEDED by tip_move_111"
+      "disposition": "RETARGET nav sole tip P1 @38a3e070ff4c; IDLE observe / yield peer DRAFTs \u2014 SUPERSEDED by tip_move_111"
     },
     "tip_move_111_votes": {
       "gpt": "A YES B YES C YES D NO @bc-f013598f",
@@ -234,15 +236,21 @@
       "gpt": "A YES B YES C NO D YES @bc-9515d4c5",
       "claude": "A NO B YES C NO D YES @bc-7d2ec13c",
       "claude_a_note": "A=NO solely because assumed tip CI still in progress",
-      "tie_break_a": "tip CI already SUCCESS → CONSENSUS A=YES (retarget nav as sole tip P1 ready package; do not push inventable ourselves)",
+      "tie_break_a": "tip CI already SUCCESS \u2192 CONSENSUS A=YES (retarget nav as sole tip P1 ready package; do not push inventable ourselves)",
       "at": "2026-09-27T19:46Z",
-      "disposition": "SUPERSEDED by tip_move_122_8: tip advanced d4ad3bbe→9ce5c66→9458b903; nav retargeted P1 READY_CLEAN @9458b903f57f"
+      "disposition": "SUPERSEDED by tip_move_122_8: tip advanced d4ad3bbe\u21929ce5c66\u21929458b903; nav retargeted P1 READY_CLEAN @9458b903f57f"
     },
     "tip_move_122_8_votes": {
       "gpt": "A YES B YES C NO D YES @bc-32e0616a",
       "claude": "A YES B YES C NO D YES @bc-26f1a3ca",
       "at": "2026-09-27T20:08Z",
-      "disposition": "ABSORB #122+#8; RETARGET nav sole tip P1 READY_CLEAN @9458b903f57f; IDLE observe #172/#7; NO inventable tip push"
+      "disposition": "SUPERSEDED by tip_move_7_174: tip advanced 9458b903\u2192a01c72f19378; nav retargeted P1 READY_CLEAN @a01c72f19378"
+    },
+    "tip_move_7_174_votes": {
+      "gpt": "A YES B YES C NO D YES @bc-65740037",
+      "claude": "A YES B YES C NO D YES @bc-c55940bc",
+      "at": "2026-09-27T20:35Z",
+      "disposition": "ABSORB #7+#174; RETARGET nav sole tip P1 READY_CLEAN @a01c72f19378; IDLE observe #172; NO inventable tip push"
     }
   },
   "absorbed": [
@@ -298,8 +306,8 @@
       "on": "main#98",
       "head": "776fdb75eb71",
       "action": "do_not_repaste",
-      "evidence": "cursor[bot] comment Reciprocal review — OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b…)",
-      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND — same substance."
+      "evidence": "cursor[bot] comment Reciprocal review \u2014 OA-RECIPROCAL-REVIEW-20260925-D7 (peer agent bc-01a0d95b\u2026)",
+      "note": "Sandbox REVIEW.md remains historical; peer published forge comment. F10_CLOSED labeled MATCH-as-additive there vs our AMEND \u2014 same substance."
     },
     {
       "item": "pr98_enforcement_boundary_amend",
@@ -307,7 +315,7 @@
       "head": "ebd745022eee",
       "action": "do_not_reapply",
       "evidence": "commit: fix(#90): enforce five OpenAI boundary families on claims-gate adapter",
-      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race — observe their new branch; do not duplicate.",
+      "note": "Cursor peer landed all five; sandbox package superseded. OA F1-only claim OA-PR98-F1-REPAIR may race \u2014 observe their new branch; do not duplicate.",
       "check_summary": {
         "verify": "SUCCESS",
         "navigation": "SUCCESS",
@@ -332,7 +340,7 @@
       "on": "main#98",
       "head": "7e219c38e916",
       "action": "do_not_race_or_repackage",
-      "evidence": "peer bounded A–D author repair complete"
+      "evidence": "peer bounded A\u2013D author repair complete"
     },
     {
       "item": "pr98_repair_e_observe",
@@ -369,7 +377,7 @@
       "head": "b59359ebb972",
       "action": "do_not_race_or_repackage",
       "evidence": "peer integration rebase onto tip 1ae02b9 + semantic_digest_core coverage repair",
-      "note": "OA eng-integration ACCEPT; CI SUCCESS; peer owns DRAFT→ready+merge",
+      "note": "OA eng-integration ACCEPT; CI SUCCESS; peer owns DRAFT\u2192ready+merge",
       "check_summary": {
         "verify": "SUCCESS",
         "navigation": "SUCCESS",
@@ -403,6 +411,24 @@
       "action": "do_not_reapply",
       "evidence": "main#171 MERGED @d4ad3bbe9dc3 (H3-RUNG-FLOOR gate binding / operational grade); tip verify SUCCESS",
       "note": "Sandbox draft gate-binding ABSORBED by #171 / tip. Do not re-list in ready_for_main_write."
+    },
+    {
+      "item": "main#174_queue_reconciliation",
+      "on": "main#174 / tip",
+      "head": "0ca5187be6b2",
+      "tip_after": "a01c72f19378",
+      "action": "do_not_repackage",
+      "evidence": "main#174 MERGED (docs: queue reconciliation record for 2026-09-27); tip advanced via #7",
+      "note": "Absorbed into tip chain before/with #7. Observe-only."
+    },
+    {
+      "item": "main#7_p15_foundation",
+      "on": "main#7 / tip",
+      "head": "a01c72f19378",
+      "tip_after": "a01c72f19378",
+      "action": "do_not_repackage",
+      "evidence": "main#7 MERGED @a01c72f19378 (P15 finite-rank composition / mathematical foundations)",
+      "note": "Tip move absorb. Nav still READY_CLEAN (APPLIED absent)."
     }
   ],
   "active_packages": [
@@ -412,37 +438,39 @@
     {
       "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
-      "against": "chatgpt/drive-github-hardening-20260919 @ 9458b903f57f",
-      "gap": "RESEARCH_INDEX prose + handoff APPLIED still absent (file may exist); apply-check clean on 9458b903 (NO_APPLIED) — READY_CLEAN",
+      "against": "chatgpt/drive-github-hardening-20260919 @ a01c72f19378",
+      "gap": "RESEARCH_INDEX prose + handoff APPLIED still absent (file may exist); apply-check clean on a01c72f (NO_APPLIED) \u2014 READY_CLEAN",
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land nav/handoff on tip 9458b903f57f (#8 MERGED after #122; tip verify IN_PROGRESS; nav/loss-only SUCCESS). Sole ready P1 READY_CLEAN. Eng-only; scientific effect NONE. #122+#8 absorbed; gate via #171; firewall superseded by #169."
+      "ask": "Land nav/handoff on tip a01c72f19378 (#7 MERGED after #174; tip verify IN_PROGRESS; nav/loss-only SUCCESS). Sole ready P1 READY_CLEAN. Eng-only; scientific effect NONE. #7+#174 absorbed; prior #122+#8+#171; firewall superseded by #169."
     }
   ],
   "observe_only": [
-    "main#90 CLOSED eng-gate @2026-09-26T01:20:06Z after #98 merge — observe-only",
-    "main#98 MERGED @ebedb780 (b59359e) — OA eng ACCEPT satisfied; observe-only",
-    "main#118 MERGED @7caac254cbba (exact Q0 ledger custody) — tip advanced; observe-only",
-    "tip 2f7a5a9f10c9 SIDE24 theorem-chain source recovery — tip advanced; observe-only",
-    "main#126 MERGED @cd66a655d0a9 (SIDE24 replay archive + arithmetic custody) — tip advanced; observe-only",
-    "main#21 MERGED @96e5175306f7 (architectural admission attestations + H3 artifacts) — tip advanced; observe-only",
-    "main#135 MERGED @38a3e070ff4c (interval docs errata; eng-only) — tip advanced; observe-only",
-    "main#111 MERGED @8e2eda4dec88 (also absorbed #148/#140/#136/#134) — tip advanced; observe-only",
-    "main#148 MERGED (absorbed into tip via #111) — observe-only",
-    "main#140 MERGED (absorbed into tip via #111) — observe-only",
-    "main#136 MERGED (absorbed into tip via #111) — observe-only",
-    "main#134 MERGED (absorbed into tip via #111) — observe-only",
-    "open inventable: main#172 DRAFT; #7 OPEN non-draft — do not race / yield",
+    "main#90 CLOSED eng-gate @2026-09-26T01:20:06Z after #98 merge \u2014 observe-only",
+    "main#98 MERGED @ebedb780 (b59359e) \u2014 OA eng ACCEPT satisfied; observe-only",
+    "main#118 MERGED @7caac254cbba (exact Q0 ledger custody) \u2014 tip advanced; observe-only",
+    "tip 2f7a5a9f10c9 SIDE24 theorem-chain source recovery \u2014 tip advanced; observe-only",
+    "main#126 MERGED @cd66a655d0a9 (SIDE24 replay archive + arithmetic custody) \u2014 tip advanced; observe-only",
+    "main#21 MERGED @96e5175306f7 (architectural admission attestations + H3 artifacts) \u2014 tip advanced; observe-only",
+    "main#135 MERGED @38a3e070ff4c (interval docs errata; eng-only) \u2014 tip advanced; observe-only",
+    "main#111 MERGED @8e2eda4dec88 (also absorbed #148/#140/#136/#134) \u2014 tip advanced; observe-only",
+    "main#148 MERGED (absorbed into tip via #111) \u2014 observe-only",
+    "main#140 MERGED (absorbed into tip via #111) \u2014 observe-only",
+    "main#136 MERGED (absorbed into tip via #111) \u2014 observe-only",
+    "main#134 MERGED (absorbed into tip via #111) \u2014 observe-only",
     "trial#128 CLOSED (observe)",
     "Math- D5 observe only (#51 tip a385339)",
     "main#103 vault; #104/#106 parked",
-    "main#169 MERGED @cad99e28 (claims_check H3-RUNG-FLOOR interval + prose count) — superseded sandbox claims-firewall; observe-only",
-    "main#124 MERGED @e7652a130398 (Q0-C103 C1/C2 honesty repair) — tip advanced; observe-only",
-    "main#171 MERGED @d4ad3bbe9dc3 (H3-RUNG-FLOOR gate binding); tip verify SUCCESS — absorbed; observe-only",
-    "main#122 MERGED @9ce5c66f2fd5 (SARD-G) — tip advanced; observe-only",
-    "main#8 MERGED @9458b903f57f (rn-sector-review) — tip; observe-only"
+    "main#169 MERGED @cad99e28 (claims_check H3-RUNG-FLOOR interval + prose count) \u2014 superseded sandbox claims-firewall; observe-only",
+    "main#124 MERGED @e7652a130398 (Q0-C103 C1/C2 honesty repair) \u2014 tip advanced; observe-only",
+    "main#171 MERGED @d4ad3bbe9dc3 (H3-RUNG-FLOOR gate binding); tip verify SUCCESS \u2014 absorbed; observe-only",
+    "main#122 MERGED @9ce5c66f2fd5 (SARD-G) \u2014 tip advanced; observe-only",
+    "main#8 MERGED @9458b903f57f (rn-sector-review) \u2014 tip; observe-only",
+    "open inventable: main#172 DRAFT \u2014 do not race / yield",
+    "main#174 MERGED (docs: queue reconciliation record) \u2014 tip advanced; observe-only",
+    "main#7 MERGED @a01c72f19378 (P15 foundation review) \u2014 tip; observe-only"
   ],
   "closed_without_merge_ok": [
     "Math-#10 eligibility (already on Math- main)",
@@ -455,18 +483,18 @@
       "exact_head": "b59359ebb972",
       "state": "COMPLETED",
       "owner": "cursor peer bc-01a0d95b",
-      "work": "MERGED exact head; #90 CLOSED eng-gate — no active merge work",
+      "work": "MERGED exact head; #90 CLOSED eng-gate \u2014 no active merge work",
       "sandbox_role": "observe_only",
       "evidence": "merge commit ebedb7802024; issue #90 closedAt 2026-09-26T01:20:06Z",
-      "note": "#98 MERGED + #90 CLOSED; tip 9458b903f57f; sole ready P1 = nav READY_CLEAN; #122+#8 absorbed; #171/gate absorbed; claims-firewall superseded by #169"
+      "note": "#98 MERGED + #90 CLOSED; tip a01c72f19378; sole ready P1 = nav READY_CLEAN; #7+#174 absorbed; prior #122+#8+#171; claims-firewall superseded by #169"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T20:17:35Z",
-    "tip": "9458b903f57f",
+    "at": "2026-09-27T20:35:45Z",
+    "tip": "a01c72f19378",
     "priority_ambiguous": false,
-    "decision": "IDLE NAV_P1_READY tip 9458b903f57f (#122+#8 absorbed; tip verify IN_PROGRESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172/#7; NO inventable tip push",
-    "model_consult": "skipped — tip unchanged 9458b903f57f; cite tip-move GPT@bc-32e0616a + Claude@bc-26f1a3ca CONSENSUS IDLE NAV_P1_READY"
+    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify IN_PROGRESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172; NO inventable tip push",
+    "model_consult": "tip-move GPT@bc-65740037 + Claude@bc-c55940bc CONSENSUS IDLE NAV_P1_READY \u2014 ABSORB #7+#174; RETARGET nav @a01c72f19378; IDLE observe #172; NO inventable push"
   },
   "resolved_alternate": [
     {
@@ -476,6 +504,6 @@
       "action": "do_not_reapply_patch"
     }
   ],
-  "live_peer_override": "tip 9458b903f57f (#8 MERGED after #122); tip verify IN_PROGRESS; nav/loss-only SUCCESS; nav sole tip P1 READY_CLEAN; NO inventable tip push",
+  "live_peer_override": "tip a01c72f19378 (#7 MERGED after #174); tip verify IN_PROGRESS; nav/loss-only SUCCESS; nav sole tip P1 READY_CLEAN; NO inventable tip push",
   "stray_branch_note": "Prefer single sandbox PR#2 cursor/d0-crosswalk-allowlist-8fb0. Do not open inventable tip push from sandbox."
 }

@@ -2291,3 +2291,24 @@ COORDINATION as_of+timer_loop refreshed.
 **Decision:** IDLE NAV_P1_READY; keep nav tip P1 @`9458b903f57f`; yield #172/#7;
 no new package; no inventable tip push.
 Scientific effect NONE; `lemma_closed` false.
+
+## 2026-09-27T20:35Z — tip moved #7+#174; absorb; nav sole P1 READY_CLEAN
+
+Tip: `9458b903f57f` → `a01c72f19378` (Merge #7 P15 foundation review).
+Also **#174 MERGED** (docs: queue reconciliation record). Tip CI verify
+**IN_PROGRESS**; navigation + loss-only-controls **SUCCESS**. Prior tip
+`9458b903f57f` verify **SUCCESS**. Prior absorbs #122+#8+#171 stand;
+firewall SUPERSEDED by #169.
+
+Nav apply-check CLEAN on new tip `a01c72f19378`; NOT absorbed (no APPLIED
+banner) — sole tip P1 READY_CLEAN. Open inventable: main#172 DRAFT — yield;
+do not race. No inventable tip push from sandbox.
+
+**Votes:**
+- [GPT vote](bc-65740037): A **YES**, B **YES**, C **NO**, D **YES**.
+- [Claude vote](bc-c55940bc): A **YES**, B **YES**, C **NO**, D **YES**.
+
+**Consensus:** ABSORB #7+#174; RETARGET nav sole tip P1 READY_CLEAN
+@`a01c72f19378`; IDLE observe #172; **NO** inventable tip push.
+
+Scientific effect NONE; `lemma_closed` false.

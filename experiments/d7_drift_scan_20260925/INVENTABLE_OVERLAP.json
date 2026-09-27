@@ -1,28 +1,30 @@
 {
-  "as_of_utc": "2026-09-27T20:17:35Z",
+  "as_of_utc": "2026-09-27T20:35:45Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
-  "hardening_tip": "9458b903f57f",
-  "note": "Overlap watch for inventable/cursor eng PRs; not acceptance. Tip double-move d4ad3bbe→9ce5c66 (#122 SARD-G)→9458b903f57f (#8 rn-sector-review); tip verify IN_PROGRESS; nav/loss-only SUCCESS; nav READY_CLEAN sole tip P1; #122+#8 ABSORBED; #171/gate ABSORBED; claims-firewall SUPERSEDED by #169; observe #172 DRAFT / #7 OPEN; NO inventable tip push.",
+  "hardening_tip": "a01c72f19378",
+  "note": "Overlap watch for inventable/cursor eng PRs; not acceptance. Tip move 9458b903\u2192a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify IN_PROGRESS; nav/loss-only SUCCESS; nav READY_CLEAN sole tip P1; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; observe #172 DRAFT; NO inventable tip push.",
   "sandbox_packages": [
-    "pr97_followup_nav_and_handoff.patch (sole tip P1 READY_CLEAN @9458b903)",
-    "pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 / tip — do not reapply)",
-    "pr_tip_h3_rung_floor_gate_binding.patch (ABSORBED by #171 / tip — do not reapply)",
+    "pr97_followup_nav_and_handoff.patch (sole tip P1 READY_CLEAN @a01c72f19378)",
+    "pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 / tip \u2014 do not reapply)",
+    "pr_tip_h3_rung_floor_gate_binding.patch (ABSORBED by #171 / tip \u2014 do not reapply)",
     "pr97_followup_nav_links.patch",
     "pr_handoff_applied.patch",
-    "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa — do not reapply)",
-    "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 — do not reapply)"
+    "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa \u2014 do not reapply)",
+    "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 \u2014 do not reapply)"
   ],
   "absorbed": [
-    "main#122 @9ce5c66f2fd5 SARD-G (tip move; ABSORBED)",
-    "main#8 @9458b903f57f rn-sector-review (tip; ABSORBED)",
+    "main#7 @a01c72f19378 P15 foundation (tip; ABSORBED)",
+    "main#174 MERGED queue reconciliation (ABSORBED)",
+    "main#8 @9458b903f57f rn-sector-review (prior ABSORBED)",
+    "main#122 @9ce5c66f2fd5 SARD-G (prior ABSORBED)",
     "pr_tip_h3_rung_floor_gate_binding on main#171 / tip d4ad3bbe9dc3 (ABSORBED; prior)",
     "pr_tip_claims_firewall_repair on main#169@cad99e28 / tip e7652a130398 (SUPERSEDED; CONFLICT vs tip)",
     "pr105_consumers_fix on main#105@54a8c59",
     "pr98_ci_allowlist_fix on main#98@d765efa"
   ],
   "ready": [
-    "pr97_followup_nav_and_handoff.patch (READY_CLEAN @9458b903f57f; APPLIED absent)"
+    "pr97_followup_nav_and_handoff.patch (READY_CLEAN @a01c72f19378; APPLIED absent)"
   ],
   "prs": [
     {
@@ -139,7 +141,7 @@
     },
     {
       "number": 106,
-      "title": "SUPERSEDED/BLOCKED PARENT — retip 61,642 cell-count control",
+      "title": "SUPERSEDED/BLOCKED PARENT \u2014 retip 61,642 cell-count control",
       "state": "CLOSED",
       "draft": true,
       "base": "chatgpt/drive-github-hardening-20260919",
