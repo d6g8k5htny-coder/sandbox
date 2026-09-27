@@ -1,0 +1,113 @@
+% Lean Blueprint for the SIDE24 pilot (Layer 1).
+% Each environment is bound to a Lean declaration with \lean{}; \leanok marks a
+% kernel-checked proof (status kernel-checked in FORMALIZATION_STATUS.json).
+% Environments without \leanok are *specified*: the Lean statement exists, no proof.
+% Scientific effect: NONE.
+
+\chapter{Scope}
+
+This blueprint aligns the informal note
+\href{https://github.com/d6g8k5htny-coder/Math-/blob/760340e921ac4ceda296b8118da936f1133e956e/coefficients/side24_v1/PROOF.md}{\texttt{coefficients/side24\_v1/PROOF.md}}
+(object \texttt{SIDE24-COEFFICIENT-D23-20260924-v1}, author OpenAI/ChatGPT) with the Lean
+project \texttt{formal/lean}. The periodic coefficient $c_{d,24}$ is defined by the parent
+source (main~\#63, eq.~15.2), which is not formalised; every statement about it is
+parametrised by an arbitrary $c:\mathbb N\to\mathbb R$.
+
+\chapter{Image ledger (PROOF.md \S2--\S4)}
+
+\begin{lemma}\label{lem:image-constant}\lean{Side24.image_constant_eq}\leanok
+$1458\cdot(76\cdot 24^6+15)=21175738586478$.
+\end{lemma}
+
+\begin{lemma}\label{lem:exp-partial-sum}\lean{Side24.exp_partial_sum_gt_ten}\leanok
+$\sum_{i=0}^{20} (288/125)^i/i! > 10$.
+\end{lemma}
+
+\begin{lemma}\label{lem:exp-lower}\lean{Side24.ten_lt_exp_288_div_125}\leanok\uses{lem:exp-partial-sum}
+$e^{288/125}>10$.
+\end{lemma}
+
+\begin{lemma}\label{lem:exp-neg}\lean{Side24.exp_neg_288_lt}\leanok\uses{lem:exp-lower}
+$e^{-288}<10^{-125}$.
+\end{lemma}
+
+\begin{lemma}\label{lem:ratio}\lean{Side24.geometric_ratio_lt_half}\leanok\uses{lem:exp-lower}
+$512\,e^{-864}<1/2$.
+\end{lemma}
+
+\begin{lemma}\label{lem:cov}\lean{Side24.covariance_relative_lt_eps}\leanok
+$60\cdot 21175738586478\cdot 10^{-125} < 10^{-108}$.
+\end{lemma}
+
+\begin{lemma}\label{lem:density}\lean{Side24.density_comparison_lt_reported}\leanok
+$32\cdot 10^{-108}<10^{-106}$.
+\end{lemma}
+
+\begin{lemma}\label{lem:budget2}\lean{Side24.exponent_budget_d2}\leanok
+For $d=2$: with $m=d-1$, $n=m(m+1)/2$, $a=m+2/3+n/2$, $b=d+n/2$, one has $a+2b<14$ and $2a+b<13$.
+\end{lemma}
+
+\begin{lemma}\label{lem:budget3}\lean{Side24.exponent_budget_d3}\leanok
+The same for $d=3$.
+\end{lemma}
+
+\begin{proposition}\label{prop:ratio-bound}\lean{Side24.ratio_bound_statement}
+For $d\in\{2,3\}$ and $0<\varepsilon<1/28$,
+$(1+\varepsilon)^a/(1-\varepsilon)^b<1+32\varepsilon$ and $1-32\varepsilon<(1-\varepsilon)^a/(1+\varepsilon)^b$.
+\emph{Specified only; not proved.}
+\end{proposition}
+
+\chapter{Cone moment (PROOF.md \S1)}
+
+\begin{lemma}\label{lem:cone-integral}\lean{Side24.cone_integral_identity}\leanok
+For every real $a$, $\int_0^a (a-z)^2 e^{-z/2}\,dz/2 = a^2-4a+8-8e^{-a/2}$.
+(The prose states $a\ge 0$; the identity holds for all $a$.)
+\end{lemma}
+
+\begin{proposition}\label{prop:gaussian-inputs}\lean{Side24.gaussian_inputs_statement}
+For $s\sim N(0,5/3)$: $\mathbb E s^4=25/3$ and $\mathbb E e^{-s^2/2}=\sqrt{3/8}$.
+\emph{Specified only; not proved.}
+\end{proposition}
+
+\begin{lemma}\label{lem:d2-algebra}\lean{Side24.D2_algebra}\leanok
+$\tfrac12\bigl[25/3-20/3+8-8\sqrt{3/8}\bigr]=29/6-\sqrt6 =: D_2$.
+\end{lemma}
+
+\begin{lemma}\label{lem:d2-bounds}\lean{Side24.D2_bounds}\leanok
+$2.38384359054<D_2<2.38384359056$.
+\end{lemma}
+
+\begin{lemma}\label{lem:truncation}\lean{Side24.D2_lt_untruncated}\leanok
+$D_2<29/6$: the truncation to the negative-definite cone is essential.
+\end{lemma}
+
+\chapter{Reference coefficient and the enclosure (PROOF.md eq.~(1), (4), \S5)}
+
+\begin{definition}\label{def:reference}\lean{Side24.referenceCoefficient}
+$c_{d,\mathrm{ref}}=\Gamma(7/6)\,(3/2)^{1/3}\,D_{d-1}\big/\bigl(2\sqrt3\,\pi^{d-1}\sqrt\pi\bigr)$, with $D_1=4/3$, $D_2=29/6-\sqrt6$.
+\end{definition}
+
+\begin{proposition}\label{prop:reference-enclosure}\lean{Side24.reference_enclosure_statement}\uses{def:reference}
+$c_{d,\mathrm{ref}}$ lies in the author's 80-digit outward rational enclosure (\texttt{coefficient.py}).
+\emph{Specified only; the informal evidence is rational interval arithmetic.}
+\end{proposition}
+
+\begin{proposition}\label{prop:periodization}\lean{Side24.periodization_statement}\uses{def:reference}
+For $d\in\{2,3\}$, $|c_{d,24}/c_{d,\mathrm{ref}}-1|<10^{-106}$.
+\emph{Specified only; depends on the unformalised parent.}
+\end{proposition}
+
+\begin{lemma}\label{lem:perturbed}\lean{Side24.perturbed_bounds}\leanok
+If $0<lo<r<hi$, $0<\delta<1$ and $|c/r-1|<\delta$ then $(1-\delta)lo<c<(1+\delta)hi$.
+\end{lemma}
+
+\begin{definition}\label{def:enclosure}\lean{Side24.enclosure_statement}
+$0.07340691930603427103<c_2<0.07340691930603427104$ and $0.04177593184059834334<c_3<0.04177593184059834335$.
+\end{definition}
+
+\begin{theorem}\label{thm:enclosure-of-reference}\lean{Side24.enclosure_of_reference}\leanok
+\uses{prop:reference-enclosure,prop:periodization,lem:perturbed,def:enclosure}
+Proposition~\ref{prop:reference-enclosure} and Proposition~\ref{prop:periodization} together imply
+Definition~\ref{def:enclosure} for the same $c$.
+This is the kernel-checked \S5 step; it discharges neither hypothesis.
+\end{theorem}

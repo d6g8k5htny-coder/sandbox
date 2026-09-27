@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 21
+EXPECTED_TESTS = 27
 EXPECTED_MUTANTS = 33
 
 
@@ -58,6 +58,9 @@ def main(argv=None) -> int:
                           capture_output=True, text=True, timeout=300)
     (out / 'gate_stdout.txt').write_text(gate.stdout + gate.stderr, encoding='utf-8')
     gate_report = json.loads(gate.stdout[:gate.stdout.rindex('}') + 1]) if gate.returncode == 0 else None
+    blueprint = subprocess.run([sys.executable, '-B', '-S', str(ROOT / 'blueprint_check.py')],
+                               capture_output=True, text=True, timeout=300)
+    (out / 'blueprint_stdout.txt').write_text(blueprint.stdout + blueprint.stderr, encoding='utf-8')
 
     lean = None
     if args.with_lean:
@@ -70,6 +73,7 @@ def main(argv=None) -> int:
              for p in sorted(ROOT.iterdir()) if p.is_file()}
     passed = (counts['normal'] == counts['optimized'] == EXPECTED_TESTS and mutants == EXPECTED_MUTANTS
               and gate.returncode == 0 and gate_report is not None and gate_report['passed']
+              and blueprint.returncode == 0
               and (lean is None or lean['evidence_matches_committed']))
     report = {
         'object': 'FORMAL-LAYER-VALIDATION-v1',
@@ -78,6 +82,7 @@ def main(argv=None) -> int:
         'distinct_semantic_mutants': mutants,
         'modes': ['normal', 'optimized'],
         'gate_exit_code': gate.returncode,
+        'blueprint_exit_code': blueprint.returncode,
         'lean': lean,
         'python': sys.version,
         'files': files,
