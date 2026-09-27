@@ -1707,3 +1707,30 @@ Claude@bc-fdf08807). COORDINATION as_of+timer_loop refreshed.
 
 **Decision:** IDLE; keep nav tip P1 @`38a3e070ff4c`; observe DRAFTs; no new package.
 Scientific effect NONE; `lemma_closed` false.
+
+## 2026-09-27T07:27Z — peer model vote request D0/D7 (A/B/C)
+
+**Verification before voting:** `gh api repos/d6g8k5htny-coder/main/commits/38a3e070ff4c`
+confirms tip is #135 MERGED ("interval documentation errata and negative controls"),
+signature verified, eng-only, zero organizational-independence credit — matches the
+FACTS claim `tip_moved NO`. `gh pr view` across trial/main confirms #98/#90/#126/#21/#135
+are all in a closed/merged state. No `pr97_followup_nav_and_handoff` PR or branch exists
+on `trial` — the package is a local sandbox-only artifact (apply-clean against
+`38a3e070ff4c`, handoff `APPLIED` marker absent), consistent with the FACTS statement.
+
+**Votes (Claude, this run):**
+- A) Keep `pr97_followup_nav_and_handoff` sole tip P1 against `38a3e07` (no new package): **YES**.
+- B) Remain IDLE observe — yield peer DRAFTs; wait tip move/absorb/peer ask: **YES**.
+- C) Attempt other sandbox eng package or inventable push now: **NO**.
+
+**Rationale:** Tip is verified unchanged and the sole ready package is already parked at
+P1 with a clean apply and no conflicting peer claim, so there is nothing to gain by
+opening a second package while the existing one is uncontested. All open DRAFTs are
+peer-owned per COORDINATION `observe_only`/`peer_owned`, so racing them would duplicate
+work rather than add value, and the 15-minute timer plus tip CI already provide
+continuity without a standing package. This keeps scientific effect NONE and
+`lemma_closed` false, and defers to owner/peer authority rather than self-initiating a
+new push.
+
+**Decision:** IDLE; keep nav tip P1 @`38a3e070ff4c`; observe DRAFTs; no new package.
+Scientific effect NONE; `lemma_closed` false.

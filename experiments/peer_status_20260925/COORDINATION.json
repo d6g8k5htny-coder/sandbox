@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T07:08:53Z",
+  "as_of_utc": "2026-09-27T07:27:03Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -168,6 +168,11 @@
       "claude": "A YES B YES C NO @bc-fdf08807",
       "at": "2026-09-27T06:36Z",
       "note": "stable IDLE reaffirm; tip unchanged 38a3e070ff4c; keep nav P1; no new package"
+    },
+    "d0_d7_peer_model_vote": {
+      "claude": "A YES B YES C NO @bc-current",
+      "at": "2026-09-27T07:27Z",
+      "note": "verified tip 38a3e070ff4c == main#135 MERGED (gh api); trial/main #98/#90/#126/#21/#135 all MERGED (gh pr view); no pr97_followup_nav_and_handoff PR/branch found on trial \u2014 package remains local sandbox artifact, apply-clean/APPLIED-absent unchanged. Reaffirm IDLE nav sole tip P1."
     },
     "tip_move_135_votes": {
       "gpt": "A YES B NO C NO @bc-e49a1494",
@@ -361,11 +366,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T07:08:53Z",
+    "at": "2026-09-27T07:27:03Z",
     "tip": "38a3e070ff4c",
     "priority_ambiguous": false,
     "decision": "IDLE; tip still 38a3e070ff4c; nav sole tip P1; observe DRAFTs; no new package; resubscribe",
-    "model_consult": "skipped; tip unchanged 38a3e070ff4c; cite last votes GPT@bc-e9c9b3aa + Claude@bc-fdf08807"
+    "model_consult": "peer_vote_requested; Claude A YES B YES C NO @bc-current; cite last multimodel GPT@bc-e9c9b3aa + Claude@bc-fdf08807"
   },
   "resolved_alternate": [
     {
