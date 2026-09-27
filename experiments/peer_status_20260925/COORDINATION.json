@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T19:14:41Z",
+  "as_of_utc": "2026-09-27T19:16:50Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -429,11 +429,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T19:14:41Z",
+    "at": "2026-09-27T19:16:50Z",
     "tip": "e7652a130398",
     "priority_ambiguous": false,
-    "decision": "tip moved #124; claims-firewall SUPERSEDED by #169; sole ready P1 = nav @e7652a130398; OBSERVE Claims→gate UNRESOLVED_CONTROLLING_SOURCE; NO inventable tip push",
-    "model_consult": "recorded tip-move votes GPT@bc-f1c13bc0 + Claude@bc-d9671592 (A YES B YES C NO D NO)"
+    "decision": "IDLE tip e7652a130398 gate red; sole ready P1 = nav; OBSERVE Claims→gate UNRESOLVED_CONTROLLING_SOURCE + peer main#171; NO inventable tip push",
+    "model_consult": "skipped — tip unchanged; cite tip-move GPT@bc-f1c13bc0 + Claude@bc-d9671592"
   },
   "resolved_alternate": [
     {
