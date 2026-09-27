@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T18:12:03Z",
+  "as_of_utc": "2026-09-27T18:29:59Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -129,7 +129,9 @@
       "gpt-5.6-terra-medium@bc-a84a80e1",
       "claude-sonnet-5-thinking-medium@bc-31347946",
       "gpt-5.6-terra-medium@bc-81c63bfc",
-      "claude-sonnet-5-thinking-medium@bc-5535896e"
+      "claude-sonnet-5-thinking-medium@bc-5535896e",
+      "gpt-5.6-terra-medium@bc-dff71003",
+      "claude-sonnet-5-thinking-medium@bc-cdf48c90"
     ],
     "pending_votes": [],
     "live_peer_override": "tip 38a3e070ff4c (#135 MERGED interval docs errata); sandbox nav tip P1; observe remaining DRAFTs",
@@ -190,9 +192,9 @@
       "at": "2026-09-26T02:13Z"
     },
     "periodic_idle_reaffirm_votes": {
-      "gpt": "A YES B YES C NO @bc-81c63bfc",
-      "claude": "A YES B YES C NO @bc-5535896e",
-      "at": "2026-09-27T17:39Z",
+      "gpt": "A YES B YES C NO @bc-dff71003",
+      "claude": "A YES B YES C NO @bc-cdf48c90",
+      "at": "2026-09-27T18:29Z",
       "note": "stable IDLE reaffirm; tip unchanged 38a3e070ff4c; keep nav P1; no new package"
     },
     "d0_d7_peer_model_vote": {
@@ -392,11 +394,11 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T18:12:03Z",
+    "at": "2026-09-27T18:29:59Z",
     "tip": "38a3e070ff4c",
     "priority_ambiguous": false,
     "decision": "IDLE; tip still 38a3e070ff4c; nav sole tip P1; observe DRAFTs; no new package; resubscribe",
-    "model_consult": "skipped; tip unchanged 38a3e070ff4c; cite GPT@bc-81c63bfc + Claude@bc-5535896e"
+    "model_consult": "reaffirm; tip unchanged 38a3e070ff4c; cite GPT@bc-dff71003 + Claude@bc-cdf48c90"
   },
   "resolved_alternate": [
     {
