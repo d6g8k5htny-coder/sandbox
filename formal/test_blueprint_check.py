@@ -17,7 +17,7 @@ class BlueprintTests(unittest.TestCase):
     def test_committed_blueprint_aligns(self):
         result = bc.check(REPO)
         self.assertTrue(result['passed'], result['problems'])
-        self.assertEqual(len(result['bound']), 21)
+        self.assertEqual(len(result['bound']), 22)
 
     def test_leanok_on_specified_component_is_refused(self):
         mutated = CONTENT.replace('\\lean{Side24.ratio_bound_statement}', '\\lean{Side24.ratio_bound_statement}\\leanok')

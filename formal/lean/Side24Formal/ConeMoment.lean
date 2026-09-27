@@ -2,6 +2,8 @@ import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
 import Mathlib.Analysis.Real.Sqrt
 import Mathlib.Probability.Distributions.Gaussian.Real
+import Mathlib.Probability.Moments.MGFAnalytic
+import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
 import Mathlib.Tactic
 
 /-!
@@ -10,10 +12,11 @@ import Mathlib.Tactic
 Formal object: `SIDE24-COEFFICIENT-D23-20260924-v1`, components `side24.cone.*`.
 
 The informal §1 computes the transverse cone moment `D₂ = E[det(A)² 1{A<0}]` for the
-`m = 2` reference law through (i) an elementary integral, (ii) three Gaussian moments
-of the shared shift `s ~ N(0, 5/3)`, and (iii) algebra.  Here (i) and (iii) are
-kernel-checked and (ii) is only *specified* as a `Prop` against Mathlib's
-`ProbabilityTheory.gaussianReal`.
+`m = 2` reference law through (i) an elementary integral, (ii) two Gaussian moments
+of the shared shift `s ~ N(0, 5/3)`, and (iii) algebra.  All three are kernel-checked
+here; (ii) is stated against Mathlib's `ProbabilityTheory.gaussianReal` (whose second
+argument is the *variance*).  What is **not** formalised is the probabilistic reduction
+from the conditional Hessian law to these scalar integrals (PROOF.md §1 prose).
 
 The private sandbox experiment `experiments/cone_v1/cone_probe.py` samples the same
 quantity; that Monte Carlo output is a sanity check, never evidence.  Scientific effect: NONE.
@@ -86,10 +89,89 @@ theorem D2_lt_untruncated : D2 < 29 / 6 := by
   have : 0 < Real.sqrt 6 := Real.sqrt_pos.mpr (by norm_num)
   linarith
 
-/-- PROOF.md §1 Gaussian inputs, statement only (status `specified`): for
-`s ~ N(0, 5/3)`, `E s⁴ = 25/3` and `E e^(−s²/2) = √(3/8)`.  Not proved in this pilot. -/
-def gaussian_inputs_statement : Prop :=
-  (∫ s, s ^ 4 ∂(gaussianReal 0 (5 / 3 : NNReal))) = 25 / 3 ∧
-  (∫ s, Real.exp (-s ^ 2 / 2) ∂(gaussianReal 0 (5 / 3 : NNReal))) = Real.sqrt (3 / 8)
+/-- Derivative of `p(t)·exp(v t²/2)` for a differentiable `p` (MGF bookkeeping). -/
+theorem hasDerivAt_poly_mul_gauss {v : ℝ} {p : ℝ → ℝ} {p' t : ℝ} (hp : HasDerivAt p p' t) :
+    HasDerivAt (fun t => p t * Real.exp (v * t ^ 2 / 2))
+      ((p' + p t * (v * t)) * Real.exp (v * t ^ 2 / 2)) t := by
+  have hq : HasDerivAt (fun t : ℝ => v * t ^ 2 / 2) (v * t) t := by
+    have := (((hasDerivAt_id' t).pow 2).const_mul v).div_const 2
+    convert this using 1
+    simp; ring
+  have := hp.mul hq.exp
+  convert this using 1
+  ring
+
+/-- Fourth derivative at `0` of the centred Gaussian MGF `t ↦ exp(v t²/2)` is `3v²`. -/
+theorem iteratedDeriv_gauss_four (v : ℝ) :
+    iteratedDeriv 4 (fun t : ℝ => Real.exp (v * t ^ 2 / 2)) 0 = 3 * v ^ 2 := by
+  have d1 : deriv (fun t : ℝ => Real.exp (v * t ^ 2 / 2))
+      = fun t => (v * t) * Real.exp (v * t ^ 2 / 2) := by
+    funext t
+    have := hasDerivAt_poly_mul_gauss (v := v) (hasDerivAt_const t (1 : ℝ))
+    simpa using this.deriv
+  have d2 : deriv (fun t : ℝ => (v * t) * Real.exp (v * t ^ 2 / 2))
+      = fun t => (v + v ^ 2 * t ^ 2) * Real.exp (v * t ^ 2 / 2) := by
+    funext t
+    have hp : HasDerivAt (fun t : ℝ => v * t) v t := by simpa using (hasDerivAt_id' t).const_mul v
+    have := (hasDerivAt_poly_mul_gauss (v := v) hp).deriv
+    rw [this]; ring
+  have d3 : deriv (fun t : ℝ => (v + v ^ 2 * t ^ 2) * Real.exp (v * t ^ 2 / 2))
+      = fun t => (3 * v ^ 2 * t + v ^ 3 * t ^ 3) * Real.exp (v * t ^ 2 / 2) := by
+    funext t
+    have hp : HasDerivAt (fun t : ℝ => v + v ^ 2 * t ^ 2) (v ^ 2 * (2 * t)) t := by
+      have := (((hasDerivAt_id' t).pow 2).const_mul (v ^ 2)).const_add v
+      convert this using 1; simp
+    have := (hasDerivAt_poly_mul_gauss (v := v) hp).deriv
+    rw [this]; ring
+  have d4 : deriv (fun t : ℝ => (3 * v ^ 2 * t + v ^ 3 * t ^ 3) * Real.exp (v * t ^ 2 / 2))
+      = fun t => (3 * v ^ 2 + 6 * v ^ 3 * t ^ 2 + v ^ 4 * t ^ 4) * Real.exp (v * t ^ 2 / 2) := by
+    funext t
+    have hp : HasDerivAt (fun t : ℝ => 3 * v ^ 2 * t + v ^ 3 * t ^ 3)
+        (3 * v ^ 2 + v ^ 3 * (3 * t ^ 2)) t := by
+      have h1 : HasDerivAt (fun t : ℝ => 3 * v ^ 2 * t) (3 * v ^ 2) t := by
+        simpa using (hasDerivAt_id' t).const_mul (3 * v ^ 2)
+      have h2 : HasDerivAt (fun t : ℝ => v ^ 3 * t ^ 3) (v ^ 3 * (3 * t ^ 2)) t := by
+        have := ((hasDerivAt_id' t).pow 3).const_mul (v ^ 3)
+        convert this using 1; simp
+      exact h1.add h2
+    have := (hasDerivAt_poly_mul_gauss (v := v) hp).deriv
+    rw [this]; ring
+  rw [show (4 : ℕ) = 0 + 1 + 1 + 1 + 1 from rfl, iteratedDeriv_succ, iteratedDeriv_succ,
+    iteratedDeriv_succ, iteratedDeriv_succ, iteratedDeriv_zero, d1, d2, d3, d4]
+  simp
+
+/-- PROOF.md §1: `E s⁴ = 25/3` for `s ~ N(0, 5/3)` (fourth moment `3·Var(s)²`),
+via the moment-generating function `mgf_id_gaussianReal`. -/
+theorem gaussian_fourth_moment :
+    (∫ s, s ^ 4 ∂(gaussianReal 0 (5 / 3 : NNReal))) = 25 / 3 := by
+  have h := iteratedDeriv_mgf_zero (X := id) (μ := gaussianReal 0 (5 / 3 : NNReal)) (by simp) 4
+  rw [mgf_id_gaussianReal] at h
+  simp only [zero_mul, zero_add] at h
+  rw [iteratedDeriv_gauss_four ((5 / 3 : NNReal) : ℝ)] at h
+  have : (∫ s, s ^ 4 ∂(gaussianReal 0 (5 / 3 : NNReal))) = (gaussianReal 0 (5 / 3 : NNReal))[id ^ 4] := by
+    congr 1
+  rw [this, ← h]
+  norm_num
+
+/-- PROOF.md §1: `E exp(−s²/2) = √(3/8)` for `s ~ N(0, 5/3)`, via the Gaussian integral
+`∫ exp(−b x²) = √(π/b)`. -/
+theorem gaussian_exp_moment :
+    (∫ s, Real.exp (-s ^ 2 / 2) ∂(gaussianReal 0 (5 / 3 : NNReal))) = Real.sqrt (3 / 8) := by
+  rw [integral_gaussianReal_eq_integral_smul (by norm_num)]
+  simp only [gaussianPDFReal, smul_eq_mul, sub_zero]
+  have hcoe : ((5 / 3 : NNReal) : ℝ) = 5 / 3 := by norm_num
+  rw [hcoe]
+  have hpt : ∀ x : ℝ, (√(2 * Real.pi * (5 / 3)))⁻¹ * Real.exp (-x ^ 2 / (2 * (5 / 3)))
+      * Real.exp (-x ^ 2 / 2) = (√(2 * Real.pi * (5 / 3)))⁻¹ * Real.exp (-(4 / 5) * x ^ 2) := by
+    intro x
+    rw [mul_assoc, ← Real.exp_add]
+    congr 2
+    ring
+  simp_rw [hpt]
+  rw [integral_const_mul, integral_gaussian]
+  rw [← Real.sqrt_inv, ← Real.sqrt_mul (by positivity)]
+  congr 1
+  field_simp
+  ring
 
 end Side24

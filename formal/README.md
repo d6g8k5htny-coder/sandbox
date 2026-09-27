@@ -51,18 +51,19 @@ Tokens handed to the Math- hard gate (see `handoff/MATH_HARD_GATE_EXTENSION.md`)
 ## Pilot: SIDE24 coefficient (Math- `coefficients/side24_v1/PROOF.md`)
 
 Bound to commit `760340e921ac4ceda296b8118da936f1133e956e`, sha256
-`c06daccc…7769` (the same identity the museum and `GRAPH.json` pin). 21 components:
+`c06daccc…7769` (the same identity the museum and `GRAPH.json` pin). 22 components:
 
-* **kernel-checked (14):** the §2–§4 arithmetic ledger (image constant, `e^{288/125} > 10`
+* **kernel-checked (16):** the §2–§4 arithmetic ledger (image constant, `e^{288/125} > 10`
   via Mathlib's exponential partial sums, `e^{-288} < 10^{-125}`, `512e^{-864} < 1/2`,
   `60E < ε`, `32ε < 10^{-106}`, exponent budgets for `d = 2, 3`); the §1 cone integral
-  `∫₀ᵃ (a−z)²e^{−z/2}dz/2 = a²−4a+8−8e^{−a/2}`; the algebra `D₂ = 29/6 − √6`, its outward
-  enclosure and `D₂ < 29/6` (truncation essential); the §5 transfer lemma and the
-  implication *(reference enclosure ∧ eq. (4)) ⇒ displayed 20-digit bounds*.
-* **specified (7):** the §4 ratio bound `1 ± 32ε`; the Gaussian inputs
-  (`E s⁴ = 25/3`, `E e^{−s²/2} = √(3/8)` for `N(0, 5/3)`, against `gaussianReal`); the
-  reference coefficient eq. (1) as a definition; the author's 80-digit reference
-  enclosure; eq. (4); and the displayed theorem itself.
+  `∫₀ᵃ (a−z)²e^{−z/2}dz/2 = a²−4a+8−8e^{−a/2}`; the §1 Gaussian inputs `E s⁴ = 25/3` (via
+  the MGF `mgf_id_gaussianReal`) and `E e^{−s²/2} = √(3/8)` (via `integral_gaussian`) for
+  `s ~ N(0, 5/3)`; the algebra `D₂ = 29/6 − √6`, its outward enclosure and `D₂ < 29/6`
+  (truncation essential); the §5 transfer lemma and the implication
+  *(reference enclosure ∧ eq. (4)) ⇒ displayed 20-digit bounds*.
+* **specified (6):** the §4 ratio bound `1 ± 32ε`; the reference coefficient eq. (1) as a
+  definition; the author's 80-digit reference enclosure; eq. (4); and the displayed
+  theorem itself.
 
 The periodic coefficient `c_{d,24}` is **not** defined in Lean because its definition is
 the unformalized parent (main #63, eq. 15.2). Every statement about it is parametrized by
@@ -129,8 +130,9 @@ byte difference.
 1. ✔ Pilot on SIDE24 (this directory). 2. ✔ Glossary. 3. ✔ Review lane defined (no
 review yet — every component is `author-side`). 4. ✔ CI `lake build` + evidence replay
 here; **Math- hard gate extension pending** (see `handoff/`). 5. Expand: prove the
-`specified` Props (Gaussian moments via Mathlib `gaussianReal`; the `1 ± 32ε` ratio bound;
-`Γ(7/6)`/`π` enclosures), then the next Math- object (BF six-pin certificates are exact
+remaining `specified` Props (the `1 ± 32ε` ratio bound; `Γ(7/6)`/`π` enclosures — the
+Gaussian moments were `specified` in the first revision and are now kernel-checked, which is
+the intended ladder progression), then the next Math- object (BF six-pin certificates are exact
 finite arithmetic — good candidates). 6. External validation once a nonauthor alignment
 review exists. 7. AI-prover cross-check lane: run an independent Lean prover on the
 `specified` Props; any kernel-accepted proof is recorded as evidence with its own

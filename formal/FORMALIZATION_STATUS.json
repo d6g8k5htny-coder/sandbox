@@ -221,15 +221,26 @@
           "does_not_claim": "which of the two values is the cone moment; only that they differ (D_2 < 29/6)"
         },
         {
-          "component_id": "side24.cone.gaussian-inputs",
-          "informal_ref": "PROOF.md §1: Var(s)=5/3, E s^4 = 25/3, E exp(-s^2/2) = sqrt(3/8)",
+          "component_id": "side24.cone.gaussian-fourth-moment",
+          "informal_ref": "PROOF.md §1: \"E s^2=5/3, E s^4=25/3\" for the shared shift s ~ N(0,5/3)",
           "lean_module": "Side24Formal/ConeMoment.lean",
-          "lean_decl": "Side24.gaussian_inputs_statement",
-          "lean_statement": "def gaussian_inputs_statement : Prop := (∫ s, s ^ 4 ∂(gaussianReal 0 (5 / 3 : NNReal))) = 25 / 3 ∧ (∫ s, Real.exp (-s ^ 2 / 2) ∂(gaussianReal 0 (5 / 3 : NNReal))) = Real.sqrt (3 / 8)",
-          "formalization_status": "specified",
+          "lean_decl": "Side24.gaussian_fourth_moment",
+          "lean_statement": "theorem gaussian_fourth_moment : (∫ s, s ^ 4 ∂(gaussianReal 0 (5 / 3 : NNReal))) = 25 / 3",
+          "formalization_status": "kernel-checked",
           "formalization_review": "author-side",
           "review_record": null,
-          "does_not_claim": "truth of the statement; Prop definition against Mathlib gaussianReal, no proof"
+          "does_not_claim": "that s (the trace-direction shift of the conditional Hessian) has law N(0,5/3); only the moment of that law (gaussianReal takes the variance as second argument)"
+        },
+        {
+          "component_id": "side24.cone.gaussian-exp-moment",
+          "informal_ref": "PROOF.md §1: \"E exp(-s^2/2)=sqrt(3/8)\" for s ~ N(0,5/3)",
+          "lean_module": "Side24Formal/ConeMoment.lean",
+          "lean_decl": "Side24.gaussian_exp_moment",
+          "lean_statement": "theorem gaussian_exp_moment : (∫ s, Real.exp (-s ^ 2 / 2) ∂(gaussianReal 0 (5 / 3 : NNReal))) = Real.sqrt (3 / 8)",
+          "formalization_status": "kernel-checked",
+          "formalization_review": "author-side",
+          "review_record": null,
+          "does_not_claim": "the law of s; only the integral of exp(-s^2/2) against N(0,5/3)"
         },
         {
           "component_id": "side24.reference.definition",

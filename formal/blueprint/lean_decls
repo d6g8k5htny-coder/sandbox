@@ -9,7 +9,8 @@ Side24.exponent_budget_d2
 Side24.exponent_budget_d3
 Side24.ratio_bound_statement
 Side24.cone_integral_identity
-Side24.gaussian_inputs_statement
+Side24.gaussian_fourth_moment
+Side24.gaussian_exp_moment
 Side24.D2_algebra
 Side24.D2_bounds
 Side24.D2_lt_untruncated

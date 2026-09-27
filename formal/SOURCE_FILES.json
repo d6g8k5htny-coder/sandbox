@@ -5,8 +5,8 @@
       "sha256": "75307dcf6471d6201557fd610013e2a5ef5a47b27b2011f88fa3eb34ee7d06d5"
     },
     "Side24Formal/ConeMoment.lean": {
-      "bytes": 4086,
-      "sha256": "01e017ec528e0ca045b0eab2d21ba28d431d346eec0457bf38a10be08f447a6a"
+      "bytes": 8182,
+      "sha256": "b34affce872a8ffdbd9e738e8e8c3ad6b02f89422f12b9bf65c45b6c6b9288c5"
     },
     "Side24Formal/Ledger.lean": {
       "bytes": 4189,

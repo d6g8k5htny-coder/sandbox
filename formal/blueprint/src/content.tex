@@ -64,12 +64,15 @@ For every real $a$, $\int_0^a (a-z)^2 e^{-z/2}\,dz/2 = a^2-4a+8-8e^{-a/2}$.
 (The prose states $a\ge 0$; the identity holds for all $a$.)
 \end{lemma}
 
-\begin{proposition}\label{prop:gaussian-inputs}\lean{Side24.gaussian_inputs_statement}
-For $s\sim N(0,5/3)$: $\mathbb E s^4=25/3$ and $\mathbb E e^{-s^2/2}=\sqrt{3/8}$.
-\emph{Specified only; not proved.}
-\end{proposition}
+\begin{lemma}\label{lem:gaussian-fourth}\lean{Side24.gaussian_fourth_moment}\leanok
+For $s\sim N(0,5/3)$: $\mathbb E s^4=25/3$ (via the moment-generating function).
+\end{lemma}
 
-\begin{lemma}\label{lem:d2-algebra}\lean{Side24.D2_algebra}\leanok
+\begin{lemma}\label{lem:gaussian-exp}\lean{Side24.gaussian_exp_moment}\leanok
+For $s\sim N(0,5/3)$: $\mathbb E e^{-s^2/2}=\sqrt{3/8}$ (via $\int e^{-bx^2}=\sqrt{\pi/b}$).
+\end{lemma}
+
+\begin{lemma}\label{lem:d2-algebra}\lean{Side24.D2_algebra}\leanok\uses{lem:cone-integral,lem:gaussian-fourth,lem:gaussian-exp}
 $\tfrac12\bigl[25/3-20/3+8-8\sqrt{3/8}\bigr]=29/6-\sqrt6 =: D_2$.
 \end{lemma}
 

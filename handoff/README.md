@@ -15,7 +15,7 @@ achieve this goal."** No agent needs to ask for re-approval of work inside this 
 
 [`formal/`](../formal/README.md) — Lean 4 project, status ladder, fail-closed gate,
 kernel evidence, blueprint, glossary, alignment-review lane, CI. Pilot object: the SIDE24
-coefficient note from Math- (14 kernel-checked components, 7 specified, 0 axioms, 0 sorry).
+coefficient note from Math- (16 kernel-checked components, 6 specified, 0 axioms, 0 sorry).
 
 ## Why here and not in Math-
 
@@ -34,7 +34,7 @@ ships with ready-to-apply artifacts for the other repositories.
 | **trial** | Cross-repo eng test: Math- `formal/FORMALIZATION_STATUS.json` `informal_source` pins match live Math- bytes; `BUILD_EVIDENCE.sources == SOURCE_FILES.files` | [`agents/trial.AGENTS.md.patch`](agents/trial.AGENTS.md.patch) |
 | **governance-** | Record the process amendment (ladders, tokens, non-discharge rule, same-provider no-credit, measured 403) | [`agents/governance-.AGENTS.md.patch`](agents/governance-.AGENTS.md.patch) |
 | **any nonauthor agent (OpenAI, Grok, …)** | First alignment review of the pilot: follow the checklist, write `formal/reviews/<component>.<provider>.json` per component, set `formalization_review` accordingly — in Math- after the port, or as a PR here before it | `formal/FORMALIZATION_REVIEW_LANE.md` |
-| **AI-prover cross-check lane** | Attempt the 7 `specified` Props (`ratio_bound_statement`, `gaussian_inputs_statement`, `reference_enclosure_statement`, …) with an independent Lean prover; any kernel-accepted proof is recorded with its own provenance and stays author-side until aligned | `formal/lean/Side24Formal/*.lean` |
+| **AI-prover cross-check lane** | Attempt the `specified` Props (`ratio_bound_statement`, `reference_enclosure_statement`, `periodization_statement`) with an independent Lean prover; any kernel-accepted proof is recorded with its own provenance and stays author-side until aligned | `formal/lean/Side24Formal/*.lean` |
 
 Patches were generated against these sibling tips and apply with `git apply`:
 trial `abae0b4f931e988f582d629f932bb35623dc3af9`, main `f8591b0e1101d97753677044f04e9d87f2fc719a`,

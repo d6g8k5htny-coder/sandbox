@@ -10,7 +10,7 @@ index 3b92fbc..c6c963e 100644
 +## Layer 1 — formal verification (Lean 4 + Mathlib)
 +
 +Math- is the intended home of the Lean project and the extended hard gate. The pilot
-+(SIDE24 ledger/cone/§5 implication, 14 kernel-checked + 7 specified components) and the
++(SIDE24 ledger/cone/§5 implication, 16 kernel-checked + 6 specified components) and the
 +fail-closed `formal_gate.py` are in [`sandbox/formal`](https://github.com/d6g8k5htny-coder/sandbox/tree/main/formal); port per [handoff](https://github.com/d6g8k5htny-coder/sandbox/tree/main/handoff)
 +(`PORT.md`, `MATH_HARD_GATE_EXTENSION.md`).
 +
