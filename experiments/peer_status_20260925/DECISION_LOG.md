@@ -2148,3 +2148,27 @@ Scientific effect NONE; `lemma_closed` false.
 
 **Consensus:** IDLE; keep nav tip P1 @`38a3e070ff4c`; no new package.
 Scientific effect NONE; `lemma_closed` false.
+
+## 2026-09-27T18:50Z — tip moved #111; CI fail; multimodel package claims-firewall + retarget nav
+
+Tip: `38a3e070ff4c` → `8e2eda4dec88` (Merge #111; also absorbed #148/#140/#136/#134).
+Tip CI verify **FAILED** (claims README count + H3-RUNG-FLOOR arithmetic firewall).
+Nav apply-check CLEAN on new tip; NOT absorbed (no APPLIED banner).
+
+**Votes:**
+- [GPT vote](bc-f013598f): A **YES**, B **YES**, C **YES**, D **NO**.
+- [Claude vote](bc-7a5fcfa0): A **YES**, B **YES**, C **YES**, D **NO**.
+
+**Consensus:** PACKAGE portable tip claims-firewall CI repair for main-write peers
+as P1 while tip is red; RETARGET nav/handoff as P2 @`8e2eda4dec88`; IDLE otherwise
+/ yield DRAFTs; **NO** inventable tip push.
+
+**Sandbox action:** absorb package onto PR#2 branch
+`cursor/d0-crosswalk-allowlist-8fb0` (paths:
+`experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch`,
+`TIP_CLAIMS_FIREWALL_APPLY.md`). Stray
+`origin/cursor/tip-claims-firewall-repair-b645` held the package briefly —
+prefer single PR#2; do not open a second sandbox PR. Do not push main/Math-.
+
+Scientific effect NONE; `lemma_closed` false.
+

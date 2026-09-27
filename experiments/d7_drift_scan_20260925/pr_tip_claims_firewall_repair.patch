@@ -1,0 +1,115 @@
+diff --git a/claims/README.md b/claims/README.md
+index 2e4a263..02b2e7e 100644
+--- a/claims/README.md
++++ b/claims/README.md
+@@ -1,6 +1,6 @@
+ # Claim / premise dependency graph
+ 
+-`graph.json` is the program's claim structure as data: 26 claims, 13 named
++`graph.json` is the program's claim structure as data: 27 claims, 13 named
+ premises, 10 firewalls. `tools/claims_check.py` turns the firewalls into
+ assertions; `tests/test_claims.py` and `tests/test_claims_firewalls.py` prove the
+ checker actually rejects each violation it is supposed to reject.
+@@ -51,12 +51,14 @@ register note is open. Reading only the frozen column, which is what this checke
+ used to do, made a disagreement in the direction that matters invisible.
+ 
+ `FW-RUNG-OPEN-PREMISE` currently refuses nothing, and that is worth saying out
+-loud: the fail-closed audit of 2026-09-25 moved the only `CERTIFIED_RUNG` claim
+-in the graph to `CONDITIONAL` and kept the source word in
+-`source_grade_verbatim`, so there is no rung left for this firewall to reach.
+-Extending it to both columns therefore adds zero refusals today. Its control in
+-`tests/test_claims.py` grades `D1-v2.2(1)` back to `CERTIFIED_RUNG` and asserts
+-the refusal, which is the only way an inert firewall can be shown to work.
++loud: the fail-closed audit of 2026-09-25 moved `D1-v2.2(1)` from
++`CERTIFIED_RUNG` to `CONDITIONAL` and kept the source word in
++`source_grade_verbatim`. `H3-RUNG-FLOOR` remains `CERTIFIED_RUNG` with an empty
++`depends_on`, so there is still no open premise under a rung for this firewall
++to reach. Extending it to both columns therefore adds zero refusals today. Its
++control in `tests/test_claims.py` grades `D1-v2.2(1)` back to `CERTIFIED_RUNG`
++over an open premise and asserts the refusal, which is the only way an inert
++firewall can be shown to work.
+ 
+ Both columns are also read against a **closed** vocabulary. A premise counts as
+ discharged only when a column says so in a word listed in `PREMISE_DISCHARGED`
+diff --git a/claims/graph.json b/claims/graph.json
+index 5f20eed..e26b5cd 100644
+--- a/claims/graph.json
++++ b/claims/graph.json
+@@ -301,7 +301,7 @@
+     {
+      "kind": "frozen_certificate_body",
+      "ref": "engine/rn_engine/frozen/K3_SIDE24_LB/UPPER2D/H3_closure/H3_RUNG_FLOOR.md, 7003 bytes, sha256 6347275d86c56842b719b36180e535bc1793d6995ddb68464db2960820440dfa (STAGE E REPAIR R2, 2026-09-13)",
+-     "arithmetic": "interval (mpmath iv, 100 dps)",
++     "arithmetic": "interval_arithmetic",
+      "certifying": true,
+      "note": "Arithmetic transcribed from the object's own declaration ('everything below is interval arithmetic (mpmath iv, 100 dps)'; 'no Monte Carlo in the certificate'). certifying: true records what the object asserts. It is not an independence credit or an external verdict."
+     },
+@@ -309,7 +309,7 @@
+      "kind": "carrier_binding",
+      "ref": "engine/rn_engine/BINDING.json carrier RNENG-08",
+      "carrier_id": "RNENG-08",
+-     "arithmetic": "not applicable (Markdown artifact)",
++     "arithmetic": "not_applicable",
+      "certifying": false,
+      "note": "Byte-exact carrier recovery is provenance, not proof."
+     }
+diff --git a/engine/rn_engine/BINDING.json b/engine/rn_engine/BINDING.json
+index 49c4321..07e1d66 100644
+--- a/engine/rn_engine/BINDING.json
++++ b/engine/rn_engine/BINDING.json
+@@ -267,7 +267,7 @@
+       "blob_path": "engine/rn_engine/frozen/K3_SIDE24_LB/UPPER2D/H3_closure/H3_RUNG_FLOOR.md",
+       "lane": "A5 / D3-LEMMA-RN-UNIF (pinned input from the H3 lane)",
+       "computes": "d3_rn_unif.py lines 74-81 parse Z_{0.05} in [lo, hi] out of this file and fail-close unless Z_lo == 7.7592917375327855e-3.",
+-      "arithmetic": "not applicable (Markdown artifact)",
++      "arithmetic": "not_applicable",
+       "certifying": false,
+       "certifying_note": "NON-CERTIFYING. Recovery of a byte-exact carrier is provenance, not proof. Nothing in this record promotes, closes, discharges or reclassifies any claim. D3-LEMMA-RN-UNIF Piece 1 and Piece 2 both remain OPEN; OBL-H5-JETMOD, OBL-H5-ZBAND, OBL-H5-REMOTE-THRESHOLD and OBL-D1-PROMOTE all remain OPEN.",
+       "authority_tier": "RESEARCH_SOURCE_CHECK_STATUS (drive/source_map)",
+diff --git a/tests/test_claims_firewalls.py b/tests/test_claims_firewalls.py
+index 04ffc9b..baaeeca 100644
+--- a/tests/test_claims_firewalls.py
++++ b/tests/test_claims_firewalls.py
+@@ -395,10 +395,10 @@ def test_restated_and_refinement_are_not_discharges():
+ 
+ def test_rejects_a_certified_rung_over_a_register_note_that_is_not_a_discharge():
+     """FW-RUNG-OPEN-PREMISE arrived reading only the frozen column against the
+-    two open words, which is the shape the rest of this file is about. No claim
+-    is graded CERTIFIED_RUNG in the committed graph -- the 2026-09-25 audit moved
+-    the only one to CONDITIONAL and kept the source word in
+-    `source_grade_verbatim` -- so the mutation has to put a rung back."""
++    two open words, which is the shape the rest of this file is about. The
++    2026-09-25 audit moved D1-v2.2(1) to CONDITIONAL and kept the source word in
++    `source_grade_verbatim`. H3-RUNG-FLOOR is CERTIFIED_RUNG with empty
++    depends_on, so the mutation still has to put a rung over an open premise."""
+     g = graph()
+     g["premises"]["H5-RIM"]["status_frozen_v2_2"] = "CLOSED"
+     g["premises"]["H5-RIM"]["status_register_note"] = "OPEN"
+@@ -409,11 +409,14 @@ def test_rejects_a_certified_rung_over_a_register_note_that_is_not_a_discharge()
+     assert "FW-RUNG-OPEN-PREMISE" in out and "status_register_note" in out, out
+ 
+ 
+-def test_no_claim_is_graded_certified_rung_in_the_committed_graph():
+-    """So FW-RUNG-OPEN-PREMISE refuses nothing today. An inert firewall is not a
+-    broken one, but it is one whose only evidence of working is its control."""
++def test_only_h3_rung_floor_is_graded_certified_rung_in_the_committed_graph():
++    """H3-RUNG-FLOOR is the live CERTIFIED_RUNG; it depends on nothing, so
++    FW-RUNG-OPEN-PREMISE still refuses nothing on the committed graph. An inert
++    firewall is not a broken one, but it is one whose only evidence of working
++    is its control."""
+     g = graph()
+-    assert not [n for n, c in g["claims"].items() if c.get("grade") == "CERTIFIED_RUNG"]
++    rungs = [n for n, c in g["claims"].items() if c.get("grade") == "CERTIFIED_RUNG"]
++    assert rungs == ["H3-RUNG-FLOOR"], rungs
+ 
+ 
+ def test_the_two_status_vocabularies_do_not_overlap():
+@@ -481,7 +484,7 @@ def test_rejects_prose_that_does_not_name_an_enforced_firewall():
+ 
+ 
+ def test_rejects_a_drifted_claim_count_in_the_prose():
+-    code, out = run(readme=prose().replace("26 claims", "24 claims"))
++    code, out = run(readme=prose().replace("27 claims", "24 claims"))
+     assert code == 1, out
+     assert "claim count has drifted" in out, out
+ 

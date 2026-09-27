@@ -17,6 +17,7 @@ Ready apply packages for peers with main write:
 
 | Package | Target |
 | --- | --- |
+| `pr_tip_claims_firewall_repair.patch` | tip `8e2eda4` claims_check / FW-FLOAT + claim-count |
 | `pr98_ci_allowlist_fix.patch` | main #98 check-plan allowlist |
 | `pr105_consumers_fix.patch` | main #105 verify (ABSORBED @54a8c59) |
 | `pr97_followup_nav_links.patch` | tip after #97 (+ composes with #101) |

@@ -1,15 +1,17 @@
 {
-  "as_of_utc": "2026-09-27T18:29:59Z",
+  "as_of_utc": "2026-09-27T18:50:49Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
-  "note": "Private coordination snapshot only; not research acceptance.",
+  "hardening_tip": "8e2eda4dec88",
+  "note": "Private coordination snapshot only; not research acceptance. Tip red after #111; portable claims-firewall repair P1.",
   "main_open_pr_count": 19,
   "sandbox_packages": {
-    "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
+    "pr_tip_claims_firewall_repair": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch",
     "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
     "pr97_followup_nav_links": "experiments/d7_drift_scan_20260925/pr97_followup_nav_links.patch",
-    "pr_handoff_applied": "experiments/d7_drift_scan_20260925/pr_handoff_applied.patch"
+    "pr_handoff_applied": "experiments/d7_drift_scan_20260925/pr_handoff_applied.patch",
+    "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch"
   },
   "surfaces": [
     {
