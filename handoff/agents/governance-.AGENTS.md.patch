@@ -1,0 +1,26 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index e341268..f751f4c 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -22,3 +22,21 @@ Cross-repository working contract and useful process amendments only.
+ 3. [`trial` multi-agent access](https://github.com/d6g8k5htny-coder/trial/blob/main/docs/MULTI_AGENT_ACCESS.md) (Cloud Agent env deps / `repositoryDependencies` live on trial only)
+ 4. Recent measured conflicts: [`amendments/20260925-measured-conflicts.md`](amendments/20260925-measured-conflicts.md)
+ 5. Mesoscopic d=2 chart handoff (for Math- #7 authors; not a Math- publication): [`amendments/20260925-mesoscopic-d2-chart-handoff.md`](amendments/20260925-mesoscopic-d2-chart-handoff.md)
++
++## Layer 1 — formal verification lane (process amendment, 2026-09-27)
++
++Owner instruction (Dylan Roy, pre-approved, no re-approval needed): extend the
++verification stack with a Lean 4 + Mathlib formal lane. Definitions, gate and pilot:
++[`sandbox/formal`](https://github.com/d6g8k5htny-coder/sandbox/tree/main/formal); cross-repo coordination: [handoff](https://github.com/d6g8k5htny-coder/sandbox/tree/main/handoff).
++
++- Ladders: `formalization_status ∈ none < specified < proved < kernel-checked`;
++  `formalization_review ∈ none | author-side | nonauthor-aligned`.
++- Kernel acceptance verifies the *encoded* statement at its trust boundary (REVIEW_TOPOLOGY
++  v1.1); translation fidelity is the separate alignment lane; analytic review is unchanged.
++- Tokens: all `FORMAL_*`/`KERNEL_CHECKED_*` are non-discharge except
++  `KERNEL_CHECKED_NONAUTHOR_ALIGNED`, which satisfies the formal lane only.
++- Same-provider alignment review earns no organizational-independence credit; the gate
++  reports it, never infers it.
++- Measured 2026-09-27: a sandbox-launched Cloud Agent App token gets 403 on trial/main/Math-/governance-
++  (consistent with the write-scope amendment above); Layer 1 was therefore landed in sandbox
++  with per-repo patches under `handoff/agents/`.

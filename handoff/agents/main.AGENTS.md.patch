@@ -1,0 +1,24 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index d6eaef1..ae29b23 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -30,3 +30,19 @@ not a reason to ask for permission already granted.
+ Drive record, and collaboration surfaces. This `main` initially contains the renewed
+ landing, not the complete research stack. Bring improvements into it coherently;
+ there is no permanent landing-only restriction.
++
++## Layer 1 — formal verification (Lean 4 + Mathlib)
++
++The provenance/scope/hard-gate stack is **Layer 0**. [`sandbox/formal`](https://github.com/d6g8k5htny-coder/sandbox/tree/main/formal) adds
++**Layer 1**: kernel-checked Lean statements byte-bound to the informal object, a
++`formalization_status` ladder (`none < specified < proved < kernel-checked`) and an
++alignment review lane (`author-side | nonauthor-aligned`). Read [handoff](https://github.com/d6g8k5htny-coder/sandbox/tree/main/handoff) first.
++
++- main's job: display the formal lane in the museum/STATUS (a `formalization` column
++  sourced from Math- `formal/FORMALIZATION_STATUS.json` at a pinned commit), host the
++  alignment-review discussion for each object (like #63/#65 do for analytic review), and
++  keep the lanes distinct: kernel evidence ≠ translation fidelity ≠ analytic acceptance.
++- `KERNEL_CHECKED_*` tokens are non-discharge except `KERNEL_CHECKED_NONAUTHOR_ALIGNED`,
++  which satisfies the formal lane **only**. #90 rules and `lemma_closed=false` unchanged.
++- Use standard terminology from `formal/GLOSSARY.md` in new prose; map any new project
++  term there before it appears in a Lean statement.

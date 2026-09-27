@@ -1,0 +1,26 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index 3b92fbc..c6c963e 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -21,3 +21,21 @@ Mathematical candidates, proofs, programs, and reproducible calculations. Not a
+ 1. This repository’s [README](README.md)
+ 2. [`governance-` working contract](https://github.com/d6g8k5htny-coder/governance-)
+ 3. [`trial` multi-agent access](https://github.com/d6g8k5htny-coder/trial/blob/main/docs/MULTI_AGENT_ACCESS.md) (Cloud Agent env deps live on trial `.cursor/environment.json`)
++
++## Layer 1 — formal verification (Lean 4 + Mathlib)
++
++Math- is the intended home of the Lean project and the extended hard gate. The pilot
++(SIDE24 ledger/cone/§5 implication, 14 kernel-checked + 7 specified components) and the
++fail-closed `formal_gate.py` are in [`sandbox/formal`](https://github.com/d6g8k5htny-coder/sandbox/tree/main/formal); port per [handoff](https://github.com/d6g8k5htny-coder/sandbox/tree/main/handoff)
++(`PORT.md`, `MATH_HARD_GATE_EXTENSION.md`).
++
++- Add `formalization` to `GRAPH.json` nodes only through `formal_gate.py` output; declared
++  status may never exceed verifiable status.
++- New non-discharge tokens: `FORMAL_SPECIFIED`, `FORMAL_PROVED_AUTHOR_SIDE`,
++  `KERNEL_CHECKED_AUTHOR_SIDE`, `KERNEL_CHECKED_CONDITIONAL`. Only
++  `KERNEL_CHECKED_NONAUTHOR_ALIGNED` satisfies the formal lane; it is necessary, not sufficient.
++- Lean edits regenerate `SOURCE_FILES.json` + `BUILD_EVIDENCE.json` in the same commit
++  (same rule as the exact-replay source identities). No `sorry`; parents are parametrized
++  or registered `axiom`s with scope notes, never silent.
++- Decimal bounds go in as exact rationals (`norm_num`); numerical experiments stay
++  `NUMERICAL_EXPERIMENT` (non-discharge).

@@ -1,0 +1,19 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index 126d0ba..00dd156 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -28,3 +28,14 @@ Do not wait for permissions/approvals. Path A or Path B OK for ALIGNED restore
+ 3. `docs/OWNER_ACTIONS_MAIN.md`
+ 4. `docs/MULTI_AGENT_ACCESS.md` — grant Cursor + ChatGPT/Codex + Claude + Grok (PAT) Read/write on all **8** owner repos including **sandbox** (`./scripts/owner_grant_ai_agent_access.sh`; App UI: select ALL repositories including sandbox)
+ 5. `docs/AUTONOMOUS_48H_LOG.md` (if an autonomous window is active)
++
++## Layer 1 — formal verification (Lean 4 + Mathlib)
++
++Pilot and gate live in [`sandbox/formal`](https://github.com/d6g8k5htny-coder/sandbox/tree/main/formal) (see [handoff](https://github.com/d6g8k5htny-coder/sandbox/tree/main/handoff)). Status ladder
++`none < specified < proved < kernel-checked`; review ladder `author-side | nonauthor-aligned`.
++Every formal token except `KERNEL_CHECKED_NONAUTHOR_ALIGNED` is **non-discharge**.
++
++- trial's job: cross-repo eng checks only — `federation/` test that Math- `formal/FORMALIZATION_STATUS.json`
++  `informal_source` pins still match live Math- bytes, and that `BUILD_EVIDENCE.json` sources equal `SOURCE_FILES.json`.
++- Do not host the Lean project here; port `formal/` to Math- (`handoff/PORT.md`). Portable copies under `portable/` are fallback only.
++- A green `lake build` is kernel acceptance of the *encoded* statement — never theorem acceptance, never `lemma_closed`.
