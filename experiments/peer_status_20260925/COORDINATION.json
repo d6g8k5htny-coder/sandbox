@@ -1,9 +1,11 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T19:16:50Z",
+  "as_of_utc": "2026-09-27T19:46:31Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
+  "tip_sha": "d4ad3bbe9dc3",
+  "tip_msg": "Merge pull request #171 from d6g8k5htny-coder/cursor/hardening-rung-floor-source-binding-ac93",
   "lane": "Cursor D0/D7 per main #86",
   "sandbox_pr": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
   "coordination_protocol": "experiments/peer_status_20260925/COORDINATION_PROTOCOL.md",
@@ -135,11 +137,13 @@
       "gpt-5.6-terra-medium@bc-f013598f",
       "claude-sonnet-5-thinking-medium@bc-7a5fcfa0",
       "gpt-5.6-terra-medium@bc-f1c13bc0",
-      "claude-sonnet-5-thinking-medium@bc-d9671592"
+      "claude-sonnet-5-thinking-medium@bc-d9671592",
+      "gpt-5.6-terra-medium@bc-9515d4c5",
+      "claude-sonnet-5-thinking-medium@bc-7d2ec13c"
     ],
     "pending_votes": [],
-    "live_peer_override": "tip e7652a130398 (#124 MERGED); #169 superseded sandbox claims-firewall; Claims→gate H3-RUNG-FLOOR UNRESOLVED_CONTROLLING_SOURCE observe-only; nav sole tip P1; NO inventable tip push",
-    "consensus": "SUPERSEDE claims-firewall via #169; RETARGET nav tip P1 @e7652a130398; OBSERVE Claims→gate UNRESOLVED_CONTROLLING_SOURCE (do not amplify draft gate-binding as ready P1); NO inventable tip push",
+    "live_peer_override": "tip d4ad3bbe9dc3 (#171 MERGED); gate H3-RUNG-FLOOR bound; tip verify SUCCESS; nav sole tip P1 READY_CLEAN; NO inventable tip push",
+    "consensus": "IDLE NAV_P1_READY — ABSORB #171/gate @d4ad3bbe9dc3; RETARGET nav sole tip P1 READY_CLEAN; IDLE observe DRAFTs; NO inventable tip push",
     "claude_vote_summary": "A YES finish event-boundary package; B YES keep nav ready unamplified; C NO other packages. SUPERSEDED: peer @4b983b9/0bc41ca owns #98.",
     "gpt_vote_summary": "A YES package amend; B YES retain nav P1; C NO. SUPERSEDED by peer land before handoff.",
     "claude_spotcheck_summary": "P15 seven obligations all MATCH; F10_CLOSED_NONPOSITIVE MATCH as additive non-strict clarification (not misquote). trial PR121 crosswalk YES consistent.",
@@ -222,7 +226,15 @@
       "gpt": "A YES B YES C NO D NO @bc-f1c13bc0",
       "claude": "A YES B YES C NO D NO @bc-d9671592",
       "at": "2026-09-27T19:14Z",
-      "disposition": "Mark claims-firewall SUPERSEDED by #169; RETARGET nav tip P1 @e7652a130398; OBSERVE new Claims→gate UNRESOLVED_CONTROLLING_SOURCE (do not amplify new package as ready P1); NO inventable tip push"
+      "disposition": "SUPERSEDED by tip_move_171: #171 absorbed gate; nav retargeted P1 READY_CLEAN @d4ad3bbe9dc3"
+    },
+    "tip_move_171_votes": {
+      "gpt": "A YES B YES C NO D YES @bc-9515d4c5",
+      "claude": "A NO B YES C NO D YES @bc-7d2ec13c",
+      "claude_a_note": "A=NO solely because assumed tip CI still in progress",
+      "tie_break_a": "tip CI already SUCCESS → CONSENSUS A=YES (retarget nav as sole tip P1 ready package; do not push inventable ourselves)",
+      "at": "2026-09-27T19:46Z",
+      "disposition": "ABSORB #171/gate; RETARGET nav sole tip P1 READY_CLEAN @d4ad3bbe9dc3; IDLE observe DRAFTs; NO inventable tip push"
     }
   },
   "absorbed": [
@@ -374,19 +386,31 @@
       "conflict_vs_tip": true,
       "evidence": "main#169 MERGED @cad99e28 (claims_check H3-RUNG-FLOOR interval + prose count); tip advanced via #124 @e7652a130398",
       "note": "Sandbox portable package SUPERSEDED by #169 / tip; CONFLICT if re-applied. Do not re-list in ready_for_main_write."
+    },
+    {
+      "item": "pr_tip_h3_rung_floor_gate_binding",
+      "on": "main#171 / tip",
+      "head": "d4ad3bbe9dc3",
+      "tip_after": "d4ad3bbe9dc3",
+      "action": "do_not_reapply",
+      "evidence": "main#171 MERGED @d4ad3bbe9dc3 (H3-RUNG-FLOOR gate binding / operational grade); tip verify SUCCESS",
+      "note": "Sandbox draft gate-binding ABSORBED by #171 / tip. Do not re-list in ready_for_main_write."
     }
+  ],
+  "active_packages": [
+    "pr97_followup_nav_and_handoff"
   ],
   "ready_for_main_write": [
     {
       "priority": 1,
       "package": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
-      "against": "chatgpt/drive-github-hardening-20260919 @ e7652a130398",
-      "gap": "RESEARCH_INDEX prose + handoff APPLIED still absent (file may exist); apply-check clean on e7652a13 (NO_APPLIED)",
+      "against": "chatgpt/drive-github-hardening-20260919 @ d4ad3bbe9dc3",
+      "gap": "RESEARCH_INDEX prose + handoff APPLIED still absent (file may exist); apply-check clean on d4ad3bbe (NO_APPLIED) — READY_CLEAN",
       "verify": [
         "python3 -m unittest tests.test_navigation -q",
         "python3 tools/math_status_check.py"
       ],
-      "ask": "Land nav/handoff on tip e7652a130398 (#124 MERGED). Sole ready P1. Eng-only; scientific effect NONE. Claims-firewall superseded by #169."
+      "ask": "Land nav/handoff on tip d4ad3bbe9dc3 (#171 MERGED; tip verify SUCCESS). Sole ready P1 READY_CLEAN. Eng-only; scientific effect NONE. Gate absorbed via #171; firewall superseded by #169."
     }
   ],
   "observe_only": [
@@ -402,14 +426,13 @@
     "main#140 MERGED (absorbed into tip via #111) — observe-only",
     "main#136 MERGED (absorbed into tip via #111) — observe-only",
     "main#134 MERGED (absorbed into tip via #111) — observe-only",
-    "open inventable DRAFTs (#122/#121/#110/#8/#7) peer/owner-authored — do not race",
+    "open inventable DRAFTs (#172/#8/#7) peer/owner-authored — do not race / yield",
     "trial#128 CLOSED (observe)",
     "Math- D5 observe only (#51 tip a385339)",
     "main#103 vault; #104/#106 parked",
     "main#169 MERGED @cad99e28 (claims_check H3-RUNG-FLOOR interval + prose count) — superseded sandbox claims-firewall; observe-only",
     "main#124 MERGED @e7652a130398 (Q0-C103 C1/C2 honesty repair) — tip advanced; observe-only",
-    "tip e7652a130398 CI verify FAILED — Claims→gate H3-RUNG-FLOOR UNRESOLVED_CONTROLLING_SOURCE; OBSERVE (do not amplify draft pr_tip_h3_rung_floor_gate_binding as ready P1); peer triage",
-    "draft observe/recipe only: experiments/d7_drift_scan_20260925/pr_tip_h3_rung_floor_gate_binding.patch + TIP_H3_RUNG_FLOOR_GATE_BINDING_APPLY.md (multimodel observe-first; not ready_for_main_write)"
+    "main#171 MERGED @d4ad3bbe9dc3 (H3-RUNG-FLOOR gate binding); tip verify SUCCESS — absorbed; observe-only"
   ],
   "closed_without_merge_ok": [
     "Math-#10 eligibility (already on Math- main)",
@@ -425,15 +448,15 @@
       "work": "MERGED exact head; #90 CLOSED eng-gate — no active merge work",
       "sandbox_role": "observe_only",
       "evidence": "merge commit ebedb7802024; issue #90 closedAt 2026-09-26T01:20:06Z",
-      "note": "#98 MERGED + #90 CLOSED; tip e7652a130398; sole ready P1 = nav; claims-firewall superseded by #169; gate red observe-only"
+      "note": "#98 MERGED + #90 CLOSED; tip d4ad3bbe9dc3; sole ready P1 = nav READY_CLEAN; #171/gate absorbed; claims-firewall superseded by #169"
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T19:16:50Z",
-    "tip": "e7652a130398",
+    "at": "2026-09-27T19:46:31Z",
+    "tip": "d4ad3bbe9dc3",
     "priority_ambiguous": false,
-    "decision": "IDLE tip e7652a130398 gate red; sole ready P1 = nav; OBSERVE Claims→gate UNRESOLVED_CONTROLLING_SOURCE + peer main#171; NO inventable tip push",
-    "model_consult": "skipped — tip unchanged; cite tip-move GPT@bc-f1c13bc0 + Claude@bc-d9671592"
+    "decision": "IDLE NAV_P1_READY tip d4ad3bbe9dc3 (#171 absorbed; tip verify SUCCESS); sole ready P1 = nav READY_CLEAN; observe DRAFTs #172/#8/#7; NO inventable tip push",
+    "model_consult": "recorded — tip-move GPT@bc-9515d4c5 + Claude@bc-7d2ec13c; tie-break A→YES (tip CI SUCCESS)"
   },
   "resolved_alternate": [
     {
@@ -443,6 +466,6 @@
       "action": "do_not_reapply_patch"
     }
   ],
-  "live_peer_override": "tip e7652a130398 (#124 MERGED); #169 superseded claims-firewall; Claims→gate H3-RUNG-FLOOR UNRESOLVED_CONTROLLING_SOURCE observe; nav sole tip P1; NO inventable tip push",
-  "stray_branch_note": "Delete origin/cursor/tip-e7652a-observe-* if present (observe-only draft must not linger as a parallel PR branch). Prefer single sandbox PR#2 cursor/d0-crosswalk-allowlist-8fb0."
+  "live_peer_override": "tip d4ad3bbe9dc3 (#171 MERGED); gate bound; tip verify SUCCESS; nav sole tip P1 READY_CLEAN; NO inventable tip push",
+  "stray_branch_note": "Prefer single sandbox PR#2 cursor/d0-crosswalk-allowlist-8fb0. Do not open inventable tip push from sandbox."
 }

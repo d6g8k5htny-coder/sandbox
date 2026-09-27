@@ -1,18 +1,17 @@
 {
-  "as_of_utc": "2026-09-27T19:16:50Z",
+  "as_of_utc": "2026-09-27T19:46:31Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
-  "hardening_tip": "e7652a130398",
-  "note": "Private coordination snapshot only; not research acceptance. Tip #124 @e7652a130398; claims-firewall SUPERSEDED by #169; sole ready P1 = nav; Claims→gate H3-RUNG-FLOOR UNRESOLVED_CONTROLLING_SOURCE observe-only.",
-  "main_open_pr_count": 19,
+  "note": "Private coordination snapshot only; not research acceptance. Tip #171 MERGED @d4ad3bbe9dc3 (was e7652a130398); tip verify SUCCESS; gate H3-RUNG-FLOOR bound ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN; IDLE observe DRAFTs #172/#8/#7; NO inventable tip push.",
+  "main_open_pr_count": 5,
   "sandbox_packages": {
-    "pr_tip_claims_firewall_repair": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch",
-    "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch",
+    "pr_tip_claims_firewall_repair": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 \u2014 do_not_reapply)",
+    "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch (sole tip P1 READY_CLEAN @d4ad3bbe9dc3)",
     "pr97_followup_nav_links": "experiments/d7_drift_scan_20260925/pr97_followup_nav_links.patch",
     "pr_handoff_applied": "experiments/d7_drift_scan_20260925/pr_handoff_applied.patch",
     "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
-    "pr_tip_h3_rung_floor_gate_binding": "experiments/d7_drift_scan_20260925/pr_tip_h3_rung_floor_gate_binding.patch (OBSERVE/draft only — not ready_for_main_write)"
+    "pr_tip_h3_rung_floor_gate_binding": "experiments/d7_drift_scan_20260925/pr_tip_h3_rung_floor_gate_binding.patch (ABSORBED by #171 / tip \u2014 do_not_reapply)"
   },
   "surfaces": [
     {
@@ -347,7 +346,7 @@
       "repo": "d6g8k5htny-coder/main",
       "pr": 106,
       "role": "cursor_retip46_cellcount_parked",
-      "title": "SUPERSEDED/BLOCKED PARENT — retip 61,642 cell-count control",
+      "title": "SUPERSEDED/BLOCKED PARENT \u2014 retip 61,642 cell-count control",
       "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/106",
@@ -498,10 +497,10 @@
       "pr": 103,
       "role": "vault_audit_v2_observe_only",
       "title": "Vault audit v4: 80/80 reviewed; controlled intake guard installed",
-      "state": "OPEN",
+      "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/103",
-      "updatedAt": "2026-09-26T18:06:02Z",
+      "updatedAt": "2026-09-27T18:06:57Z",
       "head": "107091d",
       "checks": [
         {
@@ -583,19 +582,33 @@
       "pr": 7,
       "role": "chatgpt_mesoscopic_paused",
       "title": "RN mesoscopic annulus: desingularize the first shrinking spatial scale",
-      "state": "OPEN",
-      "isDraft": true,
+      "state": "MERGED",
+      "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/7",
-      "updatedAt": "2026-09-26T15:28:22Z",
-      "head": "0f5ce60",
-      "checks": [],
-      "check_summary": {}
+      "updatedAt": "2026-09-27T17:26:33Z",
+      "head": "396c0ad",
+      "checks": [
+        {
+          "name": "math-downstream-gates",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        },
+        {
+          "name": ".github/dependabot.yml",
+          "conclusion": "SUCCESS",
+          "status": "COMPLETED"
+        }
+      ],
+      "check_summary": {
+        "math-downstream-gates": "SUCCESS",
+        ".github/dependabot.yml": "SUCCESS"
+      }
     },
     {
       "repo": "d6g8k5htny-coder/Math-",
       "pr": 9,
       "role": "cursor_d5_mesoscopic_chart_j0",
-      "title": "SUPERSEDED/BLOCKED INPUT — RN mesoscopic chart J0 (finite-r pin layer invalid)",
+      "title": "SUPERSEDED/BLOCKED INPUT \u2014 RN mesoscopic chart J0 (finite-r pin layer invalid)",
       "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
@@ -641,10 +654,12 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-26T22:32:54Z",
-      "head": "0e14fbb",
+      "updatedAt": "2026-09-27T19:17:25Z",
+      "head": "3b418db",
       "checks": [],
       "check_summary": {}
     }
-  ]
+  ],
+  "hardening_tip": "d4ad3bbe9dc3",
+  "hardening_tip_msg": "Merge pull request #171 from d6g8k5htny-coder/cursor/hardening-rung-floor-source-binding-ac93"
 }

@@ -2231,3 +2231,28 @@ Stale delayed timer (prompt still 8e2eda4; tip-move #124 already handled).
 + peer #171; no new package; no inventable tip push.
 Scientific effect NONE; `lemma_closed` false.
 
+## 2026-09-27T19:46Z — tip moved #171; absorb gate; nav sole P1 READY_CLEAN
+
+Tip: `e7652a130398` → `d4ad3bbe9dc3` (Merge #171 H3-RUNG-FLOOR gate binding /
+operational grade). Tip CI verify **SUCCESS**. Gate red cleared; sandbox draft
+`pr_tip_h3_rung_floor_gate_binding` **ABSORBED / do_not_reapply**.
+
+Nav apply-check CLEAN on new tip; NOT absorbed (no APPLIED banner) — sole tip
+P1 READY_CLEAN. Firewall pkg already SUPERSEDED by #169. Open inventable
+DRAFTs (#172/#8/#7) peer/owner-authored — yield; do not race. No inventable
+tip push from sandbox.
+
+**Votes:**
+- [GPT vote](bc-9515d4c5): A **YES**, B **YES**, C **NO**, D **YES**.
+- [Claude vote](bc-7d2ec13c): A **NO**, B **YES**, C **NO**, D **YES**
+  (A=NO solely because assumed tip CI still in progress).
+
+**Tie-break on A:** tip CI already SUCCESS → **CONSENSUS A=YES** (retarget nav
+as sole tip P1 ready package; do not push inventable ourselves). B=YES absorb
+#171/gate. C=NO. D=YES IDLE observe otherwise.
+
+**Consensus:** ABSORB #171 / gate binding; RETARGET nav sole tip P1 READY_CLEAN
+@`d4ad3bbe9dc3`; IDLE observe DRAFTs; **NO** inventable tip push.
+
+Scientific effect NONE; `lemma_closed` false.
+

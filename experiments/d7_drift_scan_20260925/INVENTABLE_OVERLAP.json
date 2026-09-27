@@ -1,19 +1,20 @@
 {
-  "as_of_utc": "2026-09-27T19:16:50Z",
+  "as_of_utc": "2026-09-27T19:46:31Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
-  "hardening_tip": "e7652a130398",
-  "note": "Overlap watch for inventable/cursor eng PRs; not acceptance. Tip #124 MERGED @e7652a130398; #169 superseded claims-firewall; sole ready = nav; gate-binding draft observe-only.",
+  "hardening_tip": "d4ad3bbe9dc3",
+  "note": "Overlap watch for inventable/cursor eng PRs; not acceptance. Tip #171 MERGED @d4ad3bbe9dc3; tip verify SUCCESS; nav READY_CLEAN sole tip P1; #171/gate ABSORBED; claims-firewall SUPERSEDED by #169; observe DRAFTs #172/#8/#7; NO inventable tip push.",
   "sandbox_packages": [
-    "pr97_followup_nav_and_handoff.patch (sole tip P1 @e7652a13)",
+    "pr97_followup_nav_and_handoff.patch (sole tip P1 READY_CLEAN @d4ad3bbe)",
     "pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 / tip — do not reapply)",
-    "pr_tip_h3_rung_floor_gate_binding.patch (OBSERVE/draft only — not ready)",
+    "pr_tip_h3_rung_floor_gate_binding.patch (ABSORBED by #171 / tip — do not reapply)",
     "pr97_followup_nav_links.patch",
     "pr_handoff_applied.patch",
     "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa — do not reapply)",
     "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 — do not reapply)"
   ],
   "absorbed": [
+    "pr_tip_h3_rung_floor_gate_binding on main#171 / tip d4ad3bbe9dc3 (ABSORBED; tip verify SUCCESS)",
     "pr_tip_claims_firewall_repair on main#169@cad99e28 / tip e7652a130398 (SUPERSEDED; CONFLICT vs tip)",
     "pr105_consumers_fix on main#105@54a8c59",
     "pr98_ci_allowlist_fix on main#98@d765efa"
