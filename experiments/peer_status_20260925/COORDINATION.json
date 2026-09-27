@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-27T22:31:05Z",
+  "as_of_utc": "2026-09-27T22:46:06Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -469,8 +469,10 @@
     "main#122 MERGED @9ce5c66f2fd5 (SARD-G) \u2014 tip advanced; observe-only",
     "main#8 MERGED @9458b903f57f (rn-sector-review) \u2014 tip; observe-only",
     "open inventable: main#172 DRAFT \u2014 do not race / yield",
-    "main#180 OPEN ready (release custody) \u2014 observe, not tip; do not race",
-    "main#181 DRAFT (Math- lane contract converge) \u2014 observe; do not race",
+    "main#180 MERGED@main 4c5bc12 (release custody) \u2014 observe closed; not tip",
+    "main#181 MERGED@main 447a77f (Math- lane contract) \u2014 observe closed; not tip",
+    "main#183 OPEN ready (formal CI fail-closed) \u2014 observe, not tip; do not race",
+    "main#184 DRAFT (Dropbox recon successor to #172) \u2014 observe; do not race",
     "main#174 MERGED (docs: queue reconciliation record) \u2014 tip advanced; observe-only",
     "main#7 MERGED @a01c72f19378 (P15 foundation review) \u2014 tip; observe-only"
   ],
@@ -492,10 +494,10 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-27T22:31:05Z",
+    "at": "2026-09-27T22:46:06Z",
     "tip": "a01c72f19378",
     "priority_ambiguous": false,
-    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172; observe #180; NO inventable tip push",
+    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172; observe #180/#181 MERGED@main (not tip); NO inventable tip push",
     "model_consult": "skipped \u2014 tip unchanged a01c72f19378; cite tip-move GPT@bc-65740037 + Claude@bc-c55940bc CONSENSUS IDLE NAV_P1_READY"
   },
   "resolved_alternate": [
