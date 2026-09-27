@@ -1,9 +1,9 @@
 {
-  "as_of_utc": "2026-09-27T23:15:53Z",
+  "as_of_utc": "2026-09-27T23:30:55Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
-  "note": "Private coordination snapshot only; not research acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; navigation/loss-only SUCCESS; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN @a01c72f19378; IDLE yield #172/#184; observe #183 MERGED@main (not tip); observe inventable DRAFT #189 + #188 OPEN@main (not tip); NO inventable tip push.",
+  "note": "Private coordination snapshot only; not research acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; navigation/loss-only SUCCESS; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN @a01c72f19378; IDLE yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); NO inventable tip push.",
   "main_open_pr_count": 0,
   "sandbox_packages": {
     "pr_tip_claims_firewall_repair": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 \u2014 do_not_reapply)",
@@ -680,7 +680,7 @@
     "main#181 MERGED@main \u2014 observe closed (not tip)",
     "main#183 MERGED@main \u2014 observe (not tip)",
     "main#184 MERGED@main \u2014 yield (successor to #172; not tip)",
-    "main#188 OPEN ready @main (not tip) \u2014 observe-only",
-    "main#189 OPEN DRAFT @main (OP-PRIVACY; not tip) \u2014 inventable DRAFT observe-only"
+    "main#188 MERGED@main \u2014 observe closed (not tip)",
+    "main#189 MERGED@main \u2014 observe closed (not tip)"
   ]
 }
