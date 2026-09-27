@@ -2256,3 +2256,23 @@ as sole tip P1 ready package; do not push inventable ourselves). B=YES absorb
 
 Scientific effect NONE; `lemma_closed` false.
 
+
+## 2026-09-27T20:08Z — double tip-move #122+#8; absorb; nav sole P1 READY_CLEAN
+
+Tip: `d4ad3bbe9dc3` → `9ce5c66f2fd5` (Merge #122 SARD-G) → `9458b903f57f`
+(Merge #8 rn-sector-review). Tip CI verify **IN_PROGRESS**; navigation +
+loss-only-controls **SUCCESS**. Prior #171 gate absorb and #169 firewall
+supersede stand.
+
+Nav apply-check CLEAN on new tip `9458b903f57f`; NOT absorbed (no APPLIED
+banner) — sole tip P1 READY_CLEAN. Open inventable: main#172 DRAFT; #7 OPEN
+non-draft — yield; do not race. No inventable tip push from sandbox.
+
+**Votes:**
+- [GPT vote](bc-32e0616a): A **YES**, B **YES**, C **NO**, D **YES**.
+- [Claude vote](bc-26f1a3ca): A **YES**, B **YES**, C **NO**, D **YES**.
+
+**Consensus:** ABSORB #122+#8; RETARGET nav sole tip P1 READY_CLEAN
+@`9458b903f57f`; IDLE observe #172/#7; **NO** inventable tip push.
+
+Scientific effect NONE; `lemma_closed` false.

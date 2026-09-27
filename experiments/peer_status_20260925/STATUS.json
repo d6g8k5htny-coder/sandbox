@@ -1,13 +1,13 @@
 {
-  "as_of_utc": "2026-09-27T19:46:31Z",
+  "as_of_utc": "2026-09-27T20:08:38Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
-  "note": "Private coordination snapshot only; not research acceptance. Tip #171 MERGED @d4ad3bbe9dc3 (was e7652a130398); tip verify SUCCESS; gate H3-RUNG-FLOOR bound ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN; IDLE observe DRAFTs #172/#8/#7; NO inventable tip push.",
-  "main_open_pr_count": 5,
+  "note": "Private coordination snapshot only; not research acceptance. Tip double-move d4ad3bbe\u21929ce5c66 (#122 SARD-G)\u21929458b903f57f (#8 rn-sector-review); tip verify IN_PROGRESS; navigation/loss-only SUCCESS; #122+#8 ABSORBED; #171/gate ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN @9458b903; IDLE observe #172 DRAFT / #7 OPEN; NO inventable tip push.",
+  "main_open_pr_count": 4,
   "sandbox_packages": {
     "pr_tip_claims_firewall_repair": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 \u2014 do_not_reapply)",
-    "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch (sole tip P1 READY_CLEAN @d4ad3bbe9dc3)",
+    "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch (sole tip P1 READY_CLEAN @9458b903f57f)",
     "pr97_followup_nav_links": "experiments/d7_drift_scan_20260925/pr97_followup_nav_links.patch",
     "pr_handoff_applied": "experiments/d7_drift_scan_20260925/pr_handoff_applied.patch",
     "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
@@ -660,6 +660,20 @@
       "check_summary": {}
     }
   ],
-  "hardening_tip": "d4ad3bbe9dc3",
-  "hardening_tip_msg": "Merge pull request #171 from d6g8k5htny-coder/cursor/hardening-rung-floor-source-binding-ac93"
+  "hardening_tip": "9458b903f57f",
+  "hardening_tip_msg": "Merge pull request #8 from d6g8k5htny-coder/codex/rn-sector-review-20260921",
+  "tip_ci": {
+    "verify": "IN_PROGRESS",
+    "navigation": "SUCCESS",
+    "loss-only-controls": "SUCCESS"
+  },
+  "absorbed_tip_moves": [
+    "main#122 @9ce5c66f2fd5 SARD-G",
+    "main#8 @9458b903f57f rn-sector-review",
+    "main#171 @d4ad3bbe9dc3 H3-RUNG-FLOOR gate (prior)"
+  ],
+  "observe_open": [
+    "main#172 DRAFT",
+    "main#7 OPEN non-draft — yield"
+  ]
 }
