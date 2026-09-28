@@ -1,9 +1,9 @@
 {
-  "as_of_utc": "2026-09-28T16:16:57Z",
+  "as_of_utc": "2026-09-28T16:31:42Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "hardening_tip": "a01c72f19378",
-  "note": "Overlap watch for inventable/cursor eng PRs; not acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; nav/loss-only SUCCESS; nav READY_CLEAN sole tip P1; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); open inventable on tip base: none; sandbox_pr=#16 CLOSED (#15 CLOSED; #14 CLOSED; #13 CLOSED; #12 CLOSED; #11 CLOSED; #10 CLOSED; #9 CLOSED); NO inventable tip push.",
+  "note": "Overlap watch for inventable/cursor eng PRs; not acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; nav/loss-only SUCCESS; nav READY_CLEAN sole tip P1; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); open inventable on tip base: none; sandbox_pr=#17 OPEN (#16 CLOSED; #15 CLOSED; #14 CLOSED; #13 CLOSED; #12 CLOSED; #11 CLOSED; #10 CLOSED; #9 CLOSED); NO inventable tip push.",
   "sandbox_packages": [
     "pr97_followup_nav_and_handoff.patch (sole tip P1 READY_CLEAN @a01c72f19378)",
     "pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 / tip \u2014 do not reapply)",
