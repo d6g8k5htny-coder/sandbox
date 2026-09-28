@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-28T03:49:40Z",
+  "as_of_utc": "2026-09-28T04:04:00Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -652,11 +652,10 @@
       "role": "sandbox_handoff_this_run",
       "title": "D0/D7 crosswalk allowlist — sandbox coordination (IDLE nav P1)",
       "state": "OPEN",
-      "isDraft": false,
-      "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/7",
-      "updatedAt": "2026-09-28T03:49:40Z",
-      "head": "025376e",
       "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/7",
+      "updatedAt": "2026-09-28T04:04:00Z",
+      "head": "741c2a6",
       "checks": [],
       "check_summary": {}
     }
