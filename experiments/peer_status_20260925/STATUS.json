@@ -1,9 +1,9 @@
 {
-  "as_of_utc": "2026-09-28T06:41:25Z",
+  "as_of_utc": "2026-09-28T06:58:32Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
-  "note": "Private coordination snapshot only; not research acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; navigation/loss-only SUCCESS; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN @a01c72f19378; IDLE yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); sandbox_pr=#7 OPEN; NO inventable tip push.",
+  "note": "Private coordination snapshot only; not research acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; navigation/loss-only SUCCESS; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN @a01c72f19378; IDLE yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); sandbox_pr=#7 CLOSED; NO inventable tip push.",
   "main_open_pr_count": 0,
   "sandbox_packages": {
     "pr_tip_claims_firewall_repair": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 — do_not_reapply)",
@@ -651,11 +651,11 @@
       "pr": 7,
       "role": "sandbox_handoff_this_run",
       "title": "D0/D7 crosswalk allowlist — sandbox coordination (IDLE nav P1)",
-      "state": "OPEN",
+      "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/7",
-      "updatedAt": "2026-09-28T04:38:25Z",
-      "head": "a04272a",
+      "updatedAt": "2026-09-28T06:42:14Z",
+      "head": "df5449a",
       "checks": [],
       "check_summary": {}
     }
