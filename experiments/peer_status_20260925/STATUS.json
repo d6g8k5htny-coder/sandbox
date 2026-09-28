@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-27T23:45:35Z",
+  "as_of_utc": "2026-09-28T00:01:18Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -648,14 +648,14 @@
     },
     {
       "repo": "d6g8k5htny-coder/sandbox",
-      "pr": 2,
+      "pr": 4,
       "role": "sandbox_handoff_this_run",
-      "title": "Private D0 handoff: unblock main PR87 math_status crosswalk",
-      "state": "OPEN",
+      "title": "D0/D7 crosswalk allowlist — sandbox coordination (IDLE nav P1)",
+      "state": "CLOSED",
       "isDraft": false,
-      "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/2",
-      "updatedAt": "2026-09-27T19:17:25Z",
-      "head": "3b418db",
+      "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/4",
+      "updatedAt": "2026-09-28T00:01:18Z",
+      "head": "a7c732b",
       "checks": [],
       "check_summary": {}
     }
