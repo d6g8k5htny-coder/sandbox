@@ -3794,3 +3794,12 @@ Scientific effect NONE; `lemma_closed` false.
 
 **Decision:** Retarget COORDINATION `sandbox_pr` to #18; keep tip
 `a01c72f19378`; IDLE NAV_P1_READY unchanged; no inventable tip push.
+
+## 2026-09-28T16:50Z — sandbox_pr #18 CLOSED → #19
+
+**Facts:** Sandbox PR #18 CLOSED; new draft sandbox PR #19 created
+(`cursor/d0-crosswalk-allowlist-8fb0`). Tip unchanged `a01c72f19378`.
+Scientific effect NONE; `lemma_closed` false.
+
+**Decision:** Retarget COORDINATION `sandbox_pr` to #19; keep tip
+`a01c72f19378`; IDLE NAV_P1_READY unchanged; no inventable tip push.
