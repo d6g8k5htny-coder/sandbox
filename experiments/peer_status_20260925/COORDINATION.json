@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-28T09:31:20Z",
+  "as_of_utc": "2026-09-28T09:46:16Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -496,7 +496,7 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-28T09:31:20Z",
+    "at": "2026-09-28T09:46:16Z",
     "tip": "a01c72f19378",
     "priority_ambiguous": false,
     "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); sandbox_pr=#10 (OPEN DRAFT; #9 CLOSED); NO inventable tip push",
