@@ -1,5 +1,5 @@
 {
-  "as_of_utc": "2026-09-28T03:30:12Z",
+  "as_of_utc": "2026-09-28T03:49:40Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -654,8 +654,9 @@
       "state": "OPEN",
       "isDraft": false,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/7",
-      "updatedAt": "2026-09-28T03:30:12Z",
-      "head": "8830fe9",
+      "updatedAt": "2026-09-28T03:49:40Z",
+      "head": "025376e",
+      "isDraft": true,
       "checks": [],
       "check_summary": {}
     }
