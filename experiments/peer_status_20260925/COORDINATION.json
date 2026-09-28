@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-28T16:31:42Z",
+  "as_of_utc": "2026-09-28T16:46:13Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -496,10 +496,10 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-28T16:31:42Z",
+    "at": "2026-09-28T16:46:13Z",
     "tip": "a01c72f19378",
     "priority_ambiguous": false,
-    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); sandbox_pr=#17 OPEN (#16 CLOSED; #15 CLOSED; #14 CLOSED; #13 CLOSED; #12 CLOSED; #11 CLOSED; #10 CLOSED; #9 CLOSED); NO inventable tip push",
+    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); sandbox_pr=#17 CLOSED (#16 CLOSED; #15 CLOSED; #14 CLOSED; #13 CLOSED; #12 CLOSED; #11 CLOSED; #10 CLOSED; #9 CLOSED); NO inventable tip push",
     "model_consult": "skipped \u2014 tip unchanged a01c72f19378; cite tip-move GPT@bc-65740037 + Claude@bc-c55940bc CONSENSUS IDLE NAV_P1_READY"
   },
   "resolved_alternate": [
@@ -511,5 +511,5 @@
     }
   ],
   "live_peer_override": "tip a01c72f19378 (#7 MERGED after #174); tip verify SUCCESS; nav/loss-only SUCCESS; nav sole tip P1 READY_CLEAN; NO inventable tip push",
-  "stray_branch_note": "Prefer single sandbox PR#17 cursor/d0-crosswalk-allowlist-8fb0 (DRAFT; prior PR#16/#15/#14/#13/#12/#11/#10/#9/#7/#6/#4/#2 closed). Do not open inventable tip push from sandbox."
+  "stray_branch_note": "Prefer single sandbox PR#17 cursor/d0-crosswalk-allowlist-8fb0 (CLOSED; prior PR#16/#15/#14/#13/#12/#11/#10/#9/#7/#6/#4/#2 closed). Do not open inventable tip push from sandbox."
 }
