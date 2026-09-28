@@ -1,9 +1,9 @@
 {
-  "as_of_utc": "2026-09-28T13:46:17Z",
+  "as_of_utc": "2026-09-28T14:01:03Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
-  "note": "Private coordination snapshot only; not research acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; navigation/loss-only SUCCESS; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN @a01c72f19378; IDLE yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); sandbox_pr=#12 OPEN DRAFT (#11 CLOSED; #10 CLOSED; #9 CLOSED); NO inventable tip push.",
+  "note": "Private coordination snapshot only; not research acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; navigation/loss-only SUCCESS; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN @a01c72f19378; IDLE yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); sandbox_pr=#12 CLOSED (#11 CLOSED; #10 CLOSED; #9 CLOSED); NO inventable tip push.",
   "main_open_pr_count": 0,
   "sandbox_packages": {
     "pr_tip_claims_firewall_repair": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 \u2014 do_not_reapply)",
