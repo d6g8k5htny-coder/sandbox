@@ -3823,3 +3823,12 @@ COORDINATION as_of+timer_loop refreshed; sandbox_pr=#19.
 **Decision:** IDLE NAV_P1_READY; keep nav tip P1 @`a01c72f19378`; yield #172/#184;
 observe #183/#188/#189; no new package; no inventable tip push.
 Scientific effect NONE; `lemma_closed` false.
+
+## 2026-09-28T17:03Z — sandbox_pr #19 CLOSED → #20
+
+**Facts:** Sandbox PR #19 CLOSED; new draft sandbox PR #20 created
+(`cursor/d0-crosswalk-allowlist-8fb0`). Tip unchanged `a01c72f19378`.
+Scientific effect NONE; `lemma_closed` false.
+
+**Decision:** Retarget COORDINATION `sandbox_pr` to #20; keep tip
+`a01c72f19378`; IDLE NAV_P1_READY unchanged; no inventable tip push.
