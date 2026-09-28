@@ -1,6 +1,6 @@
 {
   "schema": "sandbox.peer-coordination/v1",
-  "as_of_utc": "2026-09-28T21:11:38Z",
+  "as_of_utc": "2026-09-28T21:16:00Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
@@ -496,10 +496,10 @@
     }
   ],
   "timer_loop": {
-    "at": "2026-09-28T21:11:38Z",
+    "at": "2026-09-28T21:16:00Z",
     "tip": "a01c72f19378",
     "priority_ambiguous": false,
-    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); sandbox_pr=#26 (#25 CLOSED; #24 CLOSED; #23 CLOSED; #22 CLOSED; #21 CLOSED; #20 CLOSED; #19 CLOSED; #18 CLOSED; #17 CLOSED; #16 CLOSED; #15 CLOSED; #14 CLOSED; #13 CLOSED; #12 CLOSED; #11 CLOSED; #10 CLOSED; #9 CLOSED); NO inventable tip push",
+    "decision": "IDLE NAV_P1_READY tip a01c72f19378 (#7+#174 absorbed; tip verify SUCCESS; nav/loss-only SUCCESS); sole ready P1 = nav READY_CLEAN; yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); sandbox_pr=#26 OPEN DRAFT (#25 CLOSED; #24 CLOSED; #23 CLOSED; #22 CLOSED; #21 CLOSED; #20 CLOSED; #19 CLOSED; #18 CLOSED; #17 CLOSED; #16 CLOSED; #15 CLOSED; #14 CLOSED; #13 CLOSED; #12 CLOSED; #11 CLOSED; #10 CLOSED; #9 CLOSED); NO inventable tip push",
     "model_consult": "skipped \u2014 tip unchanged a01c72f19378; cite tip-move GPT@bc-65740037 + Claude@bc-c55940bc CONSENSUS IDLE NAV_P1_READY"
   },
   "resolved_alternate": [
