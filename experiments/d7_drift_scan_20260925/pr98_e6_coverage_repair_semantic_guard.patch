@@ -1,0 +1,150 @@
+diff --git a/tests/test_claims_gate_f2_coverage.py b/tests/test_claims_gate_f2_coverage.py
+index 7086157..af5b9f5 100644
+--- a/tests/test_claims_gate_f2_coverage.py
++++ b/tests/test_claims_gate_f2_coverage.py
+@@ -450,6 +450,51 @@ class F2CoverageTests(unittest.TestCase):
+         self.assertNotEqual(rc2, 0, report2)
+         self.assertIn("T", report2["controlling_impacted"])
+ 
++    def test_e6_precision_upgrade_with_semantic_change_still_refuses(self):
++        """E6: same-carrier precision upgrade must not mask statement/semantic drift."""
++        repo = self._repo()
++        body = "stable frozen theorem\n"
++        (repo / "d1.md").write_text(self._d1_wrapper(body), encoding="utf-8")
++        expected = CGA._sha256_bytes(
++            CGA.extract_scientific_bytes(
++                (repo / "d1.md").read_bytes(), "frozen_body"
++            )
++        )
++        before_g = _fixture()
++        before_g["claims"]["T"].update(
++            grade="LIVE_ROOT_THEOREM",
++            controlling=True,
++            statement="Original controlling statement",
++            source_bindings=[
++                {"repo": CGA.CURRENT_REPO, "path": "d1.md", "role": "assembly_mirror"}
++            ],
++        )
++        before_g["claims"]["T"].pop("source", None)
++        before = self._commit(repo, before_g, "legacy-bind")
++        after_g = copy.deepcopy(before_g)
++        after_g["claims"]["T"]["statement"] = "CHANGED controlling statement"
++        after_g["claims"]["T"]["source_bindings"] = [
++            {
++                "repo": CGA.CURRENT_REPO,
++                "path": "d1.md",
++                "role": "scientific_object",
++                "extraction_rule": "frozen_body",
++                "expected_sha256": expected,
++                "mirror_freshness": "external_sync_obligation",
++            }
++        ]
++        after = self._commit(repo, after_g, "precision-plus-semantic")
++        rc, report = self._event(repo, before, after)
++        self.assertNotEqual(rc, 0, report)
++        self.assertFalse(report.get("transition_ok"), report)
++        self.assertIn("T", report.get("controlling_impacted") or [])
++        self.assertNotIn("T", report.get("coverage_repairs") or [])
++        reasons = []
++        for row in report.get("transition_errors") or []:
++            if row.get("node") == "T":
++                reasons.extend(row.get("reasons") or [])
++        self.assertIn("CONTROLLING_SOURCE_REQUIRES_REVALIDATION", reasons)
++
+ 
+ if __name__ == "__main__":
+     unittest.main()
+diff --git a/tools/claims_gate_adapter.py b/tools/claims_gate_adapter.py
+index feb5741..6906114 100644
+--- a/tools/claims_gate_adapter.py
++++ b/tools/claims_gate_adapter.py
+@@ -762,6 +762,68 @@ def _binding_is_scientific_monitorable(binding: dict[str, Any]) -> bool:
+     return True
+ 
+ 
++
++# Fields that may change under a pure binding-precision / coverage migration (E6).
++# Any other claims-record field change is independent semantic impact and must
++# still refuse retained controlling use.
++_BINDING_ONLY_RECORD_FIELDS = frozenset(
++    {
++        "source_bindings",
++        "source",
++        "mirror_path",
++        "canon_source",
++    }
++)
++
++
++def _nonbinding_identity_changed(
++    old_node: dict[str, Any], new_node: dict[str, Any]
++) -> bool:
++    """True when non-binding node identity diverges (E6).
++
++    Coverage-repair exemptions may only apply when binding/source fields move
++    while statement/deps/grade/classification/version (etc.) stay fixed.
++    """
++    for key in (
++        "classification",
++        "version",
++        "source_grade",
++        "source_status",
++        "source_controlling",
++        "bucket",
++    ):
++        if old_node.get(key) != new_node.get(key):
++            return True
++    old_statuses = old_node.get("source_statuses") or []
++    new_statuses = new_node.get("source_statuses") or []
++    if old_statuses != new_statuses:
++        return True
++    old_snap = old_node.get("source_snapshot")
++    new_snap = new_node.get("source_snapshot")
++    if isinstance(old_snap, str) and isinstance(new_snap, str):
++        try:
++            old_r = json.loads(old_snap)
++            new_r = json.loads(new_snap)
++        except json.JSONDecodeError:
++            return old_snap != new_snap
++        if not isinstance(old_r, dict) or not isinstance(new_r, dict):
++            return old_snap != new_snap
++
++        def strip(record: dict[str, Any]) -> dict[str, Any]:
++            return {
++                key: value
++                for key, value in record.items()
++                if key not in _BINDING_ONLY_RECORD_FIELDS
++            }
++
++        return json.dumps(
++            strip(old_r), sort_keys=True, separators=(",", ":"), ensure_ascii=False
++        ) != json.dumps(
++            strip(new_r), sort_keys=True, separators=(",", ":"), ensure_ascii=False
++        )
++    return False
++
++
+ def _is_binding_precision_repair(
+     old_bound: dict[str, Any] | None, new_bound: dict[str, Any] | None
+ ) -> bool:
+@@ -854,9 +916,20 @@ def evaluate_transition_enforcement(
+     retained_impacted = new_controls.intersection(impact["impacted"])
+     coverage_repairs: set[str] = set()
+     if old_sources is not None and new_sources is not None:
++        edge_only = set(impact.get("edge_only_seeds") or [])
++        authority_seeds = set(impact.get("authority_owner_seeds") or [])
+         for nid in list(retained_impacted):
+             old_b = old_sources.get(nid)
+             new_b = new_sources.get(nid)
++            old_node = old_graph["nodes"].get(nid) or {}
++            new_node = new_graph["nodes"].get(nid) or {}
++            # E6: never exempt when non-binding identity / edges / authority moved.
++            if (
++                _nonbinding_identity_changed(old_node, new_node)
++                or nid in edge_only
++                or nid in authority_seeds
++            ):
++                continue
+             if not _source_binding_monitorable(old_b) and _source_binding_monitorable(
+                 new_b
+             ):

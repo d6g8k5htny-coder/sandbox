@@ -1,0 +1,25 @@
+diff --git a/.gitignore b/.gitignore
+index 83798d7..3102ff0 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -2,3 +2,5 @@ __pycache__/
+ *.pyc
+ .pytest_cache/
+ *.b64
++# CI claims-gate event-compare impact reports
++artifacts/
+diff --git a/tests/test_bridge.py b/tests/test_bridge.py
+index 507ef9b..98ea703 100644
+--- a/tests/test_bridge.py
++++ b/tests/test_bridge.py
+@@ -456,7 +456,9 @@ def test_own_orders_rule_matches_whole_segments_only(ref):
+ def test_repository_top_level_list_matches_the_checkout():
+     """The static list the self-authority rule uses must not go stale."""
+     ignore = {".git", ".pytest_cache", "__pycache__", ".venv", ".idea", ".vscode",
+-              ".DS_Store", ".claude", ".mypy_cache", ".ruff_cache"}
++              ".DS_Store", ".claude", ".mypy_cache", ".ruff_cache",
++              # CI event-compare --write-report dir (not a tracked top-level).
++              "artifacts"}
+     actual = {n for n in os.listdir(ROOT) if n not in ignore}
+     assert actual - set(WO.REPOSITORY_TOP_LEVEL) == set(), \
+         f"top-level entries missing from REPOSITORY_TOP_LEVEL: {actual - set(WO.REPOSITORY_TOP_LEVEL)}"

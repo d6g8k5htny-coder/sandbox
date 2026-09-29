@@ -1,0 +1,405 @@
+{
+  "schema": "sandbox.d7-drift-scan/v1",
+  "as_of_utc": "2026-09-25T17:44:52Z",
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "authority": "NONE",
+  "lane": "Cursor D7 per main #86 parallel dispatch",
+  "prs": [
+    {
+      "number": 87,
+      "title": "Downstream RN crosswalk: keep historical walls honest and isolate current blockers",
+      "state": "CLOSED",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/87",
+      "head": "3d4969a",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:09:37Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/math_status/DOWNSTREAM_CROSSWALK_20260925.md"
+      ],
+      "checks": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 92,
+      "title": "Place RN downstream crosswalk outside the closed math_status packet",
+      "state": "CLOSED",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/92",
+      "head": "db0645f",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:10:54Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/DOWNSTREAM_RN_CROSSWALK_20260925.md",
+        "docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md",
+        "docs/NAVIGATION.json",
+        "docs/RESEARCH_INDEX.md",
+        "docs/RN_MESOSCOPIC_REDUCTION_CHALLENGE_20260925.md",
+        "docs/math_status/README.md",
+        "docs/patches/math_pr8_eligibility_fix_REPORT.json",
+        "docs/patches/math_pr8_own_node_eligibility.patch",
+        "tests/test_navigation.py"
+      ],
+      "checks": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 93,
+      "title": "Surface RN downstream crosswalk and mesoscopic draft from default home",
+      "state": "CLOSED",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/93",
+      "head": "6dd4ca9",
+      "base": "main",
+      "updatedAt": "2026-09-25T17:09:36Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/RESEARCH_INDEX.md"
+      ],
+      "checks": {
+        "navigation": "SUCCESS",
+        "verify": "SUCCESS"
+      }
+    },
+    {
+      "number": 97,
+      "title": "docs(inventable): RN downstream crosswalk + mesoscopic challenge + Math- #8 handoff (fresh on 077464ef; supersedes #92)",
+      "state": "MERGED",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/97",
+      "head": "db75add",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": "2026-09-25T17:06:27Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/DOWNSTREAM_RN_CROSSWALK_20260925.md",
+        "docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md",
+        "docs/NAVIGATION.json",
+        "docs/RN_MESOSCOPIC_REDUCTION_CHALLENGE_20260925.md",
+        "docs/patches/math_pr8_eligibility_fix_REPORT.json",
+        "docs/patches/math_pr8_own_node_eligibility.patch",
+        "tests/test_navigation.py"
+      ],
+      "checks": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 98,
+      "title": "Scientific-state schema pilot (#95): authority map + ID crosswalk + fail-closed checker",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
+      "head": "c1236a7",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": null,
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "architecture/scientific_state/README.md",
+        "architecture/scientific_state/v1/AUTHORITY_MAP.json",
+        "architecture/scientific_state/v1/ID_CROSSWALK.json",
+        "architecture/scientific_state/v1/SCHEMA.json",
+        "architecture/scientific_state/v1/VERIFICATION_LEVELS.json",
+        "tests/test_scientific_state.py",
+        "tools/scientific_state_check.py"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 99,
+      "title": "docs(math_status): ENV-RESCOV node walk-down classification \u2014 outcome (b), conditional; no flags flipped",
+      "state": "MERGED",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/99",
+      "head": "6cb85b2",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": null,
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/math_status/PACKET.json",
+        "docs/math_status/STATUS_RN_UNIF.md",
+        "docs/math_status_nodes/NODE_ENV_RESCOV_20260925.md",
+        "docs/math_status_nodes/env_rescov_b9c2_identity_spotcheck.py"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 100,
+      "title": "docs: mark agent 13's 13 STILL_CONDITIONAL importers (sidecar; F-map rescoped to rungs; no pinned bytes, no flags)",
+      "state": "MERGED",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/100",
+      "head": "184617d",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": null,
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/CONDITIONAL_IMPORTERS_2026-09-25.md"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 101,
+      "title": "docs(math_status): STATUS.md \"CERTIFIED\" q=2 envelope is REQUIRED CARRIER ABSENT (walk-down 9, M1)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/101",
+      "head": "486c68a",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": null,
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "docs/math_status/README.md"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 102,
+      "title": "docs(inventable): SIDE24_CELL importers restricted to declared square C; complement named (engineering replay only)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/102",
+      "head": "d661b01",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": null,
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "README.md",
+        "docs/RESEARCH_EXECUTION.md",
+        "engine/lanes/A5.json"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 103,
+      "title": "Vault audit v2: 80-ID tracker and reverse-impact component \u2014 audit remains OPEN",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/103",
+      "head": "5d442c3",
+      "base": "main",
+      "updatedAt": "2026-09-25T17:21:51Z",
+      "author": "d6g8k5htny-coder",
+      "files": [
+        "audits/vault_99/2026-09-25/INDEX_v2.json",
+        "audits/vault_99/2026-09-25/README.md",
+        "audits/vault_99/2026-09-25/code/reverse_impact.py"
+      ],
+      "checks": {
+        "verify": "SUCCESS"
+      }
+    },
+    {
+      "number": 104,
+      "title": "Retip #38: refuse a non-zero residual on an OUTSIDE cell (controls 33 and 34)",
+      "state": "OPEN",
+      "isDraft": true,
+      "url": null,
+      "head": "ec3b426",
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "updatedAt": null,
+      "files": [
+        "research/cover/README.md",
+        "research/cover/ledger.py",
+        "tests/test_cover.py"
+      ],
+      "checks": {
+        "verify": "IN_PROGRESS",
+        "navigation": "IN_PROGRESS",
+        "loss-only-controls": "IN_PROGRESS"
+      }
+    }
+  ],
+  "duplicate_open_files": {
+    "docs/DOWNSTREAM_RN_CROSSWALK_20260925.md": [
+      92,
+      97
+    ],
+    "docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md": [
+      92,
+      97
+    ],
+    "docs/NAVIGATION.json": [
+      92,
+      97
+    ],
+    "docs/RN_MESOSCOPIC_REDUCTION_CHALLENGE_20260925.md": [
+      92,
+      97
+    ],
+    "docs/math_status/README.md": [
+      92,
+      101
+    ],
+    "docs/patches/math_pr8_eligibility_fix_REPORT.json": [
+      92,
+      97
+    ],
+    "docs/patches/math_pr8_own_node_eligibility.patch": [
+      92,
+      97
+    ],
+    "tests/test_navigation.py": [
+      92,
+      97
+    ]
+  },
+  "findings": [
+    {
+      "id": "D7-DUP-CROSSWALK-92-97",
+      "severity": "resolved",
+      "summary": "OPEN drafts #92 and #97 both carry DOWNSTREAM_RN_CROSSWALK_20260925.md and related D0 docs",
+      "detail": "#92 head db0645f and #97 head db75add share base branch chatgpt/drive-github-hardening-20260919 and overlapping D0 doc paths. Land one; close the other as superseded.",
+      "suggested_eng_action": "Done: #97 merged, #92 closed. Watch for missing RESEARCH_INDEX / math_status README deltas that lived only on #92."
+    },
+    {
+      "id": "D7-STALE-ELIGIBILITY-HANDOFF",
+      "severity": "medium",
+      "summary": "Math- eligibility handoff docs still describe repair as open while Math- main already has CONTROLLING_ELIGIBLE",
+      "detail": "Observed Math- main tip refuses AUTHOR_SIDE_CANDIDATE controlling promotion. Handoff markdown on #92/#97 still useful as history but should be marked APPLIED/SUPERSEDED after tip sync.",
+      "suggested_eng_action": "After #92/#97 settlement, add one-line APPLIED note pointing at Math- tip SHA; do not re-apply the patch."
+    },
+    {
+      "id": "D7-PR87-ALREADY-CLOSED",
+      "severity": "info",
+      "summary": "PR87 already closed as superseded by #92",
+      "detail": "Matches #86 D7 instruction to reconcile/close PR87.",
+      "suggested_eng_action": "None."
+    },
+    {
+      "id": "D7-VAULT-96-103-SOLE-AUDITOR",
+      "severity": "info",
+      "summary": "Vault census PRs #96/#103 are sole-auditor surfaces",
+      "detail": "Other agents observe only unless #91 records explicit delegation.",
+      "suggested_eng_action": "No assist from sandbox/Cursor integration lane."
+    },
+    {
+      "id": "D7-BASE-SPLIT-92-97",
+      "severity": "resolved",
+      "summary": "#92 and #97 target different bases while editing the same D0 doc set",
+      "detail": "Landing both would fork the crosswalk across default-home vs hardening inventable tip. Catalog/nav drift risk.",
+      "suggested_eng_action": "Done: #97 merged, #92 closed. Watch for missing RESEARCH_INDEX / math_status README deltas that lived only on #92."
+    },
+    {
+      "id": "D7-MATH-STATUS-README-92-101",
+      "severity": "medium",
+      "summary": "#92 and #101 both touch docs/math_status/README.md",
+      "detail": "Merge order matters; #101 is inventable CERTIFIED-q2 carrier ABSENT walk-down.",
+      "suggested_eng_action": "Serialize merges; rebase the later PR."
+    },
+    {
+      "id": "D7-SCHEMA-PILOT-98-OK",
+      "severity": "info",
+      "summary": "PR #98 scientific-state schema pilot correctly refuses to own CONTROLLING/lemma_closed",
+      "detail": "AUTHORITY_MAP routes promotion to Math- gate; local tests 9 OK; no fail-open promotion engine reimplementation observed.",
+      "suggested_eng_action": "Keep; do not merge status ownership onto main via this package."
+    },
+    {
+      "id": "D7-92-ONLY-FILES-MAY-NEED-REPLAY",
+      "severity": "medium",
+      "summary": "#92-only paths may be absent after #97 merge: RESEARCH_INDEX.md and math_status/README.md edits",
+      "detail": "Compare merged tip to #92 head db0645f for those two files; cherry-pick if still wanted.",
+      "suggested_eng_action": "Apply pr97_followup_nav_links.patch (packaged); marks eligibility handoff APPLIED."
+    },
+    {
+      "id": "D7-FOLLOWUP-VS-101",
+      "severity": "medium",
+      "summary": "Follow-up nav patch and open #101 both edit docs/math_status/README.md",
+      "detail": "Serialize merges to avoid clobbering CERTIFIED-q2 ABSENT walk-down vs crosswalk pointer.",
+      "suggested_eng_action": "Land #101 then rebase follow-up patch, or combine in one PR."
+    },
+    {
+      "id": "D7-PR105-CONSUMERS",
+      "severity": "high",
+      "summary": "main #105 verify fails consumers_check; CONTRIBUTION_PLAN now cites lpw_fold_dispositions",
+      "detail": "recorded prose list missing docs/CONTRIBUTION_PLAN.md",
+      "suggested_eng_action": "Apply pr105_consumers_fix.patch on #105 branch"
+    }
+  ],
+  "note": "Private eng scan only; not research acceptance or merge authority.",
+  "pr92_97_comparison": {
+    "same_base_branch": true,
+    "base": "chatgpt/drive-github-hardening-20260919",
+    "base_oid_92": "077464e",
+    "base_oid_97": "077464e",
+    "head_92": "db0645f",
+    "head_97": "db75add",
+    "files_only_92": [
+      "docs/RESEARCH_INDEX.md",
+      "docs/math_status/README.md"
+    ],
+    "files_only_97": [],
+    "files_both": [
+      "docs/DOWNSTREAM_RN_CROSSWALK_20260925.md",
+      "docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md",
+      "docs/NAVIGATION.json",
+      "docs/RN_MESOSCOPIC_REDUCTION_CHALLENGE_20260925.md",
+      "docs/patches/math_pr8_eligibility_fix_REPORT.json",
+      "docs/patches/math_pr8_own_node_eligibility.patch",
+      "tests/test_navigation.py"
+    ]
+  },
+  "misleading_actions_labels": [
+    {
+      "workflow": "h3-search-and-certify-pilot",
+      "path": ".github/workflows/h3-solver-pilot.yml",
+      "concern": "Name contains \"certify\" while pilot/non-discharge; readers may overread Actions label",
+      "suggested": "Prefer display name without certify, or keep explicit \"pilot / no discharge\" in name (already partially present as pilot)"
+    },
+    {
+      "workflow": "ci",
+      "path": ".github/workflows/ci.yml",
+      "concern": "Generic \"ci\"/\"verify\" success is frequently mistaken for obligation discharge; math_status_check already prints non-discharge banner",
+      "suggested": "Keep banners; avoid READY/CERTIFIED job names (none observed on verify)"
+    }
+  ],
+  "recommendation": {
+    "duplicate_d0_docs": "Prefer main #92 (superset files + CI green); close #97 as duplicate/superseded after confirming tip identity",
+    "scientific_effect": "NONE"
+  },
+  "resolution": {
+    "pr97": "MERGED",
+    "pr92": "CLOSED_not_merged",
+    "note": "Inventable tip landing won; #92 closed as superseded by #97 despite being a file superset. Follow tip 077464ef line."
+  },
+  "followup_patch": "pr97_followup_nav_links.patch",
+  "pr105_fix": "pr105_consumers_fix.patch",
+  "hardening_tip_note": "eeebb28 after #99/#100 merge; #97 merged earlier",
+  "ready_packages": [
+    "pr105_consumers_fix.patch",
+    "pr97_followup_nav_links.patch",
+    "pr_handoff_applied.patch"
+  ],
+  "hardening_tip": "eeebb28eeab2"
+}

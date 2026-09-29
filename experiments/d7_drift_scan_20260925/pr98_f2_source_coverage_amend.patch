@@ -1,0 +1,636 @@
+diff --git a/claims/graph.json b/claims/graph.json
+index 4c65fdc..06b6f4d 100644
+--- a/claims/graph.json
++++ b/claims/graph.json
+@@ -141,7 +141,16 @@
+    "source": "Q0_MASTER.md Part I line 336 (Q0_C101_QUALITATIVE_RATE_THEOREM.md, sha prefix 8c2ded652973)",
+    "canon_statement": "0 ≤ 1 − q(r,6/5) ≤ C_Q0 r³ for 0<r≤0.025, for some finite C_Q0. Therefore q(r,6/5)→1 as r→0. No numerical value of C_Q0 is certified.",
+    "canon_source": "Research Carry-Forward Canon v1.0, Drive 13ix3HD-AKBpxXKLydC1oMO9ask8SgreOOIOl7OeLMgI, §2 CURRENT THEOREM BOUNDARY (model: periodized Bargmann–Fock field on T², L = 24, b = 6/5, ℓ = r³/6)",
+-   "canon_binding_restrictions": "Do not promote the following as theorem constants: 4.3, 4.35, 0.8411, 0.84, 0.8501, 0.946, 0.97, 0.99, or 1.01."
++   "canon_binding_restrictions": "Do not promote the following as theorem constants: 4.3, 4.35, 0.8411, 0.84, 0.8501, 0.946, 0.97, 0.99, or 1.01.",
++   "source_bindings": [
++    {
++     "kind": "external_frozen",
++     "reference": "Q0_C101_QUALITATIVE_RATE_THEOREM.md",
++     "sha256_prefix": "8c2ded652973",
++     "non_monitorable_hold": true,
++     "note": "Carrier not present in this checkout; explicit non-monitorable HOLD for claims-gate F2 (does not grant promotion_permission)."
++    }
++   ]
+   },
+   "Q0-C104-THEOREM-B": {
+    "track": "UPPER2D",
+@@ -188,7 +197,16 @@
+     "D3-LEMMA-RN-UNIF"
+    ],
+    "note": "D3-LEMMA-RN-UNIF is used at the rung only and is precisely stated, NOT closed. Until 2026-09-19 the statement gave the H5 chart total I_hi(v3) = 647.8048·r³ as the theorem's content; the theorem's own display (D1_ASSEMBLY_v2_2.md §1, mirrored byte-exact) is the bound above.",
+-   "source": "D1_ASSEMBLY_v2_2.md (frozen body sha 490ad6b2f14176fe8cf5af363fb94dc73a8bc5523f608e5ab2a42ff749b235f6)"
++   "source": "D1_ASSEMBLY_v2_2.md (frozen body sha 490ad6b2f14176fe8cf5af363fb94dc73a8bc5523f608e5ab2a42ff749b235f6)",
++   "source_bindings": [
++    {
++     "kind": "external_frozen",
++     "reference": "D1_ASSEMBLY_v2_2.md",
++     "sha256": "490ad6b2f14176fe8cf5af363fb94dc73a8bc5523f608e5ab2a42ff749b235f6",
++     "non_monitorable_hold": true,
++     "note": "Frozen body digest from claims source prose; carrier not in this checkout; explicit non-monitorable HOLD for claims-gate F2."
++    }
++   ]
+   },
+   "D1-v2.2(2)": {
+    "track": "UPPER2D",
+diff --git a/tests/test_claims_gate_adapter.py b/tests/test_claims_gate_adapter.py
+index 1ee3fd6..ff31d17 100644
+--- a/tests/test_claims_gate_adapter.py
++++ b/tests/test_claims_gate_adapter.py
+@@ -7,6 +7,7 @@ from __future__ import annotations
+ import copy
+ import importlib.util
+ import json
++import os
+ import unittest
+ from pathlib import Path
+ 
+@@ -928,7 +929,11 @@ class FiveBoundaryEnforcementTests(unittest.TestCase):
+             before = self._init_fixture(repo, g)
+             (repo / "proof.md").write_text("Changed canonical source\n", encoding="utf-8")
+             after = self._commit_after(repo, "bindings-edit")
+-            rc, report = self._event_compare(repo, before, after)
++            os.environ["CLAIMS_GATE_REPO_IDENTITY"] = "d6g8k5htny-coder/main"
++            try:
++                rc, report = self._event_compare(repo, before, after)
++            finally:
++                os.environ.pop("CLAIMS_GATE_REPO_IDENTITY", None)
+             self.assertEqual(rc, 0, report)
+             self.assertTrue(report["transition_ok"])
+             self.assertIn("P", report["reverse_impact"]["impacted"])
+diff --git a/tests/test_claims_gate_enforcement.py b/tests/test_claims_gate_enforcement.py
+index 3110c2b..5ec4898 100644
+--- a/tests/test_claims_gate_enforcement.py
++++ b/tests/test_claims_gate_enforcement.py
+@@ -154,7 +154,7 @@ class EnforcementCLITests(unittest.TestCase):
+             (self.root/name).write_text("Synthetic initial source\n")
+ 
+     def git(self,*args):
+-        p=subprocess.run(["git","-C",str(self.root),*args],capture_output=True,text=True,timeout=20)
++        p=subprocess.run(["git","-C",str(self.root),*args],capture_output=True,text=True,timeout=60)
+         self.assertEqual(p.returncode,0,p.stderr)
+         return p.stdout.strip()
+ 
+@@ -231,3 +231,128 @@ class EnforcementCLITests(unittest.TestCase):
+ 
+ 
+ if __name__=="__main__":unittest.main()
++
++
++class F2SourceCoverageTests(unittest.TestCase):
++    """OpenAI F2: controlling sources must be monitorable or explicit frozen HOLD."""
++
++    def _ref_compare(self, before_claims, after_claims, mutate_source_file=None):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            (root / "architecture/scientific_state/v1").mkdir(parents=True)
++            (root / "claims").mkdir()
++            crosswalk = {"rows": []}
++            authority = {"authorities": {}}
++            files = {
++                "claims/graph.json": before_claims,
++                "architecture/scientific_state/v1/ID_CROSSWALK.json": crosswalk,
++                "architecture/scientific_state/v1/AUTHORITY_MAP.json": authority,
++                "proof.md": "premise body v1\n",
++                "theorem.md": "theorem body v1\n",
++                "unrelated.md": "other\n",
++            }
++            for rel, payload in files.items():
++                p = root / rel
++                p.parent.mkdir(parents=True, exist_ok=True)
++                if isinstance(payload, dict):
++                    p.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
++                else:
++                    p.write_text(payload, encoding="utf-8")
++            subprocess.check_call(["git", "init"], cwd=root, stdout=subprocess.DEVNULL)
++            subprocess.check_call(["git", "config", "user.email", "t@example.com"], cwd=root)
++            subprocess.check_call(["git", "config", "user.name", "t"], cwd=root)
++            subprocess.check_call(["git", "add", "-A"], cwd=root)
++            subprocess.check_call(
++                ["git", "commit", "-m", "before"], cwd=root, stdout=subprocess.DEVNULL
++            )
++            before = (
++                subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root)
++                .decode()
++                .strip()
++            )
++            (root / "claims/graph.json").write_text(
++                json.dumps(after_claims, indent=2) + "\n", encoding="utf-8"
++            )
++            if mutate_source_file:
++                p = root / mutate_source_file
++                p.write_text(p.read_text(encoding="utf-8") + "mutated\n", encoding="utf-8")
++            subprocess.check_call(["git", "add", "-A"], cwd=root)
++            subprocess.check_call(
++                ["git", "commit", "-m", "after", "--allow-empty"],
++                cwd=root,
++                stdout=subprocess.DEVNULL,
++            )
++            after = (
++                subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root)
++                .decode()
++                .strip()
++            )
++            return CGA.compare_claims_refs(before, after, root=root)
++
++    def test_unresolved_prose_controlling_fails_transition_ok(self):
++        old = fixture()
++        promote(old)
++        old["claims"]["T"]["source"] = "MISSING_CARRIER.md Part I line 1 (not in repo)"
++        report = self._ref_compare(old, old)
++        self.assertIs(report.get("transition_ok"), False, report)
++        reasons = []
++        for row in report.get("transition_errors") or []:
++            reasons.extend(row.get("reasons") or [])
++        self.assertIn("CONTROLLING_SOURCE_UNMONITORABLE", reasons)
++
++    def test_bound_source_byte_change_without_claims_json_change_refuses(self):
++        old = fixture()
++        promote(old)
++        report = self._ref_compare(old, old, mutate_source_file="theorem.md")
++        self.assertIs(report.get("transition_ok"), False, report)
++        impacted = report.get("reverse_impact", {}).get("impacted") or []
++        self.assertIn("T", impacted)
++        self.assertIn("T", [row.get("node") for row in report.get("transition_errors", [])])
++
++    def test_second_source_binding_mutation_refuses(self):
++        old = fixture()
++        promote(old)
++        old["claims"]["T"]["source_bindings"] = [
++            {"path": "theorem.md"},
++            {"path": "proof.md"},
++        ]
++        old["claims"]["T"].pop("source", None)
++        report = self._ref_compare(old, old, mutate_source_file="proof.md")
++        self.assertIs(report.get("transition_ok"), False, report)
++        self.assertIn("T", [row.get("node") for row in report.get("transition_errors", [])])
++
++    def test_unsupported_cross_repo_binding_fails_closed(self):
++        old = fixture()
++        promote(old)
++        old["claims"]["T"]["source_bindings"] = [
++            {"path": "theorem.md", "repo": "other/repo"},
++        ]
++        old["claims"]["T"].pop("source", None)
++        report = self._ref_compare(old, old)
++        self.assertIs(report.get("transition_ok"), False, report)
++        reasons = []
++        for row in report.get("transition_errors") or []:
++            reasons.extend(row.get("reasons") or [])
++        self.assertIn("CONTROLLING_SOURCE_UNMONITORABLE", reasons)
++
++    def test_external_frozen_hold_is_not_unmonitorable_error(self):
++        old = fixture()
++        promote(old)
++        old["claims"]["T"]["source_bindings"] = [
++            {
++                "kind": "external_frozen",
++                "reference": "carrier.md",
++                "sha256": "a" * 64,
++                "non_monitorable_hold": True,
++            }
++        ]
++        old["claims"]["T"].pop("source", None)
++        report = self._ref_compare(old, old)
++        reasons = []
++        for row in report.get("transition_errors") or []:
++            reasons.extend(row.get("reasons") or [])
++        self.assertNotIn("CONTROLLING_SOURCE_UNMONITORABLE", reasons, report)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tools/claims_gate_adapter.py b/tools/claims_gate_adapter.py
+index 6e55dd4..76c9e39 100644
+--- a/tools/claims_gate_adapter.py
++++ b/tools/claims_gate_adapter.py
+@@ -607,6 +607,18 @@ def audit_tip(root: Path | None = None) -> dict[str, Any]:
+     impact = reverse_impact_between(graph, copy.deepcopy(graph))
+     holds = aggregate_hold_proposals(graph)
+     hold_nodes = sorted(holds)
++    tip_rev = _git_bytes(root, "rev-parse", "HEAD")
++    tip_sha = tip_rev.decode().strip() if tip_rev else "HEAD"
++    tip_sources = bind_claims_sources_at_ref(root, tip_sha, claims)
++    unmonitorable = _unmonitorable_controlling_nodes(graph, tip_sources)
++    problems = [
++        {
++            "node": nid,
++            "kind": "CONTROLLING_SOURCE_UNMONITORABLE",
++            "source_kind": (tip_sources.get(nid) or {}).get("kind"),
++        }
++        for nid in unmonitorable
++    ]
+     return {
+         "mode": "tip_health",
+         "nodes": len(graph["nodes"]),
+@@ -617,12 +629,14 @@ def audit_tip(root: Path | None = None) -> dict[str, Any]:
+         "hold_node_count": len(hold_nodes),
+         "hold_nodes": hold_nodes,
+         "hold_proposals": holds,
++        "unresolved_controlling_sources": unmonitorable,
+         "promotion_permission": False,
+         "scientific_effect": "NONE",
+-        "problems": [],
++        "problems": problems,
+         "meaning": (
+             "tip-health only (identity self-compare + HOLD inventory); "
+-            "NOT evidence that a PR/push base→head transition is clean"
++            "NOT evidence that a PR/push base→head transition is clean; "
++            "unmonitorable controlling sources listed in problems (F2)"
+         ),
+     }
+ 
+@@ -662,12 +676,62 @@ def _source_is_controlling(node: dict[str, Any]) -> bool:
+     )
+ 
+ 
++
++
++UNMONITORABLE_SOURCE_KINDS = frozenset(
++    {
++        "unresolved_prose",
++        "missing",
++        "record_only",
++        "external_unresolved",
++        "unsupported_cross_repo",
++    }
++)
++MONITORABLE_SOURCE_KINDS = frozenset({"blob", "tree", "multi", "external_frozen_hold"})
++
++
++def _source_coverage_unmonitorable(src: dict[str, Any] | None) -> bool:
++    """True when a controlling node lacks monitorable (or explicit frozen-HOLD) coverage."""
++    if not src:
++        return True
++    kind = src.get("kind")
++    if kind in MONITORABLE_SOURCE_KINDS:
++        # multi/blob/tree OK; external_frozen_hold is explicit non-monitorable HOLD.
++        if kind == "multi":
++            # Any unmonitorable binding inside multi still fails closed.
++            for b in src.get("bindings") or []:
++                if b.get("kind") in UNMONITORABLE_SOURCE_KINDS:
++                    return True
++                if b.get("kind") == "path_alias":
++                    continue
++                if b.get("kind") in {"blob", "tree", "external_frozen_hold"}:
++                    continue
++                if b.get("kind") in UNMONITORABLE_SOURCE_KINDS or b.get("kind") == "record_only":
++                    return True
++            return False
++        return False
++    return True
++
++
++def _unmonitorable_controlling_nodes(
++    graph: dict[str, Any], sources: dict[str, dict[str, Any]]
++) -> list[str]:
++    out: list[str] = []
++    for nid, node in graph["nodes"].items():
++        if not _source_is_controlling(node):
++            continue
++        if _source_coverage_unmonitorable(sources.get(nid)):
++            out.append(nid)
++    return sorted(out)
++
++
+ def evaluate_transition_enforcement(
+     *,
+     old_graph: dict[str, Any],
+     new_graph: dict[str, Any],
+     impact: dict[str, Any],
+     holds: dict[str, Any],
++    unmonitorable_controlling: list[str] | None = None,
+ ) -> dict[str, Any]:
+     """Loss-only refusal, not a positive mathematical admission mechanism.
+ 
+@@ -702,6 +766,23 @@ def evaluate_transition_enforcement(
+                 "promotion_permission": False,
+             }
+         )
++    # F2: controlling sources with unmonitorable bindings fail closed even
++    # when not yet in the impact set (report-only was insufficient).
++    seen = {row["node"] for row in errors}
++    for nid in unmonitorable_controlling or []:
++        if nid in seen:
++            for row in errors:
++                if row["node"] == nid and "CONTROLLING_SOURCE_UNMONITORABLE" not in row["reasons"]:
++                    row["reasons"].append("CONTROLLING_SOURCE_UNMONITORABLE")
++            continue
++        errors.append(
++            {
++                "node": nid,
++                "reasons": ["CONTROLLING_SOURCE_UNMONITORABLE"],
++                "required_hold": holds.get(nid),
++                "promotion_permission": False,
++            }
++        )
+     return {
+         "transition_ok": not errors,
+         "transition_errors": errors,
+@@ -773,29 +854,70 @@ def relative_repo_path(value: str) -> str:
+ def _candidate_source_strings(record: dict[str, Any]) -> list[tuple[str, str, str]]:
+     """Yield (kind_hint, reference, field) triples from a claims record.
+ 
+-    kind_hint: 'path' | 'external' | 'prose'
++    kind_hint: 'path' | 'external' | 'external_frozen' | 'prose' | 'unsupported_repo' | 'record_only_key'
+     field: provenance of the declaration (mirror_path / source.path / source_bindings / …)
++
++    When non-empty ``source_bindings`` are present, legacy prose ``source`` /
++    ``canon_source`` strings are not also parsed — migration must put
++    monitorable identity into structured bindings (OpenAI F2 contract).
+     """
+     out: list[tuple[str, str, str]] = []
+     for key in ("mirror_path",):
+         val = record.get(key)
+         if isinstance(val, str) and val.strip():
+             out.append(("path", val.strip(), key))
+-    # Canonical source_bindings used by semantic_digest — must also bind bytes.
+     raw_bindings = record.get("source_bindings")
+     if isinstance(raw_bindings, dict):
+         raw_bindings = [raw_bindings]
++    structured = isinstance(raw_bindings, list) and len(raw_bindings) > 0
+     if isinstance(raw_bindings, list):
+         for index, item in enumerate(raw_bindings):
++            field_base = f"source_bindings[{index}]"
+             if isinstance(item, str) and item.strip():
+-                out.append(("path", item.strip(), f"source_bindings[{index}]"))
+-            elif isinstance(item, dict):
+-                path = item.get("path") or item.get("repo_path") or item.get("file")
+-                if isinstance(path, str) and path.strip():
+-                    out.append(("path", path.strip(), f"source_bindings[{index}].path"))
+-                url = item.get("url") or item.get("uri")
+-                if isinstance(url, str) and url.strip():
+-                    out.append(("external", url.strip(), f"source_bindings[{index}].url"))
++                out.append(("path", item.strip(), field_base))
++                continue
++            if not isinstance(item, dict):
++                raise AdapterError(f"malformed source_bindings entry: {item!r}")
++            repo = item.get("repo")
++            if repo is not None and not isinstance(repo, str):
++                raise AdapterError(f"{field_base}.repo must be a string when present")
++            frozen = item.get("sha256") or item.get("digest") or item.get("sha256_prefix")
++            if item.get("non_monitorable_hold") is True or item.get("kind") == "external_frozen":
++                if not (isinstance(frozen, str) and frozen.strip()):
++                    raise AdapterError(
++                        f"{field_base}: external_frozen/non_monitorable_hold requires sha256/digest"
++                    )
++                ref = (
++                    item.get("reference")
++                    or item.get("path")
++                    or item.get("url")
++                    or item.get("uri")
++                    or frozen.strip()
++                )
++                out.append(("external_frozen", str(ref).strip(), field_base))
++                continue
++            path_v = item.get("path") or item.get("repo_path") or item.get("file")
++            url_v = item.get("url") or item.get("uri")
++            if isinstance(repo, str) and repo.strip():
++                target = ""
++                if isinstance(path_v, str) and path_v.strip():
++                    target = "path:" + path_v.strip()
++                elif isinstance(url_v, str) and url_v.strip():
++                    target = "url:" + url_v.strip()
++                out.append(
++                    ("repo_qualified", repo.strip() + "::" + target, field_base)
++                )
++                continue
++            if isinstance(path_v, str) and path_v.strip():
++                out.append(("path", path_v.strip(), f"{field_base}.path"))
++                continue
++            if isinstance(url_v, str) and url_v.strip():
++                out.append(("external", url_v.strip(), f"{field_base}.url"))
++                continue
++            # Structured keys that are not path/url/frozen → not monitorable.
++            out.append(("record_only_key", str(sorted(item.keys())), field_base))
++    if structured:
++        return out
+     src = record.get("source")
+     if isinstance(src, dict):
+         path = src.get("path") or src.get("repo_path") or src.get("file")
+@@ -804,12 +926,17 @@ def _candidate_source_strings(record: dict[str, Any]) -> list[tuple[str, str, st
+         url = src.get("url") or src.get("uri")
+         if isinstance(url, str) and url.strip():
+             out.append(("external", url.strip(), "source.url"))
++        if not any(h == "path" or h == "external" for h, _, f in out if f.startswith("source")):
++            # e.g. registry/current_state/proof_bodies — ignored by path/url parser.
++            if src:
++                out.append(("record_only_key", str(sorted(src.keys())), "source"))
+     elif isinstance(src, str) and src.strip():
+-        text = src.strip()
+-        if text.startswith(("https://", "http://", "external:")):
+-            out.append(("external", text, "source"))
++        text_s = src.strip()
++        if text_s.startswith(("https://", "http://", "external:")):
++            out.append(("external", text_s, "source"))
+         else:
+-            first = re.split(r"[;]", text, maxsplit=1)[0].strip()
++            # Do not invent multi-source coverage from semicolon prose.
++            first = re.split(r"[;]", text_s, maxsplit=1)[0].strip()
+             first = re.split(r"\s+§", first, maxsplit=1)[0].strip()
+             if (
+                 "/" in first
+@@ -817,7 +944,7 @@ def _candidate_source_strings(record: dict[str, Any]) -> list[tuple[str, str, st
+             ) and " " not in first:
+                 out.append(("path", first, "source"))
+             else:
+-                out.append(("prose", text, "source"))
++                out.append(("prose", text_s, "source"))
+     canon = record.get("canon_source")
+     if isinstance(canon, str) and canon.strip():
+         if canon.startswith(("https://", "http://", "external:")):
+@@ -862,6 +989,48 @@ def _bind_one_path(
+     }
+ 
+ 
++
++def _allowed_repo_identities(root: Path) -> set[str]:
++    """Identities that may appear in source_bindings[].repo for this checkout."""
++    import os
++
++    allowed: set[str] = set()
++    env = (os.environ.get("CLAIMS_GATE_REPO_IDENTITY") or "").strip()
++    if env:
++        for part in env.split(","):
++            part = part.strip()
++            if part:
++                allowed.add(part)
++    remote = _git_bytes(root, "remote", "get-url", "origin", missing_ok=True)
++    if remote:
++        url = remote.decode().strip().rstrip("/")
++        if url.endswith(".git"):
++            url = url[:-4]
++        # https://github.com/owner/name or git@github.com:owner/name
++        if "github.com" in url:
++            if url.startswith("git@"):
++                tail = url.split(":", 1)[-1]
++            else:
++                tail = url.split("github.com/", 1)[-1]
++            allowed.add(tail)
++            allowed.add("github.com/" + tail)
++        allowed.add(url)
++    return allowed
++
++
++def _repo_identity_allowed(root: Path, repo: str) -> bool:
++    allowed = _allowed_repo_identities(root)
++    if not allowed:
++        # No configured identity → fail closed on any explicit repo field.
++        return False
++    repo = repo.strip()
++    if repo in allowed:
++        return True
++    if repo.startswith("github.com/") and repo[len("github.com/"):] in allowed:
++        return True
++    return False
++
++
+ def bind_source_at_revision(
+     root: Path, revision: str, record: dict[str, Any]
+ ) -> dict[str, Any]:
+@@ -898,6 +1067,51 @@ def bind_source_at_revision(
+                 continue
+             seen_paths.add(key)
+             bindings.append(_bind_one_path(root, revision, reference, field=field))
++        elif kind_hint == "repo_qualified":
++            repo_id, _, target = reference.partition("::")
++            if not _repo_identity_allowed(root, repo_id):
++                bindings.append(
++                    {
++                        "kind": "unsupported_cross_repo",
++                        "reference": repo_id,
++                        "field": field,
++                    }
++                )
++            elif target.startswith("path:"):
++                path_ref = target[len("path:"):]
++                key = path_ref
++                if key in seen_paths:
++                    bindings.append(
++                        {
++                            "kind": "path_alias",
++                            "reference": path_ref,
++                            "field": field,
++                            "alias_of": path_ref,
++                            "repo": repo_id,
++                        }
++                    )
++                else:
++                    seen_paths.add(key)
++                    bound = _bind_one_path(root, revision, path_ref, field=field)
++                    bound["repo"] = repo_id
++                    bindings.append(bound)
++            elif target.startswith("url:"):
++                bindings.append(
++                    {
++                        "kind": "external_unresolved",
++                        "reference": target[len("url:"):],
++                        "field": field,
++                        "repo": repo_id,
++                    }
++                )
++            else:
++                bindings.append(
++                    {
++                        "kind": "unsupported_cross_repo",
++                        "reference": repo_id,
++                        "field": field,
++                    }
++                )
+         elif kind_hint == "external":
+             bindings.append(
+                 {
+@@ -906,6 +1120,31 @@ def bind_source_at_revision(
+                     "field": field,
+                 }
+             )
++        elif kind_hint == "external_frozen":
++            bindings.append(
++                {
++                    "kind": "external_frozen_hold",
++                    "reference": reference,
++                    "field": field,
++                    "non_monitorable_hold": True,
++                }
++            )
++        elif kind_hint == "unsupported_repo":
++            bindings.append(
++                {
++                    "kind": "unsupported_cross_repo",
++                    "reference": reference,
++                    "field": field,
++                }
++            )
++        elif kind_hint == "record_only_key":
++            bindings.append(
++                {
++                    "kind": "record_only",
++                    "reference": reference,
++                    "field": field,
++                }
++            )
+         else:
+             bindings.append(
+                 {
+@@ -928,12 +1167,18 @@ def bind_source_at_revision(
+     blob_bindings = [b for b in bindings if b.get("kind") in {"blob", "tree"}]
+     if blob_bindings:
+         primary_kind = "multi" if len(blob_bindings) > 1 else blob_bindings[0]["kind"]
++    elif any(b.get("kind") == "unsupported_cross_repo" for b in bindings):
++        primary_kind = "unsupported_cross_repo"
+     elif any(b.get("kind") == "external_unresolved" for b in bindings):
+         primary_kind = "external_unresolved"
+     elif any(b.get("kind") == "missing" for b in bindings):
+         primary_kind = "missing"
+     elif any(b.get("kind") == "unresolved_prose" for b in bindings):
+         primary_kind = "unresolved_prose"
++    elif any(b.get("kind") == "external_frozen_hold" for b in bindings):
++        primary_kind = "external_frozen_hold"
++    elif any(b.get("kind") == "record_only" for b in bindings):
++        primary_kind = "record_only"
+     else:
+         primary_kind = "record_only"
+     return {
+@@ -1191,18 +1436,32 @@ def compare_claims_refs(
+                 )
+     holds = aggregate_hold_proposals(new_g)
+     controlling_impacted = []
+-    unresolved_controlling = []
+     for nid in impact["impacted"]:
+         if nid not in new_g["nodes"]:
+             continue
+         node = new_g["nodes"][nid]
+         if _source_is_controlling(node):
+             controlling_impacted.append(nid)
+-            src = new_sources.get(nid) or {}
+-            if src.get("kind") not in {"blob", "tree", "multi"}:
+-                unresolved_controlling.append(nid)
++    unresolved_controlling = _unmonitorable_controlling_nodes(new_g, new_sources)
++    # Explicit external_frozen_hold → surface as HOLD proposal (not acceptance).
++    for nid in list(new_g["nodes"]):
++        src = new_sources.get(nid) or {}
++        if src.get("kind") == "external_frozen_hold" or any(
++            b.get("kind") == "external_frozen_hold" for b in (src.get("bindings") or [])
++        ):
++            if _source_is_controlling(new_g["nodes"][nid]) and nid not in holds:
++                holds[nid] = {
++                    "node": nid,
++                    "proposal": "HOLD",
++                    "reason": "non_monitorable_source_frozen_hold",
++                    "promotion_permission": False,
++                }
+     enforcement = evaluate_transition_enforcement(
+-        old_graph=old_g, new_graph=new_g, impact=impact, holds=holds
++        old_graph=old_g,
++        new_graph=new_g,
++        impact=impact,
++        holds=holds,
++        unmonitorable_controlling=unresolved_controlling,
+     )
+     return {
+         "mode": "ref_compare",

@@ -1,0 +1,78 @@
+diff --git a/docs/math_status/DOWNSTREAM_CROSSWALK_20260925.md b/docs/math_status/DOWNSTREAM_CROSSWALK_20260925.md
+index ecc530f..0994315 100644
+--- a/docs/math_status/DOWNSTREAM_CROSSWALK_20260925.md
++++ b/docs/math_status/DOWNSTREAM_CROSSWALK_20260925.md
+@@ -37,7 +37,7 @@ A newer theorem can bypass a historical-route requirement only when its own stat
+ 3. RN-FIXED-REMOTE-WINDOW-20260924-v1 / main #76: actual three-determinant O(r^5) numerator and O(r^3) expected count for the between-pin height window at fixed positive spatial distance.
+ 4. RN-MESOSCOPIC-ANNULUS-REDUCTION-20260925-v1 / Math- PR7 draft: reduction for x=r y on fixed scaled annuli; exact divided-difference determinant ledger still open.
+ 
+-None is a replacement carrier for the historical ABSENT files. None sets D3 lemma_closed=true.
++None is a replacement carrier for the historical ABSENT files. None sets D3 lemma_closed to true.
+ 
+ ## Downstream consequence
+ 
+diff --git a/tools/math_status_check.py b/tools/math_status_check.py
+index 3522714..6e2c038 100644
+--- a/tools/math_status_check.py
++++ b/tools/math_status_check.py
+@@ -38,7 +38,9 @@ from quietly saying otherwise. It asserts:
+      CELL) is named as navigation only.
+ 
+   5. **Closure of the directory.** The packet holds exactly the expected
+-     names. An extra file is a problem.
++     names (pinned transcriptions plus any explicitly listed classification
++     auxiliaries). An extra file is a problem. Classification auxiliaries do
++     not discharge obligations and must keep controlling flags false.
+ 
+ The packet directory is taken from ``--packet`` at call time.
+ 
+@@ -107,7 +109,19 @@ TRANSCRIPTION_NAMES = (
+     "math_console_snapshot.json",
+ )
+ 
+-EXPECTED_NAMES = frozenset(TRANSCRIPTION_NAMES + ("README.md", "PACKET.json"))
++# Classification-only auxiliaries may sit beside the pinned packet. They are
++# not transcriptions, do not update PACKET.json digests, and must keep every
++# controlling flag false. Adding a name here is eng hygiene for D0 crosswalks;
++# it is not obligation discharge.
++AUXILIARY_CLASSIFICATION_NAMES = frozenset({
++    "DOWNSTREAM_CROSSWALK_20260925.md",
++})
++
++EXPECTED_NAMES = frozenset(
++    TRANSCRIPTION_NAMES
++    + ("README.md", "PACKET.json")
++    + tuple(AUXILIARY_CLASSIFICATION_NAMES)
++)
+ 
+ README_PHRASES = (
+     "OPEN / HOLD",
+@@ -147,6 +161,18 @@ README_PHRASES = (
+     "ABSENT means the Drive SoT carriers are absent. Nothing is invented to fill them.",
+ )
+ 
++AUXILIARY_CLASSIFICATION_PHRASES = {
++    "DOWNSTREAM_CROSSWALK_20260925.md": (
++        "dependency classification only",
++        "lemma_closed",
++        "FALSE",
++        "certified_C_H",
++        "ABSENT; historical-route blocker only",
++        "This crosswalk does not perform that governance action",
++        "None sets D3 lemma_closed to true",
++    ),
++}
++
+ NOTE_PHRASES = {
+     "STATUS.md": (
+         "lemma_closed: false",
+@@ -615,7 +641,8 @@ def check_packet(packet_dir: str) -> list:
+             if bad in jetmod_text:
+                 problems.append(f"STATUS_JETMOD.md: forbidden status token {bad!r}")
+ 
+-    for name, phrases in {"README.md": README_PHRASES, **NOTE_PHRASES}.items():
++    phrase_map = {"README.md": README_PHRASES, **NOTE_PHRASES, **AUXILIARY_CLASSIFICATION_PHRASES}
++    for name, phrases in phrase_map.items():
+         path = os.path.join(packet_dir, name)
+         if not os.path.isfile(path):
+             continue

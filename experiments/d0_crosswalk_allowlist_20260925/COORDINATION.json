@@ -1,0 +1,87 @@
+{
+  "as_of_utc": "2026-09-25T17:23:11Z",
+  "sandbox_run": "bc-01a0d95c-b9ca-70ce-864d-99d51b2a8fb0",
+  "sandbox_pr": "https://github.com/d6g8k5htny-coder/sandbox/pull/4",
+  "accepted_lane": {
+    "issue": "https://github.com/d6g8k5htny-coder/main/issues/86",
+    "lane": "Cursor / integration D0+D7",
+    "status": "accepted_this_run",
+    "evidence": "portable patch + local math_status_check problems=0 + sandbox PR2"
+  },
+  "peer_lanes": {
+    "chatgpt_codex": {
+      "active_surface": "main PR87 D0 crosswalk draft",
+      "blocker_found": "math_status_check unexpected file; peer Cursor #92 relocates crosswalk outside packet",
+      "handoff": "Prefer main PR #92/#93 (outside-packet + default-home nav). sandbox allowlist patch is alternate/fallback only.",
+      "note": "Do not race PR87 body rewrite; eng allowlist only"
+    },
+    "claude": {
+      "offered": "D1 (#63) or D2 (#67) analytic review",
+      "fresh_acceptance_seen": false
+    },
+    "codex_symbolic": {
+      "offered": "D5 Math- PR7 divided-difference ledger slice",
+      "fresh_acceptance_seen": false
+    }
+  },
+  "hard_gates": {
+    "issue_90": "downstream closure + reverse-impact before upstream promotion",
+    "issue_91": "99_DO_NOT_OPEN sole-auditor freeze \u2014 no sandbox agent vault browse/mutate"
+  },
+  "this_env_limits": {
+    "repos_in_environment": [
+      "github.com/d6g8k5htny-coder/sandbox"
+    ],
+    "can_push": [
+      "sandbox"
+    ],
+    "cannot_push": [
+      "main",
+      "trial",
+      "Math-",
+      "governance-",
+      "google-drive",
+      "meta-framework",
+      "query-"
+    ],
+    "cannot_comment_github": true
+  },
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "peer_cursor_rescue": {
+    "pr92": "https://github.com/d6g8k5htny-coder/main/pull/92",
+    "pr92_ci": "SUCCESS verify+navigation+loss-only @ db0645f",
+    "pr93": "closed",
+    "math_gate": "landed on Math- main with CONTROLLING_ELIGIBLE"
+  },
+  "hard_gate_prototype": {
+    "path": "experiments/hard_gate_v1",
+    "issue": 90,
+    "scientific_effect": "NONE",
+    "canonical": false,
+    "aligns_to": "Math- PR8"
+  },
+  "canonical_hard_gate": {
+    "math_pr": "https://github.com/d6g8k5htny-coder/Math-/pull/8",
+    "main_crosswalk_pr": "https://github.com/d6g8k5htny-coder/main/pull/92",
+    "main_nav_pr": "https://github.com/d6g8k5htny-coder/main/pull/93",
+    "sandbox_role": "pedagogical_negative_controls_only"
+  },
+  "unblock_strategies": {
+    "preferred_outside_packet": {
+      "main_pr": 92,
+      "companion_nav_pr": 93,
+      "status": "CI verify in_progress; nav/loss-only green; local math_status problems=0"
+    },
+    "allowlist_fallback_sandbox": {
+      "path": "experiments/d0_crosswalk_allowlist_20260925/pr87_unblock.patch",
+      "style": "AUXILIARY_CLASSIFICATION (no PACKET digest pin)"
+    },
+    "allowlist_math_pr8": {
+      "math_pr": 8,
+      "path_on_math": "frontiers/downstream_gate_20260925/D0_CI_UNBLOCK.md",
+      "style": "TRANSCRIPTION + PACKET digest pin",
+      "note": "Do not apply both allowlist styles without reconciling; prefer #92 outside-packet"
+    }
+  }
+}

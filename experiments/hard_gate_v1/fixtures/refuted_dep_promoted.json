@@ -1,0 +1,13 @@
+{
+  "schema": "sandbox.hard-gate/v1",
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "authority": "NONE",
+  "nodes": [
+    {"id": "lower", "classification": "REFUTED", "role": "supporting"},
+    {"id": "upper", "classification": "PROVED_REVIEWED", "role": "controlling"}
+  ],
+  "edges": [
+    {"type": "depends_on", "from": "upper", "to": "lower"}
+  ]
+}

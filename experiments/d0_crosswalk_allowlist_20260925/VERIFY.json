@@ -1,0 +1,24 @@
+{
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "certified_C_H": false,
+  "prizes_solved": false,
+  "independence_credit": 0,
+  "role": "engineering unblock for main PR87 / issue 86 D0 lane",
+  "target_repo": "d6g8k5htny-coder/main",
+  "target_pr": 87,
+  "target_issue": 86,
+  "target_branch": "chatgpt/downstream-crosswalk-20260925",
+  "target_head_sha": "3d4969ab40d36a38ebf6ea1c3608035a706a7576",
+  "local_math_status_check": {
+    "problems": 0,
+    "disposition": "OPEN_HOLD",
+    "lemma_closed": false
+  },
+  "sandbox_agent": "bc-01a0d95c-b9ca-70ce-864d-99d51b2a8fb0",
+  "write_scope": "sandbox_only_this_run",
+  "main_push": "403_cursor_bot",
+  "trial_push": "403_cursor_bot",
+  "issue_comment": "403_cursor_bot",
+  "note": "Peer with main write (ChatGPT PR87 author or durable MAIN_PUSH_TOKEN) should apply pr87_unblock.patch on the PR87 branch and re-run tools/math_status_check.py. Do not flip lemma_closed."
+}

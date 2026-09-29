@@ -1,0 +1,24 @@
+diff --git a/docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md b/docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md
+index 5ab2c22..51153ce 100644
+--- a/docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md
++++ b/docs/MATH_PR8_ELIGIBILITY_HANDOFF_20260925.md
+@@ -1,5 +1,13 @@
+ # Math- PR #8 own-node eligibility handoff
+ 
++**Status: APPLIED on Math- `main`.** Observed tip `baca69c394ab` carries
++`CONTROLLING_ELIGIBLE = frozenset({'PROVED_REVIEWED'})` in
++`frontiers/downstream_gate_20260925/hard_gate.py` and enforces it in
++`promotion_allowed()`. Do **not** re-apply
++`docs/patches/math_pr8_own_node_eligibility.patch`. Open Math- [#10](https://github.com/d6g8k5htny-coder/Math-/pull/10)
++is the parallel ChatGPT eligibility PR and is empty vs Math- `main` — close as
++already-landed when convenient. Scientific effect remains NONE.
++
+ **Object:** MATH-PR8-OWN-NODE-ELIGIBILITY-20260925-v1  
+ **Against:** Math- head `5887a2f8aaf121760362e6e90f9974f1e0078bc5`  
+ **Author of the patch recipe:** Cursor, from a session that could write `main` and could not push Math-. **This copy** is on `chatgpt/drive-github-hardening-20260919`. It is not a `main` landing. **Scientific effect: NONE.** `OBL-H5-JETMOD` and `D3-LEMMA-RN-UNIF` stay OPEN. No flags are flipped. SIDE24 stays ABSENT. Engineering repair is not discharge.
+@@ -68,4 +76,4 @@ can write Math-.
+ - Does not flip any scientific Boolean; `lemma_closed` stays false.
+ - Does not edit Math- PR #7 or award R17 independence credit.
+ - Does not touch the #91 Drive vault.
+-- Applying the patch would be an integrity-gate repair on Math- only. It does not discharge `OBL-H5-JETMOD` or `D3-LEMMA-RN-UNIF`, does not flip `lemma_closed`, `prizes_solved`, `discharges_OBL_H5_JETMOD`, `certified_C_H`, or `inventable_attempt_accepted`, and does not invent a source-of-truth carrier. SIDE24 stays ABSENT. Engineering repair is not discharge. The hole on the published Math- tip stays open until a Math- writer applies a repair there.
++- Applying the patch would be an integrity-gate repair on Math- only. It does not discharge `OBL-H5-JETMOD` or `D3-LEMMA-RN-UNIF`, does not flip `lemma_closed`, `prizes_solved`, `discharges_OBL_H5_JETMOD`, `certified_C_H`, or `inventable_attempt_accepted`, and does not invent a source-of-truth carrier. SIDE24 stays ABSENT. Engineering repair is not discharge. Historical note: at the time this handoff was written the published Math- tip still lacked the eligibility set; that hole is closed on Math- `main` as of the APPLIED banner above. Re-applying the patch is not required and would conflict with later gate clarifications.

@@ -1,0 +1,363 @@
+diff --git a/tools/claims_gate_adapter.py b/tools/claims_gate_adapter.py
+index 9b7cf55..b244d03 100644
+--- a/tools/claims_gate_adapter.py
++++ b/tools/claims_gate_adapter.py
+@@ -46,8 +46,29 @@ class AdapterError(ValueError):
+ 
+ 
+ def load_json(path: Path) -> Any:
+-    with path.open(encoding="utf-8") as handle:
+-        return json.load(handle)
++    return load_json_bytes(path.read_bytes())
++
++
++def load_json_bytes(raw: bytes) -> Any:
++    """Fail closed on duplicate object keys and nonfinite floats."""
++    def _pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
++        out: dict[str, Any] = {}
++        for key, value in pairs:
++            if key in out:
++                raise AdapterError(f"duplicate JSON key {key!r}")
++            out[key] = value
++        return out
++
++    try:
++        return json.loads(
++            raw.decode("utf-8"),
++            object_pairs_hook=_pairs,
++            parse_constant=lambda c: (_ for _ in ()).throw(
++                AdapterError(f"nonfinite JSON constant refused: {c}")
++            ),
++        )
++    except json.JSONDecodeError as exc:
++        raise AdapterError(f"malformed JSON: {exc}") from exc
+ 
+ 
+ def map_classification(record: dict[str, Any], *, bucket: str) -> str:
+@@ -475,7 +496,7 @@ def reverse_impact_between(
+             new_s = new_sources.get(nid) or {"kind": "absent"}
+             if old_s.get("sha256") != new_s.get("sha256") or old_s.get("kind") != new_s.get("kind"):
+                 # Only seed when at least one side bound real repo bytes, or kind flipped.
+-                if old_s.get("kind") in {"blob", "tree"} or new_s.get("kind") in {"blob", "tree"}:
++                if old_s.get("kind") in {"blob", "tree", "multi"} or new_s.get("kind") in {"blob", "tree", "multi"}:
+                     source_byte_seeds.add(nid)
+                     changed.add(nid)
+                 elif old_s.get("kind") != new_s.get("kind"):
+@@ -651,12 +672,36 @@ def _candidate_source_strings(record: dict[str, Any]) -> list[tuple[str, str]]:
+     """Yield (kind_hint, reference) pairs from a claims record.
+ 
+     kind_hint: 'path' | 'external' | 'prose'
++    All declared load-bearing paths are retained (no silent single-path coverage).
+     """
+     out: list[tuple[str, str]] = []
+-    for key in ("mirror_path",):
+-        val = record.get(key)
+-        if isinstance(val, str) and val.strip():
+-            out.append(("path", val.strip()))
++    seen_paths: set[str] = set()
++
++    def _add_path(val: str) -> None:
++        cleaned = val.strip()
++        if cleaned and cleaned not in seen_paths:
++            seen_paths.add(cleaned)
++            out.append(("path", cleaned))
++
++    # Canonical structured bindings first (PR15 / #90 load-bearing sources).
++    raw_bindings = record.get("source_bindings")
++    if raw_bindings is not None:
++        if not isinstance(raw_bindings, list):
++            raise AdapterError(
++                f"source_bindings must be a list when present, got {type(raw_bindings).__name__}"
++            )
++        for item in raw_bindings:
++            if isinstance(item, str) and item.strip():
++                _add_path(item)
++            elif isinstance(item, dict):
++                path = item.get("path") or item.get("repo_path") or item.get("file")
++                if isinstance(path, str) and path.strip():
++                    _add_path(path)
++                url = item.get("url") or item.get("uri")
++                if isinstance(url, str) and url.strip():
++                    out.append(("external", url.strip()))
++            else:
++                raise AdapterError(f"malformed source_bindings entry: {item!r}")
+     src = record.get("source")
+     if isinstance(src, dict):
+         path = src.get("path") or src.get("repo_path") or src.get("file")
+@@ -696,33 +741,57 @@ def bind_source_at_revision(
+ 
+     External refs → external_unresolved (never fetched). Missing → missing.
+     Prose-only → unresolved_prose. No invention of absent objects.
++    All declared path sources are bound; ambiguous multi-path authority is
++    retained as a multi binding (never silently choose one as complete coverage).
+     """
+     candidates = _candidate_source_strings(record)
++    # Always bind mirror_path as an additional declared path when present.
++    mirror = record.get("mirror_path")
++    if isinstance(mirror, str) and mirror.strip():
++        if ("path", mirror.strip()) not in candidates:
++            candidates = list(candidates) + [("path", mirror.strip())]
+     if not candidates:
+         return {"kind": "record_only"}
+-    # Prefer first path candidate; else first external; else prose.
+     path_refs = [r for k, r in candidates if k == "path"]
+-    if path_refs:
+-        reference = path_refs[0]
++    bindings: list[dict[str, Any]] = []
++    for reference in path_refs:
+         try:
+             path = relative_repo_path(reference)
+         except AdapterError:
+-            return {"kind": "unresolved_prose", "reference": reference}
++            bindings.append({"kind": "unresolved_prose", "reference": reference})
++            continue
+         object_spec = f"{revision}:{path.rstrip('/')}"
+         kind = _git_bytes(root, "cat-file", "-t", object_spec, missing_ok=True)
+         if kind is None:
+-            return {"kind": "missing", "reference": reference, "path": path}
++            bindings.append({"kind": "missing", "reference": reference, "path": path})
++            continue
+         kind_s = kind.decode().strip()
+         if kind_s not in {"blob", "tree"}:
+             raise AdapterError(f"source object must be blob or tree: {object_spec}")
+         body = _git_bytes(root, "cat-file", "-p", object_spec)
+         assert body is not None
++        bindings.append(
++            {
++                "kind": kind_s,
++                "reference": reference,
++                "path": path,
++                "bytes": len(body),
++                "sha256": _sha256_bytes(body),
++            }
++        )
++    if bindings:
++        if len(bindings) == 1:
++            return bindings[0]
++        # Multi-source: combined digest so ANY declared path drift seeds impact.
++        parts = []
++        for b in sorted(bindings, key=lambda x: x.get("path") or x.get("reference") or ""):
++            parts.append(f"{b.get('path')}:{b.get('kind')}:{b.get('sha256') or ''}")
+         return {
+-            "kind": kind_s,
+-            "reference": reference,
+-            "path": path,
+-            "bytes": len(body),
+-            "sha256": _sha256_bytes(body),
++            "kind": "multi",
++            "bindings": bindings,
++            "path": bindings[0].get("path"),
++            "sha256": _sha256_bytes("\n".join(parts).encode()),
++            "bytes": sum(int(b.get("bytes") or 0) for b in bindings),
+         }
+     for k, r in candidates:
+         if k == "external":
+@@ -764,11 +833,24 @@ def _require_usable_ref(ref: str, *, role: str) -> str:
+     cleaned = ref.strip()
+     if cleaned == ZERO_SHA or set(cleaned) == {"0"}:
+         raise AdapterError(f"{role} ref unavailable or all-zero: {cleaned!r}")
+-    # Prefer full immutable commit IDs (PR15 contract); allow abbreviated only
+-    # when Git can resolve them to a commit (validated in git_show).
+     return cleaned
+ 
+ 
++def resolve_commit_id(root: Path, ref: str, *, role: str) -> str:
++    """Resolve any ref once to an immutable full commit SHA; reject non-commits."""
++    cleaned = _require_usable_ref(ref, role=role)
++    raw = _git_bytes(root, "rev-parse", "--verify", f"{cleaned}^{{commit}}")
++    if raw is None:
++        raise AdapterError(f"{role} ref is not a commit: {cleaned!r}")
++    full = raw.decode().strip()
++    if not full or full == ZERO_SHA or set(full) == {"0"}:
++        raise AdapterError(f"{role} resolved commit unavailable: {full!r}")
++    kind = _git_bytes(root, "cat-file", "-t", full)
++    if kind is None or kind.decode().strip() != "commit":
++        raise AdapterError(f"{role} ref did not resolve to a commit object: {cleaned!r}")
++    return full
++
++
+ def git_show_bytes(root: Path, ref: str, relpath: str) -> bytes:
+     data = _git_bytes(root, "show", f"{ref}:{relpath}")
+     assert data is not None
+@@ -777,7 +859,7 @@ def git_show_bytes(root: Path, ref: str, relpath: str) -> bytes:
+ 
+ def load_claims_at_ref(root: Path, ref: str) -> tuple[dict[str, Any], dict[str, str]]:
+     raw = git_show_bytes(root, ref, CLAIMS_REL)
+-    claims = json.loads(raw.decode("utf-8"))
++    claims = load_json_bytes(raw)
+     identity = {
+         "ref": ref,
+         "path": CLAIMS_REL,
+@@ -789,7 +871,7 @@ def load_claims_at_ref(root: Path, ref: str) -> tuple[dict[str, Any], dict[str,
+ 
+ def load_json_at_ref(root: Path, ref: str, relpath: str) -> tuple[Any, dict[str, str]]:
+     raw = git_show_bytes(root, ref, relpath)
+-    return json.loads(raw.decode("utf-8")), {
++    return load_json_bytes(raw), {
+         "ref": ref,
+         "path": relpath,
+         "blob_sha256": _sha256_bytes(raw),
+@@ -806,8 +888,8 @@ def compare_claims_paths(
+ ) -> dict[str, Any]:
+     before_raw = before_path.read_bytes()
+     after_raw = after_path.read_bytes()
+-    before_claims = json.loads(before_raw.decode("utf-8"))
+-    after_claims = json.loads(after_raw.decode("utf-8"))
++    before_claims = load_json_bytes(before_raw)
++    after_claims = load_json_bytes(after_raw)
+     crosswalk = load_json(crosswalk_path) if crosswalk_path else None
+     authority = load_json(authority_path) if authority_path else None
+     report = compare_claims_files(
+@@ -837,15 +919,37 @@ def compare_claims_refs(
+     root: Path | None = None,
+ ) -> dict[str, Any]:
+     root = root or ROOT
+-    before_ref = _require_usable_ref(before_ref, role="before")
+-    after_ref = _require_usable_ref(after_ref, role="after")
++    before_ref = resolve_commit_id(root, before_ref, role="before")
++    after_ref = resolve_commit_id(root, after_ref, role="after")
+     before_claims, before_id = load_claims_at_ref(root, before_ref)
+     after_claims, after_id = load_claims_at_ref(root, after_ref)
+-    # Authority/crosswalk from after tip (immutable at after_ref).
++    # Bind authority/crosswalk at BOTH revisions (migration path if old absent).
++    try:
++        before_crosswalk, before_crosswalk_id = load_json_at_ref(
++            root, before_ref, CROSSWALK_REL
++        )
++    except AdapterError:
++        before_crosswalk, before_crosswalk_id = None, {
++            "ref": before_ref,
++            "path": CROSSWALK_REL,
++            "absent": True,
++        }
++    try:
++        before_authority, before_authority_id = load_json_at_ref(
++            root, before_ref, AUTHORITY_REL
++        )
++    except AdapterError:
++        before_authority, before_authority_id = None, {
++            "ref": before_ref,
++            "path": AUTHORITY_REL,
++            "absent": True,
++        }
+     crosswalk, crosswalk_id = load_json_at_ref(root, after_ref, CROSSWALK_REL)
+     authority, authority_id = load_json_at_ref(root, after_ref, AUTHORITY_REL)
+     old_g = claims_to_gate_graph(
+-        before_claims, crosswalk=crosswalk, authority_map=authority
++        before_claims,
++        crosswalk=before_crosswalk if before_crosswalk is not None else crosswalk,
++        authority_map=before_authority if before_authority is not None else authority,
+     )
+     new_g = claims_to_gate_graph(
+         after_claims, crosswalk=crosswalk, authority_map=authority
+@@ -855,6 +959,42 @@ def compare_claims_refs(
+     impact = reverse_impact_between(
+         old_g, new_g, old_sources=old_sources, new_sources=new_sources
+     )
++    # Authority/crosswalk semantic drift seeds mapped nodes even when claims JSON
++    # bytes are unchanged.
++    authority_seeded: list[str] = []
++    if before_crosswalk is not None and isinstance(before_crosswalk, dict):
++        def _owners(doc: dict[str, Any]) -> dict[str, set[str]]:
++            out: dict[str, set[str]] = {}
++            for row in doc.get("rows") or []:
++                if not isinstance(row, dict):
++                    continue
++                mid = row.get("main_claim_or_premise_id")
++                auth = row.get("authority")
++                if isinstance(mid, str) and mid and isinstance(auth, str) and auth:
++                    out.setdefault(mid, set()).add(auth)
++            return out
++        old_owners = _owners(before_crosswalk)
++        new_owners = _owners(crosswalk if isinstance(crosswalk, dict) else {})
++        for mid in set(old_owners) | set(new_owners):
++            if old_owners.get(mid) != new_owners.get(mid):
++                authority_seeded.append(mid)
++        if authority_seeded:
++            # Re-run reverse impact with synthetic digest flips on seeded ids
++            # (fingerprint alone is ignored when semantic_digest is present).
++            for mid in authority_seeded:
++                if mid in old_g["nodes"]:
++                    old_g["nodes"][mid] = dict(old_g["nodes"][mid])
++                    old_g["nodes"][mid]["semantic_digest"] = (
++                        str(old_g["nodes"][mid].get("semantic_digest")) + "|auth-before"
++                    )
++                if mid in new_g["nodes"]:
++                    new_g["nodes"][mid] = dict(new_g["nodes"][mid])
++                    new_g["nodes"][mid]["semantic_digest"] = (
++                        str(new_g["nodes"][mid].get("semantic_digest")) + "|auth-after"
++                    )
++            impact = reverse_impact_between(
++                old_g, new_g, old_sources=old_sources, new_sources=new_sources
++            )
+     holds = aggregate_hold_proposals(new_g)
+     # Attention flags from *source* grades/status — projection controlling stays false.
+     controlling_impacted = []
+@@ -871,7 +1011,7 @@ def compare_claims_refs(
+         if hinted:
+             controlling_impacted.append(nid)
+             src = new_sources.get(nid) or {}
+-            if src.get("kind") not in {"blob", "tree"}:
++            if src.get("kind") not in {"blob", "tree", "multi"}:
+                 unresolved_controlling.append(nid)
+     report = {
+         "mode": "ref_compare",
+@@ -883,6 +1023,9 @@ def compare_claims_refs(
+         "after_identity": after_id,
+         "crosswalk_identity": crosswalk_id,
+         "authority_identity": authority_id,
++        "before_crosswalk_identity": before_crosswalk_id,
++        "before_authority_identity": before_authority_id,
++        "authority_seeded_nodes": sorted(authority_seeded),
+         "old_sources": old_sources,
+         "new_sources": new_sources,
+         "reverse_impact": impact,
+@@ -935,7 +1078,7 @@ def resolve_event_refs(
+                 "event-compare requires GITHUB_EVENT_PATH or CLAIMS_GATE_BEFORE_REF/"
+                 "CLAIMS_GATE_AFTER_REF (no tip self-compare fallback)"
+             )
+-        event = json.loads(Path(event_path).read_text(encoding="utf-8"))
++        event = load_json_bytes(Path(event_path).read_bytes())
+     if not isinstance(event, dict):
+         raise AdapterError("malformed GitHub event payload")
+ 
+@@ -969,11 +1112,22 @@ def event_compare(
+     report = compare_claims_refs(before_ref, after_ref, root=root or ROOT)
+     report["mode"] = "event_compare"
+     report["event_name"] = event_name
+-    # Impact is expected for corrective edits; only promotion_permission is fatal.
+-    report["transition_ok"] = report.get("promotion_permission") is False
++    # Safe corrective edits (impact/HOLD without controlling retention/promotion)
++    # stay admissible. Unsupported promotion or retained controlling over an
++    # impacted transition fails closed at the event boundary.
++    controlling = list(report.get("controlling_impacted") or [])
++    report["transition_ok"] = (
++        report.get("promotion_permission") is False and not controlling
++    )
++    if controlling:
++        report["problems"] = list(report.get("problems") or []) + [
++            "unsupported controlling retention/promotion on impacted nodes: "
++            + ",".join(controlling)
++        ]
+     report["meaning"] = (
+         "event-derived immutable base→head compare; REVALIDATION/HOLD proposals "
+-        "do not block corrective edits; never promotion permission"
++        "do not block non-controlling corrective edits; controlling_impacted "
++        "transitions fail closed; never promotion permission"
+     )
+     return report
+ 
+@@ -1095,9 +1249,12 @@ def main(argv: list[str] | None = None) -> int:
+         )
+ 
+     print(json.dumps(report, indent=2, sort_keys=True))
+-    # Impact/HOLD proposals are not failures. Only promotion or hard errors fail.
++    # Non-controlling impact/HOLD proposals are not failures.
++    # Unsupported controlling retention/promotion (transition_ok false) fails closed.
+     if report.get("promotion_permission") is True:
+         return 1
++    if report.get("transition_ok") is False:
++        return 1
+     if report.get("problems"):
+         return 1
+     return 0

@@ -1,0 +1,234 @@
+diff --git a/frontiers/downstream_gate_20260925/RESULTS.json b/frontiers/downstream_gate_20260925/RESULTS.json
+index 78a671c..cc0079a 100644
+--- a/frontiers/downstream_gate_20260925/RESULTS.json
++++ b/frontiers/downstream_gate_20260925/RESULTS.json
+@@ -66,6 +66,7 @@
+       "node": "math.rn-fixed-remote-window",
+       "reasons": [
+         "required transitive dependency is not terminally classified",
++        "node disposition is not positively eligible for controlling status (found AUTHOR_SIDE_CANDIDATE; require PROVED_REVIEWED)",
+         "evidence consists only of non-discharge tokens"
+       ],
+       "refused": true
+@@ -79,7 +80,8 @@
+       "missing_terminal": [],
+       "node": "hist.ENV-RESCOV",
+       "reasons": [
+-        "required BLOCKED_ABSENT dependency forces HOLD"
++        "required BLOCKED_ABSENT dependency forces HOLD",
++        "node disposition is not positively eligible for controlling status (found OPEN_HISTORICAL; require PROVED_REVIEWED)"
+       ],
+       "required_dependencies": [
+         "hist.rnu_env.py"
+@@ -98,7 +100,8 @@
+       ],
+       "node": "math.lifetime-remainder",
+       "reasons": [
+-        "required transitive dependency is not terminally classified"
++        "required transitive dependency is not terminally classified",
++        "node disposition is not positively eligible for controlling status (found AUTHOR_SIDE_CANDIDATE; require PROVED_REVIEWED)"
+       ],
+       "required_dependencies": [
+         "math.uniform-matrix-cap-lifetime"
+@@ -117,7 +120,8 @@
+       ],
+       "node": "eng.main-pr87-crosswalk",
+       "reasons": [
+-        "required transitive dependency is not terminally classified"
++        "required transitive dependency is not terminally classified",
++        "node disposition is not positively eligible for controlling status (found HOLD; require PROVED_REVIEWED)"
+       ],
+       "required_dependencies": [
+         "eng.d0-packet-allowlist-fix"
+@@ -136,7 +140,8 @@
+       ],
+       "node": "math.side24-coefficient",
+       "reasons": [
+-        "required transitive dependency is not terminally classified"
++        "required transitive dependency is not terminally classified",
++        "node disposition is not positively eligible for controlling status (found AUTHOR_SIDE_CANDIDATE; require PROVED_REVIEWED)"
+       ],
+       "required_dependencies": [
+         "math.uniform-matrix-cap-lifetime"
+diff --git a/frontiers/downstream_gate_20260925/SOURCE_FILES.json b/frontiers/downstream_gate_20260925/SOURCE_FILES.json
+index a0c005b..09ac97d 100644
+--- a/frontiers/downstream_gate_20260925/SOURCE_FILES.json
++++ b/frontiers/downstream_gate_20260925/SOURCE_FILES.json
+@@ -13,8 +13,8 @@
+       "sha256": "57776258bc5ab409fa6f784e2a9a99c6a2d37d40a537ebc0e348b405e026bae9"
+     },
+     "RESULTS.json": {
+-      "bytes": 5308,
+-      "sha256": "814948372dd6fc6690d097b24a363d6075330f4645dadcae282d1a2cdce85742"
++      "bytes": 5950,
++      "sha256": "b4e56ba63cee9fcd478c672a6f5f53ce0cacfb3fe62c49213a8d7530c0a99e58"
+     },
+     "SCOPE.md": {
+       "bytes": 2218,
+@@ -25,16 +25,20 @@
+       "sha256": "53fa0ec88e417882eff2a40e4b575c639d43b7e8787e7fb8917aa22ace79390d"
+     },
+     "hard_gate.py": {
+-      "bytes": 17698,
+-      "sha256": "a5a662badb7d051cff1313810f5660534a13df9573dd87ff61279739d9bcbf94"
++      "bytes": 18622,
++      "sha256": "57f0b664ca3b4b744d14a16e2841bbcccc8084f1c2775e0dcb032f5289f41147"
++    },
++    "patches/d0_packet_allowlist.patch": {
++      "bytes": 3096,
++      "sha256": "84b7ad724e4da1c5b4b396c90ae03d4ddedc37771a6e45e1082a45fd80d7ff4a"
+     },
+     "run_validation.py": {
+-      "bytes": 5512,
+-      "sha256": "1d35469d156d0e94947e853ffe60c0ef3193a45729d07b3bebf9973cdbc82627"
++      "bytes": 5877,
++      "sha256": "adc681d15b67e1f6ac4d05b11703d590880c84824d4ca84dc8f508ad1caa020e"
+     },
+     "test_hard_gate.py": {
+-      "bytes": 12466,
+-      "sha256": "2786a4f9ea9c00eaf1cf7ca970989d623512c3d32054c4cee979b6b065dbccb6"
++      "bytes": 14105,
++      "sha256": "37e805a694689c2bb1e2d7c0104c5dd84c3f76624114686af7f0425d66b78be4"
+     }
+   },
+   "meaning": "Exact identity, not theorem correctness",
+diff --git a/frontiers/downstream_gate_20260925/hard_gate.py b/frontiers/downstream_gate_20260925/hard_gate.py
+index d5705e3..ec0e334 100644
+--- a/frontiers/downstream_gate_20260925/hard_gate.py
++++ b/frontiers/downstream_gate_20260925/hard_gate.py
+@@ -22,6 +22,30 @@ TERMINAL = frozenset({
+     'BLOCKED_ABSENT',
+ })
+ 
++# Terminal dependency resolution is necessary but not sufficient for a node to
++# become controlling. Only an explicit positive disposition may be promoted.
++POSITIVE_CONTROLLING_ELIGIBLE = frozenset({
++    'PROVED_REVIEWED',
++})
++
++# Author-side / engineering / historical-open labels never become controlling
++# merely because their dependencies are terminal.
++NEVER_CONTROLLING = frozenset({
++    'AUTHOR_SIDE_CANDIDATE',
++    'AUTHOR_SIDE_REDUCTION',
++    'OPEN_HISTORICAL',
++    'OPEN_ACTIVE',
++    'COVERED_BY_CANDIDATE',
++    'ENGINEERING_CONTROL',
++    'HOLD',
++    'REVALIDATION_REQUIRED',
++    'FALSE',
++    'EXPLORATORY',
++    'SUPERSEDED_NONBLOCKING',
++    'REFUTED',
++    'BLOCKED_ABSENT',
++})
++
+ # Classifications that may appear on live nodes but are never terminal discharge.
+ NONTERMINAL = frozenset({
+     'OPEN_HISTORICAL',
+@@ -143,14 +167,20 @@ def promotion_allowed(graph: dict[str, Any], node_id: str) -> dict[str, Any]:
+             blocked.append(dep)
+ 
+     reasons: list[str] = []
+-    if node.get('classification') == 'REVALIDATION_REQUIRED':
++    cls = node.get('classification')
++    if cls == 'REVALIDATION_REQUIRED':
+         reasons.append('node requires revalidation after a dependency change')
+     if blocked:
+         reasons.append('required BLOCKED_ABSENT dependency forces HOLD')
+     if missing_terminal:
+         reasons.append('required transitive dependency is not terminally classified')
+-    if node.get('classification') == 'FALSE' and node_id == 'hist.lemma_closed':
++    if cls == 'FALSE' and node_id == 'hist.lemma_closed':
+         reasons.append('lemma_closed register must remain FALSE; gate never promotes it')
++    if cls in NEVER_CONTROLLING or cls not in POSITIVE_CONTROLLING_ELIGIBLE:
++        reasons.append(
++            'node disposition is not positively eligible for controlling status '
++            f'(found {cls}; require PROVED_REVIEWED)'
++        )
+ 
+     allowed = not reasons
+     return {
+diff --git a/frontiers/downstream_gate_20260925/run_validation.py b/frontiers/downstream_gate_20260925/run_validation.py
+index ebec8bc..a50a489 100644
+--- a/frontiers/downstream_gate_20260925/run_validation.py
++++ b/frontiers/downstream_gate_20260925/run_validation.py
+@@ -8,7 +8,7 @@ import subprocess
+ import sys
+ 
+ ROOT = Path(__file__).resolve().parent
+-EXPECTED_TESTS = 27
++EXPECTED_TESTS = 28
+ MUTANTS = {
+     'allow_green_ci': (
+         "only_non_discharge = bool(tokens) and all(t in non_discharge for t in tokens)",
+@@ -34,6 +34,10 @@ MUTANTS = {
+         "'d53b286029d034576245406152c188fe2470ccb089e51f73e9087e34bf5a0e10',",
+         "'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef',",
+     ),
++    'bypass_own_node_eligibility': (
++        "    if cls in NEVER_CONTROLLING or cls not in POSITIVE_CONTROLLING_ELIGIBLE:\n        reasons.append(\n            'node disposition is not positively eligible for controlling status '\n            f'(found {cls}; require PROVED_REVIEWED)'\n        )",
++        "    if False:\n        reasons.append('elided')",
++    ),
+     'allow_illegal_controlling_report': (
+         "'gate_ok': len(controlling_illegal) == 0,",
+         "'gate_ok': True,",
+diff --git a/frontiers/downstream_gate_20260925/test_hard_gate.py b/frontiers/downstream_gate_20260925/test_hard_gate.py
+index fd16513..4ac90b2 100644
+--- a/frontiers/downstream_gate_20260925/test_hard_gate.py
++++ b/frontiers/downstream_gate_20260925/test_hard_gate.py
+@@ -234,15 +234,49 @@ class HardGateControls(unittest.TestCase):
+         self.assertGreaterEqual(payload['selector_region']['open_or_partial_cell_count'], 15)
+ 
+     def test_promote_after_all_terminal_deps(self):
++        """Positive control: PROVED_REVIEWED with terminal deps may become controlling."""
++        g = copy.deepcopy(self.graph)
++        g['nodes']['synth.proven-with-terminal-deps'] = {
++            'layer': 'D7',
++            'kind': 'synthetic_control',
++            'classification': 'PROVED_REVIEWED',
++            'controlling': False,
++            'fingerprint': 'synthetic-positive-control',
++            'notes': 'Test-only positive controlling eligibility; not a research claim',
++        }
++        g['nodes']['synth.terminal-dep'] = {
++            'layer': 'D7',
++            'kind': 'synthetic_control',
++            'classification': 'PROVED_REVIEWED',
++            'controlling': False,
++            'fingerprint': 'synthetic-terminal-dep',
++            'notes': 'Synthetic terminal dependency',
++        }
++        g['edges'].append({
++            'from': 'synth.proven-with-terminal-deps',
++            'to': 'synth.terminal-dep',
++            'required': True,
++            'relation': 'synthetic_required_dep',
++        })
++        decision = m.promotion_allowed(g, 'synth.proven-with-terminal-deps')
++        self.assertTrue(decision['allowed'], decision)
++        applied = m.apply_promotion(g, 'synth.proven-with-terminal-deps')
++        self.assertTrue(applied['decision']['ok'])
++        self.assertTrue(applied['graph']['nodes']['synth.proven-with-terminal-deps']['controlling'])
++
++    def test_author_side_candidate_refused_even_with_terminal_deps(self):
++        """Negative control: P15 full-price stays refused when boundary is terminal."""
+         g = copy.deepcopy(self.graph)
+-        # Synthesize a tiny legal subgraph: make parent terminal reviewed.
+         g['nodes']['math.p15-price-boundary']['classification'] = 'REFUTED'
+         g['nodes']['math.p15-full-price']['classification'] = 'AUTHOR_SIDE_CANDIDATE'
+         decision = m.promotion_allowed(g, 'math.p15-full-price')
+-        self.assertTrue(decision['allowed'])
++        self.assertFalse(decision['allowed'], decision)
++        self.assertTrue(any('not positively eligible' in r for r in decision['reasons']))
+         applied = m.apply_promotion(g, 'math.p15-full-price')
+-        self.assertTrue(applied['decision']['ok'])
+-        self.assertTrue(applied['graph']['nodes']['math.p15-full-price']['controlling'])
++        self.assertFalse(applied['decision']['ok'])
++        self.assertFalse(applied['graph']['nodes']['math.p15-full-price']['controlling'])
++        self.assertEqual(applied['decision']['applied'], 'REFUSED')
++
+ 
+     def test_edge_targets_exist(self):
+         nodes = self.graph['nodes']

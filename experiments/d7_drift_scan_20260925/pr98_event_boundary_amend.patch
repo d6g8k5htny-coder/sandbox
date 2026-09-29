@@ -1,0 +1,674 @@
+diff --git a/tests/test_claims_gate_adapter.py b/tests/test_claims_gate_adapter.py
+index 124a135..4d8cfa3 100644
+--- a/tests/test_claims_gate_adapter.py
++++ b/tests/test_claims_gate_adapter.py
+@@ -7,6 +7,9 @@ from __future__ import annotations
+ import copy
+ import importlib.util
+ import json
++import os
++import subprocess
++import tempfile
+ import unittest
+ from pathlib import Path
+ 
+@@ -429,5 +432,295 @@ class ClaimsGateAdapterTests(unittest.TestCase):
+         self.assertFalse(report["promotion_permission"])
+ 
+ 
++class EventBoundaryAmendTests(unittest.TestCase):
++    """#90 AMEND: fail-closed inputs + real CLI/event entry point (not tip identity)."""
++
++    def test_malformed_depends_on_containers_fail_closed(self):
++        claims = copy.deepcopy(_load_tip_claims())
++        nid = next(iter(claims["claims"]))
++        for bad in (False, 0, "", {}, None, "OBL-D1-PROMOTE"):
++            with self.subTest(bad=bad):
++                mutated = copy.deepcopy(claims)
++                mutated["claims"][nid]["depends_on"] = bad
++                with self.assertRaises(CGA.AdapterError) as ctx:
++                    CGA.claims_to_gate_graph(mutated)
++                self.assertIn("depends_on", str(ctx.exception))
++
++    def test_malformed_sub_obligations_containers_fail_closed(self):
++        claims = copy.deepcopy(_load_tip_claims())
++        nid = "OBL-D1-PROMOTE"
++        self.assertIn(nid, claims["premises"])
++        for bad in (False, 0, "", {}, None, "OBL-H5-JETMOD"):
++            with self.subTest(bad=bad):
++                mutated = copy.deepcopy(claims)
++                mutated["premises"][nid]["sub_obligations"] = bad
++                with self.assertRaises(CGA.AdapterError) as ctx:
++                    CGA.claims_to_gate_graph(mutated)
++                msg = str(ctx.exception)
++                self.assertTrue(
++                    "sub_obligations" in msg or "must be a list" in msg,
++                    msg,
++                )
++
++    def test_malformed_as_of_values_fail_closed(self):
++        claims = _load_tip_claims()
++        for bad in (None, "", False, 0, "   "):
++            with self.subTest(bad=bad):
++                mutated = copy.deepcopy(claims)
++                mutated["as_of"] = bad
++                with self.assertRaises(CGA.AdapterError) as ctx:
++                    CGA.claims_to_gate_graph(mutated)
++                self.assertIn("as_of", str(ctx.exception))
++
++    def test_omitted_depends_on_key_is_empty_not_error(self):
++        claims = copy.deepcopy(_load_tip_claims())
++        nid = "OBL-D1-PROMOTE"
++        claims["premises"][nid].pop("depends_on", None)
++        claims["premises"][nid].pop("sub_obligations", None)
++        graph = CGA.claims_to_gate_graph(claims)
++        self.assertIn(nid, graph["nodes"])
++
++    def test_cli_before_after_files_report_edge_deletion_impact(self):
++        """Entry point: same helper path as `--before/--after`, not tip identity."""
++        claims = _load_tip_claims()
++        before = copy.deepcopy(claims)
++        after = copy.deepcopy(claims)
++        deps = list(after["claims"]["D1-v2.2(2)"]["depends_on"])
++        self.assertIn("OBL-D1-PROMOTE", deps)
++        deps.remove("OBL-D1-PROMOTE")
++        after["claims"]["D1-v2.2(2)"]["depends_on"] = deps
++        with tempfile.TemporaryDirectory() as td:
++            td_path = Path(td)
++            before_path = td_path / "before.json"
++            after_path = td_path / "after.json"
++            before_path.write_text(json.dumps(before), encoding="utf-8")
++            after_path.write_text(json.dumps(after), encoding="utf-8")
++            # Capture stdout from main()
++            import io
++            from contextlib import redirect_stdout
++            buf = io.StringIO()
++            with redirect_stdout(buf):
++                rc = CGA.main(
++                    [
++                        "--before",
++                        str(before_path),
++                        "--after",
++                        str(after_path),
++                        "--root",
++                        str(ROOT),
++                    ]
++                )
++            self.assertEqual(rc, 0)
++            report = json.loads(buf.getvalue())
++        self.assertEqual(report["mode"], "file_compare")
++        self.assertIn("D1-v2.2(2)", report["reverse_impact"]["impacted"])
++        self.assertNotEqual(report["reverse_impact"]["impacted"], [])
++        self.assertEqual(report["tip_health"]["mode"], "tip_health")
++        self.assertEqual(report["tip_health"]["identity_impacted"], [])
++        self.assertFalse(report["promotion_permission"])
++
++    def test_cli_rejects_half_pair_before_without_after(self):
++        with self.assertRaises(SystemExit):
++            CGA.main(["--before", str(ROOT / "claims" / "graph.json")])
++
++    def test_all_zero_sha_rejected(self):
++        with self.assertRaises(CGA.AdapterError) as ctx:
++            CGA._reject_all_zero_sha("0000000000000000000000000000000000000000", label="push.before")
++        self.assertIn("all-zero", str(ctx.exception))
++
++    def test_github_event_path_pull_request_compare_entry(self):
++        """CI command string (no argv): GITHUB_EVENT_PATH drives base→head compare."""
++        # Minimal disposable git repo with two commits differing by one depends_on edge.
++        with tempfile.TemporaryDirectory() as td:
++            repo = Path(td)
++            subprocess.run(["git", "init"], cwd=repo, check=True, capture_output=True)
++            subprocess.run(
++                ["git", "config", "user.email", "amend@example.com"],
++                cwd=repo,
++                check=True,
++                capture_output=True,
++            )
++            subprocess.run(
++                ["git", "config", "user.name", "amend"],
++                cwd=repo,
++                check=True,
++                capture_output=True,
++            )
++            # Seed architecture + claims from tip so compare_at_refs can load them.
++            for rel in (
++                "claims/graph.json",
++                "architecture/scientific_state/v1/ID_CROSSWALK.json",
++                "architecture/scientific_state/v1/AUTHORITY_MAP.json",
++            ):
++                dest = repo / rel
++                dest.parent.mkdir(parents=True, exist_ok=True)
++                dest.write_bytes((ROOT / rel).read_bytes())
++            # Adapter + digest modules needed if someone imports; for CLI we point --root.
++            # First commit = before
++            subprocess.run(["git", "add", "-A"], cwd=repo, check=True, capture_output=True)
++            subprocess.run(
++                ["git", "commit", "-m", "before"],
++                cwd=repo,
++                check=True,
++                capture_output=True,
++            )
++            before_sha = subprocess.check_output(
++                ["git", "rev-parse", "HEAD"], cwd=repo, text=True
++            ).strip()
++            # After: delete required depends_on edge D1-v2.2(2) → OBL-D1-PROMOTE
++            claims_path = repo / "claims" / "graph.json"
++            claims = json.loads(claims_path.read_text(encoding="utf-8"))
++            deps = list(claims["claims"]["D1-v2.2(2)"]["depends_on"])
++            deps.remove("OBL-D1-PROMOTE")
++            claims["claims"]["D1-v2.2(2)"]["depends_on"] = deps
++            claims_path.write_text(json.dumps(claims, indent=2) + "\n", encoding="utf-8")
++            subprocess.run(["git", "add", "-A"], cwd=repo, check=True, capture_output=True)
++            subprocess.run(
++                ["git", "commit", "-m", "after-edge-delete"],
++                cwd=repo,
++                check=True,
++                capture_output=True,
++            )
++            after_sha = subprocess.check_output(
++                ["git", "rev-parse", "HEAD"], cwd=repo, text=True
++            ).strip()
++
++            event = {
++                "pull_request": {
++                    "base": {"sha": before_sha},
++                    "head": {"sha": after_sha},
++                }
++            }
++            event_path = repo / "event.json"
++            event_path.write_text(json.dumps(event), encoding="utf-8")
++
++            # Also need adapter tools available under repo for subprocess CI command.
++            tools = repo / "tools"
++            tools.mkdir(exist_ok=True)
++            for name in ("claims_gate_adapter.py", "semantic_digest.py"):
++                (tools / name).write_bytes((ROOT / "tools" / name).read_bytes())
++
++            env = os.environ.copy()
++            env["GITHUB_EVENT_PATH"] = str(event_path)
++            env["GITHUB_EVENT_NAME"] = "pull_request"
++            # Same command CI runs (no --before/--after).
++            cp = subprocess.run(
++                ["python3", "tools/claims_gate_adapter.py"],
++                cwd=repo,
++                env=env,
++                capture_output=True,
++                text=True,
++                timeout=120,
++            )
++            self.assertEqual(cp.returncode, 0, cp.stderr + cp.stdout[:2000])
++            report = json.loads(cp.stdout)
++            self.assertEqual(report["mode"], "event_compare")
++            self.assertIn("D1-v2.2(2)", report["reverse_impact"]["impacted"])
++            self.assertEqual(report["before"]["ref"], before_sha)
++            self.assertEqual(report["after"]["ref"], after_sha)
++            self.assertEqual(report["tip_health"]["mode"], "tip_health")
++            self.assertEqual(report["tip_health"]["identity_impacted"], [])
++            self.assertFalse(report["promotion_permission"])
++
++    def test_github_event_all_zero_base_fails_closed(self):
++        with tempfile.TemporaryDirectory() as td:
++            event_path = Path(td) / "event.json"
++            event_path.write_text(
++                json.dumps(
++                    {
++                        "pull_request": {
++                            "base": {"sha": "0000000000000000000000000000000000000000"},
++                            "head": {"sha": "abc123"},
++                        }
++                    }
++                ),
++                encoding="utf-8",
++            )
++            old = os.environ.get("GITHUB_EVENT_PATH")
++            try:
++                os.environ["GITHUB_EVENT_PATH"] = str(event_path)
++                with self.assertRaises(CGA.AdapterError) as ctx:
++                    CGA.resolve_github_event_refs()
++                self.assertIn("all-zero", str(ctx.exception))
++            finally:
++                if old is None:
++                    os.environ.pop("GITHUB_EVENT_PATH", None)
++                else:
++                    os.environ["GITHUB_EVENT_PATH"] = old
++
++    def test_cli_sub_obligation_deletion_via_before_after_refs(self):
++        with tempfile.TemporaryDirectory() as td:
++            repo = Path(td)
++            subprocess.run(["git", "init"], cwd=repo, check=True, capture_output=True)
++            subprocess.run(
++                ["git", "config", "user.email", "amend@example.com"],
++                cwd=repo,
++                check=True,
++                capture_output=True,
++            )
++            subprocess.run(
++                ["git", "config", "user.name", "amend"],
++                cwd=repo,
++                check=True,
++                capture_output=True,
++            )
++            for rel in (
++                "claims/graph.json",
++                "architecture/scientific_state/v1/ID_CROSSWALK.json",
++                "architecture/scientific_state/v1/AUTHORITY_MAP.json",
++            ):
++                dest = repo / rel
++                dest.parent.mkdir(parents=True, exist_ok=True)
++                dest.write_bytes((ROOT / rel).read_bytes())
++            subprocess.run(["git", "add", "-A"], cwd=repo, check=True, capture_output=True)
++            subprocess.run(
++                ["git", "commit", "-m", "before"],
++                cwd=repo,
++                check=True,
++                capture_output=True,
++            )
++            before_sha = subprocess.check_output(
++                ["git", "rev-parse", "HEAD"], cwd=repo, text=True
++            ).strip()
++            claims_path = repo / "claims" / "graph.json"
++            claims = json.loads(claims_path.read_text(encoding="utf-8"))
++            subs = list(claims["premises"]["OBL-D1-PROMOTE"]["sub_obligations"])
++            self.assertIn("OBL-H5-JETMOD", subs)
++            subs.remove("OBL-H5-JETMOD")
++            claims["premises"]["OBL-D1-PROMOTE"]["sub_obligations"] = subs
++            claims_path.write_text(json.dumps(claims, indent=2) + "\n", encoding="utf-8")
++            subprocess.run(["git", "add", "-A"], cwd=repo, check=True, capture_output=True)
++            subprocess.run(
++                ["git", "commit", "-m", "after-sub-delete"],
++                cwd=repo,
++                check=True,
++                capture_output=True,
++            )
++            after_sha = subprocess.check_output(
++                ["git", "rev-parse", "HEAD"], cwd=repo, text=True
++            ).strip()
++            import io
++            from contextlib import redirect_stdout
++            buf = io.StringIO()
++            with redirect_stdout(buf):
++                rc = CGA.main(
++                    [
++                        "--before-ref",
++                        before_sha,
++                        "--after-ref",
++                        after_sha,
++                        "--root",
++                        str(repo),
++                    ]
++                )
++            self.assertEqual(rc, 0, buf.getvalue())
++            report = json.loads(buf.getvalue())
++            self.assertEqual(report["mode"], "event_compare")
++            self.assertIn("OBL-D1-PROMOTE", report["reverse_impact"]["impacted"])
++            self.assertFalse(report["promotion_permission"])
++
++
++
++
+ if __name__ == "__main__":
+     unittest.main()
+diff --git a/tools/claims_gate_adapter.py b/tools/claims_gate_adapter.py
+index fbf376a..1d463dc 100644
+--- a/tools/claims_gate_adapter.py
++++ b/tools/claims_gate_adapter.py
+@@ -9,9 +9,13 @@ Outputs are HOLD / REVALIDATION proposals only. Scientific effect: NONE.
+ """
+ from __future__ import annotations
+ 
++import argparse
+ import copy
++import hashlib
+ import importlib.util
+ import json
++import os
++import subprocess
+ import sys
+ from pathlib import Path
+ from typing import Any
+@@ -42,6 +46,129 @@ class AdapterError(ValueError):
+     """Fail-closed adapter refusal."""
+ 
+ 
++def _require_nonempty_as_of(value: Any) -> str:
++    """Fail closed: as_of must be a nonempty string (reject null/"" /False/0)."""
++    if type(value) is not str or not value.strip():
++        raise AdapterError(
++            f"as_of must be a nonempty string, got {type(value).__name__}: {value!r}"
++        )
++    return value
++
++
++def _require_id_list(record: dict[str, Any], field: str) -> list[str]:
++    """Fail closed on present-but-invalid depends_on / sub_obligations containers.
++
++    Missing key ⇒ empty list (genuine omission). Present False/0/""/{}/null/str
++    must not be swallowed by `x or []`.
++    """
++    if field not in record:
++        return []
++    value = record[field]
++    if not isinstance(value, list):
++        raise AdapterError(
++            f"{field} must be a list of id strings when present, "
++            f"got {type(value).__name__}: {value!r}"
++        )
++    out: list[str] = []
++    for item in value:
++        if type(item) is not str or not item:
++            raise AdapterError(
++                f"{field} entries must be nonempty strings, got {item!r}"
++            )
++        out.append(item)
++    return out
++
++
++def _reject_all_zero_sha(ref: str, *, label: str) -> str:
++    if not isinstance(ref, str) or not ref.strip():
++        raise AdapterError(f"{label} ref missing or empty")
++    cleaned = ref.strip()
++    if set(cleaned) <= {"0"}:
++        raise AdapterError(f"{label} ref is unavailable/all-zero: {cleaned!r}")
++    return cleaned
++
++
++def load_json_at_ref(root: Path, relative: str, ref: str) -> Any:
++    """Load a repository-relative JSON blob at an immutable git ref."""
++    ref = _reject_all_zero_sha(ref, label="git")
++    rel = relative.replace("\\", "/")
++    cp = subprocess.run(
++        ["git", "-C", str(root), "show", f"{ref}:{rel}"],
++        capture_output=True,
++        text=True,
++        timeout=60,
++    )
++    if cp.returncode != 0:
++        raise AdapterError(
++            f"unavailable object {rel!r} at {ref}: {cp.stderr.strip()[:200]}"
++        )
++    try:
++        return json.loads(cp.stdout)
++    except json.JSONDecodeError as exc:
++        raise AdapterError(f"malformed JSON {rel!r} at {ref}: {exc}") from exc
++
++
++def blob_identity_at_ref(root: Path, relative: str, ref: str) -> dict[str, str]:
++    ref = _reject_all_zero_sha(ref, label="git")
++    cp = subprocess.run(
++        ["git", "-C", str(root), "rev-parse", f"{ref}:{relative}"],
++        capture_output=True,
++        text=True,
++        timeout=60,
++    )
++    if cp.returncode != 0:
++        raise AdapterError(
++            f"unavailable blob {relative!r} at {ref}: {cp.stderr.strip()[:200]}"
++        )
++    blob = cp.stdout.strip()
++    data = subprocess.run(
++        ["git", "-C", str(root), "cat-file", "blob", blob],
++        capture_output=True,
++        timeout=60,
++    )
++    if data.returncode != 0:
++        raise AdapterError(f"cat-file failed for {blob}")
++    return {
++        "ref": ref,
++        "path": relative,
++        "git_blob": blob,
++        "sha256": hashlib.sha256(data.stdout).hexdigest(),
++        "bytes": str(len(data.stdout)),
++    }
++
++
++def resolve_github_event_refs() -> tuple[str | None, str | None]:
++    """Return (before_ref, after_ref) from Actions event payload, or (None, None)."""
++    event_path = os.environ.get("GITHUB_EVENT_PATH")
++    if not event_path:
++        return None, None
++    path = Path(event_path)
++    if not path.is_file():
++        raise AdapterError(f"GITHUB_EVENT_PATH not a file: {event_path}")
++    event = json.loads(path.read_text(encoding="utf-8"))
++    name = os.environ.get("GITHUB_EVENT_NAME") or event.get("action")
++    # pull_request / pull_request_target
++    pr = event.get("pull_request")
++    if isinstance(pr, dict):
++        base = (pr.get("base") or {}).get("sha")
++        head = (pr.get("head") or {}).get("sha") or os.environ.get("GITHUB_SHA")
++        return (
++            _reject_all_zero_sha(str(base), label="pull_request.base.sha"),
++            _reject_all_zero_sha(str(head), label="pull_request.head.sha"),
++        )
++    # push
++    if "before" in event and "after" in event:
++        return (
++            _reject_all_zero_sha(str(event["before"]), label="push.before"),
++            _reject_all_zero_sha(str(event["after"]), label="push.after"),
++        )
++    # Unexpected event while path is set: fail closed rather than silent tip-only.
++    raise AdapterError(
++        f"GITHUB_EVENT_PATH present but no usable before/after refs "
++        f"(event keys={sorted(event)[:12]}, GITHUB_EVENT_NAME={name!r})"
++    )
++
++
+ def load_json(path: Path) -> Any:
+     with path.open(encoding="utf-8") as handle:
+         return json.load(handle)
+@@ -138,6 +265,7 @@ def claims_to_gate_graph(
+         raise AdapterError("malformed claims document")
+     if "as_of" not in claims:
+         raise AdapterError("stale or incomplete claims document: missing as_of")
++    as_of = _require_nonempty_as_of(claims.get("as_of"))
+     premises = claims.get("premises")
+     claim_nodes = claims.get("claims")
+     if not isinstance(premises, dict) or not isinstance(claim_nodes, dict):
+@@ -183,7 +311,7 @@ def claims_to_gate_graph(
+             "evidence_digest": evid,
+             "source_snapshot": snapshot,
+             "fingerprint": sem,  # derived digest; never a manual sole detector
+-            "version": claims.get("as_of"),
++            "version": as_of,
+         }
+ 
+     for nid, record in premises.items():
+@@ -192,11 +320,11 @@ def claims_to_gate_graph(
+         add_node(nid, "claims", record)
+ 
+     def add_deps(nid: str, record: dict[str, Any]) -> None:
+-        for dep in record.get("depends_on") or []:
++        for dep in _require_id_list(record, "depends_on"):
+             if dep not in nodes:
+                 raise AdapterError(f"unknown dependency id {dep!r} from {nid!r}")
+             edges.append(_edge(nid, dep, "depends_on"))
+-        for dep in record.get("sub_obligations") or []:
++        for dep in _require_id_list(record, "sub_obligations"):
+             if dep not in nodes:
+                 raise AdapterError(f"unknown sub_obligation id {dep!r} from {nid!r}")
+             edges.append(_edge(nid, dep, "sub_obligation"))
+@@ -210,7 +338,7 @@ def claims_to_gate_graph(
+         "schema_version": 1,
+         "object": "CLAIMS-GATE-ADAPTER-20260925-v1",
+         "source": "claims/graph.json",
+-        "as_of": claims.get("as_of"),
++        "as_of": as_of,
+         "nodes": nodes,
+         "edges": edges,
+         "scientific_effect": "NONE",
+@@ -529,10 +657,131 @@ def audit_tip(root: Path | None = None) -> dict[str, Any]:
+     }
+ 
+ 
++def compare_at_refs(
++    root: Path,
++    before_ref: str,
++    after_ref: str,
++) -> dict[str, Any]:
++    """Compare claims(+authority/crosswalk) at two immutable git refs."""
++    before_ref = _reject_all_zero_sha(before_ref, label="before")
++    after_ref = _reject_all_zero_sha(after_ref, label="after")
++    old_claims = load_json_at_ref(root, "claims/graph.json", before_ref)
++    new_claims = load_json_at_ref(root, "claims/graph.json", after_ref)
++    crosswalk = load_json_at_ref(
++        root, "architecture/scientific_state/v1/ID_CROSSWALK.json", after_ref
++    )
++    authority = load_json_at_ref(
++        root, "architecture/scientific_state/v1/AUTHORITY_MAP.json", after_ref
++    )
++    report = compare_claims_files(
++        old_claims, new_claims, crosswalk=crosswalk, authority_map=authority
++    )
++    report["mode"] = "event_compare"
++    report["before"] = {
++        "ref": before_ref,
++        "claims": blob_identity_at_ref(root, "claims/graph.json", before_ref),
++    }
++    report["after"] = {
++        "ref": after_ref,
++        "claims": blob_identity_at_ref(root, "claims/graph.json", after_ref),
++        "crosswalk": blob_identity_at_ref(
++            root, "architecture/scientific_state/v1/ID_CROSSWALK.json", after_ref
++        ),
++        "authority_map": blob_identity_at_ref(
++            root, "architecture/scientific_state/v1/AUTHORITY_MAP.json", after_ref
++        ),
++    }
++    # Impact / HOLD proposals are informational: do not fail closed merely because
++    # a corrective edit generates REVALIDATION/HOLD. Illegal promotion never appears.
++    report["problems"] = []
++    if report.get("promotion_permission") is not False:
++        report["problems"] = ["promotion_permission must stay false"]
++    return report
++
++
+ def main(argv: list[str] | None = None) -> int:
+-    report = audit_tip()
+-    print(json.dumps(report, indent=2, sort_keys=True))
+-    return 1 if report.get("problems") else 0
++    """CLI entry used by CI (`python tools/claims_gate_adapter.py`).
++
++    - Default local / no-event: tip-health only (identity self-compare), labeled.
++    - Explicit `--before/--after` file paths or `--before-ref/--after-ref`.
++    - When `GITHUB_EVENT_PATH` carries PR/push SHAs, run event_compare and attach
++      tip_health as a separate labeled section (CI command string unchanged).
++    Unknown arguments fail closed via argparse.
++    """
++    parser = argparse.ArgumentParser(
++        prog="claims_gate_adapter",
++        description="Thin #90 claims→gate adapter (HOLD/REVALIDATION only).",
++    )
++    parser.add_argument(
++        "--tip-health-only",
++        action="store_true",
++        help="Force tip-health identity audit even if event refs are present.",
++    )
++    parser.add_argument("--before", type=Path, help="Before claims JSON file")
++    parser.add_argument("--after", type=Path, help="After claims JSON file")
++    parser.add_argument("--before-ref", help="Immutable git ref for before tree")
++    parser.add_argument("--after-ref", help="Immutable git ref for after tree")
++    parser.add_argument(
++        "--root",
++        type=Path,
++        default=None,
++        help="Repository root (default: adapter package root)",
++    )
++    args = parser.parse_args(argv)
++
++    root = (args.root or ROOT).resolve()
++    tip = audit_tip(root)
++    tip["mode"] = "tip_health"
++    tip["label"] = "tip_health_identity_audit_not_transition_evidence"
++
++    file_mode = args.before is not None or args.after is not None
++    ref_mode = args.before_ref is not None or args.after_ref is not None
++    if file_mode and ref_mode:
++        raise SystemExit("use either file --before/--after or git --before-ref/--after-ref")
++    if file_mode:
++        if args.before is None or args.after is None:
++            raise SystemExit("--before and --after are both required")
++        old_claims = load_json(args.before)
++        new_claims = load_json(args.after)
++        crosswalk = load_json(root / "architecture/scientific_state/v1/ID_CROSSWALK.json")
++        authority = load_json(root / "architecture/scientific_state/v1/AUTHORITY_MAP.json")
++        report = compare_claims_files(
++            old_claims, new_claims, crosswalk=crosswalk, authority_map=authority
++        )
++        report["mode"] = "file_compare"
++        report["tip_health"] = tip
++        report["promotion_permission"] = False
++        report["scientific_effect"] = "NONE"
++        print(json.dumps(report, indent=2, sort_keys=True))
++        return 0
++    if ref_mode:
++        if not args.before_ref or not args.after_ref:
++            raise SystemExit("--before-ref and --after-ref are both required")
++        report = compare_at_refs(root, args.before_ref, args.after_ref)
++        report["tip_health"] = tip
++        print(json.dumps(report, indent=2, sort_keys=True))
++        return 1 if report.get("problems") else 0
++
++    if args.tip_health_only:
++        print(json.dumps(tip, indent=2, sort_keys=True))
++        return 1 if tip.get("problems") else 0
++
++    # CI default: same argv CI uses (none). Prefer event refs when present.
++    try:
++        before_ref, after_ref = resolve_github_event_refs()
++    except AdapterError as exc:
++        tip["problems"] = [str(exc)]
++        print(json.dumps(tip, indent=2, sort_keys=True))
++        return 1
++
++    if before_ref and after_ref:
++        report = compare_at_refs(root, before_ref, after_ref)
++        report["tip_health"] = tip
++        print(json.dumps(report, indent=2, sort_keys=True))
++        return 1 if report.get("problems") else 0
++
++    print(json.dumps(tip, indent=2, sort_keys=True))
++    return 1 if tip.get("problems") else 0
+ 
+ 
+ if __name__ == "__main__":
+diff --git a/tools/semantic_digest.py b/tools/semantic_digest.py
+index 94f7902..4fd4125 100644
+--- a/tools/semantic_digest.py
++++ b/tools/semantic_digest.py
+@@ -91,10 +91,26 @@ def validate_source_binding(binding: dict[str, Any]) -> None:
+         raise DigestError("source binding immutable identity must be a string when present")
+ 
+ 
++def _require_id_container(record: dict[str, Any], field: str) -> list[Any]:
++    """Fail closed: present-but-invalid depends_on/sub_obligations must not iterate.
++
++    Missing key ⇒ empty list. Present False/0/""/{}/null/str must not be
++    swallowed by `x or []` (strings would iterate char-by-char).
++    """
++    if field not in record:
++        return []
++    value = record[field]
++    if not isinstance(value, list):
++        raise DigestError(
++            f"{field} must be a list when present, got {type(value).__name__}: {value!r}"
++        )
++    return value
++
++
+ def _typed_edges_from_record(record: dict[str, Any]) -> list[dict[str, Any]]:
+     edges: list[dict[str, Any]] = []
+     seen: set[tuple[str, str]] = set()
+-    for raw in record.get("depends_on") or []:
++    for raw in _require_id_container(record, "depends_on"):
+         edge = normalize_typed_edge(raw, default_relation="depends_on")
+         validate_typed_edge(edge)
+         key = (edge["target_id"], edge["relation"])
+@@ -104,7 +120,7 @@ def _typed_edges_from_record(record: dict[str, Any]) -> list[dict[str, Any]]:
+             )
+         seen.add(key)
+         edges.append(edge)
+-    for raw in record.get("sub_obligations") or []:
++    for raw in _require_id_container(record, "sub_obligations"):
+         edge = normalize_typed_edge(raw, default_relation="sub_obligation")
+         validate_typed_edge(edge)
+         key = (edge["target_id"], edge["relation"])

@@ -1,0 +1,205 @@
+{
+  "as_of_utc": "2026-09-29T12:15:00Z",
+  "scientific_effect": "NONE",
+  "lemma_closed": false,
+  "hardening_tip": "a01c72f19378",
+  "note": "Overlap watch for inventable/cursor eng PRs; not acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; nav/loss-only SUCCESS; nav READY_CLEAN sole tip P1; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); open inventable on tip base: none; sandbox_pr=#27 OPEN DRAFT (#26 CLOSED; #25 CLOSED; #24 CLOSED; #23 CLOSED; #22 CLOSED; #21 CLOSED; #20 CLOSED; #19 CLOSED; #18 CLOSED; #17 CLOSED; #16 CLOSED; #15 CLOSED; #14 CLOSED; #13 CLOSED; #12 CLOSED; #11 CLOSED; #10 CLOSED; #9 CLOSED); NO inventable tip push.",
+  "sandbox_packages": [
+    "pr97_followup_nav_and_handoff.patch (sole tip P1 READY_CLEAN @a01c72f19378)",
+    "pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 / tip \u2014 do not reapply)",
+    "pr_tip_h3_rung_floor_gate_binding.patch (ABSORBED by #171 / tip \u2014 do not reapply)",
+    "pr97_followup_nav_links.patch",
+    "pr_handoff_applied.patch",
+    "pr98_ci_allowlist_fix.patch (ABSORBED on main#98@d765efa \u2014 do not reapply)",
+    "pr105_consumers_fix.patch (ABSORBED on main#105@54a8c59 \u2014 do not reapply)"
+  ],
+  "absorbed": [
+    "main#7 @a01c72f19378 P15 foundation (tip; ABSORBED)",
+    "main#174 MERGED queue reconciliation (ABSORBED)",
+    "main#8 @9458b903f57f rn-sector-review (prior ABSORBED)",
+    "main#122 @9ce5c66f2fd5 SARD-G (prior ABSORBED)",
+    "pr_tip_h3_rung_floor_gate_binding on main#171 / tip d4ad3bbe9dc3 (ABSORBED; prior)",
+    "pr_tip_claims_firewall_repair on main#169@cad99e28 / tip e7652a130398 (SUPERSEDED; CONFLICT vs tip)",
+    "pr105_consumers_fix on main#105@54a8c59",
+    "pr98_ci_allowlist_fix on main#98@d765efa"
+  ],
+  "ready": [
+    "pr97_followup_nav_and_handoff.patch (READY_CLEAN @a01c72f19378; APPLIED absent)"
+  ],
+  "prs": [
+    {
+      "number": 98,
+      "title": "Scientific-state schema pilot (#95): authority map + ID crosswalk + fail-closed checker",
+      "state": "MERGED",
+      "draft": false,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "b59359e",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/98",
+      "updatedAt": "2026-09-26T01:26:34Z",
+      "files": [
+        ".github/workflows/ci.yml",
+        ".gitignore",
+        "architecture/scientific_state/README.md",
+        "architecture/scientific_state/v1/AUTHORITY_MAP.json",
+        "architecture/scientific_state/v1/ID_CROSSWALK.json",
+        "architecture/scientific_state/v1/SCHEMA.json",
+        "architecture/scientific_state/v1/VERIFICATION_LEVELS.json",
+        "claims/graph.json",
+        "engine/bridge/work_order.py",
+        "tests/test_claims_gate_adapter.py",
+        "tests/test_claims_gate_enforcement.py",
+        "tests/test_claims_gate_f2_coverage.py",
+        "tests/test_scientific_state.py",
+        "tests/test_semantic_digest.py",
+        "tools/claims_gate_adapter.py",
+        "tools/closure_pipeline.py",
+        "tools/run_checks.py",
+        "tools/scientific_state_check.py",
+        "tools/semantic_digest.py"
+      ],
+      "checks": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 101,
+      "title": "docs(math_status): STATUS.md \"CERTIFIED\" q=2 envelope is REQUIRED CARRIER ABSENT (walk-down 9, M1)",
+      "state": "MERGED",
+      "draft": false,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "aff02f2",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/101",
+      "updatedAt": "2026-09-25T18:04:59Z",
+      "files": [
+        "docs/math_status/README.md"
+      ],
+      "checks": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 102,
+      "title": "docs(inventable): SIDE24_CELL importers restricted to declared square C; complement named (engineering replay only)",
+      "state": "MERGED",
+      "draft": false,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "00ffa74",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/102",
+      "updatedAt": "2026-09-25T18:05:09Z",
+      "files": [
+        "README.md",
+        "docs/RESEARCH_EXECUTION.md",
+        "engine/lanes/A5.json"
+      ],
+      "checks": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 104,
+      "title": "Retip #38: refuse a non-zero residual on an OUTSIDE cell (controls 33 and 34)",
+      "state": "CLOSED",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "ec3b426",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/104",
+      "updatedAt": "2026-09-25T18:07:33Z",
+      "files": [
+        "research/cover/README.md",
+        "research/cover/ledger.py",
+        "tests/test_cover.py"
+      ],
+      "checks": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 105,
+      "title": "docs: retire stale CONTRIBUTION_PLAN next-items (LPW identity REFUTED, headline pinned)",
+      "state": "MERGED",
+      "draft": false,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "91a5e9a",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/105",
+      "updatedAt": "2026-09-25T19:16:01Z",
+      "files": [
+        "docs/CONTRIBUTION_PLAN.md"
+      ],
+      "checks": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 106,
+      "title": "SUPERSEDED/BLOCKED PARENT \u2014 retip 61,642 cell-count control",
+      "state": "CLOSED",
+      "draft": true,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "3f14638",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/106",
+      "updatedAt": "2026-09-26T00:09:22Z",
+      "files": [
+        "research/cover/README.md",
+        "research/cover/ledger.py",
+        "tests/test_cover.py"
+      ],
+      "checks": {
+        "verify": "FAILURE",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 107,
+      "title": "docs(inventable): OPEN_PROBLEMS frozen errata E1/E2 (OPEN_PROBLEMS.md untouched, archive-pinned)",
+      "state": "MERGED",
+      "draft": false,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "48d6fbc",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/107",
+      "updatedAt": "2026-09-25T18:05:04Z",
+      "files": [
+        "docs/NAVIGATION.json",
+        "docs/OPEN_PROBLEMS_FROZEN_ERRATA_20260925.md"
+      ],
+      "checks": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    },
+    {
+      "number": 108,
+      "title": "tip-observe 848aea2a",
+      "state": "MERGED",
+      "draft": false,
+      "base": "chatgpt/drive-github-hardening-20260919",
+      "head": "92b10b0",
+      "url": "https://github.com/d6g8k5htny-coder/main/pull/108",
+      "updatedAt": "2026-09-25T18:31:31Z",
+      "files": [
+        "docs/math_status/PACKET.json",
+        "docs/math_status/README.md",
+        "docs/math_status/STATUS_JETMOD.md",
+        "docs/math_status_probes/INVENTABLE_INSTRUMENTATION_STATUS_INDEX.json",
+        "docs/math_status_probes/INVENTABLE_PROBES_INDEX.json",
+        "docs/math_status_probes/README.md"
+      ],
+      "checks": {
+        "verify": "SUCCESS",
+        "navigation": "SUCCESS",
+        "loss-only-controls": "SUCCESS"
+      }
+    }
+  ]
+}
