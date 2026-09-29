@@ -1,17 +1,17 @@
 {
-  "as_of_utc": "2026-09-29T12:00:00Z",
+  "as_of_utc": "2026-09-29T12:15:00Z",
   "scientific_effect": "NONE",
   "lemma_closed": false,
   "authority": "NONE",
   "note": "Private coordination snapshot only; not research acceptance. Tip unchanged a01c72f19378 (#7 P15 foundation; #174 MERGED); tip verify SUCCESS; navigation/loss-only SUCCESS; #7+#174 ABSORBED; prior #122+#8+#171 ABSORBED; claims-firewall SUPERSEDED by #169; sole ready P1 = nav READY_CLEAN @a01c72f19378; IDLE yield #172/#184; observe #183/#188/#189 MERGED@main (not tip); sandbox_pr=#27 OPEN DRAFT (#26 CLOSED; #25 CLOSED; #24 CLOSED; #23 CLOSED; #22 CLOSED; #21 CLOSED; #20 CLOSED; #19 CLOSED; #18 CLOSED; #17 CLOSED; #16 CLOSED; #15 CLOSED; #14 CLOSED; #13 CLOSED; #12 CLOSED; #11 CLOSED; #10 CLOSED; #9 CLOSED); NO inventable tip push.",
   "main_open_pr_count": 0,
   "sandbox_packages": {
-    "pr_tip_claims_firewall_repair": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 — do_not_reapply)",
+    "pr_tip_claims_firewall_repair": "experiments/d7_drift_scan_20260925/pr_tip_claims_firewall_repair.patch (SUPERSEDED by #169 \u2014 do_not_reapply)",
     "pr97_followup_nav_and_handoff": "experiments/d7_drift_scan_20260925/pr97_followup_nav_and_handoff.patch (sole tip P1 READY_CLEAN @a01c72f19378)",
     "pr97_followup_nav_links": "experiments/d7_drift_scan_20260925/pr97_followup_nav_links.patch",
     "pr_handoff_applied": "experiments/d7_drift_scan_20260925/pr_handoff_applied.patch",
     "pr105_consumers_fix": "experiments/d7_drift_scan_20260925/pr105_consumers_fix.patch",
-    "pr_tip_h3_rung_floor_gate_binding": "experiments/d7_drift_scan_20260925/pr_tip_h3_rung_floor_gate_binding.patch (ABSORBED by #171 / tip — do_not_reapply)"
+    "pr_tip_h3_rung_floor_gate_binding": "experiments/d7_drift_scan_20260925/pr_tip_h3_rung_floor_gate_binding.patch (ABSORBED by #171 / tip \u2014 do_not_reapply)"
   },
   "surfaces": [
     {
@@ -346,7 +346,7 @@
       "repo": "d6g8k5htny-coder/main",
       "pr": 106,
       "role": "cursor_retip46_cellcount_parked",
-      "title": "SUPERSEDED/BLOCKED PARENT — retip 61,642 cell-count control",
+      "title": "SUPERSEDED/BLOCKED PARENT \u2014 retip 61,642 cell-count control",
       "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/main/pull/106",
@@ -608,7 +608,7 @@
       "repo": "d6g8k5htny-coder/Math-",
       "pr": 9,
       "role": "cursor_d5_mesoscopic_chart_j0",
-      "title": "SUPERSEDED/BLOCKED INPUT — RN mesoscopic chart J0 (finite-r pin layer invalid)",
+      "title": "SUPERSEDED/BLOCKED INPUT \u2014 RN mesoscopic chart J0 (finite-r pin layer invalid)",
       "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/Math-/pull/9",
@@ -650,7 +650,7 @@
       "repo": "d6g8k5htny-coder/sandbox",
       "pr": 11,
       "role": "sandbox_handoff_this_run",
-      "title": "D0/D7 crosswalk allowlist — sandbox coordination (IDLE nav P1)",
+      "title": "D0/D7 crosswalk allowlist \u2014 sandbox coordination (IDLE nav P1)",
       "state": "CLOSED",
       "isDraft": true,
       "url": "https://github.com/d6g8k5htny-coder/sandbox/pull/11",
@@ -675,12 +675,12 @@
     "main#171 @d4ad3bbe9dc3 H3-RUNG-FLOOR gate (prior)"
   ],
   "observe_open": [
-    "main#172 CLOSED DRAFT — yield",
-    "main#180 MERGED@main — observe closed (not tip)",
-    "main#181 MERGED@main — observe closed (not tip)",
-    "main#183 MERGED@main — observe (not tip)",
-    "main#184 MERGED@main — yield (successor to #172; not tip)",
-    "main#188 MERGED@main — observe closed (not tip)",
-    "main#189 MERGED@main — observe closed (not tip)"
+    "main#172 CLOSED DRAFT \u2014 yield",
+    "main#180 MERGED@main \u2014 observe closed (not tip)",
+    "main#181 MERGED@main \u2014 observe closed (not tip)",
+    "main#183 MERGED@main \u2014 observe (not tip)",
+    "main#184 MERGED@main \u2014 yield (successor to #172; not tip)",
+    "main#188 MERGED@main \u2014 observe closed (not tip)",
+    "main#189 MERGED@main \u2014 observe closed (not tip)"
   ]
 }
