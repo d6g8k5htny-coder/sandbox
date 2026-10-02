@@ -139,16 +139,20 @@ def check_flow(page, origin, expect, result, output, text_scale):
     expect(page.get_by_text('DESTINATION_CONTEXT_EXCLUDED_FROM_PACKET', exact=True)).to_be_visible()
     check_layout(page, result, 'blocked')
     save_shot(page, output, result, 'blocked', 'main > section:last-child')
-    page.locator('#toggle-B').click(); expect(page.locator('#toggle-B')).to_be_focused()
+    page.keyboard.press('Shift+Tab'); expect(page.locator('#toggle-B')).to_be_focused()
+    page.keyboard.press('Enter'); expect(page.locator('#toggle-B')).to_be_focused()
     expect(page.get_by_role('heading', name='PROPOSED · BLOCKED', exact=True)).to_have_count(0)
-    page.locator('#preview-button').click(); page.locator('#preview-button').click()
+    page.keyboard.press('Tab'); expect(page.locator('#preview-button')).to_be_focused()
+    page.keyboard.press('Enter'); page.keyboard.press('Enter')
     expect(page.get_by_role('heading', name='PROPOSED · PREVIEW_ONLY', exact=True)).to_have_count(1)
     preview = page.locator('main > section:last-child')
     for text in ['Purpose explanatory_update; audience OWNER; scientific effect NONE', 'fictional:a:resource-001', 'fictional:b:resource-001', 'fictional-A-revision-1', 'fictional-B-revision-1', 'W1 owner researcher-alpha; CURRENT; HOLD CLEAR', 'no action, completed receipt or resulting provider identity']:
         expect(preview).to_contain_text(text)
     check_layout(page, result, 'preview')
     save_shot(page, output, result, 'preview', 'main > section:last-child')
-    page.locator('#open-B').focus(); page.keyboard.press('Enter')
+    page.keyboard.press('Tab'); expect(page.locator('#open-A')).to_be_focused()
+    page.keyboard.press('Tab'); expect(page.locator('#open-B')).to_be_focused()
+    page.keyboard.press('Enter')
     expect(page.locator('#open-B')).to_be_focused()
     panel = page.locator('#source-panel')
     for text in ['2026-10-01T09:00:00Z', '2026-10-02T12:00:00Z', 'Fictional finite packet; application not evaluated', 'fictional:b:resource-001', 'fictional-B-revision-1', 'VERIFIED', '<img src=x onerror=alert(1)> PRIVATE_CANARY_B']:
@@ -176,7 +180,7 @@ def check_flow(page, origin, expect, result, output, text_scale):
     require(page.url == initial_url + '#content', 'Mode changed navigation URL')
     require(page.evaluate('history.length') == initial_history + 1, 'Mode changes added history beyond the skip anchor')
     page.locator('#candidate').click(); page.locator('#toggle-B').click(); page.locator('#open-A').click()
-    page.locator('#reset').click(); ready()
+    page.locator('#reset').focus(); page.keyboard.press('Enter'); ready()
     expect(page.locator('#open-A').locator('..')).to_contain_text('Source opens: 0.')
     page.locator('#candidate').click(); page.locator('#toggle-B').click(); page.locator('#preview-button').click()
     page.reload(); ready()
@@ -184,8 +188,12 @@ def check_flow(page, origin, expect, result, output, text_scale):
     page.locator('#candidate').click(); page.locator('#toggle-B').click(); page.locator('#open-B').click()
     page.goto(origin + 'synthetic-away'); expect(page.get_by_role('heading', name='Synthetic away page')).to_be_visible()
     page.go_back(); ready()
+    result['pageshow_after_back'] = page.evaluate('window.__browserCheckPageShows')
     page.go_forward(); expect(page.get_by_role('heading', name='Synthetic away page')).to_be_visible()
     page.go_back(); ready()
+    result['pageshow_after_second_back'] = page.evaluate('window.__browserCheckPageShows')
+    result['bfcache_observed'] = any(result['pageshow_after_back']) or any(result['pageshow_after_second_back'])
+    result['navigation_scope'] = 'Observed navigation reset only; BFCache is covered only if a persisted pageshow is recorded'
     result['steps'] = ['baseline and candidate scope preserved', 'keyboard skip/control/source-close traversal and visible focus', 'withhold B blocks only fictional proposal and preserves ALL/NOT_EVALUATED', 'restore yields PROPOSED/PREVIEW_ONLY with identities, dates, owner and HOLD', 'repeated activation is idempotent', 'source dates, scope, archive identity and inert image-looking text', 'all measured views have no overflow', 'reset, refresh and real Back/Forward clear disposable state', 'reduced motion active']
 
 
@@ -249,6 +257,7 @@ def main():
                     requests, console, errors, dialogs = [], [], [], []
                     context.on('request', lambda request: requests.append({'url': request.url, 'method': request.method, 'resource_type': request.resource_type, 'has_post_data': request.post_data is not None}))
                     page = context.new_page(); page.set_default_timeout(15000)
+                    page.add_init_script("window.__browserCheckPageShows = []; window.addEventListener('pageshow', event => window.__browserCheckPageShows.push(event.persisted));")
                     page.on('console', lambda message: console.append({'type': message.type, 'text': message.text}))
                     page.on('pageerror', lambda error: errors.append(str(error)))
                     def on_dialog(dialog):
