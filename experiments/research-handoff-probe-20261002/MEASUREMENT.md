@@ -1,37 +1,39 @@
-# Predeclared comparison protocol · version 1
+# Descriptive comparison protocol · revision 2
 
-Status: NOT RUN. Browser correctness/accessibility gate is blocked. No human participants or agent-proxy task participants have been recruited or timed. Test-runner durations are not reader performance. Both modes expose the same fixed records and source bodies; candidate adds packet feedback and the proposed preview.
+The first comparison was NOT_COMPARABLE: baseline lacked restore and computed-preview actions. That result and its zero timed attempts are preserved in the earlier source history, browser runs and delivered archive. Revision 2 changes the shared workflow rather than reinterpreting the old result.
 
-## Frozen fictional task sets
+## Scope and fixed inputs
 
-Canonical topology is unchanged in each set: R1 requires ALL A/B/C for T; R2 requires ALL A/D for T; R3 requires E for U. G is an independent engineering record. W1 has one CURRENT owner and CLEAR HOLD. Application is NOT_EVALUATED; targets are UNASSESSED / NOT_REVIEWED. Start with B excluded only from the hypothetical packet. A is the proof snapshot, B narrative destination, C historical archive, D separate unassessed route input, E separate target input.
+One fictional fixture is used in both modes. There are no new source-body variants, human participants, learning controls or timings. Alpha/Beta fixture labels are not independent datasets. Report actual correctness, UI actions, evidence exposures and geometry only. The earlier 30% speed target does not apply to this descriptive revision.
 
-Set Alpha, “Amber packet”: five fictional fragments about a finite amber sample. Source labels are Amber A through Amber E. Set Beta, “Indigo packet”: five fictional fragments about a finite indigo sample. Source labels are Indigo A through Indigo E. Labels/context are present in the fixture, but separate rendered source-body variants have NOT been wired or claimed tested. This is a remaining protocol implementation requirement before paired measurements; current single-fixture mode switching must not be advertised as a memorization-controlled trial.
+Both modes have identical B membership control, fixed-fixture re-evaluation and computed PROPOSED/BLOCKED-or-PREVIEW_ONLY output, directory, disclosure defaults and core evidence. Candidate adds only contextual route membership cues and exact-source shortcuts. It receives no special acknowledgement, hidden check or better focus behavior.
 
-The following five task cards are frozen for each label set; substitute the assigned prefix only:
+## Equal starting conditions
 
-1. With prefix-B excluded from this hypothetical packet, identify the affected recorded route and preserve its ALL rule and application label
-2. Locate that route’s next required source; give its exact resource identity, revision, source date and observation date; distinguish packet exclusion from provider disappearance or access denial
-3. Identify the separately recorded unaffected route for the same target and explain why its existence does not establish acceptance
-4. State what cannot be concluded about target truth, review or all downstream consequences, and why the engineering check cannot fill the missing premise
-5. Restore B, then prepare the exact A→B / explanatory_update / W1 / OWNER proposal, recording source/destination identity, input representation, owner, HOLD, observation date and freshness checks. State PROPOSED / PREVIEW_ONLY, scientific effect NONE, and absence of resulting provider identity
+For each mode separately: reset; select mode; withhold B; clear measurements with the shared optional interaction-record control. This trial-boundary action closes all source/raw/metric disclosures and clears previous proposal/counters without altering mode or membership. Setup interactions are excluded. Both attempts now begin with B excluded, no source panel, no prior preview and empty counters. Use the same exact fixture/version, access, revisions, ownership and HOLD.
 
-## Scoring fixed before timing
+## Five tasks and correctness oracle
 
-Hard gates precede speed: no scientific promotion, identity transfer, source mutation, private disclosure/refusal failure or browser accessibility blocker. Any such error prevents a retain/usability-ready decision regardless of timing.
+1. Identify R1 as the affected route while preserving ALL A/B/C and NOT_EVALUATED
+2. Inspect B as its required missing packet input; record exact resource, representation, recorded/observed revision, explicit freshness, source and observation dates, scope, effective access and availability; do not infer provider disappearance
+3. Identify R2 as separately recorded and unaffected for T; do not turn it into accepted proof
+4. Preserve T/U truth and review labels, incomplete coverage and independent engineering G; no theorem-wide or exhaustive downstream inference
+5. Restore B and request the same fixed-fixture re-evaluation in the current mode, recording the exact A→B explanatory_update/W1/OWNER proposal, W1 ownership/currentness/HOLD, independent access/revision/byte/availability checks, PROPOSED/PREVIEW_ONLY, scientific effect NONE and no resulting provider identity
 
-Correctness requires all identities and destination, W1 owner and HOLD, dates, incomplete-coverage/hypothesis limits and necessary revision/access checks. A fast incorrect attempt has no successful completion time. Record errors and recovery separately. Time ends only when all five tasks and the checked proposal are correct, never at first click.
+Each actual scripted attempt must assert final semantic facts and sequence, not merely click buttons. No checkbox or successful request demonstrates reader comprehension. Re-evaluation uses existing computed verification and supplied frozen observations; it does not contact services, refresh a source or compute a new digest.
 
-Record source-panel opens; classify each repetition by a reviewer as necessary recheck or avoidable reopening. Raw open counters alone do not establish avoidable reading. Refresh and reset clear counters. Perform a necessary recheck before the proposed handoff in both modes. Do not reward omission of verification.
+## Predeclared observations
 
-If three or more non-author humans become available after the browser gate, counterbalance baseline→candidate and candidate→baseline, and Alpha/Beta assignment. Report individual results and small N. Otherwise any actual agent/scripted run is a workflow proxy, never a human comprehension/usability pass. No agents are enrolled by this document.
+Report per-task and total deliberate UI activations. Separately record source opens/reopens, raw-evidence expansion, explicit fixed-fixture recheck requests and preview passport exposures. Count preview exposures even when they replace a source-panel visit. Automatic renders are not actions; repeated explicit requests may be. Do not label a repeated read avoidable without its task/sequence context. A necessary recheck cannot be skipped to improve counts.
 
-Exploratory task-specific target: at least 30% lower median time to a correct packet plus preview, fewer avoidable repeat reads and no skipped necessary checks. No broad efficiency or optimality inference. No statistical significance claim from a tiny convenience sample.
+Counters are bounded. Saturated or access-scrubbed telemetry cannot support a comparison. Retain errors and recovery separately. Equal counts are a valid finding of no observed navigation-count advantage. Counts do not measure reading, cognition or human efficiency.
 
-## Blank record schema
+## Browser and geometry gates
 
-Participant kind and anonymous ID; author relationship; order; task set; mode; individual task correctness; exact identity/freshness/owner/HOLD checks; incorrect scientific interpretations; elapsed seconds to correct completion or null; source opens; necessary rechecks; avoidable reopenings; errors; recovery; browser conditions; evidence paths. These fields are blank until an actual run. Results currently contain zero records.
+Require fresh exact-head browser evidence after independent code review. Exercise each mode's full five-task path without switching modes. Check desktop, 390px, 320px, 200% text, reduced motion, default and expanded raw disclosures, keyboard/focus and warm-access invalidation. Mandatory evidence remains visible, untruncated and at the same text scale; native disclosure may hide only raw provenance/body when not being read and optional instrumentation.
 
-## Hosted verification checkpoint · 2026-10-02
+Record whole-document height and preview-section height separately, plus disclosure state and source-navigation distance. The historical 320px/200% preview-section crop was 272 × 9070px. Any relative reduction must compare that same section and conditions, not whole-page height. A 50% reduction is an exploratory engineering target, never a usability threshold or reason to hide mandatory facts. Report all actual values even if no reduction occurs. BFCache is unverified unless a persisted pageshow is observed.
 
-The earlier blocked-route statements above describe the local checkpoint before a specific owner exception. That exception now permits one isolated synthetic-only branch with read-only browser CI and public synthetic test artifacts. The repository-wide OWNER_STOP remains unchanged for all other work. This source snapshot does not establish that a browser ran or passed. The exact hosted commit, browser identity, cases, failures and screenshots are reported by the workflow artifact; consult that evidence before making any browser claim. No timing or usability measurement has been run.
+## Stopping rule
+
+Stop after a fair executable comparison, exact-head passing gates or an honest blocker, and a retain/revise/stop recommendation. If counts are equal, say so; task completeness or compactness may still be retained. No extra treatment features, live integration, expanded environment, deployment or human speedup claim follow from this experiment.

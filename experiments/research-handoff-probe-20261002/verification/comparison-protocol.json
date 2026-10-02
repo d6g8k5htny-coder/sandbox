@@ -1,0 +1,55 @@
+{
+  "version": "bounded-revision-2-descriptive-v1",
+  "frozen_before_execution": true,
+  "scope": "Deterministic fixed-fixture UI task correctness, action/evidence-exposure counts, and separate preview/document geometry. No timings, human comprehension or speedup claims.",
+  "conditions": [
+    "desktop",
+    "mobile390",
+    "mobile320",
+    "large390",
+    "large320"
+  ],
+  "modes": [
+    "BASELINE",
+    "CANDIDATE"
+  ],
+  "setup_excluded_from_task_counts": [
+    "Load same immutable fixture",
+    "Select assigned mode",
+    "Withhold B using common control",
+    "Expand instrumentation and activate start-trial to clear setup counts and close evidence"
+  ],
+  "five_tasks": [
+    "Identify R1, ALL(A,B,C), NOT_EVALUATED, and excluded B",
+    "Open exact B via baseline directory or candidate contextual shortcut and inspect core identity/revision/dates/scope/access; close",
+    "Identify separate R2 ALL(A,D) without acceptance",
+    "Preserve incomplete coverage, UNASSESSED/NOT_REVIEWED targets and engineering non-support",
+    "Restore B and request common fixed-fixture re-evaluation; inspect A/B identities, observed/recorded revision, freshness, bytes, access/availability and W1 owner/HOLD; confirm PROPOSED/PREVIEW_ONLY/NONE/no provider result"
+  ],
+  "planned_activations": [
+    "open B",
+    "close B",
+    "restore B",
+    "re-evaluate and prepare preview"
+  ],
+  "expected_task_counts": {
+    "uiActivations": 4,
+    "sourceOpens": 1,
+    "sourceReopens": 0,
+    "rawEvidenceExpansions": 0,
+    "recheckRequests": 1,
+    "previewPassportExposures": 2
+  },
+  "identity_exposure_count": "Every source-panel exposure plus both preview passports; preview is not treated as zero reading.",
+  "necessary_recheck": "One explicit re-evaluation of fixed inputs; no repeated source panels when checked preview already exposes required fields. This is not live freshness or a new digest.",
+  "correctness_gate": "All five tasks and identical baseline/candidate semantic outputs before descriptive comparison; no saturation, missing record, failed refusal or stale preview",
+  "diagnostics_separate": [
+    "raw disclosure expansion/preservation",
+    "source and actual trigger focus",
+    "mode switches, reset, refresh and navigation",
+    "warm access loss and snapshot invalidation",
+    "independent blockers"
+  ],
+  "geometry": "Default and expanded preview-section bounding height and document scroll height separately. 9070px historical reference is only the old 320px/200%-text preview-section screenshot height.",
+  "older_evidence": "Original NOT_COMPARABLE result and prior browser runs remain historical evidence for the old UI, not overwritten."
+}

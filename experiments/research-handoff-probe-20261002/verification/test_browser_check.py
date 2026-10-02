@@ -16,6 +16,7 @@ class GateTests(unittest.TestCase):
 
     def gate(self, name):
         self.assertIsNotNone(self.module, 'browser evidence gate implementation is missing')
+        self.assertTrue(callable(getattr(self.module, name, None)), f'{name} gate implementation is missing')
         return getattr(self.module, name)
 
     def test_request_gate_allows_only_fixed_local_gets(self):
@@ -38,11 +39,35 @@ class GateTests(unittest.TestCase):
 
     def test_result_gate_never_calls_no_browser_or_partial_cases_a_pass(self):
         check = self.gate('report_passes')
-        report = {'browser_run_started': True, 'cases': [{'passed': True}] * 8}
+        report = {'browser_run_started': True, 'cases': [{'passed': True}] * 16}
         self.assertTrue(check(report))
         self.assertFalse(check({**report, 'browser_run_started': False}))
         self.assertFalse(check({**report, 'cases': report['cases'][:-1]}))
         self.assertFalse(check({**report, 'cases': [{'passed': False}] + report['cases'][1:]}))
+
+    def test_comparison_refuses_incorrect_saturated_or_different_semantic_outputs(self):
+        compare = self.gate('comparison_summary')
+        rows = []
+        for condition in ['desktop', 'mobile390', 'mobile320', 'large390', 'large320']:
+            for mode in ['BASELINE', 'CANDIDATE']:
+                rows.append({'condition': condition, 'mode': mode, 'task_correct': True,
+                    'ui_activations': ['open-B', 'close', 'restore', 'preview'],
+                    'telemetry': {'saturated': False, 'comparisonEligible': True, 'counts': {'sourceOpens': 1, 'sourceReopens': 0, 'rawEvidenceExpansions': 0, 'recheckRequests': 1, 'previewPassportExposures': 2}},
+                    'semantic_output': {'preview': 'same exact semantic output'},
+                    'geometry_default': {'preview_height_px': 4500, 'document_height_px': 18000},
+                    'geometry_expanded': {'preview_height_px': 6000, 'document_height_px': 19500}})
+        result = compare(rows)
+        self.assertEqual(result['status'], 'COMPARABLE_DESCRIPTIVE_ONLY')
+        self.assertTrue(all(x['action_difference_candidate_minus_baseline'] == 0 for x in result['pairs']))
+        self.assertTrue(all(x['identity_exposure_difference_candidate_minus_baseline'] == 0 for x in result['pairs']))
+        import copy
+        for kind in ['incorrect', 'saturated', 'semantics', 'missing']:
+            bad = copy.deepcopy(rows)
+            if kind == 'incorrect': bad[0]['task_correct'] = False
+            if kind == 'saturated': bad[0]['telemetry']['saturated'] = True
+            if kind == 'semantics': bad[0]['semantic_output']['preview'] = 'different'
+            if kind == 'missing': bad.pop()
+            with self.subTest(kind=kind), self.assertRaises(ValueError): compare(bad)
 
 if __name__ == '__main__':
     unittest.main()
