@@ -1,0 +1,267 @@
+{
+  "fixtureVersion": "handoff-probe-v1",
+  "synthetic": true,
+  "recordedRoutesComplete": false,
+  "ownerPrincipalId": "researcher-alpha",
+  "sources": [
+    {
+      "id": "A",
+      "title": "Fictional GitHub proof snapshot",
+      "resourceId": "fictional:a:resource-001",
+      "providerRole": "GitHub proof snapshot",
+      "observationId": "fictional-observation-A-20261002",
+      "revisionToken": "fictional-A-revision-1",
+      "sourceDate": "2026-10-01T09:00:00Z",
+      "observedAt": "2026-10-02T12:00:00Z",
+      "scope": "Fictional finite packet; application not evaluated",
+      "audience": "PUBLIC",
+      "ownerRef": "researcher-alpha",
+      "reviewRef": "fictional-review-A-unassessed",
+      "representation": {
+        "id": "fictional-A-representation-1",
+        "kind": "proof-text",
+        "encoding": "utf-8",
+        "digestAlgorithm": "sha256",
+        "digestEncoding": "hex",
+        "byteCount": 110,
+        "claimedDigest": "17bdd8a19b647ea849207266f8f9b8802ee8467e3bff8acc6f1a3a6f90481b2b",
+        "body": "FICTIONAL source A: GitHub proof snapshot. Scope: illustrative finite packet only. No theorem-wide conclusion."
+      }
+    },
+    {
+      "id": "B",
+      "title": "Fictional Drive narrative snapshot",
+      "resourceId": "fictional:b:resource-001",
+      "providerRole": "Drive narrative snapshot",
+      "observationId": "fictional-observation-B-20261002",
+      "revisionToken": "fictional-B-revision-1",
+      "sourceDate": "2026-10-01T09:00:00Z",
+      "observedAt": "2026-10-02T12:00:00Z",
+      "scope": "Fictional finite packet; application not evaluated",
+      "audience": "OWNER",
+      "ownerRef": "researcher-alpha",
+      "reviewRef": "fictional-review-B-unassessed",
+      "representation": {
+        "id": "fictional-B-representation-1",
+        "kind": "narrative-snapshot",
+        "encoding": "utf-8",
+        "digestAlgorithm": "sha256",
+        "digestEncoding": "hex",
+        "byteCount": 181,
+        "claimedDigest": "a5c01f770a3bd0bce4672a3b41abc893fd4ca7d139a23c0f2eab7bba0220adc2",
+        "body": "FICTIONAL source B: Drive narrative snapshot. Scope: illustrative finite packet only. No theorem-wide conclusion. Synthetic inert text: <img src=x onerror=alert(1)> PRIVATE_CANARY_B"
+      }
+    },
+    {
+      "id": "C",
+      "title": "Fictional Dropbox historical archive",
+      "resourceId": "fictional:c:resource-001",
+      "providerRole": "Dropbox historical archive",
+      "observationId": "fictional-observation-C-20261002",
+      "revisionToken": "fictional-C-revision-1",
+      "sourceDate": "2026-09-01T09:00:00Z",
+      "observedAt": "2026-10-02T12:00:00Z",
+      "scope": "Fictional finite packet; application not evaluated",
+      "audience": "OWNER",
+      "ownerRef": "researcher-alpha",
+      "reviewRef": "fictional-review-C-unassessed",
+      "representation": {
+        "id": "fictional-C-representation-1",
+        "kind": "archive",
+        "encoding": "utf-8",
+        "digestAlgorithm": "sha256",
+        "digestEncoding": "hex",
+        "byteCount": 181,
+        "claimedDigest": "1c6b46528c903588087be4c1678c006dc05364e8eb4350d3c764de4001fe5cf5",
+        "body": "FICTIONAL source C: Dropbox historical archive. Scope: illustrative finite packet only. No theorem-wide conclusion. PRIVATE_CANARY_C Archive representation, not an extracted member."
+      }
+    },
+    {
+      "id": "D",
+      "title": "Fictional GitHub alternative route note",
+      "resourceId": "fictional:d:resource-001",
+      "providerRole": "GitHub alternative route note",
+      "observationId": "fictional-observation-D-20261002",
+      "revisionToken": "fictional-D-revision-1",
+      "sourceDate": "2026-10-01T09:00:00Z",
+      "observedAt": "2026-10-02T12:00:00Z",
+      "scope": "Fictional finite packet; application not evaluated",
+      "audience": "PUBLIC",
+      "ownerRef": "researcher-alpha",
+      "reviewRef": "fictional-review-D-unassessed",
+      "representation": {
+        "id": "fictional-D-representation-1",
+        "kind": "proof-text",
+        "encoding": "utf-8",
+        "digestAlgorithm": "sha256",
+        "digestEncoding": "hex",
+        "byteCount": 118,
+        "claimedDigest": "d5309a0ff7494caddd278df9a0f2999625313a3391a76d846a0a43eff7081bdd",
+        "body": "FICTIONAL source D: GitHub alternative route note. Scope: illustrative finite packet only. No theorem-wide conclusion."
+      }
+    },
+    {
+      "id": "E",
+      "title": "Fictional GitHub separate target note",
+      "resourceId": "fictional:e:resource-001",
+      "providerRole": "GitHub separate target note",
+      "observationId": "fictional-observation-E-20261002",
+      "revisionToken": "fictional-E-revision-1",
+      "sourceDate": "2026-10-01T09:00:00Z",
+      "observedAt": "2026-10-02T12:00:00Z",
+      "scope": "Fictional finite packet; application not evaluated",
+      "audience": "PUBLIC",
+      "ownerRef": "researcher-alpha",
+      "reviewRef": "fictional-review-E-unassessed",
+      "representation": {
+        "id": "fictional-E-representation-1",
+        "kind": "proof-text",
+        "encoding": "utf-8",
+        "digestAlgorithm": "sha256",
+        "digestEncoding": "hex",
+        "byteCount": 116,
+        "claimedDigest": "3add6abf2966bd48a69d3217fca72af53fb53758d9a98db7120662f8ff693d9a",
+        "body": "FICTIONAL source E: GitHub separate target note. Scope: illustrative finite packet only. No theorem-wide conclusion."
+      }
+    }
+  ],
+  "routes": [
+    {
+      "id": "R1",
+      "sourceIds": [
+        "A",
+        "B",
+        "C"
+      ],
+      "targetId": "T",
+      "operator": "ALL",
+      "applicationState": "NOT_EVALUATED",
+      "observationId": "fictional-R1-record-1"
+    },
+    {
+      "id": "R2",
+      "sourceIds": [
+        "A",
+        "D"
+      ],
+      "targetId": "T",
+      "operator": "ALL",
+      "applicationState": "NOT_EVALUATED",
+      "observationId": "fictional-R2-record-1"
+    },
+    {
+      "id": "R3",
+      "sourceIds": [
+        "E"
+      ],
+      "targetId": "U",
+      "operator": "ALL",
+      "applicationState": "NOT_EVALUATED",
+      "observationId": "fictional-R3-record-1"
+    }
+  ],
+  "targets": [
+    {
+      "id": "T",
+      "truthLabel": "UNASSESSED",
+      "reviewLabel": "NOT_REVIEWED",
+      "observationId": "fictional-target-T-record-1"
+    },
+    {
+      "id": "U",
+      "truthLabel": "UNASSESSED",
+      "reviewLabel": "NOT_REVIEWED",
+      "observationId": "fictional-target-U-record-1"
+    }
+  ],
+  "engineering": {
+    "id": "G",
+    "state": "PASS",
+    "scope": "Fictional syntax check only; unrelated to scientific support",
+    "observationId": "fictional-G-record-1"
+  },
+  "workEvent": {
+    "id": "W1",
+    "scope": "Fictional explanatory update only",
+    "observationId": "fictional-W1-record-1"
+  },
+  "access": {
+    "principalId": "researcher-alpha",
+    "audience": "OWNER",
+    "policyVersion": "synthetic-owner-public-v1",
+    "sourceAccess": {
+      "A": "ALLOWED",
+      "B": "ALLOWED",
+      "C": "ALLOWED",
+      "D": "ALLOWED",
+      "E": "ALLOWED"
+    },
+    "currentRevisionTokenBySourceId": {
+      "A": "fictional-A-revision-1",
+      "B": "fictional-B-revision-1",
+      "C": "fictional-C-revision-1",
+      "D": "fictional-D-revision-1",
+      "E": "fictional-E-revision-1"
+    },
+    "revisionFreshnessBySourceId": {
+      "A": "CURRENT",
+      "B": "CURRENT",
+      "C": "CURRENT",
+      "D": "CURRENT",
+      "E": "CURRENT"
+    },
+    "workEvent": {
+      "id": "W1",
+      "ownerIds": [
+        "researcher-alpha"
+      ],
+      "ownerFreshness": "CURRENT",
+      "hold": "CLEAR",
+      "observedAt": "2026-10-02T12:00:00Z",
+      "observationId": "fictional-W1-observation-1"
+    },
+    "sourceObservationState": {
+      "A": {
+        "availability": "AVAILABLE"
+      },
+      "B": {
+        "availability": "AVAILABLE"
+      },
+      "C": {
+        "availability": "AVAILABLE"
+      },
+      "D": {
+        "availability": "AVAILABLE"
+      },
+      "E": {
+        "availability": "AVAILABLE"
+      }
+    }
+  },
+  "benchmarks": [
+    {
+      "id": "SET_ALPHA",
+      "label": "Amber packet",
+      "sourceLabels": {
+        "A": "Amber A",
+        "B": "Amber B",
+        "C": "Amber C",
+        "D": "Amber D",
+        "E": "Amber E"
+      },
+      "context": "Five fictional fragments about a finite amber sample."
+    },
+    {
+      "id": "SET_BETA",
+      "label": "Indigo packet",
+      "sourceLabels": {
+        "A": "Indigo A",
+        "B": "Indigo B",
+        "C": "Indigo C",
+        "D": "Indigo D",
+        "E": "Indigo E"
+      },
+      "context": "Five fictional fragments about a finite indigo sample."
+    }
+  ]
+}

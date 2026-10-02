@@ -1,0 +1,47 @@
+name: research-handoff-probe-browser
+on:
+  push:
+    branches: [codex/research-handoff-probe-browser-20261002]
+    paths:
+      - experiments/research-handoff-probe-20261002/**
+      - .github/workflows/research-handoff-probe-browser.yml
+permissions:
+  contents: read
+jobs:
+  synthetic-browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: experiments/research-handoff-probe-20261002
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          sparse-checkout: experiments/research-handoff-probe-20261002
+      - name: Record source identity and setup status
+        run: |
+          mkdir -p browser-evidence
+          git rev-parse HEAD > browser-evidence/commit.txt
+          git rev-parse 'HEAD^{tree}' > browser-evidence/tree.txt
+          echo 'Setup only. report.json establishes whether a browser ran and each gate passed.' > browser-evidence/setup.txt
+          node --version > browser-evidence/node-version.txt
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Model controller and static contract checks
+        run: node --test tests/*.test.mjs > browser-evidence/model-tests.log 2>&1
+      - name: Browser evidence-gate negative controls
+        run: python -B -m unittest discover -s verification -p test_browser_check.py -v > browser-evidence/gate-tests.log 2>&1
+      - name: Install pinned optional test tooling
+        run: python -m pip install -r verification/browser-requirements.txt
+      - name: Run actual sandboxed packaged Chrome gates
+        run: python -B verification/browser_check.py --output browser-evidence > browser-evidence/browser-run.log 2>&1
+      - name: Preserve only synthetic verification evidence including failures
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: research-handoff-probe-browser-${{ github.run_id }}
+          path: experiments/research-handoff-probe-20261002/browser-evidence
+          if-no-files-found: error
+          retention-days: 14
