@@ -2,6 +2,22 @@
 
 Private exploratory workspace. Eng-only pointers; **no** research-status flips.
 
-The 27 September 2026 stop file is removed. Dylan Roy: that stop is no longer in effect. No agent needs to stop.
+The 27 September 2026 stop is no longer in effect. Dylan Roy: no agent needs to stop. The stop file is removed.
 
-Scientific effect NONE.
+## Always
+
+- Keep this repo **private**. Do not publish sandbox paths/hashes/outputs.
+- Prefer [`trial`](https://github.com/d6g8k5htny-coder/trial) for portable engineering and [`main`](https://github.com/d6g8k5htny-coder/main) (hardening) for research.
+- Scientific effect: **NONE**. `lemma_closed` stays false.
+
+## Never
+
+- Copy sandbox material into public `google-drive`, `meta-framework`, or `query-`.
+- Treat a green local probe as theorem discharge or claim closure.
+- Ask Dylan for re-approval of work already covered by owner autonomy.
+
+## Start here
+
+1. This [README](README.md)
+2. [`governance-` working contract](https://github.com/d6g8k5htny-coder/governance-)
+3. [`trial` multi-agent access](https://github.com/d6g8k5htny-coder/trial/blob/main/docs/MULTI_AGENT_ACCESS.md) — add **sandbox** to every App install; Cloud Agent env deps / `repositoryDependencies` are declared on trial only
